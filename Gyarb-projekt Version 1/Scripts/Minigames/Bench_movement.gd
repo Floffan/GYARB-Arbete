@@ -16,14 +16,13 @@ signal keys_hit_wrong
 signal failed_lift
 
 var ready_to_start = false
+var failed_lift = false
 
 #$AnimationPlayer.playback_speed = 5
 
 
 func get_input():
 	if Input.is_action_just_pressed("Right"):
-		#current_animation = "up"
-		#$Timer.start()
 		key_hit = "Right"
 		_action_pressed(key_hit)
 	elif Input.is_action_just_pressed("Left"):
@@ -38,7 +37,7 @@ func get_input():
 	
 func _action_pressed(key_hit):
 	key_hit_list.append(key_hit)
-	if key_hit_list.has(letter_1[0]) and key_hit_list.has(letter_2[0]):
+	if key_hit_list.has(letter_1[0]) and key_hit_list.has(letter_2[0]) and failed_lift == false and current_animation == "down":
 		current_animation = "up"
 		$Timer.start()
 		letter_1.clear()
@@ -47,9 +46,6 @@ func _action_pressed(key_hit):
 		emit_signal("keys_hit_sucessfully")
 
 		_draw_required_key()
-	else:
-		pass
-		#emit_signal("keys_hit_unsucessfully")
 	
 func _assign_animation():
 	$AnimationPlayer.playback_speed = 2.5
@@ -71,6 +67,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		#gör läge upp animationen lite mer lifelike, trembling armar och andetag
 	if current_animation == "down":
 		current_animation = "läge_ner"
+		failed_lift = true
 		emit_signal("failed_lift")
 		
 func _get_required_key():
@@ -117,3 +114,4 @@ func _on_Bench_scene_reset_lift():
 	key_hit_list.clear()
 	_draw_required_key()
 	current_animation = "down"
+	failed_lift = false
