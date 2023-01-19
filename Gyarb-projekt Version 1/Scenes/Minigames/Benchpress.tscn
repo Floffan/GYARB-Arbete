@@ -1,0 +1,1743 @@
+[gd_scene load_steps=61 format=2]
+
+[ext_resource path="res://Pics/Skelett/skivstång_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Minigames/Bench_movement.gd" type="Script" id=2]
+[ext_resource path="res://Pics/Skelett/static.png" type="Texture" id=3]
+[ext_resource path="res://Pics/Skelett/bar_vantar.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Minigames/Bench/Bench_scene.gd" type="Script" id=5]
+[ext_resource path="res://Pics/Mapbuilding/HUB-värld/skog.png" type="Texture" id=6]
+[ext_resource path="res://Pics/Mapbuilding/Gym/gym_sheet.png" type="Texture" id=7]
+[ext_resource path="res://Pics/Minigames/benchpress/skala_gym.png" type="Texture" id=8]
+[ext_resource path="res://Pics/Figurer/frog_coach.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Gym/polack_paddan.gd" type="Script" id=10]
+[ext_resource path="res://UI/Dialog.tres" type="Theme" id=11]
+[ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://UI/PixArrows.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Scenes/UI/Ready_screen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://UI/STOR_font.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Scenes/UI/Explosion_benchpress.tscn" type="PackedScene" id=16]
+
+[sub_resource type="ConvexPolygonShape2D" id=54]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=55]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=56]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=60]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=57]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=59]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=58]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 96, 128, 96 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 96, 128, 96 )
+
+[sub_resource type="TileSet" id=61]
+0/name = "skog.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 0.545098, 0.207843, 0.101961, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "skog.png 1"
+1/texture = ExtResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 0.647059, 0.662745, 0.372549, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "gym_sheet.png 2"
+2/texture = ExtResource( 7 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 256, 128, 128 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 57 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 57 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "gym_sheet.png 3"
+3/texture = ExtResource( 7 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 128, 256, 128, 128 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 58 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 58 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "gym_sheet.png 4"
+4/texture = ExtResource( 7 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 256, 256, 128, 128 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "gym_sheet.png 5"
+5/texture = ExtResource( 7 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 128, 128, 128, 128 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "gym_sheet.png 6"
+6/texture = ExtResource( 7 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 128, 0, 128, 128 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "gym_sheet.png 7"
+7/texture = ExtResource( 7 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 256, 128, 128, 128 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "gym_sheet.png 8"
+8/texture = ExtResource( 7 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 384, 128, 128, 128 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "gym_sheet.png 9"
+9/texture = ExtResource( 7 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 384, 256, 128, 128 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "gym_sheet.png 10"
+10/texture = ExtResource( 7 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 512, 256, 128, 128 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 54 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 54 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0
+11/name = "gym_sheet.png 11"
+11/texture = ExtResource( 7 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 512, 128, 128, 128 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 55 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 55 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+11/z_index = 0
+12/name = "gym_sheet.png 12"
+12/texture = ExtResource( 7 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 512, 0, 128, 128 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape = SubResource( 9 )
+12/shape_one_way = false
+12/shape_one_way_margin = 1.0
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+12/z_index = 0
+13/name = "gym_sheet.png 13"
+13/texture = ExtResource( 7 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 640, 0, 128, 128 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape = SubResource( 10 )
+13/shape_one_way = false
+13/shape_one_way_margin = 1.0
+13/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+13/z_index = 0
+14/name = "gym_sheet.png 14"
+14/texture = ExtResource( 7 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 256, 0, 128, 128 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape = SubResource( 14 )
+14/shape_one_way = false
+14/shape_one_way_margin = 1.0
+14/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+14/z_index = 0
+15/name = "gym_sheet.png 15"
+15/texture = ExtResource( 7 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 384, 0, 128, 128 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "gym_sheet.png 16"
+16/texture = ExtResource( 7 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 768, 128, 128, 128 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape = SubResource( 56 )
+16/shape_one_way = false
+16/shape_one_way_margin = 1.0
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 56 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+16/z_index = 0
+17/name = "gym_sheet.png 17"
+17/texture = ExtResource( 7 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 768, 0, 128, 128 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape = SubResource( 12 )
+17/shape_one_way = false
+17/shape_one_way_margin = 1.0
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+17/z_index = 0
+18/name = "gym_sheet.png 18"
+18/texture = ExtResource( 7 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 768, 256, 128, 128 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape = SubResource( 60 )
+18/shape_one_way = false
+18/shape_one_way_margin = 1.0
+18/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 60 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+18/z_index = 0
+19/name = "gym_sheet.png 19"
+19/texture = ExtResource( 7 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 896, 0, 128, 128 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape = SubResource( 2 )
+19/shape_one_way = false
+19/shape_one_way_margin = 1.0
+19/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+19/z_index = 0
+20/name = "gym_sheet.png 20"
+20/texture = ExtResource( 7 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 896, 256, 128, 128 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shape_offset = Vector2( 0, 0 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+20/shape = SubResource( 59 )
+20/shape_one_way = false
+20/shape_one_way_margin = 1.0
+20/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 59 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+20/z_index = 0
+21/name = "gym_sheet.png 21"
+21/texture = ExtResource( 7 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 896, 128, 128, 128 )
+21/tile_mode = 0
+21/occluder_offset = Vector2( 0, 0 )
+21/navigation_offset = Vector2( 0, 0 )
+21/shape_offset = Vector2( 0, 0 )
+21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+21/shape = SubResource( 27 )
+21/shape_one_way = false
+21/shape_one_way_margin = 1.0
+21/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+21/z_index = 0
+22/name = "gym_sheet.png 22"
+22/texture = ExtResource( 7 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 1024, 0, 128, 128 )
+22/tile_mode = 0
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shape_offset = Vector2( 0, 0 )
+22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+22/shape = SubResource( 31 )
+22/shape_one_way = false
+22/shape_one_way_margin = 1.0
+22/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+22/z_index = 0
+23/name = "gym_sheet.png 23"
+23/texture = ExtResource( 7 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 1024, 128, 128, 128 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 0, 0 )
+23/navigation_offset = Vector2( 0, 0 )
+23/shape_offset = Vector2( 0, 0 )
+23/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+23/shape = SubResource( 32 )
+23/shape_one_way = false
+23/shape_one_way_margin = 1.0
+23/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+23/z_index = 0
+24/name = "gym_sheet.png 24"
+24/texture = ExtResource( 7 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 1024, 256, 128, 128 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape = SubResource( 33 )
+24/shape_one_way = false
+24/shape_one_way_margin = 1.0
+24/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+24/z_index = 0
+25/name = "gym_sheet.png 25"
+25/texture = ExtResource( 7 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 1152, 256, 128, 128 )
+25/tile_mode = 0
+25/occluder_offset = Vector2( 0, 0 )
+25/navigation_offset = Vector2( 0, 0 )
+25/shape_offset = Vector2( 0, 0 )
+25/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+25/shape = SubResource( 34 )
+25/shape_one_way = false
+25/shape_one_way_margin = 1.0
+25/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 34 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+25/z_index = 0
+26/name = "gym_sheet.png 26"
+26/texture = ExtResource( 7 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 1152, 0, 128, 128 )
+26/tile_mode = 0
+26/occluder_offset = Vector2( 0, 0 )
+26/navigation_offset = Vector2( 0, 0 )
+26/shape_offset = Vector2( 0, 0 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/shape = SubResource( 35 )
+26/shape_one_way = false
+26/shape_one_way_margin = 1.0
+26/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 35 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+26/z_index = 0
+27/name = "gym_sheet.png 27"
+27/texture = ExtResource( 7 )
+27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 1280, 0, 128, 128 )
+27/tile_mode = 0
+27/occluder_offset = Vector2( 0, 0 )
+27/navigation_offset = Vector2( 0, 0 )
+27/shape_offset = Vector2( 0, 0 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+27/shape = SubResource( 36 )
+27/shape_one_way = false
+27/shape_one_way_margin = 1.0
+27/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 36 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+27/z_index = 0
+28/name = "gym_sheet.png 28"
+28/texture = ExtResource( 7 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 1280, 128, 128, 128 )
+28/tile_mode = 0
+28/occluder_offset = Vector2( 0, 0 )
+28/navigation_offset = Vector2( 0, 0 )
+28/shape_offset = Vector2( 0, 0 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+28/shape = SubResource( 37 )
+28/shape_one_way = false
+28/shape_one_way_margin = 1.0
+28/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 37 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+28/z_index = 0
+29/name = "gym_sheet.png 29"
+29/texture = ExtResource( 7 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 1280, 256, 128, 128 )
+29/tile_mode = 0
+29/occluder_offset = Vector2( 0, 0 )
+29/navigation_offset = Vector2( 0, 0 )
+29/shape_offset = Vector2( 0, 0 )
+29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+29/shape = SubResource( 38 )
+29/shape_one_way = false
+29/shape_one_way_margin = 1.0
+29/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 38 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+29/z_index = 0
+30/name = "gym_sheet.png 30"
+30/texture = ExtResource( 7 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 1408, 256, 128, 128 )
+30/tile_mode = 0
+30/occluder_offset = Vector2( 0, 0 )
+30/navigation_offset = Vector2( 0, 0 )
+30/shape_offset = Vector2( 0, 0 )
+30/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+30/shape_one_way = false
+30/shape_one_way_margin = 0.0
+30/shapes = [  ]
+30/z_index = 0
+31/name = "gym_sheet.png 31"
+31/texture = ExtResource( 7 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 1536, 256, 128, 128 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape_one_way = false
+31/shape_one_way_margin = 0.0
+31/shapes = [  ]
+31/z_index = 0
+32/name = "gym_sheet.png 32"
+32/texture = ExtResource( 7 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 1536, 128, 128, 128 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shape_offset = Vector2( 0, 0 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+32/shape_one_way = false
+32/shape_one_way_margin = 0.0
+32/shapes = [  ]
+32/z_index = 0
+33/name = "gym_sheet.png 33"
+33/texture = ExtResource( 7 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 1408, 0, 128, 128 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shape_offset = Vector2( 0, 0 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+33/shape = SubResource( 39 )
+33/shape_one_way = false
+33/shape_one_way_margin = 1.0
+33/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 39 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+33/z_index = 0
+34/name = "gym_sheet.png 34"
+34/texture = ExtResource( 7 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 1408, 128, 128, 128 )
+34/tile_mode = 0
+34/occluder_offset = Vector2( 0, 0 )
+34/navigation_offset = Vector2( 0, 0 )
+34/shape_offset = Vector2( 0, 0 )
+34/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+34/shape = SubResource( 40 )
+34/shape_one_way = false
+34/shape_one_way_margin = 1.0
+34/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 40 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+34/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=67]
+extents = Vector2( 14.5, 8.5 )
+
+[sub_resource type="RectangleShape2D" id=68]
+extents = Vector2( 14.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=69]
+extents = Vector2( 14.5, 13 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Bänk"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bench_movement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 92.5 ), Vector2( 2.5, 190 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Bänk/Arm_h:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 54, 1 ), Vector2( 54, 1 ), Vector2( 54, 1 ), Vector2( 54, 1 ), Vector2( 54, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Bänk/Arm_h:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 14.9281, 47.5851, 70.0846, 90.5903, 128.225 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/Bänk/Arm_v:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -53, 1.5 ), Vector2( -53, 1.5 ), Vector2( -53, 1.5 ), Vector2( -53, 1.5 ), Vector2( -53, 1.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/Bänk/Arm_v:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -174.318, -206.639, -226.976, -247.351, -282.19 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -97.3382, -160.525, -196.579, -221.693, -241.997 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 76.5999, 139.393, 173.808, 199.821, 219.346 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/Bänk:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 588, 441 ), Vector2( 588, 441 ), Vector2( 588, 441 ), Vector2( 588, 441 ), Vector2( 588, 441 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D/Bänk:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5, 3.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Läge_ner"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Bänk/Arm_h:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 54, 1 ), Vector2( 54, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Bänk/Arm_h:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 128.225, 128.225 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Bänk:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 588, 441 ), Vector2( 588, 441 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/Bänk:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -241.997, -241.997 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/Bänk/Arm_v:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -53, 1.5 ), Vector2( -53, 1.5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/Bänk/Arm_v:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -282.19, -282.19 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 219.346, 219.346 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Skeleton2D:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Bench_movement:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 190 ), Vector2( 2.5, 190 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Läge_upp"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Bänk/Arm_h:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 54, 1 ), Vector2( 54, 1 ), Vector2( 54, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Bänk/Arm_h:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 14.9281, 16.0182, 14.9281 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Bänk:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 588, 441 ), Vector2( 588, 441 ), Vector2( 588, 441 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/Bänk:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ), Vector2( 1.5, -58.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -97.3382, -99.4204, -97.3382 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/Bänk/Arm_v:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -53, 1.5 ), Vector2( -53, 1.5 ), Vector2( -53, 1.5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/Bänk/Arm_v:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -174.318, -175.571, -174.318 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ), Vector2( 23.3209, 55.3637 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 76.5999, 77.723, 76.5999 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Skeleton2D:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Bench_movement:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 92.5 ), Vector2( 2.5, 94 ), Vector2( 2.5, 92.5 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bench_movement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 92.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Bänk/Arm_h:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 54, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Bänk/Arm_h:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 14.9281 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/Bänk/Arm_v:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -53, 1.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/Bänk/Arm_v:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -174.318 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, -58.5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/Bänk/Arm_h/Nederarm_h:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -97.3382 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23.3209, 55.3637 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/Bänk/Arm_v/Nederarm_v:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 76.5999 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/Bänk:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 588, 441 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D/Bänk:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Skeleton2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Skeleton2D:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 192.5, 7.5 )
+
+[sub_resource type="DynamicFont" id=65]
+font_data = ExtResource( 13 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 221, 465 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 9 )
+region = Rect2( 221, 0, 221, 465 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 9 )
+region = Rect2( 442, 0, 221, 465 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 9 )
+region = Rect2( 663, 0, 221, 465 )
+
+[sub_resource type="SpriteFrames" id=63]
+animations = [ {
+"frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="DynamicFont" id=64]
+size = 30
+extra_spacing_char = 10
+font_data = ExtResource( 13 )
+
+[sub_resource type="Theme" id=71]
+/fonts/STOR_text = ExtResource( 15 )
+RichTextLabel/fonts/bold_font = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=72]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 10
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=70]
+size = 10
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=73]
+size = 36
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 5
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=74]
+size = 36
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 5
+extra_spacing_bottom = 7
+font_data = ExtResource( 12 )
+
+[node name="Bench_scene" type="Node2D"]
+position = Vector2( -535, -252 )
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 5 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+modulate = Color( 0.964706, 0.811765, 0.94902, 1 )
+position = Vector2( 261, 223 )
+tile_set = SubResource( 61 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( 65537, 9, 0, 65538, 9, 0, 65539, 9, 0 )
+
+[node name="Tilemap_bachground" type="TileMap" parent="."]
+modulate = Color( 0.635294, 0.67451, 0.862745, 1 )
+position = Vector2( 261, 298 )
+tile_set = SubResource( 61 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( -131071, 15, 0, -131070, 15, 0, -131069, 15, 0, -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.964706, 0.811765, 0.94902, 1 )
+position = Vector2( 261, 223 )
+tile_set = SubResource( 61 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( -65538, 536870918, 0, -65537, 14, 0, -131072, 12, 0, -131071, 13, 0, -131070, 13, 0, -131069, 13, 0, -131068, 17, 0, -131067, 14, 0, -131066, 536870918, 0, -2, 536870918, 0, -1, 6, 0, -65536, 1610612756, 0, -65532, 20, 0, -65531, 6, 0, -65530, 536870918, 0, 65534, 536870917, 0, 65535, 5, 0, 0, 11, 0, 4, 16, 0, 5, 5, 0, 6, 536870917, 0, 131070, 536870915, 0, 131071, 3, 0, 65536, 10, 0, 65540, 18, 0, 65541, 3, 0, 65542, 536870915, 0, 196606, -2147483644, 0, 196607, 9, 0, 131072, 9, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, -2147483644, 0, 262142, 536870916, 0, 262143, 9, 0, 196608, 9, 0, 196609, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 536870921, 0 )
+
+[node name="Skala" type="Sprite" parent="."]
+position = Vector2( 843.5, 335 )
+texture = ExtResource( 8 )
+
+[node name="area_red" type="Area2D" parent="."]
+
+[node name="red_area" type="CollisionShape2D" parent="area_red"]
+position = Vector2( 828, 389.5 )
+shape = SubResource( 67 )
+
+[node name="area_yellow" type="Area2D" parent="."]
+position = Vector2( 826.5, 394 )
+
+[node name="yellow_area_bottom" type="CollisionShape2D" parent="area_yellow"]
+position = Vector2( 1.5, 17 )
+shape = SubResource( 68 )
+
+[node name="yellow_area_top" type="CollisionShape2D" parent="area_yellow"]
+position = Vector2( 1.5, -26 )
+shape = SubResource( 69 )
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+
+[node name="Bänk" type="Bone2D" parent="Skeleton2D"]
+position = Vector2( 588, 441 )
+rest = Transform2D( 1, 0, 0, 1, 588, 441 )
+
+[node name="Arm_h" type="Bone2D" parent="Skeleton2D/Bänk"]
+position = Vector2( 54, 1 )
+rotation = 0.260544
+rest = Transform2D( 0.96625, 0.257607, -0.257607, 0.96625, 54, 1 )
+
+[node name="Nederarm_h" type="Bone2D" parent="Skeleton2D/Bänk/Arm_h"]
+position = Vector2( 1.5, -58.5 )
+rotation = -1.69887
+rest = Transform2D( -0.127726, -0.991809, 0.991809, -0.127726, 1.5, -58.5 )
+default_length = 50.0
+
+[node name="Arm_v" type="Bone2D" parent="Skeleton2D/Bänk"]
+position = Vector2( -53, 1.5 )
+rotation = -3.04242
+rest = Transform2D( -0.995087, -0.0990015, 0.0990015, -0.995087, -53, 1.5 )
+__meta__ = {
+"_edit_ik_": true
+}
+
+[node name="Nederarm_v" type="Bone2D" parent="Skeleton2D/Bänk/Arm_v"]
+position = Vector2( 23.3209, 55.3637 )
+rotation = 1.33692
+rest = Transform2D( 0.231749, 0.972776, -0.972776, 0.231749, 23.3209, 55.3637 )
+default_length = 50.0
+
+[node name="Polygons" type="Node2D" parent="."]
+
+[node name="Nederarm_h" type="Polygon2D" parent="Polygons"]
+position = Vector2( 60.5, 134 )
+rotation = 0.305501
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 644.498, 16.2679, 657.416, 60.2871, 644.976, 63.6364, 635.407, 60.7655, 636.364, 52.1531, 631.579, 21.0526, 625.837, 7.6555, 632.057, 1.43541, 647.368, 3.34928 )
+uv = PoolVector2Array( 644.498, 16.2679, 657.416, 60.2871, 644.976, 63.6364, 635.407, 60.7655, 636.364, 52.1531, 631.579, 21.0526, 625.837, 7.6555, 632.057, 1.43541, 647.368, 3.34928 )
+bones = [ "Bänk", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h/Nederarm_h", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "Bänk/Arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v/Nederarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="Nederarm_v" type="Polygon2D" parent="Polygons"]
+position = Vector2( -77, 511.5 )
+rotation = -0.306109
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 614.655, 2.58621, 622.845, 7.32759, 622.414, 19.3966, 614.655, 42.2414, 616.379, 60.3448, 612.931, 64.6552, 594.828, 61.2069, 593.104, 52.5862, 604.741, 19.3966, 603.879, 3.87931 )
+uv = PoolVector2Array( 614.655, 2.58621, 622.845, 7.32759, 622.414, 19.3966, 614.655, 42.2414, 616.379, 60.3448, 612.931, 64.6552, 594.828, 61.2069, 593.104, 52.5862, 604.741, 19.3966, 603.879, 3.87931 )
+bones = [ "Bänk", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h/Nederarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v/Nederarm_v", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ) ]
+
+[node name="Arm_h" type="Polygon2D" parent="Polygons"]
+position = Vector2( 131.5, 227.5 )
+rotation = 0.274765
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 556.035, 4.31035, 560.345, 12.069, 556.035, 21.9828, 557.328, 56.4655, 561.638, 64.2241, 559.914, 72.4138, 549.569, 75, 541.379, 67.6724, 545.259, 56.4655, 542.672, 16.8103, 536.638, 8.18966, 546.121, 2.15517 )
+uv = PoolVector2Array( 556.035, 4.31035, 560.345, 12.069, 556.035, 21.9828, 557.328, 56.4655, 561.638, 64.2241, 559.914, 72.4138, 549.569, 75, 541.379, 67.6724, 545.259, 56.4655, 542.672, 16.8103, 536.638, 8.18966, 546.121, 2.15517 )
+bones = [ "Bänk", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "Bänk/Arm_h/Nederarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v/Nederarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="Arm_v" type="Polygon2D" parent="Polygons"]
+position = Vector2( -35, 559 )
+rotation = -0.317911
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 582.759, 3.01724, 590.948, 9.91379, 584.483, 39.6552, 584.483, 57.3276, 587.069, 65.0862, 581.466, 74.1379, 570.259, 74.1379, 564.655, 66.3793, 569.397, 55.1724, 571.121, 15.9483, 566.379, 9.05173, 573.707, 0.862069 )
+uv = PoolVector2Array( 582.759, 3.01724, 590.948, 9.91379, 584.483, 39.6552, 584.483, 57.3276, 587.069, 65.0862, 581.466, 74.1379, 570.259, 74.1379, 564.655, 66.3793, 569.397, 55.1724, 571.121, 15.9483, 566.379, 9.05173, 573.707, 0.862069 )
+bones = [ "Bänk", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h/Nederarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "Bänk/Arm_v/Nederarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="Bänk" type="Polygon2D" parent="Polygons"]
+position = Vector2( 123, 393 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 449.655, 3.7662, 480.345, 3.7662, 494.828, 21.3524, 512.069, 36.8697, 512.069, 40.6628, 534.138, 43.7662, 535.517, 56.5248, 518.621, 68.249, 517.931, 136.87, 406.897, 132.732, 408.276, 57.2145, 391.034, 47.9041, 393.448, 38.9386, 418.276, 40.6628, 427.241, 23.4214, 436.207, 17.5593 )
+uv = PoolVector2Array( 449.655, 3.7662, 480.345, 3.7662, 494.828, 21.3524, 512.069, 36.8697, 512.069, 40.6628, 534.138, 43.7662, 535.517, 56.5248, 518.621, 68.249, 517.931, 136.87, 406.897, 132.732, 408.276, 57.2145, 391.034, 47.9041, 393.448, 38.9386, 418.276, 40.6628, 427.241, 23.4214, 436.207, 17.5593 )
+bones = [ "Bänk", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "Bänk/Arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_h/Nederarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Bänk/Arm_v/Nederarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="Bench_movement" type="KinematicBody2D" parent="."]
+position = Vector2( 2.5, 92.5 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Pushtimer" type="Timer" parent="Bench_movement"]
+
+[node name="Sprite" type="Sprite" parent="Bench_movement"]
+position = Vector2( 585, 298 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bench_movement"]
+root_node = NodePath("../..")
+"anims/Bänk" = SubResource( 5 )
+"anims/Läge_ner" = SubResource( 8 )
+"anims/Läge_upp" = SubResource( 7 )
+anims/RESET = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="Bench_movement"]
+wait_time = 3.0
+
+[node name="Collision_bar" type="CollisionShape2D" parent="Bench_movement"]
+position = Vector2( 585, 218.5 )
+shape = SubResource( 62 )
+
+[node name="Label" type="Label" parent="Bench_movement"]
+margin_left = 794.0
+margin_top = 209.5
+margin_right = 814.0
+margin_bottom = 226.5
+custom_fonts/font = SubResource( 65 )
+text = "W"
+
+[node name="Points_detector" type="RayCast2D" parent="Bench_movement"]
+position = Vector2( 777, 218.5 )
+rotation = -1.57079
+enabled = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Torso" type="Sprite" parent="."]
+position = Vector2( 588, 459 )
+texture = ExtResource( 3 )
+
+[node name="Polack-paddan" type="StaticBody2D" parent="."]
+position = Vector2( 954.5, 298 )
+
+[node name="Polackpaddan" type="AnimatedSprite" parent="Polack-paddan"]
+position = Vector2( 1, 167 )
+frames = SubResource( 63 )
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="Polack-paddan/Polackpaddan"]
+wait_time = 6.0
+
+[node name="Timer2" type="Timer" parent="Polack-paddan/Polackpaddan"]
+wait_time = 1.25
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polack-paddan"]
+position = Vector2( -19, 189 )
+polygon = PoolVector2Array( -55, 65, 52, 64, 68, 47, 52, 28, 2, 24, -52, 28, -69, 48 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 225.333, 413.333 )
+theme = ExtResource( 11 )
+
+[node name="Panel" type="Panel" parent="Control"]
+margin_left = 410.0
+margin_top = 494.0
+margin_right = 755.0
+margin_bottom = 545.0
+
+[node name="Label" type="Label" parent="Control/Panel"]
+margin_left = 139.5
+margin_top = 9.5
+margin_right = 220.5
+margin_bottom = 41.5
+custom_fonts/font = SubResource( 64 )
+
+[node name="Information" type="RichTextLabel" parent="Control"]
+margin_left = 494.667
+margin_top = 490.0
+margin_right = 731.667
+margin_bottom = 550.0
+theme = SubResource( 71 )
+custom_colors/default_color = Color( 0.027451, 0.384314, 0.333333, 1 )
+custom_fonts/bold_font = SubResource( 72 )
+bbcode_enabled = true
+bbcode_text = "[b]The arrows will appear here![/b]"
+text = "The arrows will appear here!"
+
+[node name="Scoretext" type="Label" parent="."]
+modulate = Color( 0.639216, 0.568627, 0.427451, 1 )
+margin_left = 838.5
+margin_top = 253.0
+margin_right = 878.5
+margin_bottom = 267.0
+custom_fonts/font = SubResource( 70 )
+text = "100"
+
+[node name="Ready_screen" parent="." instance=ExtResource( 14 )]
+margin_left = 186.0
+margin_top = 55.3333
+margin_right = 186.0
+margin_bottom = 55.3333
+
+[node name="Failed_lift_screen" type="Control" parent="."]
+visible = false
+margin_left = 474.0
+margin_top = 290.667
+margin_right = 733.0
+margin_bottom = 435.667
+rect_rotation = -13.8742
+
+[node name="Explosion" parent="Failed_lift_screen" instance=ExtResource( 16 )]
+position = Vector2( 115.481, 69.0388 )
+
+[node name="FAIL" type="RichTextLabel" parent="Failed_lift_screen"]
+margin_left = 22.6667
+margin_top = 21.3333
+margin_right = 246.667
+margin_bottom = 75.3333
+custom_colors/default_color = Color( 0.886275, 0.262745, 0.0509804, 1 )
+custom_fonts/bold_font = SubResource( 73 )
+bbcode_enabled = true
+bbcode_text = "[b][shake rate=5 level=10]FAILED![/shake][/b]"
+text = "FAILED!"
+
+[node name="minus_score" type="RichTextLabel" parent="Failed_lift_screen"]
+margin_left = 49.0
+margin_top = 71.0
+margin_right = 273.0
+margin_bottom = 125.0
+custom_colors/default_color = Color( 0.667969, 0.112198, 0.112198, 1 )
+custom_fonts/bold_font = SubResource( 73 )
+bbcode_enabled = true
+bbcode_text = "[b][shake rate=5 level=10]-10p[/shake][/b]"
+text = "-10p"
+
+[node name="Encouragement_screen" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Explosion" parent="Encouragement_screen" instance=ExtResource( 16 )]
+position = Vector2( 602.667, 328.667 )
+
+[node name="GREAT" type="RichTextLabel" parent="Encouragement_screen"]
+margin_left = 500.0
+margin_top = 311.333
+margin_right = 802.0
+margin_bottom = 364.333
+rect_rotation = -14.9589
+custom_colors/default_color = Color( 0.921569, 0.34902, 0.34902, 1 )
+custom_fonts/bold_font = SubResource( 74 )
+bbcode_enabled = true
+bbcode_text = "[b][shake rate=5 level=10]GREAT![/shake][/b]"
+text = "GREAT!"
+
+[node name="plus_score" type="RichTextLabel" parent="Encouragement_screen"]
+margin_left = 546.667
+margin_top = 346.0
+margin_right = 848.667
+margin_bottom = 399.0
+rect_rotation = -14.9589
+custom_colors/default_color = Color( 0.137756, 0.578125, 0.212941, 1 )
+custom_fonts/bold_font = SubResource( 74 )
+bbcode_enabled = true
+bbcode_text = "[b][shake rate=5 level=10]+10[/shake][/b]"
+text = "+10"
+
+[connection signal="reset_lift" from="." to="Bench_movement" method="_on_Bench_scene_reset_lift"]
+[connection signal="failed_lift" from="Bench_movement" to="." method="_on_Bench_movement_failed_lift"]
+[connection signal="keys_hit_sucessfully" from="Bench_movement" to="." method="_on_Bench_movement_keys_hit_sucessfully"]
+[connection signal="timeout" from="Bench_movement/Pushtimer" to="Bench_movement" method="_on_Pushtimer_timeout"]
+[connection signal="animation_finished" from="Bench_movement/AnimationPlayer" to="Bench_movement" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Bench_movement/Timer" to="Bench_movement" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Polack-paddan/Polackpaddan/Timer" to="Polack-paddan/Polackpaddan" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Polack-paddan/Polackpaddan/Timer2" to="Polack-paddan/Polackpaddan" method="_on_Timer2_timeout"]
+[connection signal="ready_done" from="Ready_screen" to="Bench_movement" method="_on_Ready_screen_ready_done"]

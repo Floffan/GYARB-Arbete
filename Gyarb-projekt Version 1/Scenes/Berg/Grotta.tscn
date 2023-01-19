@@ -1,0 +1,321 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Pics/Mapbuilding/HUB-värld/dwelling_tilemap.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Pics/Mapbuilding/berg/sten.png" type="Texture" id=4]
+[ext_resource path="res://Pics/Mapbuilding/berg/sten_stor.png" type="Texture" id=5]
+[ext_resource path="res://Pics/Mapbuilding/berg/sten2.png" type="Texture" id=6]
+[ext_resource path="res://Pics/Minigames/Bollplank/bollplank.png" type="Texture" id=7]
+[ext_resource path="res://Pics/Figurer/Mouse.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Berg/Grotta.gd" type="Script" id=9]
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 32, 128, 0, 128, 0, 0, 128, 0, 128, 32, 32, 32, 32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 128, 32, 0, 32, 0, 0, 128, 0 )
+
+[sub_resource type="TileSet" id=1]
+0/name = "dwelling_tilemap.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 256, 0, 128, 128 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 5 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "dwelling_tilemap.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 384, 0, 128, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 6 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "dwelling_tilemap.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 256, 256, 128, 128 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 7 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "dwelling_tilemap.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 384, 256, 128, 128 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 8 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "NO_COLLISION"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 384, 0, 128, 128 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+
+[sub_resource type="TileSet" id=2]
+0/name = "dwelling_tilemap.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 256, 128, 128, 128 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "dwelling_tilemap.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 384, 128, 128, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 397.5, 230.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 286, 126 )
+
+[node name="Grotta" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Klippvägg" type="ColorRect" parent="."]
+margin_left = 23.0
+margin_top = 39.0
+margin_right = 1203.0
+margin_bottom = 373.0
+color = Color( 0.239216, 0.266667, 0.337255, 1 )
+
+[node name="Golv" type="ColorRect" parent="."]
+margin_left = -13.0
+margin_top = 373.0
+margin_right = 1167.0
+margin_bottom = 1037.0
+color = Color( 0.114487, 0.217971, 0.238281, 1 )
+
+[node name="Stenar" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sten" type="Sprite" parent="Stenar"]
+position = Vector2( 104, 221 )
+texture = ExtResource( 4 )
+
+[node name="StenStor" type="Sprite" parent="Stenar"]
+modulate = Color( 0.796509, 0.863925, 0.878906, 1 )
+position = Vector2( 955, 21 )
+texture = ExtResource( 5 )
+
+[node name="Sten2" type="Sprite" parent="Stenar"]
+modulate = Color( 0.780792, 0.902616, 0.929688, 1 )
+position = Vector2( -559.397, 423.203 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 4 )
+offset = Vector2( -1520.4, -89.2032 )
+
+[node name="Sten3" type="Sprite" parent="Stenar"]
+position = Vector2( 797, 444 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stenar"]
+polygon = PoolVector2Array( 599, 403, 611, 429, 667, 461, 698, 456, 741, 436, 837, 454, 845, 495, 888, 537, 936, 541, 1025, 520, 1069, 506, 1129, 508, 1136, -5, 30, 12, 30, 383, 35, 397, 166, 426, 201, 404 )
+
+[node name="Bollplank" type="Sprite" parent="."]
+position = Vector2( 399, 271 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Skelett" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 490, 572 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Stenar_middleground" type="Node2D" parent="."]
+
+[node name="Sten4" type="Sprite" parent="Stenar_middleground"]
+position = Vector2( -13, 624 )
+rotation = 8.74228e-08
+texture = ExtResource( 6 )
+
+[node name="Sten5" type="Sprite" parent="Stenar_middleground"]
+modulate = Color( 0.780792, 0.902616, 0.929688, 1 )
+position = Vector2( 705, 640 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 4 )
+
+[node name="Sten6" type="Sprite" parent="Stenar_middleground"]
+modulate = Color( 0.780792, 0.902616, 0.929688, 1 )
+position = Vector2( 313, 658 )
+rotation = 0.523603
+texture = ExtResource( 4 )
+
+[node name="Sten7" type="Sprite" parent="Stenar_middleground"]
+modulate = Color( 0.611725, 0.717726, 0.742188, 1 )
+position = Vector2( 220, 867 )
+rotation = 0.785397
+texture = ExtResource( 6 )
+
+[node name="Sten8" type="Sprite" parent="Stenar_middleground"]
+modulate = Color( 0.623856, 0.818389, 0.863281, 1 )
+position = Vector2( 797, 842 )
+rotation = 2.61799
+scale = Vector2( 1, -1 )
+texture = ExtResource( 6 )
+
+[node name="Sten9" type="Sprite" parent="Stenar_middleground"]
+position = Vector2( 1203, 521 )
+rotation = 2.61799
+scale = Vector2( 1, -1 )
+texture = ExtResource( 6 )
+
+[node name="Greenery_walls" type="Node2D" parent="."]
+
+[node name="Omkringliggande" type="TileMap" parent="Greenery_walls"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -131076, -1610612736, 0, -131075, -1610612736, 0, -131074, -1610612736, 0, -131073, -1610612736, 0, -196608, -1610612736, 0, -196607, -1610612736, 0, -196606, -1610612736, 0, -196605, -1610612736, 0, -196604, -1610612736, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, -1610612736, 0, -196599, -1610612736, 0, -196598, -1610612736, 0, -196597, -1610612736, 0, -65540, -1610612736, 0, -65539, 1, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, -1610612736, 0, -131068, -1610612736, 0, -131067, -1610612736, 0, -131066, -1073741823, 0, -131065, 0, 0, -131064, -1610612736, 0, -131063, -1610612736, 0, -131062, 1, 0, -131061, -1610612736, 0, -4, -1610612735, 0, -3, 0, 0, -2, 0, 0, -1, -1610612736, 0, -65536, -1610612736, 0, -65535, -1610612736, 0, -65534, -1610612736, 0, -65533, -1610612736, 0, -65532, -1610612736, 0, -65531, -1610612736, 0, -65530, -1610612736, 0, -65529, -1610612736, 0, -65528, -1610612736, 0, -65527, -1610612736, 0, -65526, 1, 0, -65525, 0, 0, 65532, 1, 0, 65533, -1073741824, 0, 65534, -1610612736, 0, 65535, -1610612736, 0, 0, 2, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, -1610612734, 0, 9, -1610612736, 0, 10, -1610612735, 0, 11, 0, 0, 131068, 1610612737, 0, 131069, -1610612736, 0, 131070, 0, 0, 131071, -1610612736, 0, 65536, -1073741821, 0, 65544, -1610612733, 0, 65545, -1610612736, 0, 65546, 1, 0, 65547, 0, 0, 196604, -1610612736, 0, 196605, 1, 0, 196606, 0, 0, 196607, 0, 0, 131072, -1073741821, 0, 131080, -1610612733, 0, 131081, -1610612736, 0, 131082, 1, 0, 131083, -1610612736, 0, 262140, -1610612736, 0, 262141, -1073741824, 0, 262142, -1610612736, 0, 262143, -1610612736, 0, 196608, -1073741821, 0, 196616, -1610612733, 0, 196617, -1610612736, 0, 196618, -1610612735, 0, 196619, -1610612736, 0, 327676, 1, 0, 327677, -1073741824, 0, 327678, -1073741824, 0, 327679, -1610612736, 0, 262144, -1073741822, 0, 262145, 1610612739, 0, 262150, 1610612739, 0, 262151, 1610612739, 0, 262152, 1610612738, 0, 262153, -1610612736, 0, 262154, -1073741824, 0, 262155, -1610612736, 0, 393212, -1610612736, 0, 393213, -1610612736, 0, 393214, -1073741824, 0, 393215, -1610612736, 0, 327680, -1610612736, 0, 327681, -1073741823, 0, 327685, -1610612733, 0, 327686, -1610612736, 0, 327687, -1610612736, 0, 327688, -1610612736, 0, 327689, 1, 0, 327690, -1073741824, 0, 327691, -1610612736, 0, 458748, -1610612736, 0, 458749, -1610612736, 0, 458750, 1610612737, 0, 458751, 1, 0, 393216, -1073741824, 0, 393217, -1073741823, 0, 393218, -1073741821, 0, 393221, -1610612733, 0, 393222, -1073741824, 0, 393223, -1610612736, 0, 393224, -1610612736, 0, 393225, -1610612736, 0, 393226, -1073741824, 0, 393227, -1610612736, 0, 524284, -1610612736, 0, 524285, -1610612736, 0, 524286, -1610612735, 0, 524287, -1610612736, 0, 458752, 1, 0, 458753, -1073741823, 0, 458754, -1073741821, 0, 458757, -1610612733, 0, 458758, 1, 0, 458759, -1073741824, 0, 458760, -1073741824, 0, 458761, -1073741824, 0, 458762, -1610612736, 0, 458763, -1610612736, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, -1073741820, 0, 524291, -1073741820, 0, 524292, -1073741820, 0, 524293, -1073741820, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 655356, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, -1073741820, 0, 589827, -1073741820, 0, 589828, -1073741820, 0, 589829, -1073741820, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, -1073741820, 0, 655363, -1073741820, 0, 655364, -1073741820, 0, 655365, -1073741820, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0 )
+
+[node name="Framing" type="TileMap" parent="Greenery_walls"]
+position = Vector2( -64, -64 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 0, -1610612736, 0, 1, 1610612737, 0, 2, 1610612737, 0, 3, 1610612737, 0, 4, 1610612737, 0, 5, 1610612737, 0, 6, 1610612737, 0, 7, 1610612737, 0, 8, 1610612737, 0, 9, 1610612736, 0, 65536, -1610612735, 0, 65545, -1073741823, 0, 131072, -1610612735, 0, 131081, -1073741823, 0, 196608, -1610612735, 0, 196617, -1073741823, 0, 262144, -1610612735, 0, 262153, -1073741823, 0, 327680, 0, 0, 327681, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, -1073741824, 0 )
+
+[node name="Stenar_foreground2" type="Node2D" parent="."]
+
+[node name="Sten8" type="Sprite" parent="Stenar_foreground2"]
+modulate = Color( 0.623856, 0.818389, 0.863281, 1 )
+position = Vector2( 870, 1024 )
+rotation = 2.87979
+scale = Vector2( 2, -2 )
+texture = ExtResource( 6 )
+
+[node name="StenStor" type="Sprite" parent="Stenar_foreground2"]
+modulate = Color( 0.814209, 0.882645, 0.898438, 1 )
+position = Vector2( 250, 675 )
+rotation = 0.261799
+texture = ExtResource( 5 )
+
+[node name="Sten9" type="Sprite" parent="Stenar_foreground2"]
+modulate = Color( 0.623856, 0.818389, 0.863281, 1 )
+position = Vector2( 600, 1232 )
+rotation = -2.8798
+scale = Vector2( 2, -2 )
+texture = ExtResource( 6 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -216, -83 )
+current = true
+
+[node name="Mouse" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Mouse" type="Sprite" parent="Mouse"]
+position = Vector2( 412, 137 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse"]
+position = Vector2( 475.5, 316.5 )
+shape = SubResource( 3 )
+
+[node name="gate_Berg" type="Area2D" parent="."]
+position = Vector2( 485, 1018 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gate_Berg"]
+position = Vector2( -33, 189 )
+shape = SubResource( 4 )
+
+[connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
+[connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

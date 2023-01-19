@@ -1,0 +1,218 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Pics/Mapbuilding/Strand/racehouse_tilemap.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Pics/Figurer/squid.png" type="Texture" id=3]
+[ext_resource path="res://Pics/Mapbuilding/HUB-värld/dwelling_tilemap.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Strand/Bubblor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Pics/Mapbuilding/Strand/net.png" type="Texture" id=6]
+[ext_resource path="res://Pics/Mapbuilding/Strand/wall_racehouse.png" type="Texture" id=7]
+[ext_resource path="res://Pics/Mapbuilding/Strand/desk.png" type="Texture" id=8]
+[ext_resource path="res://Pics/Mapbuilding/Strand/wall_racehouse_front.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Strand/racehouse_inside.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 512, 192 )
+
+[sub_resource type="TileSet" id=1]
+0/name = "racehouse_tilemap.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 128 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "dwelling_tilemap.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 128, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "dwelling_tilemap.png 2"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 128, 0, 128, 128 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "racehouse_tilemap.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 128, 0, 128, 128 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "racehouse_tilemap.png 4"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 128, 128, 128, 128 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "racehouse_tilemap.png 5"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 128, 128, 128 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 203.5, 256.5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 202.5, 257 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 21, 343.5 )
+
+[node name="racehouse_inside" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="WallRacehouse" type="Sprite" parent="Wall"]
+modulate = Color( 0.741176, 0.909804, 0.690196, 1 )
+position = Vector2( 512, 192 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+visible = false
+position = Vector2( 512, 192 )
+shape = SubResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.87451, 0.917647, 0.964706, 1 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 262142, 1610612737, 0, 262143, 1610612738, 0, 196608, 1610612737, 0, 196609, 1610612738, 0, 196610, 1610612737, 0, 196611, 1610612738, 0, 196612, 1610612737, 0, 196613, 1610612738, 0, 196614, 1610612737, 0, 196615, 1610612738, 0, 196616, 1610612737, 0, 196617, 1610612738, 0, 327678, 1610612738, 0, 327679, 1610612737, 0, 262144, 1610612738, 0, 262145, 1610612737, 0, 262146, 1610612738, 0, 262147, 1610612737, 0, 262148, 1610612738, 0, 262149, 1610612737, 0, 262150, 1610612738, 0, 262151, 1610612737, 0, 262152, 1610612738, 0, 262153, 1610612737, 0 )
+
+[node name="Net" type="Sprite" parent="."]
+position = Vector2( 779, 172 )
+texture = ExtResource( 6 )
+
+[node name="Net2" type="Sprite" parent="."]
+modulate = Color( 0.733333, 0.521569, 0.521569, 1 )
+position = Vector2( 666, 127 )
+scale = Vector2( 1.71277, 0.745342 )
+texture = ExtResource( 6 )
+
+[node name="Desk" type="Sprite" parent="."]
+position = Vector2( 499, 396 )
+texture = ExtResource( 8 )
+
+[node name="Squid" type="StaticBody2D" parent="."]
+position = Vector2( 499, 214 )
+collision_layer = 2
+
+[node name="Squid" type="Sprite" parent="Squid"]
+position = Vector2( 0, 88 )
+texture = ExtResource( 3 )
+
+[node name="Bubblor" parent="Squid" instance=ExtResource( 5 )]
+modulate = Color( 0.784314, 0.537255, 0.537255, 1 )
+position = Vector2( 65, -89 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Squid"]
+position = Vector2( 0.5, 48.5 )
+shape = SubResource( 2 )
+
+[node name="NPC_squid" type="Area2D" parent="Squid"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Squid/NPC_squid"]
+position = Vector2( 0.5, 45 )
+shape = SubResource( 5 )
+
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( -13, 7 )
+
+[node name="Skelett" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 937, 139 )
+scale = Vector2( 0.9, 0.9 )
+
+[node name="Walls_frame" type="StaticBody2D" parent="."]
+
+[node name="WallRacehouseFront" type="Sprite" parent="Walls_frame"]
+modulate = Color( 0.741176, 0.909804, 0.690196, 1 )
+position = Vector2( -480, 327 )
+scale = Vector2( 1, 1.70313 )
+texture = ExtResource( 9 )
+
+[node name="WallRacehouseFront2" type="Sprite" parent="Walls_frame"]
+modulate = Color( 0.741176, 0.909804, 0.690196, 1 )
+position = Vector2( 512, 328 )
+scale = Vector2( 1, 1.70313 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_frame"]
+position = Vector2( 11, 333.5 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls_frame"]
+position = Vector2( 1013, 344 )
+shape = SubResource( 4 )
+
+[node name="Net3" type="Sprite" parent="."]
+position = Vector2( 106, 44 )
+scale = Vector2( -2, 2 )
+texture = ExtResource( 6 )
+
+[node name="Net4" type="Sprite" parent="."]
+modulate = Color( 0.443137, 0.321569, 0.321569, 1 )
+position = Vector2( -151, 513 )
+rotation = -0.785397
+scale = Vector2( -2, 2 )
+texture = ExtResource( 6 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( 512, 300 )
+
+[connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]

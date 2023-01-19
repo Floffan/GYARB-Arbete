@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Worldbuilding/Viewport_light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Pics/Mapbuilding/Strand/Hus_havet.png" type="Texture" id=2]
+
+[sub_resource type="ViewportTexture" id=131]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="RectangleShape2D" id=130]
+extents = Vector2( 338.5, 544 )
+
+[sub_resource type="RectangleShape2D" id=132]
+extents = Vector2( 348, 276 )
+
+[sub_resource type="RectangleShape2D" id=133]
+extents = Vector2( 48, 140 )
+
+[node name="Racing_kontor" type="StaticBody2D"]
+position = Vector2( 2765, -827 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 394.0
+margin_top = 148.0
+margin_right = 926.0
+margin_bottom = 429.0
+color = Color( 0.964706, 0.678431, 0.14902, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -660.0
+margin_top = -380.0
+margin_right = -95.0
+margin_bottom = 455.0
+color = Color( 0.964706, 0.678431, 0.14902, 1 )
+
+[node name="fönster_1" type="Sprite" parent="."]
+position = Vector2( -255, 281 )
+texture = SubResource( 131 )
+
+[node name="fönster_2" type="Sprite" parent="."]
+position = Vector2( -504, 283 )
+texture = SubResource( 131 )
+
+[node name="fönster_3" type="Sprite" parent="."]
+position = Vector2( 531, 280 )
+texture = SubResource( 131 )
+
+[node name="fönster_4" type="Sprite" parent="."]
+position = Vector2( 766, 269 )
+texture = SubResource( 131 )
+
+[node name="Racing_kontor" type="Sprite" parent="."]
+position = Vector2( 145, -128 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -380.5, -61 )
+shape = SubResource( 130 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 655, 207 )
+shape = SubResource( 132 )
+
+[node name="Viewport" parent="." instance=ExtResource( 1 )]
+
+[node name="gate_Racehouse" type="Area2D" parent="."]
+position = Vector2( -245, 315 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gate_Racehouse"]
+visible = false
+position = Vector2( 0, 4 )
+shape = SubResource( 133 )

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Dialog.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/HUD/minigame_menu.gd" type="Script" id=2]
+
+[node name="minigame_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 88, 304 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 262.0
+margin_top = 416.0
+margin_right = 742.0
+margin_bottom = 552.0
+
+[node name="play\?" type="RichTextLabel" parent="."]
+margin_left = 280.0
+margin_top = 424.0
+margin_right = 739.0
+margin_bottom = 457.0
+bbcode_enabled = true
+text = "play game?"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_left = 280.0
+margin_top = 464.0
+margin_right = 728.0
+margin_bottom = 536.0
+split_offset = 150
+
+[node name="YES" type="Button" parent="HSplitContainer"]
+margin_right = 208.0
+margin_bottom = 72.0
+text = "YES"
+
+[node name="NO" type="Button" parent="HSplitContainer"]
+margin_left = 220.0
+margin_right = 448.0
+margin_bottom = 72.0
+text = "NO"
+
+[connection signal="button_up" from="HSplitContainer/YES" to="." method="_on_YES_button_up"]
+[connection signal="button_down" from="HSplitContainer/NO" to="." method="_on_NO_button_down"]
