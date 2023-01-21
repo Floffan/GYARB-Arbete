@@ -12,6 +12,8 @@ func _get_position() -> void:
 		$YSort/Skelett.position = $Positioner/berg_Main.position
 	if skelett_position == "berg_Grotta":
 		$YSort/Skelett.position = $Positioner/berg_Grotta.position
+	if skelett_position == "berg_Stad":
+		$YSort/Skelett.position = $Positioner/berg_Stad.position
 
 func _on_Skelett_gate_detected():
 	var path = ""
@@ -21,9 +23,10 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Main/World.tscn")
 		#_open_gate_menu("main_Berg", "res://Scenes/Main/World.tscn", "here")
 	if Autoloads.Gate_collider == "gate_Grotta":
-		#Autoloads.Position = "berg_Grotta"
-		#Transition.load_scene("res://Scenes/Berg/Grotta.tscn")
-		_open_gate_menu("gate_Grotta", "res://Scenes/Berg/Grotta.tscn", "in")
+		_open_gate_menu("berg_Grotta", "res://Scenes/Berg/Grotta.tscn", "in")
+	if Autoloads.Gate_collider == "gate_Stad":
+		Autoloads.Position = "stad_Berg"
+		Transition.load_scene("res://Scenes/Stad/Stad.tscn")
 		
 
 func _open_gate_menu(position_in_new_world, path, heading):

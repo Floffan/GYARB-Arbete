@@ -1,4 +1,5 @@
 extends Node2D
+
 var skelett_position = Autoloads.Position
 
 var going_out = false
@@ -8,31 +9,21 @@ func _ready():
 	
 	
 func _get_position() -> void:
-	if skelett_position == "main_Spawn":
-		$YSort/Skelett.position = $Positioner/main_Spawn.position
-	if skelett_position == "main_Gym":
-		$YSort/Skelett.position = $Positioner/main_Gym.position
-	if skelett_position == "main_Strand":
-		$YSort/Skelett.position = $Positioner/main_Strand.position
-	if skelett_position == "main_Berg":
-		$YSort/Skelett.position = $Positioner/main_Berg.position
-	if skelett_position == "main_Dwelling":
-		$YSort/Skelett.position = $Positioner/main_Dwelling.position
+	if skelett_position == "stad_Gym":
+		$YSort/Skelett.position = $Positioner/stad_Gym.position
+	if skelett_position == "stad_Berg":
+		$YSort/Skelett.position = $Positioner/stad_Berg.position
 
 func _on_Skelett_gate_detected():
-	var path = ""
+	#var path = ""
 	
 	if Autoloads.Gate_collider == "gate_Gym":
 		_open_gate_menu("main_Gym", "res://Scenes/Stad/Gym.tscn", "in")
-	if Autoloads.Gate_collider == "gate_Dwelling":
-		_open_gate_menu("main_Dwelling","res://Scenes/Main/Dwelling.tscn" , "in")
 	if Autoloads.Gate_collider == "gate_Berg":
-		Autoloads.Position = "berg_Main"
+		Autoloads.Position = "berg_Stad"
 		Transition.load_scene("res://Scenes/Berg/Berg.tscn")
-		#_open_gate_menu("berg", "res://Scenes/Berg/Berg.tscn", "here")
-	if Autoloads.Gate_collider == "gate_Strand":
-		Autoloads.Position = "strand_Main"
-		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
+	if Autoloads.Gate_collider == "gate_Redhouse":
+		_go_up_house()
 	
 func _open_gate_menu(position_in_new_world, path, heading):
 	var menu_player = get_node_or_null("Camera2D/Gate_menu")
@@ -47,6 +38,9 @@ func _open_gate_menu(position_in_new_world, path, heading):
 		going_out = true
 		if menu_player:
 			menu_player.on_walkout(position_in_new_world, path, heading)
+
+func _go_up_house():
+	pass
 
 func _on_Skelett_NPC_detected():
 	var path = ""
