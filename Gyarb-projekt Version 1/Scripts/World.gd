@@ -22,8 +22,8 @@ func _get_position() -> void:
 func _on_Skelett_gate_detected():
 	var path = ""
 	
-	if Autoloads.Gate_collider == "gate_Gym":
-		_open_gate_menu("main_Gym", "res://Scenes/Stad/Gym.tscn", "in")
+	#if Autoloads.Gate_collider == "gate_Gym":
+		#_open_gate_menu("main_Gym", "res://Scenes/Stad/Gym.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Dwelling":
 		_open_gate_menu("main_Dwelling","res://Scenes/Main/Dwelling.tscn" , "in")
 	if Autoloads.Gate_collider == "gate_Berg":

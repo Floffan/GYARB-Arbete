@@ -9,7 +9,7 @@ func _on_Skelett_gate_detected():
 		menu_player.walking_out = null
 		
 	if going_out == true:	
-		menu_player.on_walkout("main_Gym", "res://Scenes/Main/World.tscn", "out")
+		menu_player.on_walkout("stad_Gym","res://Scenes/Stad/Stad.tscn" , "out")
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		going_out = true

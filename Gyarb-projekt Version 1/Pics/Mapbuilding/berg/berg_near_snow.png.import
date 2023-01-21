@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/berg_near.png-2e9d47d3c12d680f676389dd7b400846.stex"
+path="res://.import/berg_near_snow.png-509b4a81de98499a5cfa189a9afe28fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pics/Mapbuilding/berg/berg_near.png"
-dest_files=[ "res://.import/berg_near.png-2e9d47d3c12d680f676389dd7b400846.stex" ]
+source_file="res://Pics/Mapbuilding/berg/berg_near_snow.png"
+dest_files=[ "res://.import/berg_near_snow.png-509b4a81de98499a5cfa189a9afe28fb.stex" ]
 
 [params]
 
