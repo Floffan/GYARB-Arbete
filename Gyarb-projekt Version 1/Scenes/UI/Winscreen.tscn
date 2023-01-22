@@ -1,0 +1,219 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Pics/Minigames/SPARKLE.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 110
+outline_size = 2
+outline_color = Color( 0.745098, 0.541176, 0.788235, 1 )
+extra_spacing_top = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 300.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 29.41
+initial_velocity_random = 0.57
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.1
+scale_random = 0.26
+hue_variation = 0.39
+hue_variation_random = 1.0
+
+[sub_resource type="DynamicFont" id=3]
+extra_spacing_top = 30
+extra_spacing_char = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 512.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1024.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect2:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 512.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("jippie:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "WIN"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 512.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1024.0, 512.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RichTextLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("jippie:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ false, true ]
+}
+
+[node name="Winscreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.7, 0.7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 0.808594, 0.527481, 0.77486, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.808594, 0.527481, 0.77486, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 160.0
+margin_top = 208.0
+margin_right = 881.0
+margin_bottom = 379.0
+custom_colors/default_color = Color( 0.752941, 0.360784, 0.705882, 1 )
+custom_fonts/bold_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[b][wave amp=100 freq=2]YOU WON![/wave][/b]"
+text = "YOU WON!"
+
+[node name="Particles2D" type="Particles2D" parent="."]
+visible = false
+position = Vector2( 469, 276 )
+amount = 40
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
+
+[node name="jippie" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 403.0
+margin_top = 353.0
+margin_right = 594.0
+margin_bottom = 448.0
+custom_fonts/bold_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[b][wave amp=100 freq=2] JIPPIE![/wave][/b]"
+text = " JIPPIE!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/WIN = SubResource( 5 )

@@ -24,7 +24,11 @@ func _process(delta):
 	keys_hit_sucessfully = false
 	_draw_score()
 
-
+func game_won():
+	$Bench_movement.ready_to_start = false
+	$Winscreen.visible = true
+	$Winscreen/AnimationPlayer.play("WIN")
+	
 
 
 
@@ -38,12 +42,9 @@ func _check_raycasts():
 			scored = "yellow"
 		if points_detector.get_collider().name == "area_early" and keys_hit_sucessfully == true:
 			scored = "early"
-			
 
 func _draw_score():
 	$Scoretext.text = str(score)
-
-
 
 func _on_Bench_movement_keys_hit_sucessfully():
 	if points_detector.is_colliding():
@@ -52,6 +53,9 @@ func _on_Bench_movement_keys_hit_sucessfully():
 		#	print("early")
 			#$Encouragement_screen/GREAT.bbcode_text = "[b][shake rate=5 level=10]TOO[/shake][/b]"
 			#$Encouragement_screen/plus_score.bbcode_text = "[b][shake rate=5]" + "EARLY!" + "[/shake][/b]"
+		if score >= 10:
+			game_won()
+			return
 		if scored == "red":
 			$Encouragement_screen/GREAT.bbcode_text = "[b][shake rate=5 level=10]GREAT![/shake][/b]"
 			$Encouragement_screen/plus_score.bbcode_text = "[b][shake rate=5]+" + str(score_red_area) + "[/shake][/b]"
@@ -65,7 +69,6 @@ func _on_Bench_movement_keys_hit_sucessfully():
 			$Encouragement_screen.visible = false
 
 func _on_Bench_movement_failed_lift():
-	print("failed")
 	score -= 10
 	$Failed_lift_screen.visible = true
 	$Failed_lift_screen/Explosion.emitting = true

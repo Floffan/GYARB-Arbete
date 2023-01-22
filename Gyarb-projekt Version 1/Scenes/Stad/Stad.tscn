@@ -285,18 +285,22 @@ position = Vector2( 116, -450 )
 texture = ExtResource( 4 )
 
 [node name="col_lumber" type="CollisionPolygon2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( 1, 7 )
-polygon = PoolVector2Array( 339, 167, 892, 168, 892, 153, 864, 153, 863, -515, 368, -515, 368, 158, 339, 158 )
+polygon = PoolVector2Array( 344, 166, 888, 166, 888, 158, 864, 158, 864, -514, 368, -514, 368, 158, 344, 158 )
 
 [node name="col_grön" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( -92.5, -152.5 )
 shape = SubResource( 5 )
 
 [node name="col_blå" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( -751, -279 )
 shape = SubResource( 6 )
 
 [node name="col_gym" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( 1317, -297 )
 shape = SubResource( 8 )
 
@@ -314,18 +318,21 @@ text = "
 GYM"
 
 [node name="col_balkong" type="CollisionPolygon2D" parent="YSort/Hus"]
+visible = false
 polygon = PoolVector2Array( -1094, -612, -1086, -612, -1086, -480, -1229, -480, -1229, -484, -1094, -484 )
 
 [node name="col_orangerosa" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( 2060, -206 )
 shape = SubResource( 13 )
 
 [node name="col_skylt" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( 1616, 166 )
 shape = SubResource( 14 )
 
 [node name="Bussskylt" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 2878, 99 )
+position = Vector2( 2840, 99 )
 
 [node name="Bakgrund" type="ParallaxBackground" parent="."]
 
