@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scripts/Gym/Level 2.gd" type="Script" id=1]
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/skog.png" type="Texture" id=2]
@@ -79,10 +79,10 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=74]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=75]
+[sub_resource type="ConvexPolygonShape2D" id=80]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 96, 128, 96 )
 
-[sub_resource type="ConvexPolygonShape2D" id=76]
+[sub_resource type="ConvexPolygonShape2D" id=81]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 96, 128, 96 )
 
 [sub_resource type="TileSet" id=1]
@@ -705,14 +705,14 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 96, 128, 96 )
 33/navigation_offset = Vector2( 0, 0 )
 33/shape_offset = Vector2( 0, 0 )
 33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-33/shape = SubResource( 75 )
+33/shape = SubResource( 80 )
 33/shape_one_way = false
 33/shape_one_way_margin = 1.0
 33/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 75 ),
+"shape": SubResource( 80 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 33/z_index = 0
@@ -726,14 +726,14 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 96, 128, 96 )
 34/navigation_offset = Vector2( 0, 0 )
 34/shape_offset = Vector2( 0, 0 )
 34/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-34/shape = SubResource( 76 )
+34/shape = SubResource( 81 )
 34/shape_one_way = false
 34/shape_one_way_margin = 1.0
 34/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 76 ),
+"shape": SubResource( 81 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 34/z_index = 0
@@ -832,6 +832,10 @@ animations = [ {
 "speed": 4.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=79]
+radius = 68.0
+height = 188.0
+
 [node name="Gym" type="Node2D"]
 position = Vector2( -342, -159 )
 script = ExtResource( 1 )
@@ -842,6 +846,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="Sprite" type="Sprite" parent="gate"]
+modulate = Color( 0.505882, 0.286275, 0.211765, 1 )
 position = Vector2( 4, 0 )
 scale = Vector2( 0.7, 1.2 )
 texture = ExtResource( 5 )
@@ -881,7 +886,7 @@ collision_layer = 2
 [node name="Squattande groda" type="AnimatedSprite" parent="YSort/Squat_grodan"]
 position = Vector2( 6, 137 )
 frames = SubResource( 22 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Squat_grodan"]
@@ -903,7 +908,6 @@ position = Vector2( 1191, 188 )
 modulate = Color( 1, 0.843137, 0.843137, 1 )
 position = Vector2( 12, 109 )
 frames = SubResource( 45 )
-frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Curl_grodan"]
@@ -936,6 +940,15 @@ wait_time = 1.25
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Polack-paddan"]
 position = Vector2( -19, 189 )
 polygon = PoolVector2Array( -55, 65, 52, 64, 68, 47, 52, 28, 2, 24, -52, 28, -69, 48 )
+
+[node name="Polack_padda" type="Area2D" parent="YSort/Polack-paddan"]
+position = Vector2( -1345, -514 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Polack-paddan/Polack_padda"]
+position = Vector2( 1329, 621 )
+shape = SubResource( 79 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 14 )]
 position = Vector2( 579, 92 )

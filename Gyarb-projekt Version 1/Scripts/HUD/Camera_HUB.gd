@@ -3,6 +3,6 @@ extends Camera2D
 onready var player = get_parent().get_node("YSort").get_node("Skelett")
 
 
-func _process(delta):
+func _process(_delta):
 	position = player.position
 	

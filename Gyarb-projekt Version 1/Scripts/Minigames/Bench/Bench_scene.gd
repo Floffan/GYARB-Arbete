@@ -3,8 +3,6 @@ extends Node2D
 
 var keys_hit_sucessfully = false
 
-onready var popup = $Encouragement_popup
-
 onready var points_detector = $Bench_movement/Points_detector
 
 signal reset_lift

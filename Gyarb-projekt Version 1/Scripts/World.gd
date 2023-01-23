@@ -20,10 +20,6 @@ func _get_position() -> void:
 		$YSort/Skelett.position = $Positioner/main_Dwelling.position
 
 func _on_Skelett_gate_detected():
-	var path = ""
-	
-	#if Autoloads.Gate_collider == "gate_Gym":
-		#_open_gate_menu("main_Gym", "res://Scenes/Stad/Gym.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Dwelling":
 		_open_gate_menu("main_Dwelling","res://Scenes/Main/Dwelling.tscn" , "in")
 	if Autoloads.Gate_collider == "gate_Berg":
@@ -51,12 +47,12 @@ func _open_gate_menu(position_in_new_world, path, heading):
 func _on_Skelett_NPC_detected():
 	var path = ""
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	if Input.is_action_just_pressed("ui_accept"):
-		if collider == "NPC_Bully":
-			path = "res://Dialog/Bully_dia.json"
-		if collider == "NPC_sten":
-			path = "res://Dialog/Mysterious_stone_dia.json"
+	var dialog_player = get_node("Camera2D/Dialog")
+	
+	if collider == "NPC_Bully":
+		path = "res://Dialog/Bully_dia.json"
+	if collider == "NPC_sten":
+		path = "res://Dialog/Mysterious_stone_dia.json"
 		
-		var dialog_player = get_node_or_null("Camera2D/Dialog")
-		if dialog_player:
-			dialog_player.play_dialog(path, 0.05)
+	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
+		dialog_player.play_dialog(path, 0.05)

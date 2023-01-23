@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Worldbuilding/Green_walls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Scenes/Stad/Bussskylt.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Pics/Mapbuilding/Generellt/fågel.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/Fågel.gd" type="Script" id=20]
+[ext_resource path="res://Pics/Mapbuilding/berg/lås.png" type="Texture" id=21]
 
 [sub_resource type="TileSet" id=75]
 0/name = "gräs.png 0"
@@ -418,6 +419,7 @@ texture = ExtResource( 11 )
 normal_map = ExtResource( 5 )
 
 [node name="col_berg1" type="CollisionPolygon2D" parent="Bergsfot"]
+visible = false
 polygon = PoolVector2Array( -990, 30, -988, 23, -964, 4, -919, -21, -888, -190, -884, -276, -862, -335, -867, -349, -804, -424, -738, -390, -680, -451, -695, -605, -473, -787, -433, -906, -309, -709, -312, -594, -163, -325, -89, -316, -56, -412, -22, -579, 70, -552, 133, -637, 288, -605, 470, -830, 527, -802, 614, -574, 889, -451, 934, -367, 943, 25, 790, 46, 539, 82, 495, 75, 487, 59, 462, 69, 378, 32, 302, 20, 264, 41, 209, 34, 165, 53, 181, 69, 188, 105, 175, 109, 161, 100, 144, 102, 128, 94, 88, 98, 80, 119, 48, 131, 33, 121, 29, 112, -23, 111, -30, 119, -217, 112, -328, 30, -391, 29, -402, 40, -433, 32, -474, 49, -463, 61, -485, 85, -630, 63, -625, 83, -679, 77, -729, 52, -747, 30, -773, 32, -777, 49, -791, 61, -819, 59, -843, 50, -855, 56, -897, 53, -903, 48, -905, 37, -923, 36, -964, 29 )
 
 [node name="ColorRect" type="ColorRect" parent="Bergsfot"]
@@ -455,6 +457,10 @@ texture = ExtResource( 16 )
 [node name="Skidor" type="Sprite" parent="Bergsfot"]
 position = Vector2( -5350, 98 )
 texture = ExtResource( 15 )
+
+[node name="Lock" type="Sprite" parent="Bergsfot"]
+position = Vector2( 6, 29 )
+texture = ExtResource( 21 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -578,7 +584,7 @@ script = ExtResource( 20 )
 
 [node name="Fågel" type="AnimatedSprite" parent="Fågel_path/Fågel"]
 frames = SubResource( 90 )
-frame = 1
+frame = 2
 playing = true
 
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

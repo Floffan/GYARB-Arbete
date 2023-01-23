@@ -55,9 +55,9 @@ func _assign_direction():
 	elif velocity.y < 0:
 		direction[1] = "up"
 		
-	_assign_animation(direction)	
+	_assign_animation()	
 		
-func _assign_animation(direction):
+func _assign_animation():
 	var animation = "Stå-animation"
 	"""
 	Höger/Vänster-hantering [x-led]
@@ -153,13 +153,13 @@ func _assign_animation(direction):
 func _check_raycasts():
 	if $Gate_detector.is_colliding():
 		Autoloads.Gate_collider = $Gate_detector.get_collider().name
-		print(Autoloads.Gate_collider)
+		#print(Autoloads.Gate_collider)
 		emit_signal("gate_detected")
 	if $NPC_detector.is_colliding():
 		emit_signal("NPC_detected")
-		print($NPC_detector.get_collider().name)
+		#print($NPC_detector.get_collider().name)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	_check_raycasts()
 	

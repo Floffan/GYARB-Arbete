@@ -4,8 +4,13 @@ var skelett_position = Autoloads.Position
 
 var going_out = false
 
+var cave_access = false
+
 func _ready():
 	_get_position()
+	if Autoloads.keys.has("key_grotta"):
+		cave_access = true
+		$Bergsfot/Lock.visible = false
 
 func _get_position() -> void:	
 	if skelett_position == "berg_Main":
@@ -16,13 +21,11 @@ func _get_position() -> void:
 		$YSort/Skelett.position = $Positioner/berg_Stad.position
 
 func _on_Skelett_gate_detected():
-	var path = ""
-	
 	if Autoloads.Gate_collider == "gate_Main":
 		Autoloads.Position = "main_Berg"
 		Transition.load_scene("res://Scenes/Main/World.tscn")
 		#_open_gate_menu("main_Berg", "res://Scenes/Main/World.tscn", "here")
-	if Autoloads.Gate_collider == "gate_Grotta":
+	if Autoloads.Gate_collider == "gate_Grotta" and cave_access:
 		_open_gate_menu("berg_Grotta", "res://Scenes/Berg/Grotta.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Stad":
 		Autoloads.Position = "stad_Berg"

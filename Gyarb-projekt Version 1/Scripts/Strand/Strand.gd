@@ -21,8 +21,6 @@ func _get_position() -> void:
 		$YSort/Skelett.position = $Positioner/strand_Main.position
 
 func _on_Skelett_gate_detected():
-	var path = ""
-	
 	if Autoloads.Gate_collider == "gate_Shellhouse":
 		_open_gate_menu("strand_Shellhouse","res://Scenes/Strand/Shellhouse_inside.tscn" , "in")
 	if Autoloads.Gate_collider == "gate_Racehouse":

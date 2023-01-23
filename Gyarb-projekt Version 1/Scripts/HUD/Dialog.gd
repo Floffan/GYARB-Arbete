@@ -7,23 +7,23 @@ var dialog
  
 var phraseNum = 0
 var finished = false
+
+var dialog_running = false
  
 
 func play_dialog(dialogPath, textSpeed):
+	
+	dialog_running = true
+	yield(get_tree().create_timer(0.01), "timeout")
 	self.visible = true
 	$Timer.wait_time = textSpeed
 	dialog = getDialog(dialogPath)
 	assert(dialog, "Dialogen hittades ej")
 	nextPhrase()
  
-
 func _ready():
 	self.visible = false
-#	$Timer.wait_time = textSpeed
-#	dialog = getDialog()
-#	assert(dialog, "Dialogen hittades ej")
-#	nextPhrase()
- 
+	
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if finished:
@@ -73,4 +73,6 @@ func _reset():
 	phraseNum = 0
 	finished = false
 	self.visible = false 
+	
+	dialog_running = false
 	
