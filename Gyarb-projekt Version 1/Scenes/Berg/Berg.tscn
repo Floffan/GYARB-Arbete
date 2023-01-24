@@ -584,7 +584,7 @@ script = ExtResource( 20 )
 
 [node name="Fågel" type="AnimatedSprite" parent="Fågel_path/Fågel"]
 frames = SubResource( 90 )
-frame = 2
+frame = 3
 playing = true
 
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

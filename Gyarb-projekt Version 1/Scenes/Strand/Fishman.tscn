@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Pics/Figurer/fisk_funky.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 74.0
+height = 120.0
+
+[node name="Fishman" type="StaticBody2D"]
+position = Vector2( 2439, 858 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="FiskFunky" type="Sprite" parent="."]
+position = Vector2( 5.6001, 80 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -2310.4, -931 )
+polygon = PoolVector2Array( 2251, 1128, 2375, 1129, 2391, 1117, 2374, 1103, 2248, 1102, 2239, 1113 )
+
+[node name="Fish_man" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish_man"]
+position = Vector2( 5, 82 )
+shape = SubResource( 1 )
