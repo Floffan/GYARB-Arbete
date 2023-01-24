@@ -5308,38 +5308,32 @@ default_length = 30.0
 [node name="lår_h" type="Bone2D" parent="Skelett_bak/höft"]
 position = Vector2( 28, 19 )
 rotation = 0.0356333
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.999365, 0.0356258, -0.0356258, 0.999365, 28, 19 )
 
 [node name="vad_h" type="Bone2D" parent="Skelett_bak/höft/lår_h"]
 position = Vector2( -1.96864, 85.1242 )
 rotation = -0.0459767
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.998943, -0.0459605, 0.0459605, 0.998943, -1.96864, 85.1242 )
 
 [node name="fot_h" type="Bone2D" parent="Skelett_bak/höft/lår_h/vad_h"]
 position = Vector2( -4.05484, 101.964 )
 rotation = -0.813653
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.686848, -0.726801, 0.726801, 0.686848, -4.05484, 101.964 )
 default_length = 20.0
 
 [node name="lår_v" type="Bone2D" parent="Skelett_bak/höft"]
 position = Vector2( -29, 19 )
 rotation = 0.105715
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.994417, 0.105518, -0.105518, 0.994417, -29, 19 )
 
 [node name="vad_v" type="Bone2D" parent="Skelett_bak/höft/lår_v"]
 position = Vector2( 13.9411, 83.9979 )
 rotation = -0.173415
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.985001, -0.172547, 0.172547, 0.985001, 13.9411, 83.9979 )
 
 [node name="fot_v" type="Bone2D" parent="Skelett_bak/höft/lår_v/vad_v"]
 position = Vector2( -1.77629, 100.109 )
 rotation = 4.01825
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.639721, -0.768608, 0.768608, -0.639721, -1.77629, 100.109 )
 default_length = 20.0
 
@@ -5356,7 +5350,6 @@ anims/Waking_up = SubResource( 11 )
 anims/put_plate_on_shelf = SubResource( 12 )
 
 [node name="Skelett_collision_fötter" type="CollisionPolygon2D" parent="."]
-visible = false
 light_mask = 2
 position = Vector2( -38, 13 )
 polygon = PoolVector2Array( -11, 338, 9, 323, 59, 324, 81, 343, 76, 355, 62, 356, 2, 356 )

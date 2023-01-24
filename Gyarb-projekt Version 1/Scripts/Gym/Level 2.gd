@@ -2,6 +2,7 @@ extends Node2D
 
 var going_out = false
 
+var minigame_path = "res://Scenes/Minigames/Benchpress.tscn"
 
 func _on_Skelett_gate_detected():
 	var menu_player = get_node_or_null("Camera2D/Gate_menu")
@@ -22,6 +23,7 @@ func _on_Skelett_NPC_detected():
 	var path = ""
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
 	var dialog_player = get_node("Camera2D/Dialog")
+	var minigame_player = get_node("Camera2D/minigame_menu")
 		
 	if collider == "Squat_grodan":
 		path = "res://Dialog/Gym/SquatFrog_dia.json"
@@ -32,21 +34,11 @@ func _on_Skelett_NPC_detected():
 			
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
 		dialog_player.play_dialog(path, 0.05)
+		minigame_player.menu_active = true
 		
-		if dialog_player.dialog_running == false and collider == "Polack_padda":
-			"""
-			LÄGG TILL MINIGAME
-			"""
-			#breakpoint
-			#_minigame_menu("res://Scenes/Minigames/Benchpress.tscn")
+	if minigame_player.menu_active:
+		minigame_player.play_minigame(minigame_path)
 				
-func _minigame_menu(path):
-	var minigame_player = get_node_or_null("Camera2D/minigame_menu")
-	
-	if minigame_player:
-		minigame_player.play_minigame(path)
-	
-	
 	
 	
 	
