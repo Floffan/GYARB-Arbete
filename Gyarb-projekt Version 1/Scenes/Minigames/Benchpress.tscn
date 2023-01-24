@@ -13,10 +13,10 @@
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=11]
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://UI/PixArrows.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Scenes/UI/Ready_screen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UI/Minigames/Ready_screen.tscn" type="PackedScene" id=14]
 [ext_resource path="res://UI/STOR_font.tres" type="DynamicFont" id=15]
-[ext_resource path="res://Scenes/UI/Explosion_benchpress.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/UI/Winscreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/UI/Minigames/Explosion_benchpress.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/UI/Minigames/Winscreen.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )

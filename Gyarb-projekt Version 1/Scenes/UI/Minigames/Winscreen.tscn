@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Pics/Minigames/SPARKLE.png" type="Texture" id=2]
+[ext_resource path="res://UI/winscreen_theme.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 110
 outline_size = 2
-outline_color = Color( 0.745098, 0.541176, 0.788235, 1 )
+outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 30
 font_data = ExtResource( 1 )
 
@@ -68,7 +69,7 @@ tracks/2/keys = {
 "values": [ 512.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("RichTextLabel:visible")
+tracks/3/path = NodePath("DU VANN:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -103,10 +104,33 @@ tracks/5/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("meny:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Spela igen:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "WIN"
-length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:margin_right")
 tracks/0/interp = 1
@@ -132,7 +156,7 @@ tracks/1/keys = {
 "values": [ 1024.0, 512.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("RichTextLabel:visible")
+tracks/2/path = NodePath("DU VANN:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -167,34 +191,76 @@ tracks/4/keys = {
 "update": 0,
 "values": [ false, true ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("meny:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ false, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Spela igen:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ false, false, true ]
+}
 
 [node name="Winscreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 512.0
 margin_bottom = 600.0
-color = Color( 0.808594, 0.527481, 0.77486, 1 )
+color = Color( 1, 0.572549, 0.572549, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 512.0
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0.808594, 0.527481, 0.77486, 1 )
+color = Color( 1, 0.572549, 0.572549, 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="DU VANN" type="RichTextLabel" parent="."]
 visible = false
 margin_left = 160.0
 margin_top = 208.0
 margin_right = 881.0
 margin_bottom = 379.0
-custom_colors/default_color = Color( 0.752941, 0.360784, 0.705882, 1 )
+custom_colors/default_color = Color( 0.270588, 0.317647, 0.505882, 1 )
 custom_fonts/bold_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[b][wave amp=100 freq=2]YOU WON![/wave][/b]"
-text = "YOU WON!"
+bbcode_text = "[b][wave amp=100 freq=2]DU VANN![/wave][/b]"
+text = "DU VANN!"
+
+[node name="Spela igen" type="Button" parent="."]
+visible = false
+margin_left = 564.286
+margin_top = 448.571
+margin_right = 698.286
+margin_bottom = 492.571
+theme = ExtResource( 3 )
+text = "SPELA IGEN"
+
+[node name="meny" type="Button" parent="."]
+visible = false
+margin_left = 298.571
+margin_top = 448.571
+margin_right = 430.571
+margin_bottom = 492.571
+text = "MENY"
 
 [node name="Particles2D" type="Particles2D" parent="."]
 visible = false

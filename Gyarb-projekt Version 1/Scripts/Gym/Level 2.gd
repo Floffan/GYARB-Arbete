@@ -18,7 +18,6 @@ func _on_Skelett_gate_detected():
 		if menu_player:
 			menu_player.on_walkout("main_Gym", "res://Scenes/Main/World.tscn", "out")
 	
-
 func _on_Skelett_NPC_detected():
 	var path = ""
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
@@ -38,15 +37,4 @@ func _on_Skelett_NPC_detected():
 		
 	if minigame_player.menu_active:
 		minigame_player.play_minigame(minigame_path)
-				
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			

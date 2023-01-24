@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_Btrace_ready_done():
 	can_start = true
+
+
+func _on_Btrace_game_over():
+	can_start = false

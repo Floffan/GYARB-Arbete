@@ -1,11 +1,11 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Pics/Minigames/game.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Minigames/Båt_spelare.gd" type="Script" id=2]
 [ext_resource path="res://Pics/Mapbuilding/Strand/hav_djupt.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Minigames/Båtrace.gd" type="Script" id=4]
 [ext_resource path="res://Pics/Minigames/Boatrace/island.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/UI/Ready_screen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI/Minigames/Ready_screen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pics/Minigames/Boatrace/waves.png" type="Texture" id=7]
 [ext_resource path="res://Pics/Minigames/Boatrace/island_sanddyna.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Minigames/Båt_grön.gd" type="Script" id=9]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Pics/Mapbuilding/Strand/palm.png" type="Texture" id=15]
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://UI/STOR_font.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Scenes/UI/Minigames/Winscreen.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
@@ -112,6 +113,133 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 10
 font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 110
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 30
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=28]
+extra_spacing_top = 30
+extra_spacing_char = 10
+font_data = ExtResource( 16 )
+
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 512.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1024.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect2:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 512.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FÖRLUST:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("vinnare:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "WIN"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 512.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1024.0, 512.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FÖRLUST:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("vinnare:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "Default"
@@ -257,7 +385,7 @@ modulate = Color( 0.533333, 0.627451, 0.639216, 1 )
 position = Vector2( 698.616, 431.996 )
 frames = SubResource( 8 )
 animation = "Vågor"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Island" type="StaticBody2D" parent="."]
@@ -417,52 +545,52 @@ margin_right = -161.429
 margin_bottom = -327.143
 rect_scale = Vector2( 2, 2 )
 
-[node name="Control" type="Control" parent="."]
+[node name="LAPS" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 14 )
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel" type="Panel" parent="LAPS"]
 margin_left = 1265.71
 margin_top = 582.857
 margin_right = 1457.71
 margin_bottom = 830.857
 custom_styles/panel = SubResource( 17 )
 
-[node name="Rutor" type="Sprite" parent="Control/Panel"]
+[node name="Rutor" type="Sprite" parent="LAPS/Panel"]
 position = Vector2( -78.4609, 157.406 )
 rotation = 1.5708
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 10 )
 offset = Vector2( 88.3009, -116.402 )
 
-[node name="Rutor2" type="Sprite" parent="Control/Panel"]
+[node name="Rutor2" type="Sprite" parent="LAPS/Panel"]
 position = Vector2( -78.1429, -24.4285 )
 rotation = 1.5708
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 10 )
 offset = Vector2( 88.3009, -116.402 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LAPS/Panel"]
 margin_left = 60.4286
 margin_top = -0.142883
 margin_right = 239.429
 margin_bottom = 247.857
 alignment = 1
 
-[node name="Player" type="Panel" parent="Control/Panel/VBoxContainer"]
+[node name="Player" type="Panel" parent="LAPS/Panel/VBoxContainer"]
 margin_top = 29.0
 margin_right = 179.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 100, 60 )
 custom_styles/panel = SubResource( 18 )
 
-[node name="Stopwatch" type="Sprite" parent="Control/Panel/VBoxContainer/Player"]
+[node name="Stopwatch" type="Sprite" parent="LAPS/Panel/VBoxContainer/Player"]
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -0.00012207, 27.1429 )
 texture = ExtResource( 13 )
 
-[node name="Laps_P" type="RichTextLabel" parent="Control/Panel/VBoxContainer/Player"]
+[node name="Laps_P" type="RichTextLabel" parent="LAPS/Panel/VBoxContainer/Player"]
 margin_left = 68.1472
 margin_top = -0.285522
 margin_right = 129.147
@@ -473,19 +601,19 @@ bbcode_enabled = true
 bbcode_text = "[b]0[/b]"
 text = "0"
 
-[node name="Green" type="Panel" parent="Control/Panel/VBoxContainer"]
+[node name="Green" type="Panel" parent="LAPS/Panel/VBoxContainer"]
 margin_top = 93.0
 margin_right = 179.0
 margin_bottom = 153.0
 rect_min_size = Vector2( 60, 60 )
 custom_styles/panel = SubResource( 19 )
 
-[node name="Stopwatch2" type="Sprite" parent="Control/Panel/VBoxContainer/Green"]
+[node name="Stopwatch2" type="Sprite" parent="LAPS/Panel/VBoxContainer/Green"]
 modulate = Color( 0.0470588, 0.709804, 0.227451, 1 )
 position = Vector2( 37.1428, 27.4286 )
 texture = ExtResource( 13 )
 
-[node name="Laps_G" type="RichTextLabel" parent="Control/Panel/VBoxContainer/Green"]
+[node name="Laps_G" type="RichTextLabel" parent="LAPS/Panel/VBoxContainer/Green"]
 margin_left = 79.5758
 margin_top = 0.000183105
 margin_right = 128.576
@@ -496,19 +624,19 @@ bbcode_enabled = true
 bbcode_text = "[b]0[/b]"
 text = "0"
 
-[node name="Blue" type="Panel" parent="Control/Panel/VBoxContainer"]
+[node name="Blue" type="Panel" parent="LAPS/Panel/VBoxContainer"]
 margin_top = 157.0
 margin_right = 179.0
 margin_bottom = 217.0
 rect_min_size = Vector2( 0, 60 )
 custom_styles/panel = SubResource( 20 )
 
-[node name="Stopwatch3" type="Sprite" parent="Control/Panel/VBoxContainer/Blue"]
+[node name="Stopwatch3" type="Sprite" parent="LAPS/Panel/VBoxContainer/Blue"]
 modulate = Color( 0.223529, 0.227451, 0.682353, 1 )
 position = Vector2( -5.71436, 27.7143 )
 texture = ExtResource( 13 )
 
-[node name="Laps_B" type="RichTextLabel" parent="Control/Panel/VBoxContainer/Blue"]
+[node name="Laps_B" type="RichTextLabel" parent="LAPS/Panel/VBoxContainer/Blue"]
 margin_left = 63.8615
 margin_top = 0.285889
 margin_right = 124.861
@@ -519,7 +647,7 @@ bbcode_enabled = true
 bbcode_text = "[b]0[/b]"
 text = "0"
 
-[node name="LAPS" type="RichTextLabel" parent="Control"]
+[node name="LAPS" type="RichTextLabel" parent="LAPS"]
 margin_left = 1267.14
 margin_top = 534.286
 margin_right = 1462.14
@@ -530,6 +658,59 @@ custom_fonts/bold_font = SubResource( 22 )
 bbcode_enabled = true
 bbcode_text = "[b]LAPS:[/b]"
 text = "LAPS:"
+
+[node name="Loose_screen" type="Control" parent="."]
+margin_left = -32.8571
+margin_top = -31.4286
+margin_right = 7.14286
+margin_bottom = 8.57143
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="ColorRect" type="ColorRect" parent="Loose_screen"]
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 1, 0.572549, 0.572549, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Loose_screen"]
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 1, 0.572549, 0.572549, 1 )
+
+[node name="FÖRLUST" type="RichTextLabel" parent="Loose_screen"]
+visible = false
+margin_left = 160.0
+margin_top = 208.0
+margin_right = 881.0
+margin_bottom = 379.0
+custom_colors/default_color = Color( 0.270588, 0.317647, 0.505882, 1 )
+custom_fonts/bold_font = SubResource( 26 )
+bbcode_enabled = true
+bbcode_text = "[b][wave amp=100 freq=2]FÖRLUST![/wave][/b]"
+text = "FÖRLUST!"
+
+[node name="vinnare" type="RichTextLabel" parent="Loose_screen"]
+visible = false
+margin_left = 278.095
+margin_top = 367.619
+margin_right = 876.095
+margin_bottom = 462.619
+custom_fonts/bold_font = SubResource( 28 )
+bbcode_enabled = true
+bbcode_text = "[b][wave amp=100 freq=2] _ vann![/wave][/b]"
+text = " _ vann!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Loose_screen"]
+anims/RESET = SubResource( 29 )
+anims/WIN = SubResource( 30 )
+
+[node name="Winscreen" parent="." instance=ExtResource( 18 )]
+visible = false
+margin_left = -32.8571
+margin_top = -31.4286
+margin_right = -32.8571
+margin_bottom = -31.4286
+rect_scale = Vector2( 1.5, 1.5 )
 
 [node name="Rutor" type="Sprite" parent="."]
 position = Vector2( 102.857, 652.857 )
@@ -583,6 +764,9 @@ offset = Vector2( -300.712, -142.022 )
 anims/Default = SubResource( 24 )
 anims/RESET = SubResource( 25 )
 
+[connection signal="game_over" from="." to="Player" method="_on_Btrace_game_over"]
+[connection signal="game_over" from="." to="Green_path/Green_followpath/Boat_green" method="_on_Btrace_game_over"]
+[connection signal="game_over" from="." to="Blue_path/Blue_followpath/Boat_blue" method="_on_Btrace_game_over"]
 [connection signal="ready_done" from="." to="Player" method="_on_Btrace_ready_done"]
 [connection signal="ready_done" from="." to="Green_path/Green_followpath/Boat_green" method="_on_Btrace_ready_done"]
 [connection signal="ready_done" from="." to="Blue_path/Blue_followpath/Boat_blue" method="_on_Btrace_ready_done"]
