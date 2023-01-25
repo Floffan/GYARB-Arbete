@@ -30,16 +30,6 @@ func _on_Skelett_NPC_detected():
 		
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
 		dialog_player.play_dialog(path, 0.05)
-		
-				
-func _minigame_menu(path):
-	var minigame_player = get_node_or_null("Camera2D/minigame_menu")
-	
-	if minigame_player:
-		minigame_player.play_minigame(path)
-	
-	
-	
 	
 	
 	

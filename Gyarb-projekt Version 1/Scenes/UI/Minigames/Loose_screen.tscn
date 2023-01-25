@@ -1,0 +1,241 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/winscreen_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/HUD/Winscreen.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=26]
+size = 110
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=28]
+extra_spacing_top = 30
+extra_spacing_char = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=30]
+resource_name = "LOOSE"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 512.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1024.0, 512.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FÖRLUST:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("vinnare:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Spela igen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("tillbaka:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 512.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect2:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1024.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect2:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 512.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FÖRLUST:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("vinnare:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Spela igen:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("tillbaka:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[node name="Loose_screen" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 0.462745, 0.188235, 0.823529, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.462745, 0.188235, 0.823529, 1 )
+
+[node name="FÖRLUST" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 160.0
+margin_top = 208.0
+margin_right = 881.0
+margin_bottom = 379.0
+custom_colors/default_color = Color( 0.270588, 0.317647, 0.505882, 1 )
+custom_fonts/bold_font = SubResource( 26 )
+bbcode_enabled = true
+bbcode_text = "[b][wave amp=100 freq=2]FÖRLUST![/wave][/b]"
+text = "FÖRLUST!"
+
+[node name="vinnare" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 218.571
+margin_top = 360.286
+margin_right = 816.571
+margin_bottom = 455.286
+custom_fonts/bold_font = SubResource( 28 )
+bbcode_enabled = true
+bbcode_text = "[b][wave amp=100 freq=2] Bättre lycka nästa gång![/wave][/b]"
+text = " Bättre lycka nästa gång!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LOOSE = SubResource( 30 )
+anims/RESET = SubResource( 29 )
+
+[node name="Spela igen" type="Button" parent="."]
+margin_left = 515.714
+margin_top = 452.857
+margin_right = 715.714
+margin_bottom = 492.857
+theme = ExtResource( 2 )
+text = "SPELA IGEN"
+
+[node name="tillbaka" type="Button" parent="."]
+margin_left = 268.571
+margin_top = 452.857
+margin_right = 468.571
+margin_bottom = 492.857
+text = "TILLBAKA"
+
+[connection signal="button_down" from="Spela igen" to="." method="_on_Spela_igen_button_down"]
+[connection signal="button_down" from="tillbaka" to="." method="_on_tillbaka_button_down"]

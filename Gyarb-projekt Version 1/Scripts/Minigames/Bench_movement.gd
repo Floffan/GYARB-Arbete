@@ -104,8 +104,7 @@ func _on_Ready_screen_ready_done():
 	ready_to_start = true
 	get_parent().get_node("Control/Information").visible = false
 	_draw_required_key()
-	get_parent().get_node("Ready_screen").visible = false
-	get_parent().remove_child($Ready_screen)
+	get_parent().get_node("Ready_screen").queue_free()
 
 
 func _on_Bench_scene_reset_lift():
@@ -115,3 +114,7 @@ func _on_Bench_scene_reset_lift():
 	_draw_required_key()
 	current_animation = "down"
 	failed_lift = false
+
+
+func _on_Bench_scene_game_over():
+	ready_to_start = false

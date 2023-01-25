@@ -5,7 +5,11 @@ var keys_hit_sucessfully = false
 
 onready var points_detector = $Bench_movement/Points_detector
 
+onready var w_screen = $Winscreen
+onready var l_screen = $Loose_screen
+
 signal reset_lift
+signal game_over
 
 var score_red_area = 20
 var score_yellow_area = 10
@@ -13,22 +17,43 @@ var minus_score = 10
 
 var scored = ""
 
+var health = 3
+var health_indicator = ["Heart1", "Heart2", "Heart3"]
 
 
 var score = 0
 
+func _ready():
+	w_screen.world_path = "res://Scenes/Stad/Gym.tscn"
+	w_screen.game_path = "res://Scenes/Minigames/Benchpress.tscn"
+	
+	l_screen.world_path = "res://Scenes/Stad/Gym.tscn"
+	l_screen.game_path = "res://Scenes/Minigames/Benchpress.tscn"
+
 func _process(delta):
+	for child in get_node("Health").get_children():
+		if health_indicator.has(str(child.name)):
+			child.visible = true
+		else:
+			child.visible = false
 	_check_raycasts()
+	if score >= 10:
+		game_won()
+	if health <= 0:
+		game_over()
 	keys_hit_sucessfully = false
 	_draw_score()
 
 func game_won():
-	$Bench_movement.ready_to_start = false
+	#$Bench_movement.ready_to_start = false
+	emit_signal("game_over")
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
 	
-
-
+func game_over():
+	emit_signal("game_over")
+	$Loose_screen.visible = true
+	$Loose_screen/AnimationPlayer.play("LOOSE")
 
 func _check_raycasts():
 	if points_detector.is_colliding():	
@@ -51,9 +76,6 @@ func _on_Bench_movement_keys_hit_sucessfully():
 		#	print("early")
 			#$Encouragement_screen/GREAT.bbcode_text = "[b][shake rate=5 level=10]TOO[/shake][/b]"
 			#$Encouragement_screen/plus_score.bbcode_text = "[b][shake rate=5]" + "EARLY!" + "[/shake][/b]"
-		if score >= 10:
-			game_won()
-			return
 		if scored == "red":
 			$Encouragement_screen/GREAT.bbcode_text = "[b][shake rate=5 level=10]GREAT![/shake][/b]"
 			$Encouragement_screen/plus_score.bbcode_text = "[b][shake rate=5]+" + str(score_red_area) + "[/shake][/b]"
@@ -67,6 +89,8 @@ func _on_Bench_movement_keys_hit_sucessfully():
 			$Encouragement_screen.visible = false
 
 func _on_Bench_movement_failed_lift():
+	health -= 1
+	health_indicator.erase(health_indicator[0])
 	score -= 10
 	$Failed_lift_screen.visible = true
 	$Failed_lift_screen/Explosion.emitting = true

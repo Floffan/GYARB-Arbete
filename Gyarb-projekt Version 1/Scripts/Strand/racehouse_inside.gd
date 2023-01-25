@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var minigame_path = "res://Scenes/Minigames/Boatrace.tscn"
+var going_out = false
 
 func _on_Skelett_NPC_detected():
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
@@ -16,3 +17,8 @@ func _on_Skelett_NPC_detected():
 	if minigame_player.menu_active:
 		minigame_player.play_minigame(minigame_path)
 
+
+
+func _on_Skelett_gate_detected():
+	Autoloads.Position = "strand_Racehouse"
+	Transition.load_scene("res://Scenes/Strand/Strand.tscn")

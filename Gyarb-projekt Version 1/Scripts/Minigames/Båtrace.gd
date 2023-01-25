@@ -1,11 +1,11 @@
 extends Node2D
-"""
-Ska man göra spelet svårare kanske? hur? en bränsletank kanske? lägga till Hajar?
-"""
 
 """
 Vilken båt det är : [Laps, Om båten har passerat checkpointen]
 """
+
+onready var w_screen = $Winscreen
+onready var l_screen = $Loose_screen
 
 onready var Boats = {
 	"Boat_blue": [0, false],
@@ -17,8 +17,17 @@ onready var laps_p = $LAPS/Panel/VBoxContainer/Player/Laps_P # Laps Player
 onready var laps_g = $LAPS/Panel/VBoxContainer/Green/Laps_G # Laps Gröna båten
 onready var laps_b = $LAPS/Panel/VBoxContainer/Blue/Laps_B # Laps Blåa båten
 
+var win_laps = 5
+
 signal ready_done
 signal game_over
+
+func _ready():
+	w_screen.game_path = "res://Scenes/Minigames/Boatrace.tscn"
+	w_screen.world_path = "res://Scenes/Strand/racehouse_inside.tscn"
+	
+	l_screen.game_path = "res://Scenes/Minigames/Boatrace.tscn"
+	l_screen.world_path = "res://Scenes/Strand/racehouse_inside.tscn"
 
 func _process(delta: float) -> void:
 	$Havet/Lager1.motion_offset.x += -50*delta
@@ -26,17 +35,17 @@ func _process(delta: float) -> void:
 
 func _win_screen(Boat):
 	emit_signal("game_over")
-	$Winscreen.visible = true
+	w_screen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
 	
 func _loose_screen(Boat):
 	emit_signal("game_over")
 	if str(Boat) == "Boat_blue":
-		$Loose_screen/vinnare.bbcode_text = "[b][wave amp=100 freq=2] Den blåa båten vann![/wave][/b]"
+		$Loose_screen/vinnare.bbcode_text = "[b][wave amp=100 freq=2]    Den blåa båten vann![/wave][/b]"
 	else:
-		$Loose_screen/vinnare.bbcode_text = "[b][wave amp=100 freq=2] Den gröna båten vann![/wave][/b]"
+		$Loose_screen/vinnare.bbcode_text = "[b][wave amp=100 freq=2]    Den gröna båten vann![/wave][/b]"
 	$Loose_screen.visible = true
-	$Loose_screen/AnimationPlayer.play("WIN")
+	$Loose_screen/AnimationPlayer.play("LOOSE")
 		
 func _update_scoreboard(Boat):
 	if Boat == "Player":
@@ -63,7 +72,7 @@ func _on_Goal_body_exited(body):
 			Boats[str(Boat)][1] == false
 			_update_scoreboard(Boat)
 			
-			if Boats[str(Boat)][0] == 1: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
+			if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
 				if str(Boat) == "Player":
 					_win_screen(Boat)
 				else:
