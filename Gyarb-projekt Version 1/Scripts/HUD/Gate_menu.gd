@@ -15,9 +15,9 @@ func on_walkout(position_in_new_world, path, heading):
 	if walking_out == false:
 		return false
 	if heading == "in":
-		$Heading.text = "Walk in?"
+		$Heading.text = "Gå in?"
 	if heading == "here":
-		$Heading.text = "Go here?"
+		$Heading.text = "Gå hit?"
 	
 	self.visible = true
 	if walking_out == true:

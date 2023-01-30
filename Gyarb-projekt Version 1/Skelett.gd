@@ -158,8 +158,30 @@ func _check_raycasts():
 	if $NPC_detector.is_colliding():
 		emit_signal("NPC_detected")
 		#print($NPC_detector.get_collider().name)
+		
+func _check_case():
+	"""
+	Fixa snyggare lol
+	"""
+	if Autoloads.have_briefcase:
+		$polygons_bak/case.visible = true
+		$polygons_fram/case.visible = true
+		$polygons_sidan/case.visible = true
+		
+		$polygons_bak/vante_v.visible = false
+		$polygons_fram/vante_v.visible = false
+		$polygons_sidan/vante_v.visible = false
+	else:
+		$polygons_bak/vante_v.visible = true
+		$polygons_fram/vante_v.visible = true
+		$polygons_sidan/vante_v.visible = true
+		
+		$polygons_bak/case.visible = false
+		$polygons_fram/case.visible = false
+		$polygons_sidan/case.visible = false
 	
 func _physics_process(_delta):
+	_check_case()
 	get_input()
 	_check_raycasts()
 	

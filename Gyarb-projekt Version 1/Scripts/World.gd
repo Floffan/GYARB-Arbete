@@ -10,8 +10,8 @@ func _ready():
 func _get_position() -> void:
 	if skelett_position == "main_Spawn":
 		$YSort/Skelett.position = $Positioner/main_Spawn.position
-	if skelett_position == "main_Gym":
-		$YSort/Skelett.position = $Positioner/main_Gym.position
+	if skelett_position == "main_Hedge":
+		$YSort/Skelett.position = $Positioner/main_Hedge.position
 	if skelett_position == "main_Strand":
 		$YSort/Skelett.position = $Positioner/main_Strand.position
 	if skelett_position == "main_Berg":
@@ -22,6 +22,8 @@ func _get_position() -> void:
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Dwelling":
 		_open_gate_menu("main_Dwelling","res://Scenes/Main/Dwelling.tscn" , "in")
+	if Autoloads.Gate_collider == "gate_Hedge":
+		_open_gate_menu("main_Hedge","res://Scenes/Main/Hedge.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Berg":
 		Autoloads.Position = "berg_Main"
 		Transition.load_scene("res://Scenes/Berg/Berg.tscn")

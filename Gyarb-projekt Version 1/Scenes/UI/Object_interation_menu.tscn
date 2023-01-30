@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=1]
-[ext_resource path="res://Scripts/HUD/Gate_menu.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/HUD/Object_interation_menu.gd" type="Script" id=2]
 
-[node name="Gate_menu" type="Control"]
+[node name="Object_interation_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 344, 352 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -16,7 +15,7 @@ margin_top = 416.0
 margin_right = 742.0
 margin_bottom = 552.0
 
-[node name="Heading" type="RichTextLabel" parent="."]
+[node name="Question" type="RichTextLabel" parent="."]
 margin_left = 280.0
 margin_top = 424.0
 margin_right = 739.0
@@ -43,4 +42,4 @@ margin_bottom = 72.0
 text = "NEJ"
 
 [connection signal="button_down" from="HSplitContainer/YES" to="." method="_on_YES_button_down"]
-[connection signal="button_up" from="HSplitContainer/NO" to="." method="_on_NO_button_up"]
+[connection signal="button_down" from="HSplitContainer/NO" to="." method="_on_NO_button_down"]
