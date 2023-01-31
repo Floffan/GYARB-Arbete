@@ -8,9 +8,9 @@ onready var w_screen = $Winscreen
 onready var l_screen = $Loose_screen
 
 onready var Boats = {
-	"Boat_blue": [0, false],
-	"Boat_green": [0, false],
-	"Player": [0, false],
+	"Boat_blue": [0, 0, 0, 0],
+	"Boat_green": [0, 0, 0, 0],
+	"Player": [0, 0, 0, 0],
 }
 
 onready var laps_p = $LAPS/Panel/VBoxContainer/Player/Laps_P # Laps Player
@@ -67,6 +67,22 @@ func _on_Goal_body_exited(body):
 	var boat_just_passed = body.name
 	
 	for Boat in Boats.keys():
+		if boat_just_passed == Boat:
+			if Boats[str(Boat)][1] == 1:
+				print("OK")
+			#print(Boats[str(Boat)][1])
+			print(Boats[str(Boat)][2])
+			print(Boats[str(Boat)][3])
+	#		if Boats[Boat][1] == "1":
+	#			print("OK")
+	#		for i in range(1, 4):
+	#			if Boats[str(Boat)][i] == i:
+	#				print("OK")
+				
+	
+	"""
+	for Boat in Boats.keys():
+		
 		if boat_just_passed == Boat and Boats[str(Boat)][1] == true:
 			Boats[str(Boat)][0] += 1
 			Boats[str(Boat)][1] == false
@@ -77,13 +93,7 @@ func _on_Goal_body_exited(body):
 					_win_screen(Boat)
 				else:
 					_loose_screen(Boat)
-
-func _on_Checkpoint_body_exited(body):
-	var boat_just_passed = body.name
-	
-	for Boat in Boats.keys():
-		if boat_just_passed == Boat:
-			Boats[str(Boat)][1] = true
+	"""
 
 func _on_Ready_screen_ready_done():
 	$Ready_screen.rect_position.x += 20
@@ -93,3 +103,24 @@ func _on_Ready_screen_ready_done():
 	#remove_child($Ready_screen) # varför tar detta inte bort den från scenträdet:(
 	
 	
+func _checkpoint(body, nr):
+	var boat_just_passed = body.name
+	
+	for Boat in Boats.keys():
+		if boat_just_passed == Boat:
+			Boats[str(Boat)][nr] = str(nr)
+			
+		if Boat == "Player":
+			pass
+			#print(Boats[str(Boat)])
+
+func _on_Checkpoint1_body_exited(body: Node) -> void:
+	_checkpoint(body, 1)
+
+
+func _on_Checkpoint2_body_exited(body: Node) -> void:
+	_checkpoint(body, 2)
+
+
+func _on_Checkpoint3_body_exited(body: Node) -> void:
+	_checkpoint(body, 3)

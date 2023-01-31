@@ -9,7 +9,7 @@ var NPC_collider = ""
 #var keys = ["key_grotta"]
 var keys = []
 
-var have_briefcase = false
+var have_briefcase = true
 
 func _process(_delta):
 	if Input.is_action_pressed("Escape"):
