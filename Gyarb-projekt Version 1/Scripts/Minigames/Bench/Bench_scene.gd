@@ -2,6 +2,7 @@ extends Node2D
 
 
 var keys_hit_sucessfully = false
+var lift_failed = false
 
 onready var points_detector = $Bench_movement/Points_detector
 
@@ -14,6 +15,8 @@ signal game_over
 var score_red_area = 20
 var score_yellow_area = 10
 var minus_score = 10
+
+var goal_score = 10
 
 var scored = ""
 
@@ -37,10 +40,11 @@ func _process(delta):
 		else:
 			child.visible = false
 	_check_raycasts()
-	if score >= 10:
+	if score >= goal_score and keys_hit_sucessfully:
 		game_won()
-	if health <= 0:
+	if health <= 0 and lift_failed:
 		game_over()
+	lift_failed = false
 	keys_hit_sucessfully = false
 	_draw_score()
 
@@ -92,6 +96,7 @@ func _on_Bench_movement_failed_lift():
 	health -= 1
 	health_indicator.erase(health_indicator[0])
 	score -= 10
+	lift_failed = true
 	$Failed_lift_screen.visible = true
 	$Failed_lift_screen/Explosion.emitting = true
 	yield(get_tree().create_timer(1), "timeout")

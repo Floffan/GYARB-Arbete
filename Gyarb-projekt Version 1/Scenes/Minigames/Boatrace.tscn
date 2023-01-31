@@ -259,7 +259,6 @@ modulate = Color( 0.533333, 0.627451, 0.639216, 1 )
 position = Vector2( 698.616, 431.996 )
 frames = SubResource( 8 )
 animation = "Vågor"
-frame = 2
 playing = true
 
 [node name="Island" type="StaticBody2D" parent="."]

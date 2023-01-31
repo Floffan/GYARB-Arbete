@@ -32,12 +32,12 @@ margin_bottom = 536.0
 split_offset = 150
 
 [node name="YES" type="Button" parent="HSplitContainer"]
-margin_right = 189.0
+margin_right = 210.0
 margin_bottom = 72.0
 text = "JA"
 
 [node name="NO" type="Button" parent="HSplitContainer"]
-margin_left = 201.0
+margin_left = 230.0
 margin_right = 448.0
 margin_bottom = 72.0
 text = "NEJ"

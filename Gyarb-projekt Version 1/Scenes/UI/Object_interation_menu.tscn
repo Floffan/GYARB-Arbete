@@ -21,7 +21,7 @@ margin_top = 424.0
 margin_right = 739.0
 margin_bottom = 464.0
 bbcode_enabled = true
-text = "Gå ut?"
+text = "Interagera?"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 margin_left = 280.0

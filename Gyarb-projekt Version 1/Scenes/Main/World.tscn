@@ -47,9 +47,11 @@ position = Vector2( 0, -212.857 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="gate_Hedge"]
+modulate = Color( 0.211765, 0.615686, 0.45098, 1 )
 texture = ExtResource( 3 )
 
 [node name="Mörkret_gate" parent="." instance=ExtResource( 5 )]
+modulate = Color( 0.0117647, 0.25098, 0.152941, 1 )
 position = Vector2( 1314, -301 )
 
 [node name="gate_Dwelling" type="Area2D" parent="."]

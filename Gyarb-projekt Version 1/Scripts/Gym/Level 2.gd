@@ -35,6 +35,8 @@ func _on_Skelett_NPC_detected():
 		dialog_player.play_dialog(path, 0.05)
 		minigame_player.menu_active = true
 		
-	if minigame_player.menu_active:
+	if minigame_player.menu_active and collider == "Polack_padda":
 		minigame_player.play_minigame(minigame_path)
+	else:
+		minigame_player.menu_active = false
 			

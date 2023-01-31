@@ -1663,7 +1663,7 @@ custom_colors/default_color = Color( 0.027451, 0.384314, 0.333333, 1 )
 custom_fonts/bold_font = SubResource( 72 )
 bbcode_enabled = true
 bbcode_text = "[b]The arrows will appear here![/b]"
-text = "Pilar här!"
+text = "The arrows will appear here!"
 
 [node name="Scoretext" type="Label" parent="."]
 modulate = Color( 0.639216, 0.568627, 0.427451, 1 )
@@ -1679,22 +1679,6 @@ margin_left = 186.0
 margin_top = 55.3333
 margin_right = 186.0
 margin_bottom = 55.3333
-
-[node name="Winscreen" parent="." instance=ExtResource( 17 )]
-visible = false
-margin_left = 338.0
-margin_top = 150.667
-margin_right = 338.0
-margin_bottom = 150.667
-rect_scale = Vector2( 0.7, 0.7 )
-
-[node name="Loose_screen" parent="." instance=ExtResource( 18 )]
-visible = false
-margin_left = 338.0
-margin_top = 150.667
-margin_right = 378.0
-margin_bottom = 190.667
-rect_scale = Vector2( 0.7, 0.7 )
 
 [node name="Failed_lift_screen" type="Control" parent="."]
 visible = false
@@ -1760,6 +1744,22 @@ custom_fonts/bold_font = SubResource( 74 )
 bbcode_enabled = true
 bbcode_text = "[b][shake rate=5 level=10]-[/shake][/b]"
 text = "-"
+
+[node name="Winscreen" parent="." instance=ExtResource( 17 )]
+visible = false
+margin_left = 338.0
+margin_top = 150.667
+margin_right = 338.0
+margin_bottom = 150.667
+rect_scale = Vector2( 0.7, 0.7 )
+
+[node name="Loose_screen" parent="." instance=ExtResource( 18 )]
+visible = false
+margin_left = 338.0
+margin_top = 150.667
+margin_right = 378.0
+margin_bottom = 190.667
+rect_scale = Vector2( 0.7, 0.7 )
 
 [node name="Health" type="Control" parent="."]
 margin_left = 927.333
