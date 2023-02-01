@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -9,10 +9,12 @@
 [ext_resource path="res://Pics/Mapbuilding/berg/bakgrund/berg_bak.png" type="Texture" id=7]
 [ext_resource path="res://Pics/Mapbuilding/berg/bakgrund/berg_background_berg.png" type="Texture" id=8]
 [ext_resource path="res://Pics/Mapbuilding/berg/bakgrund/berg_mitt.png" type="Texture" id=9]
+[ext_resource path="res://Pics/Mapbuilding/Generellt/rabatt.png" type="Texture" id=10]
 [ext_resource path="res://Pics/Mapbuilding/Stad/tilemaps/street_tilemap.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/Worldbuilding/Tree2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Scripts/Stad/Stad.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=15]
 
 [sub_resource type="TileSet" id=3]
 0/name = "street_tilemap.png 0"
@@ -176,6 +178,9 @@ extents = Vector2( 241, 381 )
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 82, 5.25 )
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 128, 47.5 )
+
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 37, 119.5 )
 
@@ -273,7 +278,7 @@ color = Color( 0.870588, 0.635294, 0.184314, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Skelett" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 1510, 586 )
+position = Vector2( -433, 184 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Hus" type="StaticBody2D" parent="YSort"]
@@ -330,6 +335,18 @@ shape = SubResource( 13 )
 visible = false
 position = Vector2( 1616, 166 )
 shape = SubResource( 14 )
+
+[node name="col_rabatt" type="CollisionShape2D" parent="YSort/Hus"]
+position = Vector2( -607, 194.5 )
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Hus"]
+modulate = Color( 0.901961, 0.945098, 0.890196, 1 )
+position = Vector2( -607, 216 )
+texture = ExtResource( 10 )
+
+[node name="Blomma_red" parent="YSort/Hus/Sprite" instance=ExtResource( 15 )]
+position = Vector2( 5, -208 )
 
 [node name="Bussskylt" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 2840, 99 )
@@ -416,5 +433,9 @@ position = Vector2( 1435, 166 )
 [node name="stad_Berg" type="Position2D" parent="Positioner"]
 position = Vector2( 3573, 166 )
 
+[connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
+[connection signal="pick_up" from="Camera2D/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+
+[editable path="Camera2D"]

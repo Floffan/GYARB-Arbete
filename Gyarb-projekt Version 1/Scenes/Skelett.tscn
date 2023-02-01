@@ -5411,6 +5411,15 @@ collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="Interact_detector" type="RayCast2D" parent="."]
+position = Vector2( -1, 111 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 100 )
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="Havet_viewport" parent="." instance=ExtResource( 7 )]
 visible = false
 margin_top = 328.0

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal gate_detected
 signal NPC_detected
+signal Interaction_detected
 
 var speed = 700
 
@@ -158,6 +159,8 @@ func _check_raycasts():
 	if $NPC_detector.is_colliding():
 		emit_signal("NPC_detected")
 		#print($NPC_detector.get_collider().name)
+	if $Interact_detector.is_colliding():
+		emit_signal("Interaction_detected")
 		
 func _check_case():
 	"""
@@ -191,8 +194,14 @@ func _physics_process(_delta):
 	
 	if direction[0] == "left": # if-satsen ser till att spelaren kan upptäcka NPC:s om de står vända mot dem
 		$NPC_detector.rotation_degrees = 90
+		$Interact_detector.rotation_degrees = 90
 	if direction[0] == "right":
 		$NPC_detector.rotation_degrees = -90
+		$Interact_detector.rotation_degrees = -90
+	if direction[1] == "up":
+		$Interact_detector.rotation_degrees = -180
+	if direction[1] == "up":
+		$Interact_detector.rotation_degrees = 180
 
 
 

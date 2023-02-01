@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scenes/Worldbuilding/Green_walls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Pics/Mapbuilding/Generellt/fågel.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/Fågel.gd" type="Script" id=20]
 [ext_resource path="res://Pics/Mapbuilding/berg/lås.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=22]
 
 [sub_resource type="TileSet" id=75]
 0/name = "gräs.png 0"
@@ -464,6 +465,9 @@ texture = ExtResource( 21 )
 
 [node name="YSort" type="YSort" parent="."]
 
+[node name="Blomma_red" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 4762, 1921 )
+
 [node name="Skelett" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 560, 321 )
 scale = Vector2( 0.5, 0.5 )
@@ -584,7 +588,11 @@ script = ExtResource( 20 )
 
 [node name="Fågel" type="AnimatedSprite" parent="Fågel_path/Fågel"]
 frames = SubResource( 90 )
-frame = 1
+frame = 2
 playing = true
 
+[connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
+[connection signal="pick_up" from="Camera2D/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+
+[editable path="Camera2D"]

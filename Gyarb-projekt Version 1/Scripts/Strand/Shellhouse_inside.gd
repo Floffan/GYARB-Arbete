@@ -24,7 +24,12 @@ func _on_Skelett_gate_detected():
 	
 
 func _on_Skelett_NPC_detected():
-	var path = "res://Dialog/Strand/Fishman_dia.json"
+	var path = ""
+	if Autoloads.flowers == 3:
+		path = "res://Dialog/Strand/Fishman_dia.json" # Annan dialog om det finns 3 blommor
+	else:
+		path = "res://Dialog/Strand/Fishman_dia.json"
+	
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
 	var dialog_player = get_node("Camera2D/Dialog")
 		
