@@ -63,16 +63,49 @@ func _update_scoreboard(Boat):
 		yield(get_tree().create_timer(1.5), "timeout")
 		laps_b.bbcode_text = "[b]" + str(Boats[str(Boat)][0]) + "[/b]"
 
+func _clear_checkpoints(Boat):
+	for i in range(1, 4):
+		Boats[str(Boat)][i] = 0
+		
+	if Boat == "Player":
+		print(Boats[str(Boat)])
+		
+	
 func _on_Goal_body_exited(body):
 	var boat_just_passed = body.name
 	
 	for Boat in Boats.keys():
+		var checkpoints = false
 		if boat_just_passed == Boat:
-			if Boats[str(Boat)][1] == 1:
-				print("OK")
+			for i in range(1, 4):
+				if int(Boats[str(Boat)][i]) == int(i):
+					checkpoints = true
+					print("jippie")
+				else:
+					checkpoints = false
+					print("nej:(")
+			if checkpoints == true:
+				Boats[str(Boat)][0] += 1
+				_update_scoreboard(Boat)
+				_clear_checkpoints(Boat)
+				checkpoints = false
+				
+				if Boat == "Player":
+					pass
+					#print(Boats[str(Boat)])
+					#print(checkpoints)
+				
+					
+				if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
+					if str(Boat) == "Player":
+						_win_screen(Boat)
+					else:
+						_loose_screen(Boat)
+				
+				
 			#print(Boats[str(Boat)][1])
-			print(Boats[str(Boat)][2])
-			print(Boats[str(Boat)][3])
+			#print(Boats[str(Boat)][2])
+			#print(Boats[str(Boat)][3])
 	#		if Boats[Boat][1] == "1":
 	#			print("OK")
 	#		for i in range(1, 4):
@@ -110,17 +143,26 @@ func _checkpoint(body, nr):
 		if boat_just_passed == Boat:
 			Boats[str(Boat)][nr] = str(nr)
 			
-		if Boat == "Player":
-			pass
-			#print(Boats[str(Boat)])
 
 func _on_Checkpoint1_body_exited(body: Node) -> void:
 	_checkpoint(body, 1)
+	var Boat = body.name
+	if Boat == "Player":
+		pass
+		#print(Boats[str(Boat)])
 
 
 func _on_Checkpoint2_body_exited(body: Node) -> void:
 	_checkpoint(body, 2)
+	var Boat = body.name
+	if Boat == "Player":
+		pass
+		#print(Boats[str(Boat)])
 
 
 func _on_Checkpoint3_body_exited(body: Node) -> void:
 	_checkpoint(body, 3)
+	var Boat = body.name
+	if Boat == "Player":
+		pass
+		#print(Boats[str(Boat)])
