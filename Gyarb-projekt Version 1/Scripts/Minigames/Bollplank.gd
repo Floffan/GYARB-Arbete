@@ -32,6 +32,8 @@ var function_running = true
 var hole_horizontal = []
 var hole_vertical = [] 
 
+var current_hole
+
 onready var holes = {
 	"Area_1" : $Areor_holes/Area_1,
 	"Area_2" : $Areor_holes/Area_2,
@@ -45,6 +47,15 @@ var closed_holes = []
 
 var time_for_next = false
 
+var run_game = false
+
+func _ready():
+	$Winscreen.game_path = "res://Scenes/Minigames/Bollplank.tscn"
+	$Winscreen.world_path = "res://Scenes/Berg/Grotta.tscn"
+	
+	$Loose_screen.game_path = "res://Scenes/Minigames/Bollplank.tscn"
+	$Loose_screen.world_path = "res://Scenes/Berg/Grotta.tscn"
+	run_game = true
 
 func _get_input():
 	if time_for_next == true and Input.is_action_just_pressed("Stop"):
@@ -77,8 +88,12 @@ func _get_input():
 		print(hole_horizontal)
 			
 func _process(delta):
-	_get_input()
-	_sight_position()
+	if run_game:
+		_get_input()
+		_sight_position()
+		
+		if len(closed_holes) == 6:
+			win_screen()
 	
 	if time_for_next == false and function_running == false: # Följande kod körs bara när båda pilarna har körts
 		if len(hole_vertical) > 0: # Följande statements körs inte när man missar alla vertikala hål; detta för att spelet ej ska krasha när den försöker söka efter hole_vertical[[0]
@@ -90,22 +105,20 @@ func _process(delta):
 				_set_new_run()
 		else: # Om inget matchande hål har påträffats händer ingenting, och variablerna resettas för att kunna spela igen.
 			_set_new_run()
-			
+				
 func _close_hole(hole):
 	var position_hole
-	if len(closed_holes) == 6:
-		win_screen()
 		
 	position_hole = holes[str(hole)].position
 	_kick_ball(position_hole)
 		
 	if closed_holes.has(hole) != true:
 		closed_holes.append(hole)
-		$Areor_holes/AnimationPlayer.play(hole)
+		current_hole = hole
+		#$Areor_holes/AnimationPlayer.play(hole)
 
 	print("closed holes:")
 	print(closed_holes)
-
 
 	_set_new_run()
 	
@@ -113,9 +126,16 @@ func _kick_ball(position_hole):
 	"""
 	Här 
 	"""
-	$Ball.position = position_hole
+	#_tween()
+	#$Ball.position = position_hole
 	
 	#draw_line($Ball.position, position_hole, 255,255,255)
+	
+	var tween = get_node("Tween")
+	tween.interpolate_property($Ball, "position",
+	Vector2($Ball_pos.position), Vector2(position_hole), 0.4,
+	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
 	
 func _set_new_run():
 	"""
@@ -127,16 +147,21 @@ func _set_new_run():
 	hole_horizontal.clear()
 		
 func _physics_process(delta):
-	if function_running:
-		_move_along_path(delta, path_follow_horizontal)
-	if time_for_next:
-		_move_along_path(delta, path_follow_vertical)
+	if run_game:
+		if function_running:
+			_move_along_path(delta, path_follow_horizontal)
+		if time_for_next:
+			_move_along_path(delta, path_follow_vertical)
 		
 func win_screen():
-	"""
-	Här 
-	"""
-	pass
+	run_game = false
+	$Winscreen.visible = true
+	$Winscreen/AnimationPlayer.play("WIN")
+
+func loose_screen():
+	run_game = false
+	$Loose_screen.visible = true
+	$Loose_screen/AnimationPlayer.play("LOOSE")
 		
 func _sight_position():
 	if function_running == true:
@@ -147,3 +172,8 @@ func _sight_position():
 	
 func _move_along_path(delta, path):
 	path.set_offset(path.get_offset() + speed + delta)
+
+func _on_Tween_tween_completed(object, key):
+	yield(get_tree().create_timer(0.3), "timeout")
+	$Areor_holes/AnimationPlayer.play(current_hole)
+	$Ball.position = $Ball_pos.position
