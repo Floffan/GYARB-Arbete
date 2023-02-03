@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Pics/Minigames/Bollplank/bollplank.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Minigames/Bollplank/indikator_bollplank.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Pics/Minigames/Bollplank/sight.png" type="Texture" id=7]
 [ext_resource path="res://Pics/Mapbuilding/berg/sten_stor.png" type="Texture" id=8]
 [ext_resource path="res://Pics/Mapbuilding/berg/sten2.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/UI/Minigames/Loose_screen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/Minigames/Ready_screen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/UI/Minigames/Winscreen.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 74.3303
@@ -210,11 +213,6 @@ extents = Vector2( 6, 8.5 )
 [sub_resource type="Curve2D" id=8]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -325, -185, 0, 0, 0, 0, -325, 191, 0, 0, 0, 0, -325, -185, 0, 0, 0, 0, -325, -185, 0, 0, 0, 0, -325, -186 )
-}
-
-[sub_resource type="Curve2D" id=17]
-_data = {
-"points": PoolVector2Array(  )
 }
 
 [node name="Bollplank" type="Node2D"]
@@ -477,12 +475,35 @@ position = Vector2( -288, -219 )
 [node name="Start_vertical" type="Position2D" parent="."]
 position = Vector2( -321, -185 )
 
+[node name="Ball_pos" type="Position2D" parent="."]
+position = Vector2( -12, 257 )
+
 [node name="Ball" type="Sprite" parent="."]
-position = Vector2( -12, 256 )
+position = Vector2( -12, 257 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
 
-[node name="Ball_path" type="Path2D" parent="."]
-curve = SubResource( 17 )
+[node name="Tween" type="Tween" parent="."]
 
-[node name="Ball" type="PathFollow2D" parent="Ball_path"]
+[node name="Loose_screen" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_left = -488.0
+margin_top = -298.0
+margin_right = -448.0
+margin_bottom = -258.0
+
+[node name="Winscreen" parent="." instance=ExtResource( 12 )]
+visible = false
+margin_left = -488.0
+margin_top = -298.0
+margin_right = -488.0
+margin_bottom = -298.0
+
+[node name="Ready_screen" parent="." instance=ExtResource( 11 )]
+visible = false
+margin_left = -416.0
+margin_top = -270.0
+margin_right = -416.0
+margin_bottom = -270.0
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/UI/Object_interation_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/Info.tscn" type="PackedScene" id=2]
+
+[node name="Cutscene_camera" type="Camera2D"]
+
+[node name="Object_interation_menu" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_left = -495.0
+margin_top = -268.0
+margin_right = -495.0
+margin_bottom = -268.0
+
+[node name="Info" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = -495.0
+margin_top = -268.0
+margin_right = -495.0
+margin_bottom = -268.0
