@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Pics/Cutscenes/briefcase_top.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/UI/Cutscene_camera.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Pics/Cutscenes/knapp.png" type="Texture" id=10]
 [ext_resource path="res://Pics/Cutscenes/knapp_dark.png" type="Texture" id=11]
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Scenes/UI/esc_kryss.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -156,6 +157,7 @@ texture = ExtResource( 6 )
 [node name="fjäril_blå" parent="Leaves" instance=ExtResource( 8 )]
 position = Vector2( 384, 48 )
 scale = Vector2( 4, 4 )
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Leaves"]
 anims/Default = SubResource( 1 )
@@ -237,7 +239,14 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "0"
 
+[node name="ESC" parent="." instance=ExtResource( 13 )]
+margin_left = 470.0
+margin_top = -290.0
+margin_right = 502.0
+margin_bottom = -258.0
+
 [connection signal="button_up" from="TextureButton1" to="." method="_on_TextureButton1_button_up"]
 [connection signal="toggled" from="TextureButton1" to="." method="_on_TextureButton1_toggled"]
 [connection signal="button_up" from="TextureButton2" to="." method="_on_TextureButton2_button_up"]
 [connection signal="toggled" from="TextureButton2" to="." method="_on_TextureButton2_toggled"]
+[connection signal="button_down" from="ESC" to="." method="_on_ESC_button_down"]

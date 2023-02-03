@@ -6,12 +6,14 @@ var button_2_pressed = false
 var info1 = "Skriv in den fyrsiffriga koden..."
 var info2 = "Fel kod! Kom tillbaks när du listat ut koden..."
 
-var code = {
-	$number_green : 0,
-	$number_blue : 0,
-	$number_yellow : 0,
-	$number_pink : 0
+var code_dic = {
+	1 : $number_green,
+	2 : $number_blue,
+	3 : $number_yellow,
+	4 : $number_pink
 	}
+	
+var code_list = []
 	
 var correct_code = [0, 7, 1 , 0]
 var putting_code = true
@@ -27,6 +29,7 @@ func _process(delta):
 	
 func _ready():
 	$Cutscene_camera/Info.display_info(info1)
+	$ESC.visible = false
 
 func _get_code():
 	#if Input.is_action_just_pressed("ui_accept"):
@@ -35,17 +38,35 @@ func _get_code():
 		for i in range(10):
 			if Input.is_action_just_pressed("ui_"+str(i)):
 				
-				code.append(i)
-				
+				code_list.append(i)
 				num += 1
-	
+				#print(num)
+				
+				#Varför funkar inte detta :(
+				#$number_green.text = str(num)
+				#code_dic[num].text = str(i)
+				#print(code_dic[num])
+				
+				#"""
+				if num == 1:
+					$number_green.text = str(i)
+				if num == 2:
+					$number_blue.text = str(i)
+				if num == 3:
+					$number_yellow.text = str(i)
+				if num == 4:
+					$number_pink.text = str(i)
+				#"""
+				#print(code_dic[1])
+		
 	if num == 4:
 		putting_code = false
-		if _check_code(code):
+		if _check_code(code_list):
 			print("JIPPIE")
 		else:
 			$Cutscene_camera/Info.display_info(info2)
-		code.clear()
+		$ESC.visible = true
+		code_list.clear()
 		
 func _check_code(code):
 	if code == correct_code:
@@ -65,3 +86,8 @@ func _on_TextureButton1_button_up():
 
 func _on_TextureButton2_button_up():
 	button_2_pressed = false
+
+
+func _on_ESC_button_down():
+	Autoloads.Position = "main_Spawn"
+	Transition.load_scene("res://Scenes/Main/World.tscn")

@@ -163,7 +163,7 @@ position = Vector2( 1792, 70 )
 position = Vector2( 3477, 109 )
 
 [node name="main_Spawn" type="Position2D" parent="Positioner"]
-position = Vector2( -3091, 708 )
+position = Vector2( -3298, 597 )
 
 [node name="main_Strand" type="Position2D" parent="Positioner"]
 position = Vector2( 4786, 1289 )

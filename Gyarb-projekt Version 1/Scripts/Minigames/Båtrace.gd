@@ -80,10 +80,10 @@ func _on_Goal_body_exited(body):
 			for i in range(1, 4):
 				if int(Boats[str(Boat)][i]) == int(i):
 					checkpoints = true
-					print("jippie")
+					#print("jippie")
 				else:
 					checkpoints = false
-					print("nej:(")
+					#print("nej:(")
 			if checkpoints == true:
 				Boats[str(Boat)][0] += 1
 				_update_scoreboard(Boat)
