@@ -156,7 +156,6 @@ texture = ExtResource( 6 )
 [node name="fjäril_blå" parent="Leaves" instance=ExtResource( 8 )]
 position = Vector2( 384, 48 )
 scale = Vector2( 4, 4 )
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Leaves"]
 anims/Default = SubResource( 1 )

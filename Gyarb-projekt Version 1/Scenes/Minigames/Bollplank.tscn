@@ -478,6 +478,8 @@ position = Vector2( -321, -185 )
 [node name="Ball_pos" type="Position2D" parent="."]
 position = Vector2( -12, 257 )
 
+[node name="Game_timer" type="Timer" parent="."]
+
 [node name="Ball" type="Sprite" parent="."]
 position = Vector2( -12, 257 )
 scale = Vector2( 0.4, 0.4 )

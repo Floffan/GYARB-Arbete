@@ -34,6 +34,7 @@ func _get_code():
 	if putting_code:
 		for i in range(10):
 			if Input.is_action_just_pressed("ui_"+str(i)):
+				
 				code.append(i)
 				
 				num += 1

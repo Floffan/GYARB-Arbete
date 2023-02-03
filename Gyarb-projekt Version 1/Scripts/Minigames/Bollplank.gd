@@ -25,14 +25,15 @@ KVAR ATT GÖRA:
 	Hitta ett sätt för pilarna att gå tillbaka till startpositionen när en omgång är klar
 	"""
 
-export var speed = 5
+export var speed = 7
 
 var function_running = true
 
 var hole_horizontal = []
 var hole_vertical = [] 
 
-var current_hole
+# Hålets namn, om ett hål har träffats eller inte
+var current_hole = ["hole", false]
 
 onready var holes = {
 	"Area_1" : $Areor_holes/Area_1,
@@ -62,14 +63,14 @@ func _get_input():
 		time_for_next = false
 		#print(raycast_vertical_1.get_collider())
 		if raycast_vertical_1.is_colliding(): # Om en av dem kolliderar betyder det att båda kolliderar
-			hole_vertical.append(raycast_vertical_1.get_collider().name)
+			if hole_vertical.has(raycast_vertical_1.get_collider().name) != true:
+				hole_vertical.append(raycast_vertical_1.get_collider().name)
 			
-		
 			if hole_vertical.has(raycast_vertical_2.get_collider().name) != true:
 				hole_vertical.append(raycast_vertical_2.get_collider().name)
 				
-		print("vertical:")
-		print(hole_vertical)
+	#	print("vertical:")
+	#	print(hole_vertical)
 			
 		return
 			
@@ -84,8 +85,8 @@ func _get_input():
 			if hole_horizontal.has(raycast_horizontal_2.get_collider().name) != true: 
 				hole_horizontal.append(raycast_horizontal_2.get_collider().name)
 			
-		print("horizontal:")
-		print(hole_horizontal)
+	#	print("horizontal:")
+	#	print(hole_horizontal)
 			
 func _process(delta):
 	if run_game:
@@ -96,14 +97,23 @@ func _process(delta):
 			win_screen()
 	
 	if time_for_next == false and function_running == false: # Följande kod körs bara när båda pilarna har körts
+		var position = $Sight.position
 		if len(hole_vertical) > 0: # Följande statements körs inte när man missar alla vertikala hål; detta för att spelet ej ska krasha när den försöker söka efter hole_vertical[[0]
 			if hole_horizontal.has(hole_vertical[0]):
 				_close_hole(hole_vertical[0])
 			if len(hole_vertical) == 2:
 				if hole_horizontal.has(hole_vertical[1]):
 					_close_hole(hole_vertical[1])
+				else:	
+					_set_new_run()
+					_kick_ball(position)
+			else:
 				_set_new_run()
+				_kick_ball(position)
+				
 		else: # Om inget matchande hål har påträffats händer ingenting, och variablerna resettas för att kunna spela igen.
+			current_hole[1] = false
+			_kick_ball(position)
 			_set_new_run()
 				
 func _close_hole(hole):
@@ -113,27 +123,20 @@ func _close_hole(hole):
 	_kick_ball(position_hole)
 		
 	if closed_holes.has(hole) != true:
+		current_hole[1] = true
 		closed_holes.append(hole)
-		current_hole = hole
+		current_hole[0] = hole
 		#$Areor_holes/AnimationPlayer.play(hole)
 
-	print("closed holes:")
-	print(closed_holes)
+	#print("closed holes:")
+	#print(closed_holes)
 
 	_set_new_run()
 	
-func _kick_ball(position_hole):
-	"""
-	Här 
-	"""
-	#_tween()
-	#$Ball.position = position_hole
-	
-	#draw_line($Ball.position, position_hole, 255,255,255)
-	
+func _kick_ball(position_ballhit):
 	var tween = get_node("Tween")
 	tween.interpolate_property($Ball, "position",
-	Vector2($Ball_pos.position), Vector2(position_hole), 0.4,
+	Vector2($Ball_pos.position), Vector2(position_ballhit), 0.4,
 	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	
@@ -175,5 +178,7 @@ func _move_along_path(delta, path):
 
 func _on_Tween_tween_completed(object, key):
 	yield(get_tree().create_timer(0.3), "timeout")
-	$Areor_holes/AnimationPlayer.play(current_hole)
+	if current_hole[1]:
+		$Areor_holes/AnimationPlayer.play(current_hole[0])
+		current_hole[1] = false
 	$Ball.position = $Ball_pos.position
