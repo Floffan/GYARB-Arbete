@@ -263,3 +263,7 @@ default_length = 20.0
 position = Vector2( -5.71423, 310 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="Gran" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gran"]
