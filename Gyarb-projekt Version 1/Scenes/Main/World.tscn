@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Worldbuilding/Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Pics/Figurer/croc.png" type="Texture" id=9]
 [ext_resource path="res://Pics/Mapbuilding/berg/sten.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 180.986, 76.9777 )
@@ -116,6 +117,9 @@ shape = SubResource( 5 )
 
 [node name="YSort" type="YSort" parent="."]
 
+[node name="Blomma_red" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 656, 1086 )
+
 [node name="Tree" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 4070, 591 )
 
@@ -169,6 +173,15 @@ position = Vector2( 1533, 2142 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
 current = true
+limit_left = -4000
+limit_top = -430
+limit_right = 5000
+limit_bottom = 2600
+editor_draw_limits = true
 
+[connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
+[connection signal="pick_up" from="Camera2D/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+
+[editable path="Camera2D"]

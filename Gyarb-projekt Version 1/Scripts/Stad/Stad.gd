@@ -3,6 +3,9 @@ extends Node2D
 var skelett_position = Autoloads.Position
 
 var going_out = false
+var interacting = false
+
+var question = ""
 
 func _ready():
 	_get_position()
@@ -54,3 +57,28 @@ func _on_Skelett_NPC_detected():
 		var dialog_player = get_node_or_null("Camera2D/Dialog")
 		if dialog_player:
 			dialog_player.play_dialog(path, 0.05)
+			
+func _on_Skelett_Interaction_detected():
+	var collider = $YSort/Skelett/Interact_detector.get_collider().name
+	
+	if collider == "Blomma_red":
+		question = "Plocka blomman?"
+		_on_Interact()
+		
+func _on_Interact():
+	var menu_player = get_node("Camera2D/Object_interation_menu")
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		menu_player.pressed_yes = null
+		
+	if interacting == true:	
+		menu_player.on_interaction(question, "flower")
+			
+	if Input.is_action_just_pressed("ui_accept"):
+		interacting = true
+		menu_player.on_interaction(question, "flower")
+
+func _on_Object_interation_menu_pick_up():
+	Autoloads.flowers += 1
+	$YSort/Hus/Sprite/Blomma_red.visible = false
+	$Camera2D/Object_interation_menu.pressed_yes = false
