@@ -24,23 +24,19 @@ margin_bottom = 470.0
 bbcode_enabled = true
 text = "Spela spelet?"
 
-[node name="HSplitContainer" type="HSplitContainer" parent="."]
+[node name="YES" type="Button" parent="."]
 margin_left = 280.0
+margin_top = 464.0
+margin_right = 496.0
+margin_bottom = 536.0
+text = "JA"
+
+[node name="NO" type="Button" parent="."]
+margin_left = 504.0
 margin_top = 464.0
 margin_right = 728.0
 margin_bottom = 536.0
-split_offset = 150
+text = "NEJ"
 
-[node name="YES" type="Button" parent="HSplitContainer"]
-margin_right = 208.0
-margin_bottom = 72.0
-text = "YES"
-
-[node name="NO" type="Button" parent="HSplitContainer"]
-margin_left = 220.0
-margin_right = 448.0
-margin_bottom = 72.0
-text = "NO"
-
-[connection signal="button_up" from="HSplitContainer/YES" to="." method="_on_YES_button_up"]
-[connection signal="button_down" from="HSplitContainer/NO" to="." method="_on_NO_button_down"]
+[connection signal="button_up" from="YES" to="." method="_on_YES_button_up"]
+[connection signal="button_down" from="NO" to="." method="_on_NO_button_down"]

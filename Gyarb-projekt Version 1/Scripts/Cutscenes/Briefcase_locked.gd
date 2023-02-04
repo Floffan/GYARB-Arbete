@@ -6,7 +6,7 @@ var button_2_pressed = false
 var info1 = "Skriv in den fyrsiffriga koden..."
 var info2 = "Fel kod! Kom tillbaks när du listat ut koden..."
 
-var code_dic = {
+onready var code_dic = {
 	1 : $number_green,
 	2 : $number_blue,
 	3 : $number_yellow,
@@ -37,28 +37,9 @@ func _get_code():
 	if putting_code:
 		for i in range(10):
 			if Input.is_action_just_pressed("ui_"+str(i)):
-				
 				code_list.append(i)
 				num += 1
-				#print(num)
-				
-				#Varför funkar inte detta :(
-				#$number_green.text = str(num)
-				#code_dic[num].text = str(i)
-				#print(code_dic[num])
-				
-				#"""
-				if num == 1:
-					$number_green.text = str(i)
-				if num == 2:
-					$number_blue.text = str(i)
-				if num == 3:
-					$number_yellow.text = str(i)
-				if num == 4:
-					$number_pink.text = str(i)
-				#"""
-				#print(code_dic[1])
-		
+				code_dic[num].text = str(i)		
 	if num == 4:
 		putting_code = false
 		if _check_code(code_list):

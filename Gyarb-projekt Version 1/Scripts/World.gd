@@ -59,7 +59,7 @@ func _on_Skelett_NPC_detected():
 		path = "res://Dialog/Mysterious_stone_dia.json"
 		
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
-		dialog_player.play_dialog(path, 0.05)
+		dialog_player.play_dialog(path, 0.05, 1)
 
 func _on_Skelett_Interaction_detected():
 	var collider = $YSort/Skelett/Interact_detector.get_collider().name

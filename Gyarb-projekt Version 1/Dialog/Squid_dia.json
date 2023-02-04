@@ -1,4 +1,8 @@
 [
-    {"Name":"Squid-man", "Text":"So you have come! Finally!"},
-    {"Name":"Squid-man", "Text":"Take on the challange, then:"},
+    {"Name":"Bläckfisk", "Text":"Så du är äntligen här!"},
+    {"Name":"Bläckfisk", "Text":"Du tror att du skulle klara av det, va?"},
+    {"Name":"Bläckfisk", "Text":"Nåväl, du ska få tävla"},
+    {"Name":"Bläckfisk", "Text":"Du styr den [color=red]röda[/color] båten"},
+    {"Name":"Bläckfisk", "Text":"Gasa med [color=teal]mellanslag[/color] och styr med [color=teal]piltangenterna[/color]"},
+    {"Name":"Bläckfisk", "Text":"Lycka till!"}
 ]

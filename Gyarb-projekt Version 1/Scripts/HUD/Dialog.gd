@@ -11,13 +11,13 @@ var finished = false
 var dialog_running = false
  
 
-func play_dialog(dialogPath, textSpeed):
+func play_dialog(dialogPath, textSpeed, num):
 	
 	dialog_running = true
 	yield(get_tree().create_timer(0.01), "timeout")
 	self.visible = true
 	$Timer.wait_time = textSpeed
-	dialog = getDialog(dialogPath)
+	dialog = getDialog(dialogPath, num)
 	assert(dialog, "Dialogen hittades ej")
 	nextPhrase()
  
@@ -31,7 +31,7 @@ func _process(_delta):
 		else:
 			$Text.visible_characters = len($Text.text)
  
-func getDialog(dialogPath) -> Array:
+func getDialog(dialogPath, num) -> Array:
 	var f = File.new()
 	assert(f.file_exists(dialogPath), "Filsökvägen hittades ej")
 	

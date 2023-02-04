@@ -66,103 +66,50 @@ func _update_scoreboard(Boat):
 func _clear_checkpoints(Boat):
 	for i in range(1, 4):
 		Boats[str(Boat)][i] = 0
-		
-	if Boat == "Player":
-		print(Boats[str(Boat)])
-		
-	
+			
 func _on_Goal_body_exited(body):
 	var boat_just_passed = body.name
-	
 	for Boat in Boats.keys():
-		var checkpoints = false
 		if boat_just_passed == Boat:
-			for i in range(1, 4):
-				if int(Boats[str(Boat)][i]) == int(i):
-					checkpoints = true
-					#print("jippie")
-				else:
-					checkpoints = false
-					#print("nej:(")
-			if checkpoints == true:
+			if int(Boats[str(Boat)][1]) == 1 and int(Boats[str(Boat)][2]) == 2 and int(Boats[str(Boat)][3]) == 3:
 				Boats[str(Boat)][0] += 1
 				_update_scoreboard(Boat)
 				_clear_checkpoints(Boat)
-				checkpoints = false
-				
-				if Boat == "Player":
-					pass
-					#print(Boats[str(Boat)])
-					#print(checkpoints)
-				
-					
-				if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
+			else:
+				_clear_checkpoints(Boat)
+			
+			if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
 					if str(Boat) == "Player":
 						_win_screen(Boat)
 					else:
 						_loose_screen(Boat)
-				
-				
-			#print(Boats[str(Boat)][1])
-			#print(Boats[str(Boat)][2])
-			#print(Boats[str(Boat)][3])
-	#		if Boats[Boat][1] == "1":
-	#			print("OK")
-	#		for i in range(1, 4):
-	#			if Boats[str(Boat)][i] == i:
-	#				print("OK")
-				
-	
-	"""
-	for Boat in Boats.keys():
-		
-		if boat_just_passed == Boat and Boats[str(Boat)][1] == true:
-			Boats[str(Boat)][0] += 1
-			Boats[str(Boat)][1] == false
-			_update_scoreboard(Boat)
-			
-			if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
-				if str(Boat) == "Player":
-					_win_screen(Boat)
-				else:
-					_loose_screen(Boat)
-	"""
 
 func _on_Ready_screen_ready_done():
 	$Ready_screen.rect_position.x += 20
 	emit_signal("ready_done")
 	yield(get_tree().create_timer(2), "timeout")
+	"""
+	TA BORT READY-SCREENEN
+	"""
 	#get_child("Ready_screen").queue_free()
 	#remove_child($Ready_screen) # varför tar detta inte bort den från scenträdet:(
-	
 	
 func _checkpoint(body, nr):
 	var boat_just_passed = body.name
 	
-	for Boat in Boats.keys():
+	for Boat in Boats.keys(): # Loopar igenom namnen på båtarna i dictionaryt
 		if boat_just_passed == Boat:
-			Boats[str(Boat)][nr] = str(nr)
+			Boats[str(Boat)][nr] = str(nr) # Lägger till checkpointens siffra till båten ifråga
 			
 
 func _on_Checkpoint1_body_exited(body: Node) -> void:
 	_checkpoint(body, 1)
 	var Boat = body.name
-	if Boat == "Player":
-		pass
-		#print(Boats[str(Boat)])
-
-
+	
 func _on_Checkpoint2_body_exited(body: Node) -> void:
 	_checkpoint(body, 2)
 	var Boat = body.name
-	if Boat == "Player":
-		pass
-		#print(Boats[str(Boat)])
-
 
 func _on_Checkpoint3_body_exited(body: Node) -> void:
 	_checkpoint(body, 3)
 	var Boat = body.name
-	if Boat == "Player":
-		pass
-		#print(Boats[str(Boat)])

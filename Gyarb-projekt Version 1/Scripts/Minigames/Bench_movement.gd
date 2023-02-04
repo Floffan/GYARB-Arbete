@@ -105,6 +105,7 @@ func _on_Ready_screen_ready_done():
 	get_parent().get_node("Control/Information").visible = false
 	_draw_required_key()
 	get_parent().get_node("Ready_screen").queue_free()
+	
 
 
 func _on_Bench_scene_reset_lift():

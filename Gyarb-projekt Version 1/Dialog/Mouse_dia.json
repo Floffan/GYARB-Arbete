@@ -1,7 +1,9 @@
 [
-    {"Name":"Mouse", "Text":"Hey!"},
-    {"Name":"Mouse", "Text":"HEY!"},
-    {"Name":"Mouse", "Text":"UP HERE!"},
-    {"Name":"Mouse", "Text":"Do you wanna play a game?"},
-    {"Name":"Mouse", "Text":"It's fun! I promiss..."}
+    {"Name":"Röst", "Text":"Hallå!"},
+    {"Name":"Röst", "Text":"HALLÅ!"},
+    {"Name":"Röst", "Text":"HÄR UPPE!"},
+    {"Name":"Mus", "Text":"Vill du spela ett spel?"},
+    {"Name":"Mus", "Text":"Det är roligt, jag lovar..."},
+    {"Name":"Mus", "Text":"Använd [color=teal]mellanslagstangenten[/color] för att stanna pilarna"},
+    {"Name":"Mus", "Text":"Och försök att träffa rätt!"}
 ]

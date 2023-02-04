@@ -56,7 +56,6 @@ func _ready():
 	
 	$Loose_screen.game_path = "res://Scenes/Minigames/Bollplank.tscn"
 	$Loose_screen.world_path = "res://Scenes/Berg/Grotta.tscn"
-	run_game = true
 
 func _get_input():
 	if time_for_next == true and Input.is_action_just_pressed("Stop"):
@@ -182,3 +181,11 @@ func _on_Tween_tween_completed(object, key):
 		$Areor_holes/AnimationPlayer.play(current_hole[0])
 		current_hole[1] = false
 	$Ball.position = $Ball_pos.position
+
+func _on_Ready_screen_ready_done():
+	run_game = true
+	$Ready_screen.rect_position.x += 20
+	yield(get_tree().create_timer(2), "timeout")
+	"""
+	TA BORT READY-SCREENEN
+	"""
