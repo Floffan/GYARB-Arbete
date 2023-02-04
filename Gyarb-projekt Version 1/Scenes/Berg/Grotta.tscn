@@ -292,8 +292,9 @@ scale = Vector2( 2, -2 )
 texture = ExtResource( 6 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( -216, -83 )
+position = Vector2( 487, 640 )
 current = true
+smoothing_speed = 1.0
 
 [node name="Mouse" type="Area2D" parent="."]
 collision_layer = 4
