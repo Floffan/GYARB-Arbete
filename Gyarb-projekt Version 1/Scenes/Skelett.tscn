@@ -5223,7 +5223,6 @@ rest = Transform2D( 0.707107, 0.707107, -0.707107, 0.707107, -4, 98 )
 default_length = 20.0
 
 [node name="Skelett_fram" type="Skeleton2D" parent="."]
-visible = false
 position = Vector2( -37, 14 )
 
 [node name="höft" type="Bone2D" parent="Skelett_fram"]
@@ -5301,6 +5300,7 @@ rest = Transform2D( -0.69956, 0.714574, -0.714574, -0.69956, -3.50111, 95.983 )
 default_length = 20.0
 
 [node name="Skelett_bak" type="Skeleton2D" parent="."]
+visible = false
 position = Vector2( -37, 21 )
 
 [node name="höft" type="Bone2D" parent="Skelett_bak"]
