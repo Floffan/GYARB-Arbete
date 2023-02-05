@@ -35,6 +35,8 @@ func get_input():
 	if Input.is_action_pressed("Up"):
 		velocity.y -= 1
 		moving_y = true
+	if Input.is_action_pressed("Check_briefcase"):
+		_check_briefcase()
 
 	if moving_y == true and moving_x == false:
 		only_moving_y = true
@@ -58,6 +60,9 @@ func _assign_direction():
 		
 	_assign_animation()	
 		
+func _check_briefcase():
+	if Autoloads.have_briefcase:
+		Transition.load_scene("res://Cutscenes/Briefcase_locked.tscn")
 func _assign_animation():
 	var animation = "Stå-animation"
 	"""

@@ -70,5 +70,4 @@ func _on_TextureButton2_button_up():
 
 
 func _on_ESC_button_down():
-	Autoloads.Position = "main_Spawn"
-	Transition.load_scene("res://Scenes/Main/World.tscn")
+	Transition.load_scene(Autoloads.Current_scene)

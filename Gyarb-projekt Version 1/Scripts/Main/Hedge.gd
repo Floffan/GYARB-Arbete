@@ -28,7 +28,7 @@ func _on_Skelett_NPC_detected():
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
 	var dialog_player = get_node("Camera2D/Dialog")
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
-		dialog_player.play_dialog(path, 0.05)
+		dialog_player.play_dialog(path, 0.05, 1)
 
 func _on_Skelett_gate_detected():
 	Autoloads.Position = "main_Hedge"
@@ -51,14 +51,12 @@ func _on_Skelett_Interaction_detected():
 	_on_Interact()
 	
 func _on_Object_interation_menu_pick_up():
-	#breakpoint
 	$Briefcase.visible = false
 	Autoloads.have_briefcase = true
 	
 	$Camera2D/Object_interation_menu.pressed_yes = false
 	
 func _on_Object_interation_menu_put_down():
-	#breakpoint
 	$Briefcase.visible = true
 	Autoloads.have_briefcase = false
 	

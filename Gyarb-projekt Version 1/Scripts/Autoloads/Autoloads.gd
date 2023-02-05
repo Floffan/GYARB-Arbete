@@ -1,6 +1,7 @@
 extends Node
 
 var Position = ""
+var Current_scene = ""
 
 var Gate_collider = ""
 

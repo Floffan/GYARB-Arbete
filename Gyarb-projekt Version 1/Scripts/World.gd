@@ -7,6 +7,7 @@ var question = ""
 
 func _ready():
 	_get_position()
+	Autoloads.Current_scene = "res://Scenes/Main/Spawn.tscn"
 	
 	
 func _get_position() -> void:
@@ -30,6 +31,8 @@ func _on_Skelett_gate_detected():
 		Autoloads.Position = "berg_Main"
 		Transition.load_scene("res://Scenes/Berg/Berg.tscn")
 		#_open_gate_menu("berg", "res://Scenes/Berg/Berg.tscn", "here")
+	if Autoloads.Gate_collider == "gate_Spawn":
+		_open_gate_menu("spawn_Main","res://Scenes/Main/Spawn.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Strand":
 		Autoloads.Position = "strand_Main"
 		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
