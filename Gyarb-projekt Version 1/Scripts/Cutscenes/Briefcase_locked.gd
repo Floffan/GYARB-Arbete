@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var button_1_pressed = false
 var button_2_pressed = false
@@ -70,4 +70,8 @@ func _on_TextureButton2_button_up():
 
 
 func _on_ESC_button_down():
-	Transition.load_scene(Autoloads.Current_scene)
+	#get_parent().position = get_parent().player.position
+	self.queue_free()
+	#pass
+	#get_node("")
+	#Transition.load_scene(Autoloads.Current_scene)

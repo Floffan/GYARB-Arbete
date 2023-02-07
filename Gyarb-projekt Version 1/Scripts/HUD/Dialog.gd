@@ -12,6 +12,9 @@ var dialog_running = false
  
 
 func play_dialog(dialogPath, textSpeed, num):
+	#dialogPath = dialogPath + str(num)
+	
+	print(dialogPath)
 	
 	dialog_running = true
 	yield(get_tree().create_timer(0.01), "timeout")

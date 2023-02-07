@@ -21,20 +21,21 @@ func _on_Skelett_gate_detected():
 		going_out = true
 		if menu_player:
 			menu_player.on_walkout("strand_Shellhouse","res://Scenes/Strand/Strand.tscn", "out")
-	
+		
 
 func _on_Skelett_NPC_detected():
-	var path = ""
+	var path = "res://Dialog/Strand/Fishman_dia.json"
+	var num : int
 	if Autoloads.flowers == 3:
-		path = "res://Dialog/Strand/Fishman_dia.json" # Annan dialog om det finns 3 blommor
+		num = 2
 	else:
-		path = "res://Dialog/Strand/Fishman_dia.json"
+		num = 1
 	
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
 	var dialog_player = get_node("Camera2D/Dialog")
 		
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
-		dialog_player.play_dialog(path, 0.05)
+		dialog_player.play_dialog(path, 0.05, num)
 	
 	
 	

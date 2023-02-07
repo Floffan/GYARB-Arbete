@@ -5,6 +5,11 @@ var going_out = false
 var interacting = false
 var question = ""
 
+onready var menu_player_interact = $YSort/Skelett/Camera2D/CanvasLayer/Object_interation_menu
+onready var menu_player_gate = $YSort/Skelett/Camera2D/CanvasLayer/Gate_menu
+onready var menu_player_dialog = $YSort/Skelett/Camera2D/CanvasLayer/Dialog
+
+
 func _ready():
 	_get_position()
 	Autoloads.Current_scene = "res://Scenes/Main/Spawn.tscn"
@@ -38,7 +43,8 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
 	
 func _open_gate_menu(position_in_new_world, path, heading):
-	var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	#var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	var menu_player = menu_player_gate
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.walking_out = null
@@ -54,7 +60,8 @@ func _open_gate_menu(position_in_new_world, path, heading):
 func _on_Skelett_NPC_detected():
 	var path = ""
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	var dialog_player = get_node("Camera2D/Dialog")
+#	var dialog_player = get_node("Camera2D/Dialog")
+	var dialog_player = menu_player_dialog
 	
 	if collider == "NPC_Bully":
 		path = "res://Dialog/Bully_dia.json"
@@ -72,7 +79,8 @@ func _on_Skelett_Interaction_detected():
 		_on_Interact()
 		
 func _on_Interact():
-	var menu_player = get_node("Camera2D/Object_interation_menu")
+	#var menu_player = get_node("Camera2D/Object_interation_menu")
+	var menu_player = menu_player_interact
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.pressed_yes = null

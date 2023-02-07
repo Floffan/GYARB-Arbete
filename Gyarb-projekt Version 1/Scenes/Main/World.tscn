@@ -142,8 +142,18 @@ position = Vector2( 3552, 2219 )
 scale = Vector2( -0.8, 0.8 )
 
 [node name="Skelett" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -3327, 301 )
+position = Vector2( 461, 211 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Camera2D" parent="YSort/Skelett" instance=ExtResource( 2 )]
+position = Vector2( 102, 178 )
+scale = Vector2( 2, 2 )
+current = true
+limit_left = -4000
+limit_top = -430
+limit_right = 5000
+limit_bottom = 2600
+editor_draw_limits = true
 
 [node name="Map_overlay" parent="." instance=ExtResource( 7 )]
 
@@ -177,7 +187,7 @@ position = Vector2( 1792, 70 )
 position = Vector2( 3477, 109 )
 
 [node name="main_Spawn" type="Position2D" parent="Positioner"]
-position = Vector2( -3326, 301 )
+position = Vector2( 601, 153 )
 
 [node name="main_Strand" type="Position2D" parent="Positioner"]
 position = Vector2( 4786, 1289 )
@@ -185,17 +195,8 @@ position = Vector2( 4786, 1289 )
 [node name="main_Dwelling" type="Position2D" parent="Positioner"]
 position = Vector2( 1533, 2142 )
 
-[node name="Camera2D" parent="." instance=ExtResource( 2 )]
-current = true
-limit_left = -4000
-limit_top = -430
-limit_right = 5000
-limit_bottom = 2600
-editor_draw_limits = true
-
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
-[connection signal="pick_up" from="Camera2D/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 
-[editable path="Camera2D"]
+[editable path="YSort/Skelett/Camera2D"]
