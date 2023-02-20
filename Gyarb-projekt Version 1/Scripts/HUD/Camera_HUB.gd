@@ -1,14 +1,15 @@
 extends Camera2D
 
-#onready var player = get_parent().get_node("YSort").get_node("Skelett")
+onready var player = get_parent().get_node("YSort").get_node("Skelett")
 var IV_open = false
 
 onready var briefcase_scene = load("res://Cutscenes/Briefcase_locked.tscn")
 onready var instance = briefcase_scene.instance()
 
+
 func _process(_delta):
 	_get_input()
-	#position = player.position
+	position = player.position
 	if Autoloads.have_briefcase:
 		$CanvasLayer/Panel/Briefcase_button.visible = true
 		$CanvasLayer/Panel/Briefcase.visible = false
@@ -17,7 +18,7 @@ func _process(_delta):
 		$CanvasLayer/Panel/Briefcase.visible = true
 	
 func _ready():
-	#position = player.position
+	position = player.position
 	$CanvasLayer/dark.visible = false
 
 func _get_input():

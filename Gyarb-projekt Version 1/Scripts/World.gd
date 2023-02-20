@@ -5,9 +5,9 @@ var going_out = false
 var interacting = false
 var question = ""
 
-onready var menu_player_interact = $YSort/Skelett/Camera2D/CanvasLayer/Object_interation_menu
-onready var menu_player_gate = $YSort/Skelett/Camera2D/CanvasLayer/Gate_menu
-onready var menu_player_dialog = $YSort/Skelett/Camera2D/CanvasLayer/Dialog
+onready var menu_player_interact = $Camera2D/CanvasLayer/Object_interation_menu #$YSort/Skelett/Camera2D/CanvasLayer/Object_interation_menu
+onready var menu_player_gate = $Camera2D/CanvasLayer/Gate_menu #$YSort/Skelett/Camera2D/CanvasLayer/Gate_menu
+onready var menu_player_dialog = $Camera2D/CanvasLayer/Dialog #$YSort/Skelett/Camera2D/CanvasLayer/Dialog
 
 
 func _ready():
@@ -44,6 +44,7 @@ func _on_Skelett_gate_detected():
 	
 func _open_gate_menu(position_in_new_world, path, heading):
 	#var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	#var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	var menu_player = menu_player_gate
 	
 	if Input.is_action_just_pressed("ui_accept"):
