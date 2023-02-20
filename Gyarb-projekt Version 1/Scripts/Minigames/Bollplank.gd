@@ -67,10 +67,6 @@ func _get_input():
 			
 			if hole_vertical.has(raycast_vertical_2.get_collider().name) != true:
 				hole_vertical.append(raycast_vertical_2.get_collider().name)
-				
-	#	print("vertical:")
-	#	print(hole_vertical)
-			
 		return
 			
 	if Input.is_action_just_pressed("Stop"):
@@ -83,9 +79,6 @@ func _get_input():
 			
 			if hole_horizontal.has(raycast_horizontal_2.get_collider().name) != true: 
 				hole_horizontal.append(raycast_horizontal_2.get_collider().name)
-			
-	#	print("horizontal:")
-	#	print(hole_horizontal)
 			
 func _process(delta):
 	if run_game:
@@ -159,6 +152,8 @@ func win_screen():
 	run_game = false
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
+	if Autoloads.Items.has("Shirt") == false:
+		Autoloads.Items.append("Shirt")
 
 func loose_screen():
 	run_game = false

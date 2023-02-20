@@ -10,6 +10,15 @@ onready var instance = briefcase_scene.instance()
 func _process(_delta):
 	_get_input()
 	position = player.position
+	_display_briefcase()
+	_display_items()
+	
+func _display_items():
+	var text = ""
+	for item in Autoloads.Items:
+		$CanvasLayer/Panel.get_node(item).get_node(item).visible = true
+		
+func _display_briefcase():
 	if Autoloads.have_briefcase:
 		$CanvasLayer/Panel/Briefcase_button.visible = true
 		$CanvasLayer/Panel/Briefcase.visible = false

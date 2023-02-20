@@ -11,7 +11,7 @@ func _ready():
 	Autoloads.Current_scene = "res://Scenes/Main/Spawn.tscn"
 	
 func _on_Skelett_gate_detected():
-	var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.walking_out = null
@@ -32,7 +32,7 @@ func _get_position() -> void:
 
 func _on_Skelett_NPC_detected():
 	var path = "res://Dialog/Tutorial/Uggla_dia.json"
-	var dialog_player = get_node("Camera2D/Dialog")
+	var dialog_player = get_node("Camera2D/CanvasLayer/Dialog")
 		
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
 		dialog_player.play_dialog(path, 0.05, 1)
@@ -40,7 +40,7 @@ func _on_Skelett_NPC_detected():
 
 func _on_Skelett_Interaction_detected():
 	if Autoloads.have_briefcase == false:
-		var menu_player = get_node("Camera2D/Object_interation_menu")
+		var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
 		
 		if Input.is_action_just_pressed("ui_accept"):
 			menu_player.pressed_yes = null

@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 
 func _on_Skelett_gate_detected():
-	var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.walking_out = null
@@ -32,7 +32,7 @@ func _on_Skelett_NPC_detected():
 		num = 1
 	
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	var dialog_player = get_node("Camera2D/Dialog")
+	var dialog_player = get_node("Camera2D/CanvasLayer/Dialog")
 		
 	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
 		dialog_player.play_dialog(path, 0.05, num)

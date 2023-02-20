@@ -53,6 +53,8 @@ func game_won():
 	emit_signal("game_over")
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
+	if Autoloads.Items.has("Plate") == false:
+		Autoloads.Items.append("Plate")
 	
 func game_over():
 	emit_signal("game_over")

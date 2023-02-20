@@ -1654,16 +1654,16 @@ margin_bottom = 41.5
 custom_fonts/font = SubResource( 64 )
 
 [node name="Information" type="RichTextLabel" parent="Control"]
-margin_left = 495.0
+margin_left = 490.667
 margin_top = 490.0
-margin_right = 754.0
-margin_bottom = 550.0
+margin_right = 695.667
+margin_bottom = 545.0
 theme = SubResource( 71 )
 custom_colors/default_color = Color( 0.027451, 0.384314, 0.333333, 1 )
 custom_fonts/bold_font = SubResource( 72 )
 bbcode_enabled = true
-bbcode_text = "[b]The arrows will appear here![/b]"
-text = "The arrows will appear here!"
+bbcode_text = "[b]Pilarna kommer at visas här!![/b]"
+text = "Pilarna kommer at visas här!!"
 
 [node name="Scoretext" type="Label" parent="."]
 modulate = Color( 0.639216, 0.568627, 0.427451, 1 )

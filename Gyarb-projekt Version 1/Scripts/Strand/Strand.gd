@@ -30,7 +30,7 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Main/World.tscn")
 		
 func _open_gate_menu(position_in_new_world, path, heading):
-	var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.walking_out = null

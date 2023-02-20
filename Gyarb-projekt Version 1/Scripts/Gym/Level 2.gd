@@ -5,7 +5,7 @@ var going_out = false
 var minigame_path = "res://Scenes/Minigames/Benchpress.tscn"
 
 func _on_Skelett_gate_detected():
-	var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.walking_out = null
@@ -21,8 +21,8 @@ func _on_Skelett_gate_detected():
 func _on_Skelett_NPC_detected():
 	var path = ""
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	var dialog_player = get_node("Camera2D/Dialog")
-	var minigame_player = get_node("Camera2D/minigame_menu")
+	var dialog_player = get_node("Camera2D/CanvasLayer/Dialog")
+	var minigame_player = get_node("Camera2D/CanvasLayer/minigame_menu")
 		
 	if collider == "Squat_grodan":
 		path = "res://Dialog/Gym/SquatFrog_dia.json"

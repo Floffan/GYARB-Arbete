@@ -90,19 +90,20 @@ margin_right = 1024.0
 margin_bottom = 728.0
 theme = ExtResource( 6 )
 
-[node name="Panel_shirt" type="Panel" parent="CanvasLayer/Panel"]
+[node name="Shirt" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 915.0
 margin_top = 17.0
 margin_right = 1004.0
 margin_bottom = 103.0
 custom_styles/panel = SubResource( 3 )
 
-[node name="Shirt" type="Sprite" parent="CanvasLayer/Panel/Panel_shirt"]
+[node name="Shirt" type="Sprite" parent="CanvasLayer/Panel/Shirt"]
+visible = false
 position = Vector2( 44, 43 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 9 )
 
-[node name="Panel_plate" type="Panel" parent="CanvasLayer/Panel"]
+[node name="Plate" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 816.0
 margin_top = 17.0
 margin_right = 905.0
@@ -110,12 +111,13 @@ margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
 
-[node name="Plate" type="Sprite" parent="CanvasLayer/Panel/Panel_plate"]
+[node name="Plate" type="Sprite" parent="CanvasLayer/Panel/Plate"]
+visible = false
 position = Vector2( 44, 43 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 11 )
 
-[node name="Panel_key" type="Panel" parent="CanvasLayer/Panel"]
+[node name="Key" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 717.0
 margin_top = 17.0
 margin_right = 806.0
@@ -123,18 +125,19 @@ margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
 
-[node name="key" type="Sprite" parent="CanvasLayer/Panel/Panel_key"]
+[node name="Key" type="Sprite" parent="CanvasLayer/Panel/Key"]
+visible = false
 position = Vector2( 44, 43 )
 texture = ExtResource( 7 )
 
-[node name="Panel_flower" type="Panel" parent="CanvasLayer/Panel"]
+[node name="Flower" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 217.0
 margin_top = 17.0
 margin_right = 306.0
 margin_bottom = 103.0
 custom_styles/panel = SubResource( 3 )
 
-[node name="Panel_medal" type="Panel" parent="CanvasLayer/Panel"]
+[node name="Medal" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 118.0
 margin_top = 17.0
 margin_right = 207.0
@@ -142,12 +145,13 @@ margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
 
-[node name="Medalj" type="Sprite" parent="CanvasLayer/Panel/Panel_medal"]
+[node name="Medal" type="Sprite" parent="CanvasLayer/Panel/Medal"]
+visible = false
 position = Vector2( 45, 43 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 10 )
 
-[node name="Panel5" type="Panel" parent="CanvasLayer/Panel"]
+[node name="Thing" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 19.0
 margin_top = 17.0
 margin_right = 108.0

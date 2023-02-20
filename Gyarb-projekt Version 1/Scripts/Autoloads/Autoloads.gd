@@ -10,6 +10,10 @@ var NPC_collider = ""
 #var keys = ["key_grotta"]
 var keys = []
 
+var Items = []
+#var Items = ["Medal","Key", "Plate", "Shirt"]
+
+
 var flowers = 0
 
 #var have_briefcase : bool

@@ -216,7 +216,6 @@ scale = Vector2( -2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 11 )]
-position = Vector2( 512, 300 )
 
 [node name="gate_Strand" type="Area2D" parent="."]
 position = Vector2( 542, 681 )

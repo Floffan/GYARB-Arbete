@@ -37,6 +37,8 @@ func _win_screen(Boat):
 	emit_signal("game_over")
 	w_screen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
+	if Autoloads.Items.has("Medal") == false:
+		Autoloads.Items.append("Medal")
 	
 func _loose_screen(Boat):
 	emit_signal("game_over")

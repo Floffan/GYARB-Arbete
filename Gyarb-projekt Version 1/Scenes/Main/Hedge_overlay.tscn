@@ -192,6 +192,14 @@ scale = Vector2( 2.44789, 2.14023 )
 texture = ExtResource( 4 )
 offset = Vector2( -559.239, -947.977 )
 
+[node name="löv15" type="Sprite" parent="STORA löv/Monstrea"]
+modulate = Color( 0.509804, 0.623529, 1, 1 )
+position = Vector2( -2582, -411 )
+rotation = 2.28083
+scale = Vector2( 2.44789, 2.14023 )
+texture = ExtResource( 4 )
+offset = Vector2( -559.239, -947.977 )
+
 [node name="löv10" type="Sprite" parent="STORA löv/Monstrea"]
 position = Vector2( 908, 3008 )
 rotation = 1.00128
@@ -229,6 +237,11 @@ scale = Vector2( 2.44789, 2.14023 )
 texture = ExtResource( 4 )
 offset = Vector2( -559.239, -947.977 )
 
+[node name="ALLT49" type="Sprite" parent="STORA löv/Monstrea"]
+position = Vector2( 188, 520 )
+rotation = 0.745819
+texture = ExtResource( 6 )
+
 [node name="leaf" type="Node2D" parent="STORA löv"]
 
 [node name="löv_1" type="Sprite" parent="STORA löv/leaf"]
@@ -262,6 +275,18 @@ texture = ExtResource( 5 )
 position = Vector2( 1184, 526 )
 rotation = -6.51483
 scale = Vector2( 0.610396, 1.01523 )
+texture = ExtResource( 5 )
+
+[node name="löv_14" type="Sprite" parent="STORA löv/leaf"]
+modulate = Color( 0.964706, 0.682353, 0.682353, 1 )
+position = Vector2( 118, 621 )
+rotation = -6.51483
+texture = ExtResource( 5 )
+
+[node name="löv_15" type="Sprite" parent="STORA löv/leaf"]
+modulate = Color( 0.65098, 0.541176, 0.541176, 1 )
+position = Vector2( 1, 789 )
+rotation = -5.74288
 texture = ExtResource( 5 )
 
 [node name="löv_7" type="Sprite" parent="STORA löv/leaf"]

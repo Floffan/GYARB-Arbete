@@ -11,7 +11,7 @@ var interacting = false
 
 func _ready():
 	_get_position()
-	if Autoloads.keys.has("key_grotta"):
+	if Autoloads.Items.has("Key"):
 		cave_access = true
 		$Bergsfot/Lock.visible = false
 
@@ -36,7 +36,7 @@ func _on_Skelett_gate_detected():
 		
 
 func _open_gate_menu(position_in_new_world, path, heading):
-	var menu_player = get_node_or_null("Camera2D/Gate_menu")
+	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.walking_out = null
 	if going_out == true:	
@@ -56,7 +56,7 @@ func _on_Skelett_Interaction_detected():
 		_on_Interact()
 		
 func _on_Interact():
-	var menu_player = get_node("Camera2D/Object_interation_menu")
+	var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		menu_player.pressed_yes = null
