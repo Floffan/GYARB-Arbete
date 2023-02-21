@@ -650,11 +650,10 @@ modulate = Color( 0.941176, 0.72549, 0.207843, 1 )
 position = Vector2( -3619, 666 )
 rotation = 0.66148
 frames = SubResource( 25 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="fjäril_blå" parent="Fjärilar" instance=ExtResource( 1 )]
-frame = 4
 
 [node name="fjäril_grön" type="AnimatedSprite" parent="Fjärilar"]
 modulate = Color( 1, 0.92549, 0.333333, 1 )
@@ -662,7 +661,7 @@ position = Vector2( -2915, 300 )
 rotation = -0.551524
 scale = Vector2( 1.69036, 1.68709 )
 frames = SubResource( 25 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="fjäril_lila" type="AnimatedSprite" parent="Fjärilar"]
@@ -671,7 +670,7 @@ position = Vector2( -3779, 498 )
 rotation = 0.262137
 scale = Vector2( -1.64295, 1.87905 )
 frames = SubResource( 25 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Tree" type="Node2D" parent="."]
