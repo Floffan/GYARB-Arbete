@@ -6,6 +6,8 @@ var IV_open = false
 onready var briefcase_scene = load("res://Cutscenes/Briefcase_locked.tscn")
 onready var instance = briefcase_scene.instance()
 
+onready var animation_player = $CanvasLayer/AnimationPlayer
+
 
 func _process(_delta):
 	_get_input()
@@ -32,14 +34,19 @@ func _ready():
 
 func _get_input():
 	if Input.is_action_just_pressed("Check_briefcase") and IV_open == false:
-		$CanvasLayer/AnimationPlayer.play("Open_IV")
+		animation_player.play("Open_IV")
 		$CanvasLayer/dark.visible = true
 		IV_open = true
 		return
 	if Input.is_action_just_pressed("Check_briefcase") and IV_open:
-		$CanvasLayer/AnimationPlayer.play_backwards("Open_IV")
+		animation_player.play_backwards("Open_IV")
 		$CanvasLayer/dark.visible = false
 		IV_open = false
 
 func _on_TextureButton_pressed() -> void:
-	get_tree().get_root().add_child(instance)
+	print("trycker")
+	add_child(instance)
+	animation_player.play("RESET")
+	IV_open = false
+	self.current = true
+	

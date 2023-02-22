@@ -18,16 +18,14 @@ var code_list = []
 var correct_code = [0, 7, 1 , 0]
 var putting_code = true
 var num = 0
+	
 
 func _process(delta):
 	_get_code()
 	$Leaves/AnimationPlayer.play("Default")
-#	print("1:")
-#	print(button_1_pressed)
-#	print("2:")
-#	print(button_2_pressed)
 	
 func _ready():
+	$Panels_cutscene/AnimationPlayer.play_backwards("ready")
 	$Cutscene_camera/Info.display_info(info1)
 	$ESC.visible = false
 
@@ -43,7 +41,10 @@ func _get_code():
 	if num == 4:
 		putting_code = false
 		if _check_code(code_list):
-			print("JIPPIE")
+			$Cutscene_camera/Info.visible = false
+			#PLAY SOUND
+			$Briefcase/AnimationPlayer.play("Open_up")
+			return
 		else:
 			$Cutscene_camera/Info.display_info(info2)
 		$ESC.visible = true
@@ -53,25 +54,8 @@ func _check_code(code):
 	if code == correct_code:
 		return true
 
-func _on_TextureButton2_toggled(button_pressed):
-	button_2_pressed = true
-
-
-func _on_TextureButton1_toggled(button_pressed):
-	button_1_pressed = true
-
-
-func _on_TextureButton1_button_up():
-	button_1_pressed = false
-
-
-func _on_TextureButton2_button_up():
-	button_2_pressed = false
-
-
 func _on_ESC_button_down():
-	#get_parent().position = get_parent().player.position
 	self.queue_free()
-	#pass
-	#get_node("")
-	#Transition.load_scene(Autoloads.Current_scene)
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	get_tree().change_scene("res://Cutscenes/Opens_briefcase.tscn")

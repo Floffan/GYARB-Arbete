@@ -8,11 +8,11 @@ var Gate_collider = ""
 var NPC_collider = ""
 
 #var keys = ["key_grotta"]
-var keys = []
+#var keys = []
 
 var Items = []
 #var Items = ["Medal","Key", "Plate", "Shirt"]
-
+var ok = false
 
 var flowers = 0
 

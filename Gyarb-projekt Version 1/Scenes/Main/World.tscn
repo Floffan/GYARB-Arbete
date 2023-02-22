@@ -177,7 +177,7 @@ position = Vector2( 1792, 70 )
 position = Vector2( 3477, 109 )
 
 [node name="main_Spawn" type="Position2D" parent="Positioner"]
-position = Vector2( 601, 153 )
+position = Vector2( -3327, 264 )
 
 [node name="main_Strand" type="Position2D" parent="Positioner"]
 position = Vector2( 4786, 1289 )
@@ -196,5 +196,6 @@ editor_draw_limits = true
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
+[connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 
 [editable path="Camera2D"]

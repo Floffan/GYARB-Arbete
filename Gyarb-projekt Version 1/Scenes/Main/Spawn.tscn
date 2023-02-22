@@ -219,7 +219,7 @@ position = Vector2( 788, 718 )
 position = Vector2( 783, 944 )
 
 [node name="NPC_uggla" type="Area2D" parent="."]
-position = Vector2( 792, 767 )
+position = Vector2( 870, 1016 )
 collision_layer = 4
 collision_mask = 4
 
@@ -227,7 +227,7 @@ collision_mask = 4
 position = Vector2( -5, -184 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 11 )
-frame = 3
+frame = 1
 speed_scale = 0.2
 playing = true
 
@@ -236,8 +236,7 @@ position = Vector2( -6, -42.5 )
 shape = SubResource( 12 )
 
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
-[connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
-[connection signal="pick_up" from="Camera2D/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+[connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 
 [editable path="Camera2D"]

@@ -12,6 +12,8 @@ var going_out = false
 
 var gate_path = "res://Scenes/Main/World.tscn"
 
+onready var interaction_menu = $Camera2D/CanvasLayer/Object_interation_menu
+
 func _ready() -> void:
 	Autoloads.have_briefcase = true
 	animation_player.play("Stå-animation_bakifrån")
@@ -54,11 +56,11 @@ func _on_Object_interation_menu_pick_up():
 	$Briefcase.visible = false
 	Autoloads.have_briefcase = true
 	
-	$Camera2D/Object_interation_menu.pressed_yes = false
+	interaction_menu.pressed_yes = false
 	
 func _on_Object_interation_menu_put_down():
 	$Briefcase.visible = true
 	Autoloads.have_briefcase = false
 	
-	$Camera2D/Object_interation_menu.pressed_yes = false
+	interaction_menu.pressed_yes = false
 	

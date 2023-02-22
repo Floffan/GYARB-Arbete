@@ -5044,6 +5044,7 @@ uv = PoolVector2Array( 84.1167, 280.108, 86.8048, 286.559, 78.7403, 337.097, 71.
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="case" type="Polygon2D" parent="polygons_bak"]
+visible = false
 position = Vector2( -98, 143 )
 texture = ExtResource( 12 )
 skeleton = NodePath("../../Skelett_bak")
@@ -5223,6 +5224,7 @@ rest = Transform2D( 0.707107, 0.707107, -0.707107, 0.707107, -4, 98 )
 default_length = 20.0
 
 [node name="Skelett_fram" type="Skeleton2D" parent="."]
+visible = false
 position = Vector2( -37, 14 )
 
 [node name="höft" type="Bone2D" parent="Skelett_fram"]
