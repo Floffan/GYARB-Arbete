@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/Strand/racehouse_tilemap.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Pics/Mapbuilding/Strand/wall_racehouse_front.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Strand/racehouse_inside.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Worldbuilding/Lyktan.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 512, 192 )
@@ -107,6 +108,9 @@ extents = Vector2( 203.5, 256.5 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 202.5, 257 )
 
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( 0, -190, 18, -183, 34, -170, 41, -154, 43, -129, 46, -112, 50, -104, 57, -99, 65, -97, 75, -99, 83, -98, 89, -94, 91, -87, 88, -78, 82, -71, 91, -69, 93, -67, 107, -62, 112, -59, 142, 15, 150.142, 15.637, 160, 34, 161, 39, 157, 45, 154, 45, 154, 118, 150, 123, 128, 127, 95, 144, -101, 145, -163, 124, -164, 25, -119, -63, -64, -142, -48, -156, -36, -175, -20, -186 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 21, 343.5 )
 
@@ -129,7 +133,6 @@ position = Vector2( 512, 192 )
 shape = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color( 0.87451, 0.917647, 0.964706, 1 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
@@ -140,7 +143,6 @@ position = Vector2( 779, 172 )
 texture = ExtResource( 6 )
 
 [node name="Net2" type="Sprite" parent="."]
-modulate = Color( 0.733333, 0.521569, 0.521569, 1 )
 position = Vector2( 666, 127 )
 scale = Vector2( 1.71277, 0.745342 )
 texture = ExtResource( 6 )
@@ -158,11 +160,12 @@ position = Vector2( 0, 88 )
 texture = ExtResource( 3 )
 
 [node name="Bubblor" parent="Squid" instance=ExtResource( 5 )]
-modulate = Color( 0.784314, 0.537255, 0.537255, 1 )
+modulate = Color( 0.266667, 0.407843, 0.301961, 1 )
 position = Vector2( 65, -89 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Squid"]
+visible = false
 position = Vector2( 0.5, 48.5 )
 shape = SubResource( 2 )
 
@@ -171,8 +174,12 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Squid/NPC_squid"]
+visible = false
 position = Vector2( 0.5, 45 )
 shape = SubResource( 5 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Squid"]
+occluder = SubResource( 7 )
 
 [node name="YSort" type="YSort" parent="."]
 position = Vector2( -13, 7 )
@@ -209,7 +216,6 @@ scale = Vector2( -2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Net4" type="Sprite" parent="."]
-modulate = Color( 0.443137, 0.321569, 0.321569, 1 )
 position = Vector2( -151, 513 )
 rotation = -0.785397
 scale = Vector2( -2, 2 )
@@ -225,6 +231,14 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gate_Strand"]
 position = Vector2( -29, 121 )
 shape = SubResource( 6 )
+
+[node name="Lykta" parent="." instance=ExtResource( 12 )]
+position = Vector2( 839, 59 )
+
+[node name="Lykta2" parent="." instance=ExtResource( 12 )]
+modulate = Color( 0.768627, 0.568627, 0.568627, 1 )
+position = Vector2( 3, 87 )
+scale = Vector2( 2, 2 )
 
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

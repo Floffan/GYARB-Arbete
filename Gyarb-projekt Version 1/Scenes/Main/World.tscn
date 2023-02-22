@@ -6,11 +6,11 @@
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Worldbuilding/darkness.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Main/Hedge_overlay.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Worldbuilding/Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Pics/Figurer/croc.png" type="Texture" id=9]
 [ext_resource path="res://Pics/Mapbuilding/berg/sten.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Main/Hedge_overlay.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 180.986, 76.9777 )
@@ -145,7 +145,7 @@ scale = Vector2( -0.8, 0.8 )
 position = Vector2( 461, 211 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Map_overlay" parent="." instance=ExtResource( 7 )]
+[node name="Map_overlay" parent="." instance=ExtResource( 12 )]
 
 [node name="gate_Berg" type="Area2D" parent="."]
 position = Vector2( 1751, -567 )

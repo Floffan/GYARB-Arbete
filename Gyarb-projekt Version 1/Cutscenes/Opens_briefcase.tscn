@@ -976,7 +976,7 @@ default_length = 50.0
 
 [node name="arm_h" type="Bone2D" parent="Skelett/Skelett_bak/höft/bröst"]
 position = Vector2( 40, -49 )
-rotation = -0.1067
+rotation = -0.106701
 rest = Transform2D( 1, 0, 0, 1, 40, -49 )
 
 [node name="underarm_h" type="Bone2D" parent="Skelett/Skelett_bak/höft/bröst/arm_h"]
@@ -997,7 +997,7 @@ rest = Transform2D( 1, 0, 0, 1, -39, -49 )
 
 [node name="underarm_v" type="Bone2D" parent="Skelett/Skelett_bak/höft/bröst/arm_v"]
 position = Vector2( -3, 62 )
-rotation = 1.83259
+rotation = 1.8326
 rest = Transform2D( 1, 0, 0, 1, -3, 62 )
 
 [node name="hand_v" type="Bone2D" parent="Skelett/Skelett_bak/höft/bröst/arm_v/underarm_v"]
