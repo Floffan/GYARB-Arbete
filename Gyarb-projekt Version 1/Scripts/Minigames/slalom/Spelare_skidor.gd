@@ -12,10 +12,11 @@ func get_input():
 		velocity.x -= 1
 	if Input.is_action_pressed("Down"):
 		velocity.y += 1
-	if Input.is_action_pressed("Up"):
-		velocity.y -= 1
+	#if Input.is_action_pressed("Up"):
+	#	velocity.y -= 1
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
 	get_input()
+	#velocity.y += 200
 	velocity = move_and_slide(velocity)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Minigames/slalom/Spelare_skidor.gd" type="Script" id=1]
 [ext_resource path="res://Pics/Skelett/Skellett_sheet.png" type="Texture" id=2]
@@ -9,30 +9,70 @@
 [ext_resource path="res://Pics/Mapbuilding/berg/bakgrund/berg_background_berg.png" type="Texture" id=7]
 [ext_resource path="res://Pics/Mapbuilding/berg/bakgrund/berg_mitt.png" type="Texture" id=8]
 [ext_resource path="res://Pics/Mapbuilding/berg/bakgrund/berg_background_himmel1.png" type="Texture" id=9]
+[ext_resource path="res://Pics/Mapbuilding/berg/snö.png" type="Texture" id=10]
+[ext_resource path="res://Pics/Mapbuilding/berg/skidor.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Minigames/Gran.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Worldbuilding/Tree2.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.2857
 height = 151.429
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 45, 3334.5 )
+
 [node name="Slalom" type="Node2D"]
 script = ExtResource( 5 )
 
+[node name="Skidor" type="Sprite" parent="."]
+position = Vector2( 473, 672 )
+texture = ExtResource( 11 )
+
+[node name="himmel1" type="Sprite" parent="."]
+position = Vector2( -67, -212 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3570, 2000 )
+
+[node name="himmel3" type="Sprite" parent="."]
+position = Vector2( -254, -247 )
+texture = ExtResource( 6 )
+
+[node name="himmel2" type="Sprite" parent="."]
+position = Vector2( 312, -212 )
+texture = ExtResource( 8 )
+
+[node name="berg" type="Sprite" parent="."]
+position = Vector2( -118, -118 )
+texture = ExtResource( 7 )
+
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 187.0
-margin_top = -676.0
-margin_right = 835.0
+margin_left = 90.0
+margin_top = -43.0
+margin_right = 934.0
 margin_bottom = 6352.0
+
+[node name="Snö" type="Sprite" parent="."]
+position = Vector2( 345, 20 )
+rotation = 1.51353
+texture = ExtResource( 10 )
+
+[node name="Snö2" type="Sprite" parent="."]
+position = Vector2( 653, 56 )
+rotation = 1.56408
+scale = Vector2( 1, -1 )
+texture = ExtResource( 10 )
 
 [node name="YSort" type="YSort" parent="."]
 position = Vector2( 0, -676 )
 
-[node name="Spelare_skidor" type="KinematicBody2D" parent="YSort"]
-position = Vector2( 495, 816 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Spelare" type="KinematicBody2D" parent="YSort"]
+position = Vector2( 515, 510 )
+scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="YSort/Spelare_skidor"]
-position = Vector2( -990, -1632 )
+[node name="Camera2D" type="Camera2D" parent="YSort/Spelare"]
+position = Vector2( -988, 70 )
 scale = Vector2( 2, 2 )
 current = true
 limit_left = 0
@@ -41,15 +81,15 @@ limit_right = 1025
 limit_bottom = 3000
 editor_draw_limits = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Spelare_skidor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Spelare"]
 position = Vector2( 0, 354.286 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="polygons_fram" type="Node2D" parent="YSort/Spelare_skidor"]
+[node name="polygons_fram" type="Node2D" parent="YSort/Spelare"]
 position = Vector2( -37, 14 )
 
-[node name="underarm_h" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="underarm_h" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -314, -29 )
 rotation = -0.15689
 texture = ExtResource( 2 )
@@ -58,7 +98,7 @@ polygon = PoolVector2Array( 351.163, 237.209, 358.527, 181.783, 380.62, 186.434,
 uv = PoolVector2Array( 351.163, 237.209, 358.527, 181.783, 380.62, 186.434, 370.543, 245.736, 353.101, 246.899 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="arm_h" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="arm_h" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -285, -63 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -66,7 +106,7 @@ polygon = PoolVector2Array( 372.481, 97.6744, 375.581, 167.054, 360.853, 172.481
 uv = PoolVector2Array( 372.481, 97.6744, 375.581, 167.054, 360.853, 172.481, 350.388, 161.24, 350.775, 98.8372 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="underarm_v" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="underarm_v" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -204, -113 )
 rotation = 0.136446
 texture = ExtResource( 2 )
@@ -75,7 +115,7 @@ polygon = PoolVector2Array( 215.891, 181.008, 225.969, 242.636, 241.085, 238.372
 uv = PoolVector2Array( 215.891, 181.008, 225.969, 242.636, 241.085, 238.372, 246.512, 227.907, 235.271, 173.643 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="arm_v" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="arm_v" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -357, 22 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -83,7 +123,7 @@ polygon = PoolVector2Array( 346.899, 11.2403, 341.085, 77.5194, 353.101, 84.8837
 uv = PoolVector2Array( 346.899, 11.2403, 341.085, 77.5194, 353.101, 84.8837, 365.504, 76.7442, 369.767, 8.91473 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="ben_v" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="ben_v" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -16, -107 )
 texture = ExtResource( 4 )
 skeleton = NodePath("../../Skelett_fram")
@@ -91,7 +131,7 @@ polygon = PoolVector2Array( 21.2766, 250, 12.766, 279.255, 20.7447, 343.085, 34.
 uv = PoolVector2Array( 21.2766, 250, 12.766, 279.255, 20.7447, 343.085, 34.5745, 346.809, 43.617, 335.638, 35.1064, 279.255, 41.4894, 254.255 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ) ]
 
-[node name="ben_h" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="ben_h" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -106, -112 )
 texture = ExtResource( 4 )
 skeleton = NodePath("../../Skelett_fram")
@@ -99,7 +139,7 @@ polygon = PoolVector2Array( 154.787, 259.574, 151.064, 350.532, 170.745, 355.319
 uv = PoolVector2Array( 154.787, 259.574, 151.064, 350.532, 170.745, 355.319, 184.043, 313.298, 177.66, 252.66 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="höft" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="höft" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -21, 59 )
 texture = ExtResource( 3 )
 skeleton = NodePath("../../Skelett_fram")
@@ -107,7 +147,7 @@ polygon = PoolVector2Array( 73.6842, 52.8604, 104.805, 61.3272, 95.1945, 98.627,
 uv = PoolVector2Array( 73.4554, 47.3684, 104.805, 61.3272, 95.1945, 98.627, 64.0732, 114.874, 34.5538, 107.323, 13.9588, 82.151, 21.5103, 51.4874, 47.1396, 55.1487, 53.0892, 8.00915, 64.5309, 8.69565 )
 bones = [ "höft", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
-[node name="bröstkorg" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="bröstkorg" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -122, 7 )
 texture = ExtResource( 3 )
 skeleton = NodePath("../../Skelett_fram")
@@ -115,7 +155,7 @@ polygon = PoolVector2Array( 159.497, 3.43249, 225.4, 26.087, 187.872, 97.7117, 1
 uv = PoolVector2Array( 159.497, 3.43249, 225.4, 26.087, 187.872, 97.7117, 129.291, 95.1945, 105.034, 24.9428 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="huvud" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="huvud" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -138, -222 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -123,7 +163,7 @@ polygon = PoolVector2Array( 194.961, 170.155, 204.264, 187.597, 201.55, 237.984,
 uv = PoolVector2Array( 194.961, 170.155, 204.264, 187.597, 201.55, 237.984, 177.132, 246.124, 148.45, 236.047, 143.411, 176.744, 176.744, 161.628 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ) ]
 
-[node name="fot_v" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="fot_v" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -273, 114 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -131,7 +171,7 @@ polygon = PoolVector2Array( 262.766, 230.319, 285.638, 205.319, 302.66, 209.043,
 uv = PoolVector2Array( 262.766, 230.319, 285.638, 205.319, 302.66, 209.043, 303.191, 227.128, 281.915, 244.149, 263.83, 237.234 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 1, 1, 1, 1, 1, 1 ) ]
 
-[node name="fot_h" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="fot_h" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( 39, 67 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -139,7 +179,7 @@ polygon = PoolVector2Array( 22.8723, 254.787, 46.8085, 278.723, 35.1064, 293.617
 uv = PoolVector2Array( 22.8723, 254.787, 46.8085, 278.723, 35.1064, 293.617, 12.234, 286.702, 2.12766, 267.553 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="underben_h" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="underben_h" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -163, 51 )
 texture = ExtResource( 4 )
 skeleton = NodePath("../../Skelett_fram")
@@ -147,7 +187,7 @@ polygon = PoolVector2Array( 208.134, 181.818, 205.742, 276.077, 222.967, 282.297
 uv = PoolVector2Array( 208.134, 181.818, 205.742, 276.077, 222.967, 282.297, 231.1, 269.856, 235.885, 184.689, 219.617, 178.469 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 1, 1, 1, 1, 1, 1 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0, 0 ) ]
 
-[node name="underben_v" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="underben_v" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -108, -35 )
 texture = ExtResource( 4 )
 skeleton = NodePath("../../Skelett_fram")
@@ -155,7 +195,7 @@ polygon = PoolVector2Array( 106.383, 264.362, 110.638, 362.234, 129.787, 368.617
 uv = PoolVector2Array( 106.383, 264.362, 110.638, 362.234, 129.787, 368.617, 136.17, 360.106, 137.234, 257.447 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="vante_h" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="vante_h" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -34, 82 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -163,7 +203,7 @@ polygon = PoolVector2Array( 126.064, 65.9574, 128.723, 108.511, 95.2128, 110.638
 uv = PoolVector2Array( 126.064, 65.9574, 128.723, 108.511, 95.2128, 110.638, 90.4255, 72.3404, 100.532, 59.5745 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="vante_v" type="Polygon2D" parent="YSort/Spelare_skidor/polygons_fram"]
+[node name="vante_v" type="Polygon2D" parent="YSort/Spelare/polygons_fram"]
 position = Vector2( -331, -70 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skelett_fram")
@@ -171,123 +211,139 @@ polygon = PoolVector2Array( 313.83, 211.702, 313.83, 253.191, 331.915, 260.638, 
 uv = PoolVector2Array( 313.83, 211.702, 313.83, 253.191, 331.915, 260.638, 345.745, 243.617, 343.085, 209.043 )
 bones = [ "höft", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/huvud", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_h/underarm_h/hand_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/bröst/arm_v/underarm_v/hand_v", PoolRealArray( 1, 1, 1, 1, 1 ), "höft/lår_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_h/vad_h/fot_h", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v", PoolRealArray( 0, 0, 0, 0, 0 ), "höft/lår_v/vad_v/fot_v", PoolRealArray( 0, 0, 0, 0, 0 ) ]
 
-[node name="Skelett_fram" type="Skeleton2D" parent="YSort/Spelare_skidor"]
+[node name="Skelett_fram" type="Skeleton2D" parent="YSort/Spelare"]
 position = Vector2( -37, 14 )
 
-[node name="höft" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram"]
+[node name="höft" type="Bone2D" parent="YSort/Spelare/Skelett_fram"]
 position = Vector2( 38, 131 )
 rest = Transform2D( 1, 0, 0, 1, 38, 131 )
 
-[node name="bröst" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft"]
+[node name="bröst" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft"]
 position = Vector2( -1, -42 )
 rest = Transform2D( 1, 0, 0, 1, -1, -42 )
 
-[node name="huvud" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst"]
+[node name="huvud" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst"]
 position = Vector2( 0, -71 )
 rotation = -1.5708
 rest = Transform2D( -4.37114e-08, -1, 1, -4.37114e-08, 0, -71 )
 default_length = 70.0
 
-[node name="arm_h" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst"]
+[node name="arm_h" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst"]
 position = Vector2( 40, -49 )
 rest = Transform2D( 1, 0, 0, 1, 40, -49 )
 
-[node name="underarm_h" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst/arm_h"]
+[node name="underarm_h" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst/arm_h"]
 position = Vector2( 3, 61 )
 rest = Transform2D( 1, 0, 0, 1, 3, 61 )
 
-[node name="hand_h" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst/arm_h/underarm_h"]
+[node name="hand_h" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst/arm_h/underarm_h"]
 position = Vector2( -2, 51 )
 rotation = 1.5708
 rest = Transform2D( -4.37114e-08, 1, -1, -4.37114e-08, -2, 51 )
 default_length = 30.0
 
-[node name="arm_v" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst"]
+[node name="arm_v" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst"]
 position = Vector2( -39, -49 )
 rest = Transform2D( 1, 0, 0, 1, -39, -49 )
 
-[node name="underarm_v" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst/arm_v"]
+[node name="underarm_v" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst/arm_v"]
 position = Vector2( -3, 62 )
 rest = Transform2D( 1, 0, 0, 1, -3, 62 )
 
-[node name="hand_v" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/bröst/arm_v/underarm_v"]
+[node name="hand_v" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/bröst/arm_v/underarm_v"]
 position = Vector2( 2, 48 )
 rotation = 1.5708
 rest = Transform2D( -4.37114e-08, 1, -1, -4.37114e-08, 2, 48 )
 default_length = 30.0
 
-[node name="lår_h" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft"]
+[node name="lår_h" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft"]
 position = Vector2( 26, 18 )
-rotation = 0.0356333
+rotation = 0.0356334
 rest = Transform2D( 0.999365, 0.0356259, -0.0356259, 0.999365, 26, 18 )
 
-[node name="vad_h" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/lår_h"]
+[node name="vad_h" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/lår_h"]
 position = Vector2( -0.862389, 88.0866 )
 rotation = -0.0459767
 rest = Transform2D( 0.998943, -0.0459605, 0.0459605, 0.998943, -0.862389, 88.0866 )
 
-[node name="fot_h" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/lår_h/vad_h"]
+[node name="fot_h" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/lår_h/vad_h"]
 position = Vector2( -4, 94 )
 rotation = 0.906437
 rest = Transform2D( 0.616555, 0.787312, -0.787312, 0.616555, -4, 94 )
 default_length = 20.0
 
-[node name="lår_v" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft"]
+[node name="lår_v" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft"]
 position = Vector2( -31, 19 )
 rotation = 0.105715
 rest = Transform2D( 0.994417, 0.105518, -0.105518, 0.994417, -31, 19 )
 
-[node name="vad_v" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/lår_v"]
+[node name="vad_v" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/lår_v"]
 position = Vector2( 15.93, 83.7868 )
 rotation = -0.173415
 rest = Transform2D( 0.985001, -0.172547, 0.172547, 0.985001, 15.93, 83.7868 )
 
-[node name="fot_v" type="Bone2D" parent="YSort/Spelare_skidor/Skelett_fram/höft/lår_v/vad_v"]
+[node name="fot_v" type="Bone2D" parent="YSort/Spelare/Skelett_fram/höft/lår_v/vad_v"]
 position = Vector2( -3.50111, 95.983 )
 rotation = 2.34558
 rest = Transform2D( -0.69956, 0.714574, -0.714574, -0.69956, -3.50111, 95.983 )
 default_length = 20.0
 
-[node name="Gran" type="StaticBody2D" parent="."]
-position = Vector2( 0, -676 )
+[node name="Gran" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 551, 1464 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gran"]
+[node name="Gran2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 312, 2541 )
+
+[node name="Gran3" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 615, 3440 )
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 45, 3105.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 980, 3197 )
+shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Bakgrund" type="ParallaxBackground" parent="CanvasLayer"]
+[node name="Träd" type="ParallaxBackground" parent="CanvasLayer"]
+layer = 1
 
-[node name="Himmel" type="ParallaxLayer" parent="CanvasLayer/Bakgrund"]
+[node name="Snö_mörk" type="ParallaxLayer" parent="CanvasLayer/Träd"]
+motion_mirroring = Vector2( 0, 1000 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Träd/Snö_mörk"]
+margin_top = 26.0
+margin_right = 90.0
+margin_bottom = 1026.0
+color = Color( 0.760784, 0.878431, 0.878431, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Träd/Snö_mörk"]
+margin_left = 934.0
+margin_top = 113.0
+margin_right = 1024.0
+margin_bottom = 1113.0
+color = Color( 0.760784, 0.878431, 0.878431, 1 )
+
+[node name="Träd" type="ParallaxLayer" parent="CanvasLayer/Träd"]
 position = Vector2( -67, -212 )
-motion_mirroring = Vector2( 3570, 0 )
+motion_mirroring = Vector2( 0, 1000 )
 
-[node name="himmel1" type="Sprite" parent="CanvasLayer/Bakgrund/Himmel"]
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 3570, 2000 )
+[node name="Tree2" parent="CanvasLayer/Träd/Träd" instance=ExtResource( 13 )]
+modulate = Color( 0.737255, 0.741176, 0.768627, 1 )
+position = Vector2( 1068, 884 )
 
-[node name="berg_bak" type="ParallaxLayer" parent="CanvasLayer/Bakgrund"]
-position = Vector2( -354, -182 )
-motion_scale = Vector2( 0, 1 )
-motion_mirroring = Vector2( 3570, 0 )
+[node name="Tree3" parent="CanvasLayer/Träd/Träd" instance=ExtResource( 13 )]
+modulate = Color( 0.737255, 0.741176, 0.768627, 1 )
+position = Vector2( 161, 669 )
+rotation = 3.14159
+scale = Vector2( 0.7, -0.7 )
 
-[node name="himmel3" type="Sprite" parent="CanvasLayer/Bakgrund/berg_bak"]
-position = Vector2( 100, -65 )
-texture = ExtResource( 6 )
-
-[node name="Berg_mitt" type="ParallaxLayer" parent="CanvasLayer/Bakgrund"]
-position = Vector2( 551, -168 )
-motion_scale = Vector2( 0.1, 1 )
-motion_mirroring = Vector2( 3570, 0 )
-
-[node name="himmel2" type="Sprite" parent="CanvasLayer/Bakgrund/Berg_mitt"]
-position = Vector2( -130, -58 )
-texture = ExtResource( 8 )
-
-[node name="Berg_fram" type="ParallaxLayer" parent="CanvasLayer/Bakgrund"]
-position = Vector2( -882, -188 )
-motion_scale = Vector2( 0.3, 1 )
-motion_mirroring = Vector2( 3570, 0 )
-
-[node name="berg" type="Sprite" parent="CanvasLayer/Bakgrund/Berg_fram"]
-texture = ExtResource( 7 )
+[node name="Tree4" parent="CanvasLayer/Träd/Träd" instance=ExtResource( 13 )]
+modulate = Color( 0.878431, 0.890196, 0.980392, 1 )
+position = Vector2( 7.62939e-06, 1130 )
+rotation = 3.14159
+scale = Vector2( 0.7, -0.7 )
