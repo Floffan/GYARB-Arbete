@@ -10,6 +10,8 @@ var NPC_collider = ""
 #var keys = ["key_grotta"]
 #var keys = []
 
+var areas_visited = []
+
 var Items = []
 #var Items = ["Medal","Key", "Plate", "Shirt"]
 var ok = false

@@ -18,10 +18,9 @@ angle = -106.7
 scale = 1.5
 color = Color( 0, 0, 0, 1 )
 
-[node name="Mörkret_ingång" type="Node2D"]
+[node name="Gate" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 475, 230 )
 scale = Vector2( 0.5, 0.7 )
 texture = ExtResource( 1 )

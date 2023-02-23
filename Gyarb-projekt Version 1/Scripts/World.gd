@@ -5,15 +5,13 @@ var going_out = false
 var interacting = false
 var question = ""
 
-onready var menu_player_interact = $Camera2D/CanvasLayer/Object_interation_menu #$YSort/Skelett/Camera2D/CanvasLayer/Object_interation_menu
-onready var menu_player_gate = $Camera2D/CanvasLayer/Gate_menu #$YSort/Skelett/Camera2D/CanvasLayer/Gate_menu
-onready var menu_player_dialog = $Camera2D/CanvasLayer/Dialog #$YSort/Skelett/Camera2D/CanvasLayer/Dialog
+onready var menu_player_interact = $Camera2D/CanvasLayer/Object_interation_menu 
+onready var menu_player_gate = $Camera2D/CanvasLayer/Gate_menu
+onready var menu_player_dialog = $Camera2D/CanvasLayer/Dialog
 
 
 func _ready():
 	_get_position()
-	Autoloads.Current_scene = "res://Scenes/Main/Spawn.tscn"
-	
 	
 func _get_position() -> void:
 	if skelett_position == "main_Spawn":

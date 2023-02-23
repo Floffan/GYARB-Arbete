@@ -14,23 +14,27 @@ var gate_path = "res://Scenes/Main/World.tscn"
 
 onready var interaction_menu = $Camera2D/CanvasLayer/Object_interation_menu
 
+var Info_done = false
+
 func _ready() -> void:
 	Autoloads.have_briefcase = true
 	animation_player.play("Stå-animation_bakifrån")
-	$YSort/Skelett.direction[1] = "up"
 
 func _process(delta):
 	if Autoloads.have_briefcase == false:
 		question = "Plocka upp väskan?"
 	else:
 		question = "Ställ väskan här?"
-
-
-func _on_Skelett_NPC_detected():
-	var collider = $YSort/Skelett/NPC_detector.get_collider().name
+	if $YSort/Skelett.direction[1] == "up" and Info_done == false:
+		_info_init()
+		
+		
+func _info_init():
 	var dialog_player = get_node("Camera2D/CanvasLayer/Dialog")
-	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
+	if dialog_player.dialog_running == false:
 		dialog_player.play_dialog(path, 0.05, 1)
+		Info_done = true
+
 
 func _on_Skelett_gate_detected():
 	Autoloads.Position = "main_Hedge"
@@ -64,3 +68,7 @@ func _on_Object_interation_menu_put_down():
 	
 	interaction_menu.pressed_yes = false
 	
+
+
+func _on_Skelett_NPC_detected() -> void:
+	pass
