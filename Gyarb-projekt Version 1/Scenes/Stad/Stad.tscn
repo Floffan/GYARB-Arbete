@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -15,6 +15,23 @@
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Scripts/Stad/Stad.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Pics/Mapbuilding/Generellt/berg_leaves.png" type="Texture" id=16]
+
+[sub_resource type="TileSet" id=16]
+0/name = "berg_leaves.png 0"
+0/texture = ExtResource( 16 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [sub_resource type="TileSet" id=3]
 0/name = "street_tilemap.png 0"
@@ -181,14 +198,78 @@ extents = Vector2( 82, 5.25 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 128, 47.5 )
 
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 304, 517 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 130.5, 172.5 )
+
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 37, 119.5 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 176.5, 448 )
 
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 30.5, 104 )
+
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 61, 129 )
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Skelett:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1916, 74 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Red_house_visit"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Skelett:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1916, 74 ), Vector2( -1497, 63 ), Vector2( -1487, -559 ), Vector2( -1140, -570 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
+}
 
 [node name="Stad" type="Node2D"]
 script = ExtResource( 14 )
@@ -206,6 +287,14 @@ scale = Vector2( 0.9, 0.9 )
 [node name="Tree3" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1927, -213 )
 scale = Vector2( -1, 1 )
+
+[node name="buskar" type="TileMap" parent="."]
+modulate = Color( 0.827451, 0.717647, 0.717647, 1 )
+position = Vector2( -10, 5 )
+tile_set = SubResource( 16 )
+cell_size = Vector2( 256, 256 )
+format = 1
+tile_data = PoolIntArray( -9, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0 )
 
 [node name="road" type="TileMap" parent="."]
 position = Vector2( 2, 25 )
@@ -278,7 +367,7 @@ color = Color( 0.870588, 0.635294, 0.184314, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Skelett" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -433, 184 )
+position = Vector2( -1916, 74 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Hus" type="StaticBody2D" parent="YSort"]
@@ -323,8 +412,7 @@ text = "
 GYM"
 
 [node name="col_balkong" type="CollisionPolygon2D" parent="YSort/Hus"]
-visible = false
-polygon = PoolVector2Array( -1094, -612, -1086, -612, -1086, -480, -1229, -480, -1229, -484, -1094, -484 )
+polygon = PoolVector2Array( -1094, -612, -1086, -612, -1086, -480, -1229, -480, -1229, -484, -1094, -484, -1094, -515, -1231, -515, -1231, -523, -1094, -523 )
 
 [node name="col_orangerosa" type="CollisionShape2D" parent="YSort/Hus"]
 visible = false
@@ -340,6 +428,10 @@ shape = SubResource( 14 )
 position = Vector2( -607, 194.5 )
 shape = SubResource( 15 )
 
+[node name="col_red" type="CollisionShape2D" parent="YSort/Hus"]
+position = Vector2( -1521, -336 )
+shape = SubResource( 19 )
+
 [node name="Sprite" type="Sprite" parent="YSort/Hus"]
 modulate = Color( 0.901961, 0.945098, 0.890196, 1 )
 position = Vector2( -607, 216 )
@@ -347,6 +439,10 @@ texture = ExtResource( 10 )
 
 [node name="Blomma_red" parent="YSort/Hus/Sprite" instance=ExtResource( 15 )]
 position = Vector2( 5, -208 )
+
+[node name="col_red2" type="CollisionShape2D" parent="YSort/Hus"]
+position = Vector2( -1955.5, -3.5 )
+shape = SubResource( 21 )
 
 [node name="Bussskylt" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 2840, 99 )
@@ -389,15 +485,6 @@ motion_mirroring = Vector2( 3570, 0 )
 [node name="berg" type="Sprite" parent="Bakgrund/Berg_fram"]
 texture = ExtResource( 8 )
 
-[node name="Camera2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3080, 9 )
-current = true
-limit_left = -2250
-limit_top = -1200
-limit_right = 4000
-limit_bottom = 1000
-editor_draw_limits = true
-
 [node name="gate_Gym" type="Area2D" parent="."]
 position = Vector2( 1435, 160 )
 collision_layer = 8
@@ -416,6 +503,15 @@ collision_mask = 8
 position = Vector2( 1.5, 1 )
 shape = SubResource( 11 )
 
+[node name="gate_Balkong" type="Area2D" parent="."]
+position = Vector2( -1238, -578 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gate_Balkong"]
+position = Vector2( 20.5, 94 )
+shape = SubResource( 20 )
+
 [node name="gate_Redhouse" type="Area2D" parent="."]
 position = Vector2( -1922, 123 )
 collision_layer = 8
@@ -433,9 +529,25 @@ position = Vector2( 1435, 166 )
 [node name="stad_Berg" type="Position2D" parent="Positioner"]
 position = Vector2( 3573, 166 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 17 )
+anims/Red_house_visit = SubResource( 18 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3080, 9 )
+current = true
+limit_left = -2250
+limit_top = -1200
+limit_right = 4000
+limit_bottom = 1000
+editor_draw_limits = true
+
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
-[connection signal="pick_up" from="Camera2D/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+[connection signal="walk_in" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_walk_in"]
+[connection signal="walk_out" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_walk_out"]
 
 [editable path="Camera2D"]

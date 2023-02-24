@@ -94,4 +94,4 @@ func _on_Interact():
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
 	$YSort/Blomma_red.visible = false
-	$Camera2D/Object_interation_menu.pressed_yes = false
+	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false

@@ -4,6 +4,8 @@ var pressed_yes = false
 
 signal put_down
 signal pick_up
+signal walk_in
+signal walk_out
 
 func _ready():
 	self.visible = false
@@ -28,6 +30,10 @@ func on_interaction(question, object):
 			emit_signal("pick_up")
 			self.visible = false
 			return
+		if object == "in":
+			emit_signal("walk_in")
+		if object == "out":
+			emit_signal("walk_out")
 
 func _on_YES_button_down():
 	pressed_yes = true
