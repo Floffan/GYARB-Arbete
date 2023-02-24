@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Scripts/Stad/Stad.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Pics/Mapbuilding/Generellt/berg_leaves.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/Worldbuilding/Green_walls.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Worldbuilding/Viewport_light.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=16]
 0/name = "berg_leaves.png 0"
@@ -173,6 +175,9 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 6/shapes = [  ]
 6/z_index = 0
 
+[sub_resource type="ViewportTexture" id=22]
+viewport_path = NodePath("Viewport")
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 263.5, 327.5 )
 
@@ -199,7 +204,7 @@ extents = Vector2( 82, 5.25 )
 extents = Vector2( 128, 47.5 )
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 304, 517 )
+extents = Vector2( 298, 517 )
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 130.5, 172.5 )
@@ -315,54 +320,102 @@ tile_data = PoolIntArray( -19, 3, 0, -18, 3, 0, -11, 3, 0, -10, 3, 0, -5, 3, 0, 
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-margin_left = -1737.0
-margin_top = -849.0
-margin_right = -1275.0
-margin_bottom = 228.0
-color = Color( 0.760784, 0.486275, 0.223529, 1 )
-
-[node name="ColorRect6" type="ColorRect" parent="Control"]
-margin_left = -2041.0
-margin_top = -87.0
-margin_right = -1790.0
-margin_bottom = 255.0
-color = Color( 0.760784, 0.486275, 0.223529, 1 )
-
 [node name="ColorRect2" type="ColorRect" parent="Control"]
 margin_left = 1148.0
 margin_top = -805.0
 margin_right = 1518.0
-margin_bottom = 272.0
-color = Color( 0.870588, 0.635294, 0.184314, 1 )
-
-[node name="ColorRect3" type="ColorRect" parent="Control"]
-margin_left = -953.0
-margin_top = -813.0
-margin_right = -526.0
-margin_bottom = 264.0
+margin_bottom = -13.0
 color = Color( 0.870588, 0.635294, 0.184314, 1 )
 
 [node name="ColorRect4" type="ColorRect" parent="Control"]
 margin_left = -295.0
 margin_top = -555.0
 margin_right = 128.0
-margin_bottom = 256.0
+margin_bottom = -19.0
 color = Color( 0.870588, 0.635294, 0.184314, 1 )
 
 [node name="ColorRect5" type="ColorRect" parent="Control"]
 margin_left = 428.0
 margin_top = -553.0
 margin_right = 851.0
-margin_bottom = 258.0
+margin_bottom = -42.0
 color = Color( 0.870588, 0.635294, 0.184314, 1 )
 
 [node name="ColorRect7" type="ColorRect" parent="Control"]
 margin_left = 1901.0
 margin_top = -741.0
 margin_right = 2280.0
-margin_bottom = 228.0
+margin_bottom = -145.0
 color = Color( 0.870588, 0.635294, 0.184314, 1 )
+
+[node name="dörr_red" type="Sprite" parent="Control"]
+position = Vector2( -1867, 86 )
+texture = SubResource( 22 )
+
+[node name="fönster" type="Sprite" parent="Control"]
+position = Vector2( -1658, 76 )
+texture = SubResource( 22 )
+
+[node name="fönster2" type="Sprite" parent="Control"]
+position = Vector2( -1398, 68 )
+texture = SubResource( 22 )
+
+[node name="fönster3" type="Sprite" parent="Control"]
+position = Vector2( -1389, -227 )
+texture = SubResource( 22 )
+
+[node name="fönster4" type="Sprite" parent="Control"]
+position = Vector2( -1612, -225 )
+texture = SubResource( 22 )
+
+[node name="fönster5" type="Sprite" parent="Control"]
+position = Vector2( -1626, -534 )
+texture = SubResource( 22 )
+
+[node name="fönster6" type="Sprite" parent="Control"]
+position = Vector2( -1400, -538 )
+texture = SubResource( 22 )
+
+[node name="fönster7" type="Sprite" parent="Control"]
+position = Vector2( -850, -482 )
+texture = SubResource( 22 )
+
+[node name="fönster8" type="Sprite" parent="Control"]
+position = Vector2( -631, -486 )
+scale = Vector2( 0.9, 0.9 )
+texture = SubResource( 22 )
+
+[node name="fönster9" type="Sprite" parent="Control"]
+position = Vector2( -808, -182 )
+texture = SubResource( 22 )
+
+[node name="fönster10" type="Sprite" parent="Control"]
+position = Vector2( -800, 92 )
+texture = SubResource( 22 )
+
+[node name="fönster11" type="Sprite" parent="Control"]
+position = Vector2( -630, 96 )
+texture = SubResource( 22 )
+
+[node name="fönster12" type="Sprite" parent="Control"]
+position = Vector2( -145, 89 )
+texture = SubResource( 22 )
+
+[node name="fönster13" type="Sprite" parent="Control"]
+position = Vector2( 11, 89 )
+texture = SubResource( 22 )
+
+[node name="fönster14" type="Sprite" parent="Control"]
+position = Vector2( 646, 84 )
+texture = SubResource( 22 )
+
+[node name="fönster15" type="Sprite" parent="Control"]
+position = Vector2( 1349, 103 )
+texture = SubResource( 22 )
+
+[node name="fönster16" type="Sprite" parent="Control"]
+position = Vector2( 2071, 37 )
+texture = SubResource( 22 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -412,6 +465,7 @@ text = "
 GYM"
 
 [node name="col_balkong" type="CollisionPolygon2D" parent="YSort/Hus"]
+visible = false
 polygon = PoolVector2Array( -1094, -612, -1086, -612, -1086, -480, -1229, -480, -1229, -484, -1094, -484, -1094, -515, -1231, -515, -1231, -523, -1094, -523 )
 
 [node name="col_orangerosa" type="CollisionShape2D" parent="YSort/Hus"]
@@ -425,11 +479,13 @@ position = Vector2( 1616, 166 )
 shape = SubResource( 14 )
 
 [node name="col_rabatt" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( -607, 194.5 )
 shape = SubResource( 15 )
 
 [node name="col_red" type="CollisionShape2D" parent="YSort/Hus"]
-position = Vector2( -1521, -336 )
+visible = false
+position = Vector2( -1527, -336 )
 shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Hus"]
@@ -441,6 +497,7 @@ texture = ExtResource( 10 )
 position = Vector2( 5, -208 )
 
 [node name="col_red2" type="CollisionShape2D" parent="YSort/Hus"]
+visible = false
 position = Vector2( -1955.5, -3.5 )
 shape = SubResource( 21 )
 
@@ -504,7 +561,7 @@ position = Vector2( 1.5, 1 )
 shape = SubResource( 11 )
 
 [node name="gate_Balkong" type="Area2D" parent="."]
-position = Vector2( -1238, -578 )
+position = Vector2( -1196, -592 )
 collision_layer = 8
 collision_mask = 8
 
@@ -529,9 +586,14 @@ position = Vector2( 1435, 166 )
 [node name="stad_Berg" type="Position2D" parent="Positioner"]
 position = Vector2( 3573, 166 )
 
+[node name="häcktoppar" parent="." instance=ExtResource( 17 )]
+tile_data = PoolIntArray( -19, 15, 393220, -18, 15, 393223, 65517, 15, 65536, 65518, 15, 131076, 131053, 15, 131078, 131054, 15, 131076, 196589, 15, 131078, 196590, 15, 65538, 262125, 15, 131078, 262126, 15, 65538, 196635, 15, 327685, 196636, 15, 1, 196637, 15, 1, 196638, 15, 1, 196639, 15, 1, 196640, 15, 2, 327661, 15, 65536, 327662, 15, 131076, 262171, 15, 131078, 262172, 15, 65537, 262173, 15, 7, 262174, 15, 262147, 262175, 15, 65543, 262176, 15, 131076, 393197, 15, 131078, 393198, 15, 131076, 327707, 15, 131078, 327708, 15, 5, 327709, 15, 4, 327710, 15, 131079, 327711, 15, 262147, 327712, 15, 131076, 458733, 15, 65536, 458734, 15, 131076, 393243, 15, 65536, 393244, 15, 262148, 393245, 15, 262151, 393246, 15, 262147, 393247, 15, 65543, 393248, 15, 131076, 524269, 15, 131078, 524270, 15, 393222, 524271, 15, 196613, 524272, 15, 1, 524273, 15, 196613, 524274, 15, 1, 524275, 15, 196613, 524276, 15, 1, 524277, 15, 196613, 524278, 15, 196613, 524279, 15, 196613, 524280, 15, 1, 524281, 15, 1, 524282, 15, 1, 524283, 15, 196613, 524284, 15, 1, 524285, 15, 196613, 524286, 15, 1, 524287, 15, 196613, 458752, 15, 1, 458753, 15, 1, 458754, 15, 196613, 458755, 15, 196613, 458756, 15, 196613, 458757, 15, 1, 458758, 15, 1, 458759, 15, 1, 458760, 15, 1, 458761, 15, 196613, 458762, 15, 1, 458763, 15, 1, 458764, 15, 1, 458765, 15, 196613, 458766, 15, 1, 458767, 15, 1, 458768, 15, 1, 458769, 15, 1, 458770, 15, 1, 458771, 15, 196613, 458772, 15, 196613, 458773, 15, 196613, 458774, 15, 196613, 458775, 15, 196613, 458776, 15, 196613, 458777, 15, 196613, 458778, 15, 196613, 458779, 15, 393221, 458780, 15, 65537, 458781, 15, 196615, 458782, 15, 262149, 458783, 15, 65539, 458784, 15, 65538, 589805, 15, 65536, 589806, 15, 262151, 589807, 15, 196615, 589808, 15, 262147, 589809, 15, 65537, 589810, 15, 4, 589811, 15, 131079, 589812, 15, 65539, 589813, 15, 5, 589814, 15, 7, 589815, 15, 262151, 589816, 15, 196615, 589817, 15, 262149, 589818, 15, 262150, 589819, 15, 131075, 589820, 15, 65537, 589821, 15, 3, 589822, 15, 196615, 589823, 15, 131079, 524288, 15, 6, 524289, 15, 65543, 524290, 15, 131079, 524291, 15, 5, 524292, 15, 131079, 524293, 15, 5, 524294, 15, 131075, 524295, 15, 7, 524296, 15, 131075, 524297, 15, 262148, 524298, 15, 262148, 524299, 15, 65537, 524300, 15, 4, 524301, 15, 196615, 524302, 15, 262151, 524303, 15, 3, 524304, 15, 7, 524305, 15, 196615, 524306, 15, 65543, 524307, 15, 131079, 524308, 15, 262149, 524309, 15, 131075, 524310, 15, 262149, 524311, 15, 65537, 524312, 15, 262148, 524313, 15, 65539, 524314, 15, 3, 524315, 15, 65539, 524316, 15, 131075, 524317, 15, 262150, 524318, 15, 3, 524319, 15, 65537, 524320, 15, 131076, 655341, 15, 131072, 655342, 15, 65541, 655343, 15, 65541, 655344, 15, 131073, 655345, 15, 131073, 655346, 15, 131073, 655347, 15, 131073, 655348, 15, 65541, 655349, 15, 65541, 655350, 15, 131073, 655351, 15, 65541, 655352, 15, 131073, 655353, 15, 131073, 655354, 15, 65541, 655355, 15, 131073, 655356, 15, 131073, 655357, 15, 131073, 655358, 15, 131073, 655359, 15, 65541, 589824, 15, 131073, 589825, 15, 65541, 589826, 15, 65541, 589827, 15, 65541, 589828, 15, 131073, 589829, 15, 65541, 589830, 15, 65541, 589831, 15, 131073, 589832, 15, 65541, 589833, 15, 131073, 589834, 15, 65541, 589835, 15, 65541, 589836, 15, 65541, 589837, 15, 131073, 589838, 15, 65541, 589839, 15, 65541, 589840, 15, 131073, 589841, 15, 65541, 589842, 15, 131073, 589843, 15, 65541, 589844, 15, 65541, 589845, 15, 131073, 589846, 15, 131073, 589847, 15, 65541, 589848, 15, 65541, 589849, 15, 65541, 589850, 15, 131073, 589851, 15, 65541, 589852, 15, 65541, 589853, 15, 131073, 589854, 15, 65541, 589855, 15, 131073, 589856, 15, 131074 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
 anims/Red_house_visit = SubResource( 18 )
+
+[node name="Viewport" parent="." instance=ExtResource( 18 )]
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3080, 9 )
@@ -541,6 +603,10 @@ limit_top = -1200
 limit_right = 4000
 limit_bottom = 1000
 editor_draw_limits = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1662, 129 )
+scale = Vector2( 454.4, 167.3 )
 
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]

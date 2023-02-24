@@ -6,6 +6,7 @@ signal put_down
 signal pick_up
 signal walk_in
 signal walk_out
+signal get_on_bus
 
 func _ready():
 	self.visible = false
@@ -34,6 +35,8 @@ func on_interaction(question, object):
 			emit_signal("walk_in")
 		if object == "out":
 			emit_signal("walk_out")
+		if object == "bus":
+			emit_signal("get_on_bus")
 
 func _on_YES_button_down():
 	pressed_yes = true

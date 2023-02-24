@@ -652,7 +652,7 @@ script = ExtResource( 20 )
 
 [node name="Fågel" type="AnimatedSprite" parent="Fågel_path/Fågel"]
 frames = SubResource( 90 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Bus" parent="." instance=ExtResource( 23 )]
@@ -660,5 +660,6 @@ position = Vector2( 231, -189 )
 
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
+[connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 
 [editable path="Camera2D"]

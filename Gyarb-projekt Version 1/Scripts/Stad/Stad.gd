@@ -10,6 +10,9 @@ var question = ""
 onready var ui_cutscene_panels = $Camera2D/CanvasLayer/Panels_cutscene/AnimationPlayer
 
 func _ready():
+	$VisibilityNotifier2D.connect("screen_entered", self, "show")
+	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
+	visible = false
 	_get_position()
 	
 	

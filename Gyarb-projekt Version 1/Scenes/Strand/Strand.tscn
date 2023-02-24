@@ -626,6 +626,16 @@ tile_data = PoolIntArray( -786442, 15, 327685, -786441, 15, 196613, -786440, 15,
 
 [node name="Camera2D" parent="." instance=ExtResource( 6 )]
 current = true
+limit_left = -500
+limit_top = -1500
+limit_right = 4500
+limit_bottom = 2000
+editor_draw_limits = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( 1471.5, 150 )
+scale = Vector2( 283.25, 189.8 )
 
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="YSort/Shellhouse" method="_on_Skelett_gate_detected"]

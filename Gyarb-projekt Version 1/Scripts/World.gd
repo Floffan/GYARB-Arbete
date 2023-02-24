@@ -12,6 +12,12 @@ onready var menu_player_dialog = $Camera2D/CanvasLayer/Dialog
 
 func _ready():
 	_get_position()
+	$Havet/Lager1.position.x = 2095
+	$Havet/Lager1.position.y = 1888
+	
+func _process(delta: float) -> void:
+	$Havet/Lager1.motion_offset.x += -50*delta
+	
 	
 func _get_position() -> void:
 	if skelett_position == "main_Spawn":

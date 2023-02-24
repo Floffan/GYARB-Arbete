@@ -7,6 +7,9 @@ var skelett_position = Autoloads.Position
 var going_out = false
 
 func _ready():
+	$VisibilityNotifier2D.connect("screen_entered", self, "show")
+	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
+	visible = false
 	_get_position()
 
 func _process(delta: float) -> void:
