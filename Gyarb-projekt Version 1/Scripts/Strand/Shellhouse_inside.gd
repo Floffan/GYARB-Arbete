@@ -21,16 +21,18 @@ func _on_Skelett_gate_detected():
 		ui_gate.on_walkout("strand_Shellhouse","res://Scenes/Strand/Strand.tscn", "out")
 		
 func _on_Skelett_NPC_detected():
+	var collider = $YSort/Skelett/NPC_detector.get_collider().name
 	
 	if Autoloads.flowers == 3:
 		dia_num = 2
 	else:
 		dia_num = 1
 	
-	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	
 	if Input.is_action_just_pressed("ui_accept") and ui_dialog.dialog_running == false:
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
+		if dia_num == 2 and Autoloads.Items.has("Key") != true:
+			Autoloads.Items.append("Key")
+			# Anim. play key
 		
 	
 	

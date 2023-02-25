@@ -1,12 +1,11 @@
 extends Node2D
 
-"""
-Vilken båt det är : [Laps, Om båten har passerat checkpointen]
-"""
-
 onready var w_screen = $Winscreen
 onready var l_screen = $Loose_screen
 
+"""
+Vilken båt det är : [Laps, Om båten har passerat checkpointen]
+"""
 onready var Boats = {
 	"Boat_blue": [0, 0, 0, 0],
 	"Boat_green": [0, 0, 0, 0],
@@ -17,7 +16,7 @@ onready var laps_p = $LAPS/Panel/VBoxContainer/Player/Laps_P # Laps Player
 onready var laps_g = $LAPS/Panel/VBoxContainer/Green/Laps_G # Laps Gröna båten
 onready var laps_b = $LAPS/Panel/VBoxContainer/Blue/Laps_B # Laps Blåa båten
 
-var win_laps = 5
+var win_laps = 1
 
 signal ready_done
 signal game_over
@@ -37,8 +36,8 @@ func _win_screen(Boat):
 	emit_signal("game_over")
 	w_screen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
-	if Autoloads.Items.has("Medal") == false:
-		Autoloads.Items.append("Medal")
+	if Autoloads.games_played.has("Boatrace") == false:
+		Autoloads.games_played.append("Boatrace")
 	
 func _loose_screen(Boat):
 	emit_signal("game_over")

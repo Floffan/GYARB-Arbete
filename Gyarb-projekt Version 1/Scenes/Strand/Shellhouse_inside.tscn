@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/Strand/tilemap_cottage.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Scripts/Strand/Shellhouse_inside.gd" type="Script" id=5]
 [ext_resource path="res://Pics/Mapbuilding/Strand/wall_cottage_back.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Strand/Fishman.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Worldbuilding/Lyktan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Pics/Mapbuilding/Strand/sink.png" type="Texture" id=9]
+[ext_resource path="res://Pics/Mapbuilding/Strand/gardin.png" type="Texture" id=10]
+[ext_resource path="res://Pics/Mapbuilding/Strand/net.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 608.333, 191.667 )
@@ -32,6 +36,9 @@ extents = Vector2( 15, 515 )
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 237.778, 37.7778 )
 
 [sub_resource type="TileSet" id=2]
 1/name = "tilemap_cottage.png 1"
@@ -70,7 +77,15 @@ extents = Vector2( 75, 146.111 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 5 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -151.0
+margin_top = -249.0
+margin_right = 1173.0
+margin_bottom = 933.0
+color = Color( 0.101961, 0.168627, 0.301961, 1 )
+
 [node name="Vägg" type="StaticBody2D" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 collision_layer = 2
 
 [node name="WallCottage" type="Sprite" parent="Vägg"]
@@ -93,45 +108,103 @@ shape = SubResource( 5 )
 position = Vector2( 1136.67, 387.778 )
 shape = SubResource( 5 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="floor" type="TileMap" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0 )
 
+[node name="Gardin" type="Sprite" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
+position = Vector2( 560, 71.1111 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 10 )
+
+[node name="Gardin2" type="Sprite" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
+position = Vector2( 370, 71.1111 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 10 )
+
+[node name="skåp" type="StaticBody2D" parent="."]
+position = Vector2( -6.78168e-05, -2.11928e-06 )
+scale = Vector2( 1, 1 )
+
+[node name="Sink" type="Sprite" parent="skåp"]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
+position = Vector2( 634.445, 34.4444 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="skåp"]
+position = Vector2( 163.333, 287.778 )
+shape = SubResource( 7 )
+
 [node name="YSort" type="YSort" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 
 [node name="Fishman" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 211.111, 62.2222 )
+position = Vector2( 387.778, 93.3334 )
 
 [node name="Skelett" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 495, 52 )
+position = Vector2( 842.222, 33.3333 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 76, 1240 )
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
+position = Vector2( 2177.78, 462.222 )
 current = true
+limit_left = -120
+limit_top = -220
+limit_right = 1040
+limit_bottom = 810
+editor_draw_limits = true
 
 [node name="outerwall" type="Sprite" parent="."]
-modulate = Color( 0.843137, 0.843137, 0.886275, 1 )
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 position = Vector2( 512.222, 770 )
 scale = Vector2( 1, 0.682292 )
 texture = ExtResource( 6 )
 
 [node name="frame_walls" type="TileMap" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -65537, -1073741824, 0, -131072, -1073741824, 0, -131071, -1073741824, 0, -131070, -1073741824, 0, -131069, -1073741824, 0, -131068, -1073741824, 0, -131067, -1073741824, 0, -131066, -1073741824, 0, -131065, -1073741824, 0, -131064, -1073741824, 0, -1, -1610612735, 0, -65536, -1610612734, 0, -65535, -1610612734, 0, -65534, -1610612734, 0, -65533, -1610612734, 0, -65532, -1610612734, 0, -65531, -1610612734, 0, -65530, -1610612734, 0, -65529, -1610612734, 0, -65528, 1610612737, 0, 65535, 2, 0, 8, 1610612738, 0, 131071, 2, 0, 65544, 1610612738, 0, 196607, 2, 0, 131080, 1610612738, 0, 262143, 2, 0, 196616, 1610612738, 0, 327679, 1, 0, 262144, -1073741822, 0, 262145, -1073741822, 0, 262146, -1073741822, 0, 262147, -1073741822, 0, 262148, -1073741822, 0, 262149, -1073741822, 0, 262150, -1073741822, 0, 262151, -1073741822, 0, 262152, -1073741823, 0 )
 
+[node name="Lykta" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0.831373, 0.831373, 0.831373, 1 )
+position = Vector2( 693.333, -53.3333 )
+
+[node name="Lykta2" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0.8, 0.733333, 0.733333, 1 )
+position = Vector2( -8.88892, -168.889 )
+
 [node name="gate_strand" type="Area2D" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 position = Vector2( 832.222, 107.778 )
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gate_strand"]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 position = Vector2( 4.99988, -1.66668 )
 shape = SubResource( 6 )
+
+[node name="Net" type="Sprite" parent="."]
+modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
+position = Vector2( 755.556, -201.111 )
+rotation = -0.413664
+texture = ExtResource( 11 )
+
+[node name="Net2" type="Sprite" parent="."]
+modulate = Color( 0.654902, 0.509804, 0.509804, 1 )
+position = Vector2( 78.8889, -387.778 )
+rotation = -1.0472
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
 
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
