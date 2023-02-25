@@ -5,9 +5,13 @@ var going_out = false
 var interacting = false
 var question = ""
 
-onready var menu_player_interact = $Camera2D/CanvasLayer/Object_interation_menu 
-onready var menu_player_gate = $Camera2D/CanvasLayer/Gate_menu
-onready var menu_player_dialog = $Camera2D/CanvasLayer/Dialog
+onready var interact_ui = $Camera2D/CanvasLayer/Object_interation_menu 
+onready var gate_ui = $Camera2D/CanvasLayer/Gate_menu
+onready var dialog_ui = $Camera2D/CanvasLayer/Dialog
+
+var dia_character = ""
+var dia_location = "Tutorial"
+var dia_num : int
 
 
 func _ready():
@@ -17,7 +21,6 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	$Havet/Lager1.motion_offset.x += -50*delta
-	
 	
 func _get_position() -> void:
 	if skelett_position == "main_Spawn":
@@ -47,34 +50,30 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
 	
 func _open_gate_menu(position_in_new_world, path, heading):
-	#var menu_player = get_node_or_null("Camera2D/Gate_menu")
-	#var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
-	var menu_player = menu_player_gate
-	
 	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.walking_out = null
+		gate_ui.walking_out = null
 		
 	if going_out == true:	
-		menu_player.on_walkout(position_in_new_world, path, heading)
+		gate_ui.on_walkout(position_in_new_world, path, heading)
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		going_out = true
-		if menu_player:
-			menu_player.on_walkout(position_in_new_world, path, heading)
+		if gate_ui:
+			gate_ui.on_walkout(position_in_new_world, path, heading)
 
 func _on_Skelett_NPC_detected():
-	var path = ""
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-#	var dialog_player = get_node("Camera2D/Dialog")
-	var dialog_player = menu_player_dialog
-	
+	dia_location = "Main"
+
 	if collider == "NPC_Bully":
-		path = "res://Dialog/Bully_dia.json"
+		dia_character = "Bully"
+		dia_num = 1
 	if collider == "NPC_sten":
-		path = "res://Dialog/Mysterious_stone_dia.json"
+		dia_character = "Mysterious_stone"
+		dia_num = 1
 		
-	if Input.is_action_just_pressed("ui_accept") and dialog_player.dialog_running == false:
-		dialog_player.play_dialog(path, 0.05, 1)
+	if Input.is_action_just_pressed("ui_accept") and dialog_ui.dialog_running == false:
+		dialog_ui.play_dialog(dia_character, dia_location, dia_num)
 
 func _on_Skelett_Interaction_detected():
 	var collider = $YSort/Skelett/Interact_detector.get_collider().name
@@ -84,18 +83,15 @@ func _on_Skelett_Interaction_detected():
 		_on_Interact()
 		
 func _on_Interact():
-	#var menu_player = get_node("Camera2D/Object_interation_menu")
-	var menu_player = menu_player_interact
-	
 	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.pressed_yes = null
+		interact_ui.pressed_yes = null
 		
 	if interacting == true:	
-		menu_player.on_interaction(question, "flower")
+		interact_ui.on_interaction(question, "flower")
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		interacting = true
-		menu_player.on_interaction(question, "flower")
+		interact_ui.on_interaction(question, "flower")
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1

@@ -1,7 +1,7 @@
 extends Control
 
-export var dialogPath = ""
-export(float) var textSpeed = 0.05
+export var dialog_path = ""
+export(float) var text_speed = 0.05
  
 var dialog
  
@@ -11,16 +11,18 @@ var finished = false
 var dialog_running = false
  
 
-func play_dialog(dialogPath, textSpeed, num):
+func play_dialog(character, location, num):
 	#dialogPath = dialogPath + str(num)
 	
-	print(dialogPath)
+	dialog_path = "res://Dialog/" + str(location) + "/" + character + "_dia_" + str(num) + ".json"
+	print(dialog_path)
+	#var path = "res://Dialog/Strand/Squid_dia.json"
 	
 	dialog_running = true
 	yield(get_tree().create_timer(0.01), "timeout")
 	self.visible = true
-	$Timer.wait_time = textSpeed
-	dialog = getDialog(dialogPath, num)
+	$Timer.wait_time = text_speed
+	dialog = getDialog(dialog_path, num)
 	assert(dialog, "Dialogen hittades ej")
 	nextPhrase()
  
@@ -34,11 +36,11 @@ func _process(_delta):
 		else:
 			$Text.visible_characters = len($Text.text)
  
-func getDialog(dialogPath, num) -> Array:
+func getDialog(dialog_path, num) -> Array:
 	var f = File.new()
-	assert(f.file_exists(dialogPath), "Filsökvägen hittades ej")
+	assert(f.file_exists(dialog_path), "Filsökvägen hittades ej")
 	
-	f.open(dialogPath, File.READ)
+	f.open(dialog_path, File.READ)
 	var json = f.get_as_text()
 	
 	var output = parse_json(json)
@@ -71,7 +73,7 @@ func nextPhrase() -> void:
 	return
 	
 func _reset():
-	dialogPath = ""
+	dialog_path = ""
  
 	phraseNum = 0
 	finished = false

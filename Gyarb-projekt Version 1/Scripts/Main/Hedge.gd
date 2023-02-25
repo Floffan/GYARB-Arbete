@@ -12,7 +12,12 @@ var going_out = false
 
 var gate_path = "res://Scenes/Main/World.tscn"
 
-onready var interaction_menu = $Camera2D/CanvasLayer/Object_interation_menu
+onready var ui_interaction = get_node("Camera2D/CanvasLayer/Object_interation_menu")
+onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
+
+var dia_location = "Tutorial"
+var dia_character = "CaseHolder"
+var dia_num : int
 
 var Info_done = false
 
@@ -27,31 +32,27 @@ func _process(delta):
 		question = "Ställ väskan här?"
 	if $YSort/Skelett.direction[1] == "up" and Info_done == false:
 		_info_init()
-		
-		
+			
 func _info_init():
-	var dialog_player = get_node("Camera2D/CanvasLayer/Dialog")
-	if dialog_player.dialog_running == false:
-		dialog_player.play_dialog(path, 0.05, 1)
+	dia_num = 1
+	if ui_dialog.dialog_running == false:
+		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 		Info_done = true
-
 
 func _on_Skelett_gate_detected():
 	Autoloads.Position = "main_Hedge"
 	Transition.load_scene("res://Scenes/Main/World.tscn")
 	
 func _on_Interact():
-	var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
-	
 	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.pressed_yes = null
+		ui_interaction.pressed_yes = null
 		
 	if interacting == true:	
-		menu_player.on_interaction(question, object)
+		ui_interaction.on_interaction(question, object)
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		interacting = true
-		menu_player.on_interaction(question, object)
+		ui_interaction.on_interaction(question, object)
 		
 func _on_Skelett_Interaction_detected():
 	_on_Interact()
@@ -60,15 +61,13 @@ func _on_Object_interation_menu_pick_up():
 	$Briefcase.visible = false
 	Autoloads.have_briefcase = true
 	
-	interaction_menu.pressed_yes = false
+	ui_interaction.pressed_yes = false
 	
 func _on_Object_interation_menu_put_down():
 	$Briefcase.visible = true
 	Autoloads.have_briefcase = false
 	
-	interaction_menu.pressed_yes = false
+	ui_interaction.pressed_yes = false
 	
-
-
 func _on_Skelett_NPC_detected() -> void:
 	pass

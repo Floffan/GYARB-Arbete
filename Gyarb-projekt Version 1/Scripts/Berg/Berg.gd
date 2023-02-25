@@ -6,6 +6,9 @@ var going_out = false
 
 var cave_access = false
 
+onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
+onready var ui_interact = get_node("Camera2D/CanvasLayer/Object_interation_menu")
+
 var question = ""
 var interacting = false
 
@@ -34,19 +37,16 @@ func _on_Skelett_gate_detected():
 		Autoloads.Position = "stad_Berg"
 		Transition.load_scene("res://Scenes/Stad/Stad.tscn")
 		
-
 func _open_gate_menu(position_in_new_world, path, heading):
-	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.walking_out = null
+		ui_gate.walking_out = null
+		
 	if going_out == true:	
-		menu_player.on_walkout(position_in_new_world, path, heading)
+		ui_gate.on_walkout(position_in_new_world, path, heading)
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		going_out = true
-		if menu_player:
-			menu_player.on_walkout(position_in_new_world, path, heading)
-			
+		ui_gate.on_walkout(position_in_new_world, path, heading)
 			
 func _on_Skelett_Interaction_detected():
 	var collider = $YSort/Skelett/Interact_detector.get_collider().name
@@ -56,17 +56,15 @@ func _on_Skelett_Interaction_detected():
 		_on_Interact()
 		
 func _on_Interact():
-	var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
-	
 	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.pressed_yes = null
+		ui_interact.pressed_yes = null
 		
 	if interacting == true:	
-		menu_player.on_interaction(question, "flower")
+		ui_interact.on_interaction(question, "flower")
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		interacting = true
-		menu_player.on_interaction(question, "flower")
+		ui_interact.on_interaction(question, "flower")
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1

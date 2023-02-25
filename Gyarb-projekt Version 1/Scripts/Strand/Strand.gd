@@ -4,6 +4,8 @@ extends Node2D
 """
 var skelett_position = Autoloads.Position
 
+onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
+
 var going_out = false
 
 func _ready():
@@ -33,14 +35,11 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Main/World.tscn")
 		
 func _open_gate_menu(position_in_new_world, path, heading):
-	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
-	
 	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.walking_out = null
+		ui_gate.walking_out = null
 	if going_out == true:	
-		menu_player.on_walkout(position_in_new_world, path, heading)
+		ui_gate.on_walkout(position_in_new_world, path, heading)
 	if Input.is_action_just_pressed("ui_accept"):
 		going_out = true
-		if menu_player:
-			menu_player.on_walkout(position_in_new_world, path, heading)
+		ui_gate.on_walkout(position_in_new_world, path, heading)
 

@@ -6,15 +6,21 @@ var skelett_position = Autoloads.Position
 
 var question = "Plocka up väskan?"
 
-onready var dialog_player = get_node("Camera2D/CanvasLayer/Dialog")
+onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
+
+var dia_character = "Uggla"
+var dia_location = "Tutorial"
+var dia_num : int
+
+
 var dialog_path = "res://Dialog/Tutorial/Uggla_dia.json"
 
 func _ready():
+	dia_num = 1
 	_get_position()
-	#Autoloads.Current_scene = "res://Scenes/Main/Spawn.tscn"
 	yield(get_tree().create_timer(3), "timeout")
-	if dialog_player.dialog_running == false:
-		dialog_player.play_dialog(dialog_path, 0.05, 1)
+	if ui_dialog.dialog_running == false:
+		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 	
 func _on_Skelett_gate_detected():
 	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
