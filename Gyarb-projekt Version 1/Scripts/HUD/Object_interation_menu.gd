@@ -35,7 +35,7 @@ func on_interaction(question, object):
 			emit_signal("walk_in")
 		if object == "out":
 			emit_signal("walk_out")
-		if object == "bus":
+		if object == "buss":
 			emit_signal("get_on_bus")
 
 func _on_YES_button_down():

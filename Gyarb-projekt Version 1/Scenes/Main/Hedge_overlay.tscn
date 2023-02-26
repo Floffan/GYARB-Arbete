@@ -119,7 +119,7 @@ tile_set = SubResource( 19 )
 cell_size = Vector2( 256, 256 )
 collision_layer = 4
 format = 1
-tile_data = PoolIntArray( -2, 1610612738, 0, -1, 1610612738, 0, -65536, 1610612738, 0, -65535, 1610612738, 0, -65534, 1610612738, 0, -65533, 1610612738, 0, -65532, 1610612738, 0, -65531, 1610612738, 0, -65529, 1610612736, 0, -65528, 1610612738, 0, -65527, 1610612738, 0, -65526, 1610612738, 0, -65525, -1610612736, 0, 65521, -1610612736, 0, 65522, 1610612738, 0, 65523, 1610612736, 0, 131057, -1610612735, 0, 131060, 1610612740, 0, 131061, 1610612740, 0, 131062, 1610612740, 0, 131063, 1610612740, 0, 131064, 1610612740, 0, 131065, 1610612740, 0, 131066, 1610612740, 0, 131067, 1610612740, 0, 131068, 1610612740, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 2, 0, 65547, 2, 0, 196593, -1610612735, 0, 196595, -1073741821, 0, 196596, -1073741824, 0, 196597, 2, 0, 196598, 2, 0, 196599, 2, 0, 196600, 2, 0, 196601, 2, 0, 196602, 2, 0, 196603, 2, 0, 196604, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131078, -1073741824, 0, 131083, -1610612734, 0, 262129, 0, 0, 262130, 2, 0, 262131, 536870912, 0, 196611, 1610612736, 0, 196614, -1610612736, 0, 196615, -1073741824, 0, 196619, -1610612734, 0, 262148, -1073741823, 0, 262150, -1610612736, 0, 262151, -1073741824, 0, 262155, -1610612734, 0, 393215, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327684, -1073741823, 0, 327686, 0, 0, 327687, -1073741824, 0, 327691, 0, 0, 393219, -1610612734, 0, 393220, -1073741823, 0, 393221, 1610612736, 0, 393222, 1610612736, 0, 393223, -1073741824, 0, 393227, -1610612736, 0, 458755, -1610612734, 0, 458759, -1073741824, 0, 524291, -1610612734, 0, 524295, -1073741822, 0, 589827, 0, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, -1073741824, 0 )
+tile_data = PoolIntArray( -196591, -1073741822, 0, -131055, -1073741822, 0, -2, 1610612738, 0, -1, 1610612738, 0, -65536, 1610612738, 0, -65535, 1610612738, 0, -65534, 1610612738, 0, -65533, 1610612738, 0, -65532, 1610612738, 0, -65531, 1610612738, 0, -65529, 1610612736, 0, -65525, -1610612736, 0, -65519, -1073741822, 0, 65521, -1610612736, 0, 65522, 1610612738, 0, 65523, 1610612736, 0, 17, -1073741822, 0, 131057, -1610612735, 0, 131060, 1610612740, 0, 131061, 1610612740, 0, 131062, 1610612740, 0, 131063, 1610612740, 0, 131064, 1610612740, 0, 131065, 1610612740, 0, 131066, 1610612740, 0, 131067, 1610612740, 0, 131068, 1610612740, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 2, 0, 65547, 2, 0, 65553, -1073741822, 0, 196593, -1610612735, 0, 196595, -1073741821, 0, 196596, -1073741824, 0, 196597, 2, 0, 196598, 2, 0, 196599, 2, 0, 196600, 2, 0, 196601, 2, 0, 196602, 2, 0, 196603, 2, 0, 196604, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131078, -1073741824, 0, 131083, -1610612734, 0, 131089, 1610612736, 0, 262129, 0, 0, 262130, 2, 0, 262131, 536870912, 0, 196611, 1610612736, 0, 196614, -1610612736, 0, 196615, -1073741824, 0, 196619, -1610612734, 0, 262148, -1073741823, 0, 262150, -1610612736, 0, 262151, -1073741824, 0, 262155, -1610612734, 0, 393215, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327684, -1073741823, 0, 327686, 0, 0, 327687, -1073741824, 0, 327691, 0, 0, 393219, -1610612734, 0, 393220, -1073741823, 0, 393221, 1610612736, 0, 393222, 1610612736, 0, 393223, -1073741824, 0, 393227, -1610612736, 0, 393228, -1610612732, 0, 458755, -1610612734, 0, 458759, -1073741824, 0, 458764, -1610612732, 0, 524291, -1610612734, 0, 524295, -1073741822, 0, 524300, -1610612732, 0, 589827, 0, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, -1073741824, 0, 589836, -1610612732, 0, 655372, -1610612732, 0 )
 
 [node name="STORA löv" type="Node2D" parent="."]
 light_mask = 8
@@ -214,6 +214,14 @@ scale = Vector2( 2.44789, 2.14023 )
 texture = ExtResource( 4 )
 offset = Vector2( -559.239, -947.977 )
 
+[node name="löv15" type="Sprite" parent="STORA löv/Monstrea"]
+modulate = Color( 0.831373, 0.788235, 0.788235, 1 )
+position = Vector2( 963, 708 )
+rotation = -3.51629
+scale = Vector2( 2.44789, 2.14023 )
+texture = ExtResource( 4 )
+offset = Vector2( -559.239, -947.977 )
+
 [node name="leaf" type="Node2D" parent="STORA löv"]
 
 [node name="löv_1" type="Sprite" parent="STORA löv/leaf"]
@@ -264,13 +272,6 @@ texture = ExtResource( 5 )
 [node name="löv_9" type="Sprite" parent="STORA löv/leaf"]
 position = Vector2( 2183, 901 )
 rotation = -6.51483
-scale = Vector2( 2.12638, 2.19253 )
-texture = ExtResource( 5 )
-
-[node name="löv_10" type="Sprite" parent="STORA löv/leaf"]
-modulate = Color( 1, 0.670588, 0.670588, 1 )
-position = Vector2( -46, 1232 )
-rotation = -5.22448
 scale = Vector2( 2.12638, 2.19253 )
 texture = ExtResource( 5 )
 
@@ -482,10 +483,160 @@ rotation = -6.15068
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
+[node name="ALLT32" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 794, 584 )
+rotation = -6.15068
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT33" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 194, 891 )
+rotation = -3.87121
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT35" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( -284, 852 )
+rotation = -6.2379
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT34" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 205, 539 )
+rotation = -4.99335
+texture = ExtResource( 6 )
+
+[node name="ALLT36" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( -155, 1219 )
+rotation = -4.99335
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT37" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 1775, -188 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT38" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 1336, -187 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT39" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 853, -176 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT40" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 363, -181 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT41" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( -120, -168 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT42" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( -595, -176 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT43" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 2374, 58 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT44" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 2820, 46 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT45" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 2221, -183 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT46" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 2692, -207 )
+rotation = -3.17701
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT47" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 3143, -380 )
+rotation = -4.45082
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT48" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 4692, 416 )
+rotation = -1.64496
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT49" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 4941, 829 )
+rotation = -3.02292
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT50" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 5419, 869 )
+rotation = -3.093
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT51" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 4743, -113 )
+rotation = -1.49975
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT52" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 4731, -554 )
+rotation = -1.49975
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT53" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 3083, 2034 )
+rotation = 1.90817
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT54" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 3155, 2452 )
+rotation = 1.37422
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ALLT55" type="Sprite" parent="STORA löv/ALLT"]
+position = Vector2( 3205, 2928 )
+rotation = 1.56428
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
 [node name="löv_6" type="Sprite" parent="STORA löv/ALLT"]
 position = Vector2( -3214, 1091 )
 rotation = -0.659629
 scale = Vector2( 1.35136, 1.66024 )
+texture = ExtResource( 5 )
+
+[node name="löv_9" type="Sprite" parent="STORA löv/ALLT"]
+modulate = Color( 0.74902, 0.741176, 0.741176, 1 )
+position = Vector2( 117, 626 )
+rotation = -0.659629
+scale = Vector2( 0.983167, 1.16517 )
 texture = ExtResource( 5 )
 
 [node name="löv_7" type="Sprite" parent="STORA löv/ALLT"]
@@ -500,6 +651,20 @@ rotation = -0.739533
 scale = Vector2( 1.35136, 1.66024 )
 texture = ExtResource( 5 )
 
+[node name="löv_10" type="Sprite" parent="STORA löv/ALLT"]
+modulate = Color( 1, 0.670588, 0.670588, 1 )
+position = Vector2( -44.9999, 1228 )
+rotation = 1.05871
+scale = Vector2( 2.12638, 2.19253 )
+texture = ExtResource( 5 )
+
+[node name="löv_11" type="Sprite" parent="STORA löv/ALLT"]
+modulate = Color( 1, 0.670588, 0.670588, 1 )
+position = Vector2( -866, 13.0001 )
+rotation = 1.86264
+scale = Vector2( 2.12638, 2.19253 )
+texture = ExtResource( 5 )
+
 [node name="Fjärilar" type="Node2D" parent="."]
 light_mask = 8
 
@@ -508,14 +673,12 @@ modulate = Color( 0.941176, 0.72549, 0.207843, 1 )
 position = Vector2( -3619, 666 )
 rotation = 0.66148
 frames = SubResource( 25 )
-frame = 4
 playing = true
 
 [node name="fjäril_blå" type="AnimatedSprite" parent="Fjärilar"]
 position = Vector2( -3158, 982 )
 rotation = -0.551524
 frames = SubResource( 25 )
-frame = 4
 playing = true
 
 [node name="fjäril_grön" type="AnimatedSprite" parent="Fjärilar"]
@@ -524,7 +687,6 @@ position = Vector2( -2915, 300 )
 rotation = -0.551524
 scale = Vector2( 1.69036, 1.68709 )
 frames = SubResource( 25 )
-frame = 4
 playing = true
 
 [node name="fjäril_lila" type="AnimatedSprite" parent="Fjärilar"]
@@ -533,7 +695,6 @@ position = Vector2( -3779, 498 )
 rotation = 0.262137
 scale = Vector2( -1.64295, 1.87905 )
 frames = SubResource( 25 )
-frame = 4
 playing = true
 
 [node name="Tree" type="Node2D" parent="."]

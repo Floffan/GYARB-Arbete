@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 	$Havet/Lager1.motion_offset.x += -50*delta
 	
 func _get_position() -> void:
+	#$YSort/Skelett.position = get_node("Positioner").get_node(str(skelett_position)).position
+	
 	if skelett_position == "main_Spawn":
 		$YSort/Skelett.position = $Positioner/main_Spawn.position
 	if skelett_position == "main_Hedge":

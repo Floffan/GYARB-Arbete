@@ -199,8 +199,10 @@ func _physics_process(_delta):
 		$NPC_detector.rotation_degrees = -90
 		$Interact_detector.rotation_degrees = -90
 	if direction[1] == "up":
+		$NPC_detector.rotation_degrees = -180
 		$Interact_detector.rotation_degrees = -180
 	if direction[1] == "up":
+		$NPC_detector.rotation_degrees = 180
 		$Interact_detector.rotation_degrees = 180
 
 

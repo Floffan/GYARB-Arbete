@@ -15,7 +15,6 @@ func play_dialog(character, location, num):
 	#dialogPath = dialogPath + str(num)
 	
 	dialog_path = "res://Dialog/" + str(location) + "/" + character + "_dia_" + str(num) + ".json"
-	print(dialog_path)
 	#var path = "res://Dialog/Strand/Squid_dia.json"
 	
 	dialog_running = true

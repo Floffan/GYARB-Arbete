@@ -6,11 +6,22 @@ var going_out = false
 
 var cave_access = false
 
+onready var ui_cutscene_panels = get_node("Camera2D/CanvasLayer/Panels_cutscene/AnimationPlayer")
+
 onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
 onready var ui_interact = get_node("Camera2D/CanvasLayer/Object_interation_menu")
+onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
 
-var question = ""
+# Dialog-variabler (prefix : dia)
+var dia_location = "Berg"
+var dia_character = ""
+var dia_num : int
+
+# Interaction-variabler (prefix : int)
+var int_question = ""
+var int_object = ""
 var interacting = false
+
 
 func _ready():
 	_get_position()
@@ -52,21 +63,49 @@ func _on_Skelett_Interaction_detected():
 	var collider = $YSort/Skelett/Interact_detector.get_collider().name
 	
 	if collider == "Blomma_red":
-		question = "Plocka blomman?"
-		_on_Interact()
+		int_question = "Plocka blomman?"
+		int_object = "flower"
+	
+		_on_interact(int_question, int_object)
 		
-func _on_Interact():
+func _on_interact(int_question, int_object):
 	if Input.is_action_just_pressed("ui_accept"):
 		ui_interact.pressed_yes = null
 		
 	if interacting == true:	
-		ui_interact.on_interaction(question, "flower")
+		ui_interact.on_interaction(int_question, int_object)
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		interacting = true
-		ui_interact.on_interaction(question, "flower")
+		ui_interact.on_interaction(int_question, int_object)
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
-	$YSort/Blomma_red.visible = false
-	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false
+	get_node("YSort/Blomma_red").queue_free()
+	ui_interact.pressed_yes = false
+
+func _on_Skelett_NPC_detected():
+	var collider = $YSort/Skelett/NPC_detector.get_collider().name
+	
+	if collider == "NPC_Dino":
+		dia_character = "Dino"
+		dia_num = 1
+		int_question = "Kliv på bussen?"
+		int_object = "buss"
+		
+	if Input.is_action_just_pressed("ui_accept") and ui_dialog.dialog_running == false:
+		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
+		interacting = true
+	if interacting == true:
+		_on_interact(int_question, int_object)
+
+func _on_Object_interation_menu_get_on_bus():
+	ui_interact.visible = false
+	ui_cutscene_panels.play_backwards("ready")
+	ui_interact.pressed_yes = false
+	$AnimationPlayer_bus.play("Get_on_bus")
+
+
+func _on_AnimationPlayer_bus_animation_finished(anim_name):
+	Autoloads.Position = "stad_Buss"
+	Transition.load_scene("res://Cutscenes/Buss_scen.tscn")

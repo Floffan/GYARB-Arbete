@@ -26,8 +26,8 @@ func _ready():
 func _get_position() -> void:
 	if skelett_position == "stad_Gym":
 		$YSort/Skelett.position = $Positioner/stad_Gym.position
-	if skelett_position == "stad_Berg":
-		$YSort/Skelett.position = $Positioner/stad_Berg.position
+	if skelett_position == "stad_Buss":
+		$YSort/Skelett.position = $Positioner/stad_Buss.position
 
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Gym":
@@ -98,20 +98,20 @@ func _on_Interact():
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
-	$YSort/Hus/Sprite/Blomma_red.visible = false
-	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false
+	get_node("YSort/Hus/Sprite/Blomma_red").queue_free()
+	ui_interact.pressed_yes = false
 
 func _on_Object_interation_menu_walk_in():
-	$Camera2D/CanvasLayer/Object_interation_menu.visible = false
+	ui_interact.visible = false
 	ui_cutscene_panels.play_backwards("ready")
 	$AnimationPlayer.play("Red_house_visit")
-	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false
+	ui_interact.pressed_yes = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	ui_cutscene_panels.play("ready")
 
 func _on_Object_interation_menu_walk_out():
-	$Camera2D/CanvasLayer/Object_interation_menu.visible = false
+	ui_interact.visible = false
 	ui_cutscene_panels.play_backwards("ready")
 	$AnimationPlayer.play_backwards("Red_house_visit")
-	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false
+	ui_interact.pressed_yes = false
