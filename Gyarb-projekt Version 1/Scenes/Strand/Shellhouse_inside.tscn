@@ -118,18 +118,15 @@ tile_data = PoolIntArray( 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0
 [node name="Gardin" type="Sprite" parent="."]
 modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 position = Vector2( 560, 71.1111 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 10 )
 
 [node name="Gardin2" type="Sprite" parent="."]
 modulate = Color( 0.760784, 0.603922, 0.603922, 1 )
 position = Vector2( 370, 71.1111 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 10 )
 
 [node name="skåp" type="StaticBody2D" parent="."]
 position = Vector2( -6.78168e-05, -2.11928e-06 )
-scale = Vector2( 1, 1 )
 
 [node name="Sink" type="Sprite" parent="skåp"]
 modulate = Color( 0.760784, 0.603922, 0.603922, 1 )

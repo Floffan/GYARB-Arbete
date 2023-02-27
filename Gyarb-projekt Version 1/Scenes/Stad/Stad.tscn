@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -248,6 +248,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/Bus:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3573, 672 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/Bus:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YSort/Bus:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "Red_house_visit"
@@ -275,6 +311,98 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 0.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "bus_arriving"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Skelett:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3, 3.3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4027, 669 ), Vector2( 3137, 682 ), Vector2( 2840, 684 ), Vector2( 2841, 713 ), Vector2( 2557, 605 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3, 3.3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/Bus:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 5, 5.7, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3573, 672 ), Vector2( 2683, 685 ), Vector2( 2683, 685 ), Vector2( 2466, 687 ), Vector2( -683, 688 ), Vector2( -2909, 641 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/Bus:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 5, 5.7, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YSort/Bus:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "get_on_bus"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Skelett:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3034, 87 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [node name="Stad" type="Node2D"]
@@ -502,8 +630,15 @@ visible = false
 position = Vector2( -1955.5, -3.5 )
 shape = SubResource( 21 )
 
+[node name="Bus" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 3573, 672 )
+scale = Vector2( -1, 1 )
+z_index = 1
+
 [node name="Bussskylt" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 2840, 99 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="YSort/Bussskylt"]
 
 [node name="Bakgrund" type="ParallaxBackground" parent="."]
 
@@ -587,12 +722,18 @@ position = Vector2( 1435, 166 )
 [node name="stad_Buss" type="Position2D" parent="Positioner"]
 position = Vector2( 2914, -145 )
 
+[node name="pos_Buss" type="Position2D" parent="Positioner"]
+position = Vector2( 3424, 129 )
+
 [node name="häcktoppar" parent="." instance=ExtResource( 17 )]
+z_index = 5
 tile_data = PoolIntArray( -19, 15, 393220, -18, 15, 393223, 65517, 15, 65536, 65518, 15, 131076, 131053, 15, 131078, 131054, 15, 131076, 196589, 15, 131078, 196590, 15, 65538, 262125, 15, 131078, 262126, 15, 65538, 196635, 15, 327685, 196636, 15, 1, 196637, 15, 1, 196638, 15, 1, 196639, 15, 1, 196640, 15, 2, 327661, 15, 65536, 327662, 15, 131076, 262171, 15, 131078, 262172, 15, 65537, 262173, 15, 7, 262174, 15, 262147, 262175, 15, 65543, 262176, 15, 131076, 393197, 15, 131078, 393198, 15, 131076, 327707, 15, 131078, 327708, 15, 5, 327709, 15, 4, 327710, 15, 131079, 327711, 15, 262147, 327712, 15, 131076, 458733, 15, 65536, 458734, 15, 131076, 393243, 15, 65536, 393244, 15, 262148, 393245, 15, 262151, 393246, 15, 262147, 393247, 15, 65543, 393248, 15, 131076, 524269, 15, 131078, 524270, 15, 393222, 524271, 15, 196613, 524272, 15, 1, 524273, 15, 196613, 524274, 15, 1, 524275, 15, 196613, 524276, 15, 1, 524277, 15, 196613, 524278, 15, 196613, 524279, 15, 196613, 524280, 15, 1, 524281, 15, 1, 524282, 15, 1, 524283, 15, 196613, 524284, 15, 1, 524285, 15, 196613, 524286, 15, 1, 524287, 15, 196613, 458752, 15, 1, 458753, 15, 1, 458754, 15, 196613, 458755, 15, 196613, 458756, 15, 196613, 458757, 15, 1, 458758, 15, 1, 458759, 15, 1, 458760, 15, 1, 458761, 15, 196613, 458762, 15, 1, 458763, 15, 1, 458764, 15, 1, 458765, 15, 196613, 458766, 15, 1, 458767, 15, 1, 458768, 15, 1, 458769, 15, 1, 458770, 15, 1, 458771, 15, 196613, 458772, 15, 196613, 458773, 15, 196613, 458774, 15, 196613, 458775, 15, 196613, 458776, 15, 196613, 458777, 15, 196613, 458778, 15, 196613, 458779, 15, 393221, 458780, 15, 65537, 458781, 15, 196615, 458782, 15, 262149, 458783, 15, 65539, 458784, 15, 65538, 589805, 15, 65536, 589806, 15, 262151, 589807, 15, 196615, 589808, 15, 262147, 589809, 15, 65537, 589810, 15, 4, 589811, 15, 131079, 589812, 15, 65539, 589813, 15, 5, 589814, 15, 7, 589815, 15, 262151, 589816, 15, 196615, 589817, 15, 262149, 589818, 15, 262150, 589819, 15, 131075, 589820, 15, 65537, 589821, 15, 3, 589822, 15, 196615, 589823, 15, 131079, 524288, 15, 6, 524289, 15, 65543, 524290, 15, 131079, 524291, 15, 5, 524292, 15, 131079, 524293, 15, 5, 524294, 15, 131075, 524295, 15, 7, 524296, 15, 131075, 524297, 15, 262148, 524298, 15, 262148, 524299, 15, 65537, 524300, 15, 4, 524301, 15, 196615, 524302, 15, 262151, 524303, 15, 3, 524304, 15, 7, 524305, 15, 196615, 524306, 15, 65543, 524307, 15, 131079, 524308, 15, 262149, 524309, 15, 131075, 524310, 15, 262149, 524311, 15, 65537, 524312, 15, 262148, 524313, 15, 65539, 524314, 15, 3, 524315, 15, 65539, 524316, 15, 131075, 524317, 15, 262150, 524318, 15, 3, 524319, 15, 65537, 524320, 15, 131076, 655341, 15, 131072, 655342, 15, 65541, 655343, 15, 65541, 655344, 15, 131073, 655345, 15, 131073, 655346, 15, 131073, 655347, 15, 131073, 655348, 15, 65541, 655349, 15, 65541, 655350, 15, 131073, 655351, 15, 65541, 655352, 15, 131073, 655353, 15, 131073, 655354, 15, 65541, 655355, 15, 131073, 655356, 15, 131073, 655357, 15, 131073, 655358, 15, 131073, 655359, 15, 65541, 589824, 15, 131073, 589825, 15, 65541, 589826, 15, 65541, 589827, 15, 65541, 589828, 15, 131073, 589829, 15, 65541, 589830, 15, 65541, 589831, 15, 131073, 589832, 15, 65541, 589833, 15, 131073, 589834, 15, 65541, 589835, 15, 65541, 589836, 15, 65541, 589837, 15, 131073, 589838, 15, 65541, 589839, 15, 65541, 589840, 15, 131073, 589841, 15, 65541, 589842, 15, 131073, 589843, 15, 65541, 589844, 15, 65541, 589845, 15, 131073, 589846, 15, 131073, 589847, 15, 65541, 589848, 15, 65541, 589849, 15, 65541, 589850, 15, 131073, 589851, 15, 65541, 589852, 15, 65541, 589853, 15, 131073, 589854, 15, 65541, 589855, 15, 131073, 589856, 15, 131074 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
 anims/Red_house_visit = SubResource( 18 )
+anims/bus_arriving = SubResource( 23 )
+anims/get_on_bus = SubResource( 24 )
 
 [node name="Viewport" parent="." instance=ExtResource( 18 )]
 
@@ -610,12 +751,10 @@ visible = false
 position = Vector2( 1662, 129 )
 scale = Vector2( 454.4, 167.3 )
 
-[node name="Bus" parent="." instance=ExtResource( 19 )]
-position = Vector2( 2973, -17 )
-
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
+[connection signal="screen_exited" from="YSort/Bussskylt/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 [connection signal="walk_in" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_walk_in"]

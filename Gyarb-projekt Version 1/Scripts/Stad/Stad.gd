@@ -27,7 +27,8 @@ func _get_position() -> void:
 	if skelett_position == "stad_Gym":
 		$YSort/Skelett.position = $Positioner/stad_Gym.position
 	if skelett_position == "stad_Buss":
-		$YSort/Skelett.position = $Positioner/stad_Buss.position
+		$AnimationPlayer.play("bus_arriving")
+		#$YSort/Skelett.position = $Positioner/stad_Buss.position
 
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Gym":
@@ -115,3 +116,8 @@ func _on_Object_interation_menu_walk_out():
 	ui_cutscene_panels.play_backwards("ready")
 	$AnimationPlayer.play_backwards("Red_house_visit")
 	ui_interact.pressed_yes = false
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	$YSort/Bus.position = $Positioner/pos_Buss.position
+	$YSort/Bus.scale.x = -1
