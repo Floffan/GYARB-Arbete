@@ -44,6 +44,8 @@ func _get_code():
 			$Cutscene_camera/Info.visible = false
 			#PLAY SOUND
 			$Briefcase/AnimationPlayer.play("Open_up")
+			
+			$Light_effect.visible = true
 			return
 		else:
 			$Cutscene_camera/Info.display_info(info2)

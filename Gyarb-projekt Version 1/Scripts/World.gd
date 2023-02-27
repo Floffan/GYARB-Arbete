@@ -16,8 +16,11 @@ var dia_num : int
 
 func _ready():
 	_get_position()
-	$Havet/Lager1.position.x = 2095
-	$Havet/Lager1.position.y = 1888
+	$Havet/Lager1.position.x = 3118
+	$Havet/Lager1.position.y = 1980
+	
+	$Havet/Lager1/Sprite.position.x = 0
+	$Havet/Lager1/Sprite.position.y = 0
 	
 func _process(delta: float) -> void:
 	$Havet/Lager1.motion_offset.x += -50*delta

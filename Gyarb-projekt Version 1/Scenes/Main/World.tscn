@@ -85,17 +85,10 @@ scroll_base_offset = Vector2( 1000, 0 )
 [node name="Lager1" type="ParallaxLayer" parent="Havet"]
 position = Vector2( -793, 404 )
 motion_mirroring = Vector2( 2000, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Havet/Lager1"]
-position = Vector2( -29, -49 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sten" type="StaticBody2D" parent="."]
 position = Vector2( 1933, 240 )
