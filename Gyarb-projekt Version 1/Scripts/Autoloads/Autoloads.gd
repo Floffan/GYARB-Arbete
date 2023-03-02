@@ -11,13 +11,14 @@ var NPC_collider = ""
 #var keys = []
 
 var areas_visited = []
-var games_played = ["Boatrace"]
+var games_played = []
+#var games_played = ["Boatrace", "Bollplank", "Benchpress", "Slalom"]
 
 var Items = []
-#var Items = ["Medal","Key", "Plate", "Shirt"]
+#var Items = ["Medal", "Key", "Plate", "Shirt"]
 var ok = false
 
-var flowers = 0
+var flowers = 3
 
 #var have_briefcase : bool
 var have_briefcase = true

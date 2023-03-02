@@ -5,9 +5,13 @@ var going_out = false
 onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
 onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
 
+onready var ui_new_item = get_node("Camera2D/CanvasLayer/New_item")
+
 var dia_character = "Fishman"
 var dia_location = "Strand"
 var dia_num : int
+
+var item = "Key"
 
 func _on_Skelett_gate_detected():
 	if Input.is_action_just_pressed("ui_accept"):
@@ -22,18 +26,19 @@ func _on_Skelett_gate_detected():
 		
 func _on_Skelett_NPC_detected():
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	
 	if Autoloads.flowers == 3:
-		dia_num = 2
+		if Autoloads.Items.has(item):
+			dia_num = 3
+		if Autoloads.Items.has(item) == false:
+			dia_num = 2
 	else:
 		dia_num = 1
 	
 	if Input.is_action_just_pressed("ui_accept") and ui_dialog.dialog_running == false:
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
-		if dia_num == 2 and Autoloads.Items.has("Key") != true:
-			Autoloads.Items.append("Key")
-			# Anim. play key
-		
+		if dia_num == 2 and ui_dialog.dialog_running == false:
+			ui_new_item.on_new_item(item)
+			Autoloads.Items.append(item)
 	
 	
 	

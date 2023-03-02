@@ -43,7 +43,7 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Main/World.tscn")
 		#_open_gate_menu("main_Berg", "res://Scenes/Main/World.tscn", "here")
 	if Autoloads.Gate_collider == "gate_Grotta" and cave_access:
-		_open_gate_menu("berg_Grotta", "res://Scenes/Berg/Grotta.tscn", "in")
+		_open_gate_menu("grotta_Berg", "res://Scenes/Berg/Grotta.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Stad":
 		Autoloads.Position = "stad_Berg"
 		Transition.load_scene("res://Scenes/Stad/Stad.tscn")

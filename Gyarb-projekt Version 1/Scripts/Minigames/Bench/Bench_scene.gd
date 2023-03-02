@@ -27,6 +27,7 @@ var health_indicator = ["Heart1", "Heart2", "Heart3"]
 var score = 0
 
 func _ready():
+	Autoloads.Position = "gym_Minigame"
 	w_screen.world_path = "res://Scenes/Stad/Gym.tscn"
 	w_screen.game_path = "res://Scenes/Minigames/Benchpress.tscn"
 	
@@ -53,8 +54,8 @@ func game_won():
 	emit_signal("game_over")
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
-	if Autoloads.Items.has("Plate") == false:
-		Autoloads.Items.append("Plate")
+	if Autoloads.games_played.has("Benchpress") == false:
+		Autoloads.games_played.append("Benchpress")
 	
 func game_over():
 	emit_signal("game_over")

@@ -51,11 +51,14 @@ var time_for_next = false
 var run_game = false
 
 func _ready():
+	Autoloads.Position = "grotta_Minigame"
+	win_screen()
 	$Winscreen.game_path = "res://Scenes/Minigames/Bollplank.tscn"
 	$Winscreen.world_path = "res://Scenes/Berg/Grotta.tscn"
 	
 	$Loose_screen.game_path = "res://Scenes/Minigames/Bollplank.tscn"
 	$Loose_screen.world_path = "res://Scenes/Berg/Grotta.tscn"
+	
 
 func _get_input():
 	if time_for_next == true and Input.is_action_just_pressed("Stop"):
@@ -149,11 +152,12 @@ func _physics_process(delta):
 			_move_along_path(delta, path_follow_vertical)
 		
 func win_screen():
+	if Autoloads.games_played.has("Bollplank") == false:
+		Autoloads.games_played.append("Bollplank")
+		
 	run_game = false
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
-	if Autoloads.Items.has("Shirt") == false:
-		Autoloads.Items.append("Shirt")
 
 func loose_screen():
 	run_game = false

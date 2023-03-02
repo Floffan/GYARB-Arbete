@@ -153,7 +153,7 @@ points = PoolVector2Array( 128, 32, 0, 32, 0, 0, 128, 0 )
 1/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 397.5, 230.5 )
+extents = Vector2( 558, 324 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 286, 126 )
@@ -306,7 +306,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse"]
-position = Vector2( 475.5, 316.5 )
+position = Vector2( 592, 466 )
 shape = SubResource( 3 )
 
 [node name="gate_Berg" type="Area2D" parent="."]
@@ -317,6 +317,14 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gate_Berg"]
 position = Vector2( -33, 189 )
 shape = SubResource( 4 )
+
+[node name="Positioner" type="Node2D" parent="."]
+
+[node name="grotta_Berg" type="Position2D" parent="Positioner"]
+position = Vector2( 490, 572 )
+
+[node name="grotta_Minigame" type="Position2D" parent="Positioner"]
+position = Vector2( 406, 252 )
 
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

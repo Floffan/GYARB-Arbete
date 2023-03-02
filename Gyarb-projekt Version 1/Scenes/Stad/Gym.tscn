@@ -1018,7 +1018,7 @@ collision_layer = 2
 [node name="Squattande groda" type="AnimatedSprite" parent="YSort/Squat_grodan"]
 position = Vector2( 6, 137 )
 frames = SubResource( 22 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Squat_grodan"]
@@ -1040,7 +1040,6 @@ position = Vector2( 1191, 188 )
 modulate = Color( 1, 0.843137, 0.843137, 1 )
 position = Vector2( 12, 109 )
 frames = SubResource( 45 )
-frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Curl_grodan"]
@@ -1084,6 +1083,14 @@ limit_right = 2000
 limit_bottom = 1700
 limit_smoothed = true
 editor_draw_limits = true
+
+[node name="Positioner" type="Node2D" parent="."]
+
+[node name="gym_Stad" type="Position2D" parent="Positioner"]
+position = Vector2( 576, -75 )
+
+[node name="gym_Minigame" type="Position2D" parent="Positioner"]
+position = Vector2( 1186, 525 )
 
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

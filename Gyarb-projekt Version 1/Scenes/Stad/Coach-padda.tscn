@@ -28,7 +28,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=79]
-radius = 68.0
+radius = 150.0
 height = 188.0
 
 [node name="Polack-paddan" type="StaticBody2D"]

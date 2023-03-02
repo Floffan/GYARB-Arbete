@@ -32,7 +32,7 @@ func _get_position() -> void:
 
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Gym":
-		_open_gate_menu("main_Gym", "res://Scenes/Stad/Gym.tscn", "in")
+		_open_gate_menu("gym_Stad", "res://Scenes/Stad/Gym.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Berg":
 		Autoloads.Position = "berg_Stad"
 		Transition.load_scene("res://Scenes/Berg/Berg.tscn")
