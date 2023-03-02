@@ -11,7 +11,7 @@ var NPC_collider = ""
 #var keys = []
 
 var areas_visited = []
-var games_played = []
+var games_played = ["Boatrace"]
 
 var Items = []
 #var Items = ["Medal","Key", "Plate", "Shirt"]

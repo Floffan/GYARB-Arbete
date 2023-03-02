@@ -82,7 +82,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Particles2D:visible")
+tracks/4/path = NodePath("Sparkles:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -169,7 +169,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Particles2D:visible")
+tracks/3/path = NodePath("Sparkles:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -263,7 +263,7 @@ margin_right = 468.571
 margin_bottom = 492.857
 text = "TILLBAKA"
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Sparkles" type="Particles2D" parent="."]
 visible = false
 position = Vector2( 469, 276 )
 amount = 40

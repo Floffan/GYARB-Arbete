@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/HUD/Camera_HUB.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Pics/collectibles/medalj.png" type="Texture" id=10]
 [ext_resource path="res://Pics/collectibles/plate.png" type="Texture" id=11]
 [ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open_IV"
@@ -87,6 +88,13 @@ visible = false
 
 [node name="Gate_menu" parent="CanvasLayer" instance=ExtResource( 3 )]
 visible = false
+
+[node name="New_item" parent="CanvasLayer" instance=ExtResource( 13 )]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+rect_scale = Vector2( 2, 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")

@@ -1,0 +1,235 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://UI/Glowt.tres" type="Environment" id=2]
+[ext_resource path="res://Scripts/Cutscenes/New_item.gd" type="Script" id=3]
+[ext_resource path="res://Pics/collectibles/shirt.png" type="Texture" id=4]
+[ext_resource path="res://Pics/collectibles/key2.png" type="Texture" id=5]
+[ext_resource path="res://Pics/collectibles/medalj.png" type="Texture" id=6]
+[ext_resource path="res://Pics/collectibles/plate.png" type="Texture" id=7]
+[ext_resource path="res://Pics/Minigames/SPARKLE.png" type="Texture" id=8]
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+direction = Vector3( 50, 0, 0 )
+spread = 81.18
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 205.88
+angular_velocity = 98.82
+orbit_velocity = 0.5
+orbit_velocity_random = 0.06
+scale = 0.2
+scale_random = 0.36
+
+[sub_resource type="Animation" id=2]
+resource_name = "Key"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("items/Key:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("items/Key:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Medal"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("items/Medal:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("items/Medal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Plate"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("items/Plate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("items/Plate:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("items/Key:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("items/Key:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("items/Medal:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("items/Medal:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("items/Plate:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("items/Plate:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[node name="New_item" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 360.0
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 192.0
+script = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 2 )
+
+[node name="effect_pos" type="Position2D" parent="."]
+
+[node name="effect" type="Node2D" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+self_modulate = Color( 0.9, 0.9, 0.9, 1 )
+scale = Vector2( 0.5, 0.5 )
+amount = 20
+lifetime = 5.0
+preprocess = 3.0
+speed_scale = 0.7
+process_material = SubResource( 1 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Key = SubResource( 2 )
+anims/Medal = SubResource( 4 )
+anims/Plate = SubResource( 5 )
+anims/RESET = SubResource( 3 )
+
+[node name="items" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Key" type="Sprite" parent="items"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Medal" type="Sprite" parent="items"]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="Plate" type="Sprite" parent="items"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Shirt" type="Sprite" parent="items"]
+visible = false
+texture = ExtResource( 4 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
