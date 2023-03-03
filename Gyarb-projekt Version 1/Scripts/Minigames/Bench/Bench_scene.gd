@@ -16,7 +16,7 @@ var score_red_area = 20
 var score_yellow_area = 10
 var minus_score = 10
 
-var goal_score = 10
+var goal_score = 100
 
 var scored = ""
 

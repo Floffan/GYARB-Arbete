@@ -15,10 +15,16 @@ var dia_num : int
 
 var dialog_path = "res://Dialog/Tutorial/Uggla_dia.json"
 
+signal looking_around
+#signal can_move
+
+var heard_briefcae_info = false
+
 func _ready():
+	emit_signal("looking_around")
 	dia_num = 1
 	_get_position()
-	yield(get_tree().create_timer(3), "timeout")
+	yield(get_tree().create_timer(5), "timeout")
 	if ui_dialog.dialog_running == false:
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 	
@@ -56,7 +62,13 @@ func _on_Skelett_Interaction_detected():
 			interacting = true
 			menu_player.on_interaction(question, "briefcase")
 
-
 func _on_Object_interation_menu_pick_up():
 	$YSort/Coffin_open/Briefcase.visible = false
 	Autoloads.have_briefcase = true
+	
+func _process(delta):
+	if Autoloads.have_briefcase == true and not ui_dialog.dialog_running and not heard_briefcae_info:
+		dia_num = 2
+		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
+		heard_briefcae_info = true
+		

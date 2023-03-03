@@ -20,8 +20,8 @@ var ok = false
 
 var flowers = 0
 
-#var have_briefcase : bool
-var have_briefcase = true
+var have_briefcase : bool
+#var have_briefcase = true
 
 func _process(_delta):
 	if Input.is_action_pressed("Escape"):

@@ -16,7 +16,7 @@ onready var laps_p = $LAPS/Panel/VBoxContainer/Player/Laps_P # Laps Player
 onready var laps_g = $LAPS/Panel/VBoxContainer/Green/Laps_G # Laps Gröna båten
 onready var laps_b = $LAPS/Panel/VBoxContainer/Blue/Laps_B # Laps Blåa båten
 
-var win_laps = 1
+var win_laps = 5
 
 signal ready_done
 signal game_over

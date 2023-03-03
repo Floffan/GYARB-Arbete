@@ -127,7 +127,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 220, 199.5 )
+extents = Vector2( 57.5, 58.5 )
 
 [node name="Spawn" type="Node2D"]
 script = ExtResource( 9 )
@@ -227,13 +227,15 @@ collision_mask = 4
 position = Vector2( -5, -184 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 11 )
+frame = 2
 speed_scale = 0.2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_uggla"]
-position = Vector2( -6, -42.5 )
+position = Vector2( -3.5, -183.5 )
 shape = SubResource( 12 )
 
+[connection signal="looking_around" from="." to="YSort/Skelett" method="_on_Spawn_looking_around"]
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
 [connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]

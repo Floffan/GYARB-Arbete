@@ -6,7 +6,6 @@ signal Interaction_detected
 
 var speed = 700
 
-
 var velocity = Vector2()
 export var direction = ["direction i x-led", "direction i y-led"]
 
@@ -17,10 +16,15 @@ var moving_y = false
 
 export var gate_collider = ""
 
+var animation = "Stå-animation"
+
+var can_move = true
+
 
 func get_input():
 	velocity = Vector2()
 	moving_x = false
+	
 	if Input.is_action_pressed("Right"):
 		velocity.x += 1
 		moving_x = true
@@ -59,10 +63,18 @@ func _assign_direction():
 	_assign_animation()	
 		
 func _assign_animation():
+
 	"""
 	Denna funktion assignar animationer
 	"""
-	var animation = "Stå-animation"
+	
+	"""
+	Om animationen "Look around" ska spelas spelas inga andra animationer
+	"""
+	if animation == "Look_around":
+		$AnimationPlayer.play(animation)
+		return
+	
 	"""
 	Höger/Vänster-hantering [x-led]
 	"""
@@ -205,7 +217,8 @@ func _align_detectors():
 	
 func _physics_process(_delta):
 	_check_case()
-	get_input()
+	if can_move:
+		get_input()
 	_check_raycasts()
 	
 	velocity = move_and_slide(velocity)
@@ -213,6 +226,9 @@ func _physics_process(_delta):
 	_assign_direction()
 	_align_detectors()
 
-
-
-
+func _on_Spawn_looking_around():
+	animation = "Look_around"
+	$Timer.start()
+	
+func _on_Timer_timeout():
+	animation = "Stå_animation_framifrån"

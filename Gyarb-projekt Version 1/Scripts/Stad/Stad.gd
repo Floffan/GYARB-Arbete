@@ -112,7 +112,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Object_interation_menu_walk_out():
 	ui_interact.visible = false
 	ui_cutscene_panels.play_backwards("ready")
-	$AnimationPlayer.play_backwardsF("Red_house_visit")
+	$AnimationPlayer.play_backwards("Red_house_visit")
 	ui_interact.pressed_yes = false
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
