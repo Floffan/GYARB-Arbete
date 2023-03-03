@@ -108,7 +108,7 @@ func _on_Object_interation_menu_get_on_bus():
 	#ui_cutscene_panels.play_backwards("ready")
 	ui_interact.pressed_yes = false
 	$AnimationPlayer_bus.play("Get_on_bus")
-	anim_player_bus_wheels.play_backwards("slowing_down")
+	#anim_player_bus_wheels.play_backwards("slowing_down")
 
 
 func _on_AnimationPlayer_bus_animation_finished(anim_name):

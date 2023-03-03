@@ -76,6 +76,7 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panels_cutscene" parent="CanvasLayer" instance=ExtResource( 12 )]
+visible = false
 
 [node name="minigame_menu" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false

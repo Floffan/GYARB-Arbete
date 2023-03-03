@@ -8,7 +8,7 @@ var speed = 700
 
 
 var velocity = Vector2()
-var direction = ["direction i x-led", "direction i y-led"]
+export var direction = ["direction i x-led", "direction i y-led"]
 
 var only_moving_y
 

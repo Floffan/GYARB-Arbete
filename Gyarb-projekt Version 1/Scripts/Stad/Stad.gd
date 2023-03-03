@@ -19,7 +19,7 @@ var dia_location = "Stad"
 var dia_num : int
 
 func _ready():
-	$Camera2D.current = true
+	#$Camera2D.current = true
 	$VisibilityNotifier2D.connect("screen_entered", self, "show")
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
 	visible = false
@@ -35,9 +35,6 @@ func _get_position() -> void:
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Gym":
 		_open_gate_menu("gym_Stad", "res://Scenes/Stad/Gym.tscn", "in")
-	if Autoloads.Gate_collider == "gate_Berg":
-		Autoloads.Position = "berg_Stad"
-		Transition.load_scene("res://Scenes/Berg/Berg.tscn")
 	if Autoloads.Gate_collider == "gate_Redhouse":
 		_house_movement("in")
 	if Autoloads.Gate_collider == "gate_Balkong":	
@@ -69,7 +66,6 @@ func _on_Skelett_NPC_detected():
 		dia_num = 1
 		int_question = "Kliv på bussen?"
 		int_object = "buss"
-		Autoloads.Position = "berg_Buss"
 	
 	if Input.is_action_just_pressed("ui_accept") and ui_dialog.dialog_running == false:
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
@@ -116,7 +112,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Object_interation_menu_walk_out():
 	ui_interact.visible = false
 	ui_cutscene_panels.play_backwards("ready")
-	$AnimationPlayer.play_backwards("Red_house_visit")
+	$AnimationPlayer.play_backwardsF("Red_house_visit")
 	ui_interact.pressed_yes = false
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
@@ -126,6 +122,6 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 
 func _on_Object_interation_menu_get_on_bus():
 	ui_interact.visible = false
-	#ui_cutscene_panels.play_backwards("ready")
 	ui_interact.pressed_yes = false
-	$AnimationPlayer.play("Get_on_bus")
+	Autoloads.Position = "berg_Buss"
+	$AnimationPlayer.play("get_on_bus")

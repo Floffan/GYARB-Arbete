@@ -44,7 +44,6 @@ func _get_input():
 		IV_open = false
 
 func _on_TextureButton_pressed() -> void:
-	print("trycker")
 	var instance = briefcase_scene.instance()
 	add_child(instance)
 	animation_player.play("RESET")

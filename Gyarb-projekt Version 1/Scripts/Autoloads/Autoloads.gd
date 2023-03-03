@@ -18,7 +18,7 @@ var Items = []
 #var Items = ["Medal", "Key", "Plate", "Shirt"]
 var ok = false
 
-var flowers = 3
+var flowers = 0
 
 #var have_briefcase : bool
 var have_briefcase = true
@@ -26,5 +26,3 @@ var have_briefcase = true
 func _process(_delta):
 	if Input.is_action_pressed("Escape"):
 		get_tree().quit()
-	if flowers == 3:
-		print("jippie!")
