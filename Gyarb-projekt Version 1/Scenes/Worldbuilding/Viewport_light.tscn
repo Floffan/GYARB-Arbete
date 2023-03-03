@@ -7,9 +7,8 @@ size = Vector2( 350, 340 )
 transparent_bg = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 30.0
 margin_right = 350.0
-margin_bottom = 330.0
+margin_bottom = 340.0
 color = Color( 0.964706, 0.678431, 0.14902, 1 )
 
 [node name="Ljus_fönster" parent="." instance=ExtResource( 1 )]

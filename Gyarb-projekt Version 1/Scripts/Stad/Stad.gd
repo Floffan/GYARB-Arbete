@@ -5,7 +5,8 @@ var skelett_position = Autoloads.Position
 var going_out = false
 var interacting = false
 
-var question = ""
+var int_question = ""
+var int_object
 
 onready var ui_cutscene_panels = get_node("Camera2D/CanvasLayer/Panels_cutscene/AnimationPlayer")
 
@@ -18,6 +19,7 @@ var dia_location = "Stad"
 var dia_num : int
 
 func _ready():
+	$Camera2D.current = true
 	$VisibilityNotifier2D.connect("screen_entered", self, "show")
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
 	visible = false
@@ -54,48 +56,45 @@ func _open_gate_menu(position_in_new_world, path, heading):
 
 func _house_movement(heading):
 	if heading == "in":
-		question = "Gå in i huset?"
+		int_question = "Gå in i huset?"
 	if heading == "out":
-		question = "Gå ner på gatan?"
+		int_question = "Gå ner på gatan?"
 		
-	var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		menu_player.visible = true
-		menu_player.pressed_yes = null
-		
-	if interacting == true:	
-		menu_player.on_interaction(question, heading)
-			
-	if Input.is_action_just_pressed("ui_accept"):
-		interacting = true
-		menu_player.on_interaction(question, heading)
+	_on_Interact(heading, int_question)
 
 func _on_Skelett_NPC_detected():
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	if Input.is_action_just_pressed("ui_accept"):
-		if collider == "person":
-			pass
-			
+	if collider == "NPC_Dino":
+		dia_character = "Dino"
+		dia_num = 1
+		int_question = "Kliv på bussen?"
+		int_object = "buss"
+		Autoloads.Position = "berg_Buss"
+	
+	if Input.is_action_just_pressed("ui_accept") and ui_dialog.dialog_running == false:
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
-			
+		interacting = true
+	if interacting == true:
+		_on_Interact(int_object, int_question)		
+		
 func _on_Skelett_Interaction_detected():
 	var collider = $YSort/Skelett/Interact_detector.get_collider().name
 	
 	if collider == "Blomma_red":
-		question = "Plocka blomman?"
-		_on_Interact()
+		int_question = "Plocka blomman?"
+		int_object = "flower"
+		_on_Interact(int_object, int_question)
 		
-func _on_Interact():
+func _on_Interact(int_object, int_question):
 	if Input.is_action_just_pressed("ui_accept"):
 		ui_interact.pressed_yes = null
 		
 	if interacting == true:	
-		ui_interact.on_interaction(question, "flower")
+		ui_interact.on_interaction(int_question, int_object)
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		interacting = true
-		ui_interact.on_interaction(question, "flower")
+		ui_interact.on_interaction(int_question, int_object)
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
@@ -109,7 +108,10 @@ func _on_Object_interation_menu_walk_in():
 	ui_interact.pressed_yes = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	ui_cutscene_panels.play("ready")
+	if Autoloads.Position == "berg_Buss":
+		Transition.load_scene("res://Cutscenes/Buss_scen.tscn")
+	else:
+		ui_cutscene_panels.play("ready")
 
 func _on_Object_interation_menu_walk_out():
 	ui_interact.visible = false
@@ -117,7 +119,13 @@ func _on_Object_interation_menu_walk_out():
 	$AnimationPlayer.play_backwards("Red_house_visit")
 	ui_interact.pressed_yes = false
 
-
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	$YSort/Bus.position = $Positioner/pos_Buss.position
 	$YSort/Bus.scale.x = -1
+
+
+func _on_Object_interation_menu_get_on_bus():
+	ui_interact.visible = false
+	#ui_cutscene_panels.play_backwards("ready")
+	ui_interact.pressed_yes = false
+	$AnimationPlayer.play("Get_on_bus")

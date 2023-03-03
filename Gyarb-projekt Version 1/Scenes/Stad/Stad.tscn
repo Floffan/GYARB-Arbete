@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -213,9 +213,6 @@ extents = Vector2( 130.5, 172.5 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 37, 119.5 )
 
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 176.5, 448 )
-
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 30.5, 104 )
 
@@ -225,7 +222,7 @@ extents = Vector2( 61, 129 )
 [sub_resource type="Animation" id=17]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("YSort/Skelett:position")
+tracks/0/path = NodePath("YSort/Bus:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -234,10 +231,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1916, 74 ) ]
+"values": [ Vector2( 3424, 129 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
+tracks/1/path = NodePath("YSort/Bus:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -249,7 +246,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("YSort/Bus:position")
+tracks/2/path = NodePath("YSort/Bus:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -258,10 +255,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3573, 672 ) ]
+"values": [ 0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("YSort/Bus:rotation_degrees")
+tracks/3/path = NodePath("YSort/Bus:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -270,10 +267,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( -1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("YSort/Bus:z_index")
+tracks/4/path = NodePath("YSort/Bus:Light_enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -282,7 +279,31 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/Skelett:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4027, 637 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("YSort/Skelett:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -326,7 +347,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2, 3, 3.3, 4.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 4027, 669 ), Vector2( 3137, 682 ), Vector2( 2840, 684 ), Vector2( 2841, 713 ), Vector2( 2557, 605 ) ]
+"values": [ Vector2( 4027, 637 ), Vector2( 3137, 637 ), Vector2( 2840, 637 ), Vector2( 2841, 713 ), Vector2( 2557, 605 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
@@ -347,10 +368,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2, 5, 5.7, 7, 8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 5, 6.7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3573, 672 ), Vector2( 2683, 685 ), Vector2( 2683, 685 ), Vector2( 2466, 687 ), Vector2( -683, 688 ), Vector2( -2909, 641 ) ]
+"values": [ Vector2( 3573, 672 ), Vector2( 2683, 685 ), Vector2( 2683, 685 ), Vector2( 2466, 687 ), Vector2( -2909, 641 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("YSort/Bus:rotation_degrees")
@@ -359,10 +380,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 2, 5, 5.7, 7, 8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 5, 6.7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("YSort/Bus:z_index")
@@ -376,6 +397,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/Bus:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("YSort/Bus:Light_enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "get_on_bus"
@@ -387,10 +432,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3034, 87 ) ]
+"values": [ Vector2( 3375, 186 ), Vector2( 2837, 179 ), Vector2( 2840, 68 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("YSort/Skelett:rotation_degrees")
@@ -399,10 +444,70 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/Bus:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 3424, 129 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/Bus:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YSort/Bus:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/Skelett:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("YSort/Skelett:direction")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ [ "\"\"", "\"up\"" ], [ "\"left\"", "\"\"" ], [ "\"left\"", "\"up\"" ] ]
 }
 
 [node name="Stad" type="Node2D"]
@@ -498,7 +603,8 @@ position = Vector2( -1612, -225 )
 texture = SubResource( 22 )
 
 [node name="fönster5" type="Sprite" parent="Control"]
-position = Vector2( -1626, -534 )
+position = Vector2( -1638, -530 )
+scale = Vector2( 0.739325, 0.690305 )
 texture = SubResource( 22 )
 
 [node name="fönster6" type="Sprite" parent="Control"]
@@ -507,6 +613,7 @@ texture = SubResource( 22 )
 
 [node name="fönster7" type="Sprite" parent="Control"]
 position = Vector2( -850, -482 )
+scale = Vector2( 0.809131, 0.888182 )
 texture = SubResource( 22 )
 
 [node name="fönster8" type="Sprite" parent="Control"]
@@ -549,7 +656,7 @@ texture = SubResource( 22 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Skelett" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -1916, 74 )
+position = Vector2( 4027, 637 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Hus" type="StaticBody2D" parent="YSort"]
@@ -631,9 +738,8 @@ position = Vector2( -1955.5, -3.5 )
 shape = SubResource( 21 )
 
 [node name="Bus" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 3573, 672 )
+position = Vector2( 3424, 129 )
 scale = Vector2( -1, 1 )
-z_index = 1
 
 [node name="Bussskylt" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 2840, 99 )
@@ -687,15 +793,6 @@ collision_mask = 8
 position = Vector2( 2, -5.5 )
 shape = SubResource( 10 )
 
-[node name="gate_Berg" type="Area2D" parent="."]
-position = Vector2( 3833, 134 )
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="gate_Berg"]
-position = Vector2( 1.5, 1 )
-shape = SubResource( 11 )
-
 [node name="gate_Balkong" type="Area2D" parent="."]
 position = Vector2( -1196, -592 )
 collision_layer = 8
@@ -723,7 +820,7 @@ position = Vector2( 1435, 166 )
 position = Vector2( 2914, -145 )
 
 [node name="pos_Buss" type="Position2D" parent="Positioner"]
-position = Vector2( 3424, 129 )
+position = Vector2( 3449, 135 )
 
 [node name="häcktoppar" parent="." instance=ExtResource( 17 )]
 z_index = 5
@@ -756,6 +853,7 @@ scale = Vector2( 454.4, 167.3 )
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
 [connection signal="screen_exited" from="YSort/Bussskylt/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="get_on_bus" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_get_on_bus"]
 [connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 [connection signal="walk_in" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_walk_in"]
 [connection signal="walk_out" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_walk_out"]

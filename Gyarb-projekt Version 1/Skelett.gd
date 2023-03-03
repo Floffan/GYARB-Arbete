@@ -59,6 +59,9 @@ func _assign_direction():
 	_assign_animation()	
 		
 func _assign_animation():
+	"""
+	Denna funktion assignar animationer
+	"""
 	var animation = "Stå-animation"
 	"""
 	Höger/Vänster-hantering [x-led]
@@ -182,16 +185,11 @@ func _check_case():
 		$polygons_bak/case.visible = false
 		$polygons_fram/case.visible = false
 		$polygons_sidan/case.visible = false
-	
-func _physics_process(_delta):
-	_check_case()
-	get_input()
-	_check_raycasts()
-	
-	velocity = move_and_slide(velocity)
-	
-	_assign_direction()
-	
+		
+func _align_detectors():
+	"""
+	Ser till att detector-raycastsen riktas åt det håll som spelaren är vänd mot
+	"""
 	if direction[0] == "left": # if-satsen ser till att spelaren kan upptäcka NPC:s om de står vända mot dem
 		$NPC_detector.rotation_degrees = 90
 		$Interact_detector.rotation_degrees = 90
@@ -201,9 +199,20 @@ func _physics_process(_delta):
 	if direction[1] == "up":
 		$NPC_detector.rotation_degrees = -180
 		$Interact_detector.rotation_degrees = -180
-	if direction[1] == "up":
+	if direction[1] == "down":
 		$NPC_detector.rotation_degrees = 180
 		$Interact_detector.rotation_degrees = 180
+	
+func _physics_process(_delta):
+	_check_case()
+	get_input()
+	_check_raycasts()
+	
+	velocity = move_and_slide(velocity)
+	
+	_assign_direction()
+	_align_detectors()
+
 
 
 

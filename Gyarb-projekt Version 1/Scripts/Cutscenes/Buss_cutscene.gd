@@ -8,6 +8,15 @@ onready var berg_background = $Bakgrund/Berg_mitt
 
 onready var buss_anim = $Bus/AnimationPlayer_wheel
 
+var heading = ""
+
+func _ready():
+	if Autoloads.Position == "berg_Buss":
+		heading = "Berg"
+		#spelaa anim
+	else:
+		heading = "Stad"
+		# spela anim
 
 func _process(delta):
 	buskar.motion_offset.x += 300*delta
@@ -18,5 +27,7 @@ func _process(delta):
 	buss_anim.play("driving")
 
 func _on_Timer_timeout():
-	#Autoloads.Position = 
-	Transition.load_scene("res://Scenes/Stad/Stad.tscn")
+	if heading == "Stad":
+		Transition.load_scene("res://Scenes/Stad/Stad.tscn")
+	if heading == "Berg":
+		Transition.load_scene("res://Scenes/Berg/Berg.tscn")
