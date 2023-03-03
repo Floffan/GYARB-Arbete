@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://Pics/collectibles/flower.png" type="Texture" id=1]
 [ext_resource path="res://UI/Glowt.tres" type="Environment" id=2]
 [ext_resource path="res://Scripts/Cutscenes/New_item.gd" type="Script" id=3]
 [ext_resource path="res://Pics/collectibles/shirt.png" type="Texture" id=4]
@@ -19,6 +20,34 @@ orbit_velocity = 0.5
 orbit_velocity_random = 0.06
 scale = 0.2
 scale_random = 0.36
+
+[sub_resource type="Animation" id=7]
+resource_name = "Flower"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("items/Flower:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("items/Flower:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Key"
@@ -202,6 +231,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("items/Flower:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("items/Flower:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Shirt"
@@ -259,6 +312,7 @@ process_material = SubResource( 1 )
 texture = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flower = SubResource( 7 )
 anims/Key = SubResource( 2 )
 anims/Medal = SubResource( 4 )
 anims/Plate = SubResource( 5 )
@@ -283,5 +337,9 @@ texture = ExtResource( 7 )
 [node name="Shirt" type="Sprite" parent="items"]
 visible = false
 texture = ExtResource( 4 )
+
+[node name="Flower" type="Sprite" parent="items"]
+visible = false
+texture = ExtResource( 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

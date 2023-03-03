@@ -9,10 +9,11 @@ onready var interact_ui = $Camera2D/CanvasLayer/Object_interation_menu
 onready var gate_ui = $Camera2D/CanvasLayer/Gate_menu
 onready var dialog_ui = $Camera2D/CanvasLayer/Dialog
 
+onready var ui_new_item = get_node("Camera2D/CanvasLayer/New_item")
+
 var dia_character = ""
 var dia_location = "Tutorial"
 var dia_num : int
-
 
 func _ready():
 	_get_position()
@@ -100,5 +101,6 @@ func _on_Interact():
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
+	ui_new_item.on_new_item("Flower")
 	$YSort/Blomma_red.visible = false
 	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false

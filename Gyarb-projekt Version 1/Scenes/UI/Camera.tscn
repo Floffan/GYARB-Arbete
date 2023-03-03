@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/HUD/Camera_HUB.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Pics/collectibles/plate.png" type="Texture" id=11]
 [ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Pics/collectibles/flower_close.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open_IV"
@@ -160,6 +161,24 @@ margin_top = 17.0
 margin_right = 306.0
 margin_bottom = 103.0
 custom_styles/panel = SubResource( 3 )
+
+[node name="Flower" type="Sprite" parent="CanvasLayer/Panel/Flower"]
+visible = false
+position = Vector2( 45, 44 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 14 )
+
+[node name="Antal" type="RichTextLabel" parent="CanvasLayer/Panel/Flower"]
+visible = false
+margin_left = 63.0
+margin_top = 50.0
+margin_right = 141.0
+margin_bottom = 125.0
+bbcode_enabled = true
+bbcode_text = "1
+"
+text = "1
+"
 
 [node name="Medal" type="Panel" parent="CanvasLayer/Panel"]
 margin_left = 118.0

@@ -10,21 +10,6 @@ onready var path_follow_vertical = $IndicatorPath_vertical/PathFollow2D
 onready var raycast_vertical_1 = $IndicatorPath_vertical/PathFollow2D/Indikator2/RayCast2D1
 onready var raycast_vertical_2 = $IndicatorPath_vertical/PathFollow2D/Indikator2/RayCast2D2
 
-"""
-FUNDERA PÅ HUR MAN KAN LÖSA PROBLEMET:
-	Raycasten returnar bara den första arean som den stötet på, inte de andra. 
-	Därför går det inte att nå de bakre hålen utan att trixa
-	hjälp!
-	
-LÖSNING:
-	Jag satte en Raycast åt andra hållet också, och jag la in både det hålet som raycasten 
-	frammåt identifierade, och det hålet som raycasten bakåt identifierade. Sedan checkar man om något item är
-	detsamma ur de två listorna.
-	
-KVAR ATT GÖRA:
-	Hitta ett sätt för pilarna att gå tillbaka till startpositionen när en omgång är klar
-	"""
-
 export var speed = 7
 
 var function_running = true
@@ -52,7 +37,7 @@ var run_game = false
 
 func _ready():
 	Autoloads.Position = "grotta_Minigame"
-	win_screen()
+	
 	$Winscreen.game_path = "res://Scenes/Minigames/Bollplank.tscn"
 	$Winscreen.world_path = "res://Scenes/Berg/Grotta.tscn"
 	
@@ -63,7 +48,6 @@ func _ready():
 func _get_input():
 	if time_for_next == true and Input.is_action_just_pressed("Stop"):
 		time_for_next = false
-		#print(raycast_vertical_1.get_collider())
 		if raycast_vertical_1.is_colliding(): # Om en av dem kolliderar betyder det att båda kolliderar
 			if hole_vertical.has(raycast_vertical_1.get_collider().name) != true:
 				hole_vertical.append(raycast_vertical_1.get_collider().name)
@@ -75,7 +59,6 @@ func _get_input():
 	if Input.is_action_just_pressed("Stop"):
 		function_running = false
 		time_for_next = true
-		# Kollar om hålet ifråga redan finns på listan, annars läggs det till
 		if raycast_horizontal_1.is_colliding():
 			if hole_horizontal.has(raycast_horizontal_1.get_collider().name) != true:
 				hole_horizontal.append(raycast_horizontal_1.get_collider().name)

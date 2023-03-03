@@ -12,6 +12,8 @@ onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
 onready var ui_interact = get_node("Camera2D/CanvasLayer/Object_interation_menu")
 onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
 
+onready var ui_new_item = get_node("Camera2D/CanvasLayer/New_item")
+
 onready var anim_player_bus_wheels = get_node("Bus/AnimationPlayer_wheel")
 
 # Dialog-variabler (prefix : dia)
@@ -85,6 +87,7 @@ func _on_interact(int_question, int_object):
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
+	ui_new_item.on_new_item("Flower")
 	get_node("YSort/Blomma_red").queue_free()
 	ui_interact.pressed_yes = false
 

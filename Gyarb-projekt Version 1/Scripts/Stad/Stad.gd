@@ -14,6 +14,8 @@ onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
 onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
 onready var ui_interact = get_node("Camera2D/CanvasLayer/Object_interation_menu")
 
+onready var ui_new_item = get_node("Camera2D/CanvasLayer/New_item")
+
 var dia_character = ""
 var dia_location = "Stad"
 var dia_num : int
@@ -94,6 +96,7 @@ func _on_Interact(int_object, int_question):
 
 func _on_Object_interation_menu_pick_up():
 	Autoloads.flowers += 1
+	ui_new_item.on_new_item("Flower")
 	get_node("YSort/Hus/Sprite/Blomma_red").queue_free()
 	ui_interact.pressed_yes = false
 
@@ -118,7 +121,6 @@ func _on_Object_interation_menu_walk_out():
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	$YSort/Bus.position = $Positioner/pos_Buss.position
 	$YSort/Bus.scale.x = -1
-
 
 func _on_Object_interation_menu_get_on_bus():
 	ui_interact.visible = false
