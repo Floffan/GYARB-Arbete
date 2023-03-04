@@ -16,9 +16,10 @@ var dia_num : int
 var dialog_path = "res://Dialog/Tutorial/Uggla_dia.json"
 
 signal looking_around
+signal can_move
 #signal can_move
 
-var heard_briefcae_info = false
+var heard_briefcase_info = false
 
 func _ready():
 	emit_signal("looking_around")
@@ -67,8 +68,10 @@ func _on_Object_interation_menu_pick_up():
 	Autoloads.have_briefcase = true
 	
 func _process(delta):
-	if Autoloads.have_briefcase == true and not ui_dialog.dialog_running and not heard_briefcae_info:
+	if heard_briefcase_info:
+		emit_signal("can_move")
+	if Autoloads.have_briefcase == true and not ui_dialog.dialog_running and not heard_briefcase_info:
 		dia_num = 2
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
-		heard_briefcae_info = true
+		heard_briefcase_info = true
 		

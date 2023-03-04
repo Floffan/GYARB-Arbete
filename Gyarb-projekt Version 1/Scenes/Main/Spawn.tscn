@@ -227,7 +227,7 @@ collision_mask = 4
 position = Vector2( -5, -184 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 11 )
-frame = 2
+frame = 4
 speed_scale = 0.2
 playing = true
 
@@ -235,6 +235,7 @@ playing = true
 position = Vector2( -3.5, -183.5 )
 shape = SubResource( 12 )
 
+[connection signal="can_move" from="." to="YSort/Skelett" method="_on_Spawn_can_move"]
 [connection signal="looking_around" from="." to="YSort/Skelett" method="_on_Spawn_looking_around"]
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

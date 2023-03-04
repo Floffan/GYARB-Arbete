@@ -71,7 +71,7 @@ func _assign_animation():
 	"""
 	Om animationen "Look around" ska spelas spelas inga andra animationer
 	"""
-	if animation == "Look_around":
+	if can_move == false:
 		$AnimationPlayer.play(animation)
 		return
 	
@@ -227,8 +227,26 @@ func _physics_process(_delta):
 	_align_detectors()
 
 func _on_Spawn_looking_around():
+	can_move = false
 	animation = "Look_around"
 	$Timer.start()
 	
 func _on_Timer_timeout():
 	animation = "Stå_animation_framifrån"
+
+
+func _on_Skidshop_shrug():
+	animation = "Shrug"
+
+
+func _on_Skidshop_stand_still():
+	animation = "Stå-animation_framifrån"
+	can_move = false
+
+
+func _on_Spawn_can_move():
+	can_move = true
+
+
+func _on_Stuga_can_move():
+	can_move = true

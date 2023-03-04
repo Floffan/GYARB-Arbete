@@ -4,7 +4,6 @@ onready var player = get_parent().get_node("YSort").get_node("Skelett")
 var IV_open = false
 
 onready var briefcase_scene = load("res://Cutscenes/Briefcase_locked.tscn")
-#onready var instance = briefcase_scene.instance()
 
 onready var animation_player = $CanvasLayer/AnimationPlayer
 

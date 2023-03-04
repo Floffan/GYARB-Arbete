@@ -28,6 +28,9 @@ var interacting = false
 
 
 func _ready():
+	$VisibilityNotifier2D.connect("screen_entered", self, "show")
+	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
+	
 	_get_position()
 	if Autoloads.Items.has("Key"):
 		cave_access = true
@@ -42,6 +45,8 @@ func _get_position() -> void:
 		$YSort/Skelett.position = $Positioner/berg_Stad.position
 	if skelett_position == "berg_Buss":
 		pass
+	if skelett_position == "berg_Stuga":
+		$YSort/Skelett.position = $Positioner/berg_Stuga.position
 
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Main":
@@ -53,6 +58,8 @@ func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Stad":
 		Autoloads.Position = "stad_Berg"
 		Transition.load_scene("res://Scenes/Stad/Stad.tscn")
+	if Autoloads.Gate_collider == "gate_Stuga":
+		_open_gate_menu("stuga_Berg", "res://Scenes/Berg/Stuga.tscn", "in")
 		
 func _open_gate_menu(position_in_new_world, path, heading):
 	if Input.is_action_just_pressed("ui_accept"):
