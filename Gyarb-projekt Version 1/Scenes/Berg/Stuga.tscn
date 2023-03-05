@@ -155,5 +155,13 @@ collision_mask = 8
 position = Vector2( -4.5, 52 )
 shape = SubResource( 6 )
 
+[node name="Positioner" type="Node2D" parent="."]
+
+[node name="stuga_Minigame" type="Position2D" parent="Positioner"]
+position = Vector2( 224, 121 )
+
+[node name="stuga_Berg" type="Position2D" parent="Positioner"]
+position = Vector2( 742, 20 )
+
 [connection signal="can_move" from="." to="YSort/Skelett" method="_on_Stuga_can_move"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

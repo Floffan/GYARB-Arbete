@@ -890,7 +890,6 @@ script = ExtResource( 20 )
 
 [node name="Fågel" type="AnimatedSprite" parent="Fågel_path/Fågel"]
 frames = SubResource( 90 )
-frame = 3
 playing = true
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]

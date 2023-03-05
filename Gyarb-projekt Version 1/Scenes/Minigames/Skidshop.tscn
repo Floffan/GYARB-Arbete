@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/berg/wall_stuga.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Minigames/skidor_neutrual_2.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Pics/Mapbuilding/berg/cabin_walls_lumbers.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=9]
+[ext_resource path="res://UI/Glowt.tres" type="Environment" id=10]
+[ext_resource path="res://Scenes/Minigames/Glow_skidor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.352941, 0.184314, 0.0627451, 1 )
@@ -31,81 +33,150 @@ script = ExtResource( 4 )
 [node name="WallStuga" type="Sprite" parent="."]
 modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
 position = Vector2( 497, 200 )
+z_index = -5
 texture = ExtResource( 1 )
 
 [node name="Skidor" type="Node2D" parent="."]
 position = Vector2( -329, -43 )
 scale = Vector2( 1.4, 1.4 )
+z_index = -1
 
-[node name="Turquise" type="Sprite" parent="Skidor"]
+[node name="Skidor_bak" type="Node2D" parent="Skidor"]
+scale = Vector2( 1, 1 )
+z_index = -3
+
+[node name="Turquise2" type="TextureButton" parent="Skidor/Skidor_bak" groups=["Bak"]]
 modulate = Color( 0.0666667, 0.956863, 0.643137, 1 )
-position = Vector2( 417.857, 160 )
-texture = ExtResource( 6 )
+margin_left = 396.429
+margin_top = 62.1429
+margin_right = 439.429
+margin_bottom = 257.143
+toggle_mode = true
+texture_normal = ExtResource( 6 )
 
-[node name="Green" type="Sprite" parent="Skidor"]
+[node name="Green2" type="TextureButton" parent="Skidor/Skidor_bak" groups=["Bak"]]
 modulate = Color( 0.419608, 1, 0.156863, 1 )
-position = Vector2( 521, 161 )
-texture = ExtResource( 3 )
+margin_left = 499.286
+margin_top = 62.8572
+margin_right = 542.286
+margin_bottom = 257.857
+texture_normal = ExtResource( 3 )
 
-[node name="Red_2" type="Sprite" parent="Skidor"]
+[node name="Red2" type="TextureButton" parent="Skidor/Skidor_bak" groups=["Bak"]]
 modulate = Color( 0.980392, 0.0823529, 0.0823529, 1 )
-position = Vector2( 349.286, 157.857 )
-texture = ExtResource( 2 )
+margin_left = 327.857
+margin_top = 62.1429
+margin_right = 370.857
+margin_bottom = 257.143
+texture_normal = ExtResource( 2 )
 
-[node name="Blue_2" type="Sprite" parent="Skidor"]
+[node name="Blue2" type="TextureButton" parent="Skidor/Skidor_bak" groups=["Bak"]]
 modulate = Color( 0.0627451, 0.0313726, 1, 1 )
-position = Vector2( 591.429, 160.714 )
-texture = ExtResource( 2 )
+margin_left = 570.0
+margin_top = 62.8572
+margin_right = 613.0
+margin_bottom = 257.857
+texture_normal = ExtResource( 2 )
 
-[node name="Panel" type="Panel" parent="Skidor"]
+[node name="Panel" type="Node2D" parent="Skidor/Skidor_bak"]
+z_index = 1
+
+[node name="Panel" type="Panel" parent="Skidor/Skidor_bak/Panel"]
 margin_left = 290.0
 margin_top = 186.0
 margin_right = 662.0
 margin_bottom = 353.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="Pink" type="Sprite" parent="Skidor"]
-self_modulate = Color( 0.992157, 0.0666667, 0.890196, 1 )
-position = Vector2( 570, 201 )
-texture = ExtResource( 3 )
+[node name="Skidor_mitt" type="Node2D" parent="Skidor"]
+scale = Vector2( 1, 1 )
+z_index = -2
 
-[node name="Green2" type="Sprite" parent="Skidor"]
+[node name="Pink" type="TextureButton" parent="Skidor/Skidor_mitt" groups=["Mitt"]]
+modulate = Color( 0.992157, 0.0666667, 0.890196, 1 )
+margin_left = 545.714
+margin_top = 103.571
+margin_right = 588.714
+margin_bottom = 298.571
+texture_normal = ExtResource( 3 )
+
+[node name="Green" type="TextureButton" parent="Skidor/Skidor_mitt" groups=["Mitt"]]
 modulate = Color( 0.152941, 0.839216, 0.0941176, 1 )
-position = Vector2( 384, 194 )
-texture = ExtResource( 6 )
+margin_left = 362.143
+margin_top = 96.4286
+margin_right = 405.143
+margin_bottom = 291.429
+toggle_mode = true
+texture_normal = ExtResource( 6 )
 
-[node name="Blue" type="Sprite" parent="Skidor"]
-self_modulate = Color( 0.121569, 0.164706, 0.870588, 1 )
-position = Vector2( 475, 194 )
-texture = ExtResource( 3 )
+[node name="Blue" type="TextureButton" parent="Skidor/Skidor_mitt" groups=["Mitt"]]
+modulate = Color( 0.121569, 0.164706, 0.870588, 1 )
+margin_left = 453.571
+margin_top = 96.4286
+margin_right = 496.571
+margin_bottom = 291.429
+texture_normal = ExtResource( 3 )
 
-[node name="Panel2" type="Panel" parent="Skidor"]
+[node name="Panel" type="Node2D" parent="Skidor/Skidor_mitt"]
+z_index = 1
+
+[node name="Panel" type="Panel" parent="Skidor/Skidor_mitt/Panel"]
 margin_left = 290.0
 margin_top = 220.0
 margin_right = 662.0
 margin_bottom = 387.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="Yellow" type="Sprite" parent="Skidor"]
-modulate = Color( 1, 0.913725, 0, 1 )
-position = Vector2( 505.714, 247.143 )
+[node name="Skidor_fram" type="Node2D" parent="Skidor"]
 scale = Vector2( 1, 1 )
-texture = ExtResource( 6 )
+z_index = -1
 
-[node name="Red" type="Sprite" parent="Skidor"]
-self_modulate = Color( 1, 0.188235, 0.188235, 1 )
-position = Vector2( 426, 247 )
-texture = ExtResource( 3 )
+[node name="Yellow" type="TextureButton" parent="Skidor/Skidor_fram" groups=["Fram"]]
+modulate = Color( 1, 0.913725, 0, 1 )
+margin_left = 484.286
+margin_top = 149.286
+margin_right = 527.286
+margin_bottom = 344.286
+texture_normal = ExtResource( 6 )
 
-[node name="Turquise_2" type="Sprite" parent="Skidor"]
-self_modulate = Color( 0.137255, 0.917647, 0.937255, 1 )
-position = Vector2( 605, 236.429 )
-texture = ExtResource( 3 )
+[node name="Red" type="TextureButton" parent="Skidor/Skidor_fram" groups=["Fram"]]
+modulate = Color( 1, 0.188235, 0.188235, 1 )
+margin_left = 405.0
+margin_top = 152.143
+margin_right = 448.0
+margin_bottom = 347.143
+texture_normal = ExtResource( 3 )
 
-[node name="Orange" type="Sprite" parent="Skidor"]
+[node name="Turquise" type="TextureButton" parent="Skidor/Skidor_fram" groups=["Fram"]]
+modulate = Color( 0.137255, 0.917647, 0.937255, 1 )
+margin_left = 583.572
+margin_top = 139.286
+margin_right = 626.572
+margin_bottom = 334.286
+texture_normal = ExtResource( 2 )
+
+[node name="Orange" type="TextureButton" parent="Skidor/Skidor_fram" groups=["Fram"]]
 modulate = Color( 0.956863, 0.505882, 0.0666667, 1 )
-position = Vector2( 339.286, 246.429 )
-texture = ExtResource( 6 )
+margin_left = 334.286
+margin_top = 156.429
+margin_right = 377.286
+margin_bottom = 351.429
+texture_normal = ExtResource( 6 )
+
+[node name="Panel" type="Node2D" parent="Skidor/Skidor_fram"]
+z_index = 1
+
+[node name="Panel" type="Panel" parent="Skidor/Skidor_fram/Panel"]
+margin_left = 290.0
+margin_top = 276.429
+margin_right = 662.0
+margin_bottom = 443.429
+custom_styles/panel = SubResource( 1 )
+
+[node name="Glow_skidor" parent="Skidor" instance=ExtResource( 11 )]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Skidor"]
 
 [node name="CabinWallsLumbers" type="Sprite" parent="."]
 position = Vector2( -50, 118 )
@@ -137,7 +208,7 @@ margin_right = 1003.0
 margin_bottom = 567.0
 custom_styles/panel = SubResource( 2 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Skylt"]
+[node name="Request" type="RichTextLabel" parent="Skylt"]
 margin_left = 18.0
 margin_top = 18.0
 margin_right = 310.0
@@ -147,5 +218,19 @@ bbcode_enabled = true
 bbcode_text = "Jag vill ha [color=fuchsia]rosa[/color], [color=aqua]turkosa[/color], [color=lime]gröna[/color],  [color=yellow]gula[/color], [color=blue]blåa[/color] och [color=red]röda[/color] skidor."
 text = "Jag vill ha rosa, turkosa, gröna,  gula, blåa och röda skidor."
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 10 )
+
 [connection signal="shrug" from="." to="Skelett" method="_on_Skidshop_shrug"]
 [connection signal="stand_still" from="." to="Skelett" method="_on_Skidshop_stand_still"]
+[connection signal="pressed" from="Skidor/Skidor_bak/Turquise2" to="." method="_on_Turquise2_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_bak/Green2" to="." method="_on_Green2_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_bak/Red2" to="." method="_on_Red2_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_bak/Blue2" to="." method="_on_Blue2_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_mitt/Pink" to="." method="_on_Pink_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_mitt/Green" to="." method="_on_Green_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_mitt/Blue" to="." method="_on_Blue_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_fram/Yellow" to="." method="_on_Yellow_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_fram/Red" to="." method="_on_Red_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_fram/Turquise" to="." method="_on_Turquise_pressed"]
+[connection signal="pressed" from="Skidor/Skidor_fram/Orange" to="." method="_on_Orange_pressed"]
