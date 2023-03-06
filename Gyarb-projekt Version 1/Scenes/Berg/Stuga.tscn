@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Pics/Mapbuilding/Strand/tilemap_cottage.png" type="Texture" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://Pics/Mapbuilding/berg/wall_stuga.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Berg/Stuga.gd" type="Script" id=6]
+[ext_resource path="res://Pics/Mapbuilding/berg/cabin_walls_lumbers.png" type="Texture" id=7]
+[ext_resource path="res://Pics/Mapbuilding/Strand/desk.png" type="Texture" id=8]
+[ext_resource path="res://Pics/Minigames/skidor_neutrual_2.png" type="Texture" id=9]
+[ext_resource path="res://Pics/Minigames/skidor_neutrual.png" type="Texture" id=10]
+[ext_resource path="res://Pics/Minigames/skidor_neutrual_3.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 608.333, 191.667 )
@@ -31,6 +36,14 @@ extents = Vector2( 15, 515 )
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.352941, 0.184314, 0.0627451, 1 )
+border_width_top = 10
+border_color = Color( 0.580392, 0.356863, 0.145098, 1 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 201.5, 56.5 )
 
 [sub_resource type="TileSet" id=5]
 1/name = "tilemap_cottage.png 1"
@@ -110,6 +123,52 @@ tile_set = SubResource( 4 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0 )
+
+[node name="Skiduthyrning" type="Node2D" parent="."]
+
+[node name="SkidorNeutrual" type="Sprite" parent="Skiduthyrning"]
+modulate = Color( 0.760784, 0.0901961, 0.0901961, 1 )
+position = Vector2( 221, 98 )
+texture = ExtResource( 10 )
+
+[node name="SkidorNeutrual2" type="Sprite" parent="Skiduthyrning"]
+modulate = Color( 0.980392, 0.196078, 0.894118, 1 )
+position = Vector2( 325, 97 )
+texture = ExtResource( 9 )
+
+[node name="SkidorNeutrual3" type="Sprite" parent="Skiduthyrning"]
+modulate = Color( 0.137255, 0.917647, 0.937255, 1 )
+position = Vector2( 189, 106 )
+texture = ExtResource( 11 )
+
+[node name="Panel" type="Panel" parent="Skiduthyrning"]
+margin_left = 96.0
+margin_top = 125.0
+margin_right = 468.0
+margin_bottom = 292.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="CabinWallsLumbers" type="Sprite" parent="Skiduthyrning"]
+position = Vector2( 640, -1.90735e-06 )
+rotation = -3.14159
+scale = Vector2( 1.6, -1.6 )
+texture = ExtResource( 7 )
+
+[node name="CabinWallsLumbers2" type="Sprite" parent="Skiduthyrning"]
+position = Vector2( -99, -5.68434e-14 )
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 7 )
+
+[node name="Desk" type="StaticBody2D" parent="."]
+
+[node name="Desk" type="Sprite" parent="Desk"]
+position = Vector2( 262, 256 )
+scale = Vector2( 1, 0.9 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk"]
+position = Vector2( 261.5, 310.5 )
+shape = SubResource( 7 )
 
 [node name="YSort" type="YSort" parent="."]
 

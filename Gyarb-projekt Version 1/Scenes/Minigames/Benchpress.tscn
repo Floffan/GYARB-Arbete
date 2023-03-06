@@ -1770,19 +1770,19 @@ margin_bottom = 206.667
 [node name="Heart1" type="Sprite" parent="Health"]
 modulate = Color( 1, 0.572549, 0.572549, 1 )
 position = Vector2( 12.7998, 13.4666 )
-scale = Vector2( 0.35, 0.3 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [node name="Heart2" type="Sprite" parent="Health"]
 modulate = Color( 1, 0.572549, 0.572549, 1 )
 position = Vector2( 48.6667, 13.3333 )
-scale = Vector2( 0.35, 0.3 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [node name="Heart3" type="Sprite" parent="Health"]
 modulate = Color( 1, 0.572549, 0.572549, 1 )
 position = Vector2( 84.6667, 13.3333 )
-scale = Vector2( 0.35, 0.3 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [connection signal="game_over" from="." to="Bench_movement" method="_on_Bench_scene_game_over"]

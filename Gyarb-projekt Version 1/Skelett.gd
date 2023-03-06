@@ -69,7 +69,8 @@ func _assign_animation():
 	"""
 	
 	"""
-	Om animationen "Look around" ska spelas spelas inga andra animationer
+	Om spelaren ej kan röra sig (den är i en cutscene t.ex) kan inga nya animationsdirektiv tas om de inte manuellt läggs in
+	Detta är använbart på vissa ställen där skelettet t.ex ska rycka på axlarna
 	"""
 	if can_move == false:
 		$AnimationPlayer.play(animation)

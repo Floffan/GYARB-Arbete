@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/berg/wall_stuga.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Minigames/skidor_neutrual_2.png" type="Texture" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=9]
 [ext_resource path="res://UI/Glowt.tres" type="Environment" id=10]
 [ext_resource path="res://Scenes/Minigames/Glow_skidor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/UI/Minigames/Loose_screen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/Minigames/Ready_screen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/UI/Minigames/Winscreen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Pics/Symbols&effects/heart.png" type="Texture" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.352941, 0.184314, 0.0627451, 1 )
@@ -42,7 +46,6 @@ scale = Vector2( 1.4, 1.4 )
 z_index = -1
 
 [node name="Skidor_bak" type="Node2D" parent="Skidor"]
-scale = Vector2( 1, 1 )
 z_index = -3
 
 [node name="Turquise2" type="TextureButton" parent="Skidor/Skidor_bak" groups=["Bak"]]
@@ -89,7 +92,6 @@ margin_bottom = 353.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Skidor_mitt" type="Node2D" parent="Skidor"]
-scale = Vector2( 1, 1 )
 z_index = -2
 
 [node name="Pink" type="TextureButton" parent="Skidor/Skidor_mitt" groups=["Mitt"]]
@@ -128,7 +130,6 @@ margin_bottom = 387.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Skidor_fram" type="Node2D" parent="Skidor"]
-scale = Vector2( 1, 1 )
 z_index = -1
 
 [node name="Yellow" type="TextureButton" parent="Skidor/Skidor_fram" groups=["Fram"]]
@@ -201,6 +202,30 @@ position = Vector2( 506, 588 )
 scale = Vector2( 2.7, 2 )
 texture = ExtResource( 5 )
 
+[node name="Health" type="Control" parent="."]
+margin_left = 533.0
+margin_top = 144.0
+margin_right = 632.997
+margin_bottom = 172.0
+
+[node name="Heart1" type="Sprite" parent="Health"]
+modulate = Color( 1, 0.572549, 0.572549, 1 )
+position = Vector2( 12.7998, 13.4666 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
+[node name="Heart2" type="Sprite" parent="Health"]
+modulate = Color( 1, 0.572549, 0.572549, 1 )
+position = Vector2( 49.0001, 14 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
+[node name="Heart3" type="Sprite" parent="Health"]
+modulate = Color( 1, 0.572549, 0.572549, 1 )
+position = Vector2( 84.6667, 13.3333 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
 [node name="Skylt" type="Panel" parent="."]
 margin_left = 673.0
 margin_top = 49.0
@@ -221,6 +246,22 @@ text = "Jag vill ha rosa, turkosa, gröna,  gula, blåa och röda skidor."
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 10 )
 
+[node name="Loose_screen" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="Winscreen" parent="." instance=ExtResource( 14 )]
+visible = false
+
+[node name="Ready_screen" parent="." instance=ExtResource( 13 )]
+visible = false
+margin_left = -73.0
+margin_top = -101.0
+margin_right = -73.0
+margin_bottom = -101.0
+
+[node name="Shrug_timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="shrug" from="." to="Skelett" method="_on_Skidshop_shrug"]
 [connection signal="stand_still" from="." to="Skelett" method="_on_Skidshop_stand_still"]
 [connection signal="pressed" from="Skidor/Skidor_bak/Turquise2" to="." method="_on_Turquise2_pressed"]
@@ -234,3 +275,4 @@ environment = ExtResource( 10 )
 [connection signal="pressed" from="Skidor/Skidor_fram/Red" to="." method="_on_Red_pressed"]
 [connection signal="pressed" from="Skidor/Skidor_fram/Turquise" to="." method="_on_Turquise_pressed"]
 [connection signal="pressed" from="Skidor/Skidor_fram/Orange" to="." method="_on_Orange_pressed"]
+[connection signal="timeout" from="Shrug_timer" to="." method="_on_Shrug_timer_timeout"]

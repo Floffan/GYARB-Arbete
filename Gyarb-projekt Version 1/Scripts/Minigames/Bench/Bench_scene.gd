@@ -33,13 +33,16 @@ func _ready():
 	
 	l_screen.world_path = "res://Scenes/Stad/Gym.tscn"
 	l_screen.game_path = "res://Scenes/Minigames/Benchpress.tscn"
-
-func _process(delta):
+	
+func _draw_health():
 	for child in get_node("Health").get_children():
 		if health_indicator.has(str(child.name)):
 			child.visible = true
 		else:
 			child.visible = false
+
+func _process(delta):
+	_draw_health()
 	_check_raycasts()
 	if score >= goal_score and keys_hit_sucessfully:
 		game_won()

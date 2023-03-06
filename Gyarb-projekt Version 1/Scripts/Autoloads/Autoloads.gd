@@ -12,7 +12,7 @@ var NPC_collider = ""
 
 var areas_visited = []
 var games_played = []
-#var games_played = ["Boatrace", "Bollplank", "Benchpress", "Slalom"]
+#var games_played = ["Boatrace", "Bollplank", "Benchpress", "Skidshop"]
 
 var Items = []
 #var Items = ["Medal", "Key", "Plate", "Shirt"]
