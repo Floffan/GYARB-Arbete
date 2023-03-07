@@ -7,7 +7,6 @@ var interacting = false
 var object = "briefcase"
 var question = ""
 
-onready var animation_player = $YSort/Skelett/AnimationPlayer
 var going_out = false
 
 var gate_path = "res://Scenes/Main/World.tscn"
@@ -21,17 +20,15 @@ var dia_num : int
 
 var Info_done = false
 
-func _ready() -> void:
-	Autoloads.have_briefcase = true
-	animation_player.play("Stå-animation_bakifrån")
-
 func _process(delta):
-	if Autoloads.have_briefcase == false:
+	_display_briefcase()
+	if Autoloads.data["have_briefcase"] == false:
 		question = "Plocka upp väskan?"
 	else:
 		question = "Ställ väskan här?"
-	if $YSort/Skelett.direction[1] == "up" and Info_done == false:
+	if $YSort/Skelett.direction[1] == "up" and Info_done == false and Autoloads.data["have_briefcase"] and Autoloads.data["areas_visited"].has("Hedge") == false:
 		_info_init()
+		Autoloads.data["areas_visited"].append("Hedge")
 			
 func _info_init():
 	dia_num = 1
@@ -57,15 +54,21 @@ func _on_Interact():
 func _on_Skelett_Interaction_detected():
 	_on_Interact()
 	
+func _display_briefcase():
+	if Autoloads.data["have_briefcase"]:
+		$Briefcase.visible = false
+	if Autoloads.data["have_briefcase"] == false:
+		$Briefcase.visible = true
+	
 func _on_Object_interation_menu_pick_up():
-	$Briefcase.visible = false
-	Autoloads.have_briefcase = true
+	#$Briefcase.visible = false
+	Autoloads.update_briefcase(true)
 	
 	ui_interaction.pressed_yes = false
 	
 func _on_Object_interation_menu_put_down():
-	$Briefcase.visible = true
-	Autoloads.have_briefcase = false
+	#$Briefcase.visible = true
+	Autoloads.update_briefcase(false)
 	
 	ui_interaction.pressed_yes = false
 	

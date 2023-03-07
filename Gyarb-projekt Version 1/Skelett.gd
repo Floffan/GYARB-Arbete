@@ -182,7 +182,7 @@ func _check_case():
 	"""
 	Fixa snyggare lol
 	"""
-	if Autoloads.have_briefcase:
+	if Autoloads.data["have_briefcase"]:
 		$polygons_bak/case.visible = true
 		$polygons_fram/case.visible = true
 		$polygons_sidan/case.visible = true

@@ -19,11 +19,11 @@ func on_interaction(question, object):
 
 	if pressed_yes:
 		if object == "briefcase":
-			if Autoloads.have_briefcase:
+			if Autoloads.data["have_briefcase"]:
 				emit_signal("put_down")
 				self.visible = false
 				return
-			if Autoloads.have_briefcase == false:
+			if Autoloads.data["have_briefcase"] == false:
 				emit_signal("pick_up")
 				self.visible = false
 				return

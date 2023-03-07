@@ -100,7 +100,7 @@ func _on_Interact():
 		interact_ui.on_interaction(question, "flower")
 
 func _on_Object_interation_menu_pick_up():
-	Autoloads.flowers += 1
+	Autoloads.add_flower()
 	ui_new_item.on_new_item("Flower")
 	$YSort/Blomma_red.visible = false
 	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false

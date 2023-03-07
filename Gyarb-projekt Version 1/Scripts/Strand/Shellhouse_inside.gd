@@ -26,11 +26,11 @@ func _on_Skelett_gate_detected():
 		
 func _on_Skelett_NPC_detected():
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name
-	if Autoloads.flowers == 3:
-		Autoloads.Items.append(item)
-		if Autoloads.Items.has(item):
+	if Autoloads.data["flowers"] == 3:
+		Autoloads.add_flower()
+		if Autoloads.data["items"].has(item):
 			dia_num = 3
-		if Autoloads.Items.has(item) == false:
+		if Autoloads.data["items"].has(item) == false:
 			dia_num = 2
 	else:
 		dia_num = 1

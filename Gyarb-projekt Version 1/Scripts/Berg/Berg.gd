@@ -32,7 +32,7 @@ func _ready():
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
 	
 	_get_position()
-	if Autoloads.Items.has("Key"):
+	if Autoloads.data["items"].has("Key"):
 		cave_access = true
 		$Bergsfot/Lock.visible = false
 
@@ -93,7 +93,7 @@ func _on_interact(int_question, int_object):
 		ui_interact.on_interaction(int_question, int_object)
 
 func _on_Object_interation_menu_pick_up():
-	Autoloads.flowers += 1
+	Autoloads.add_flower()
 	ui_new_item.on_new_item("Flower")
 	get_node("YSort/Blomma_red").queue_free()
 	ui_interact.pressed_yes = false

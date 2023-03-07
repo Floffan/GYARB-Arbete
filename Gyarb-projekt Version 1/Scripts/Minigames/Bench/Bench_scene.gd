@@ -1,5 +1,6 @@
 extends Node2D
 
+var game = "Benchpress"
 
 var keys_hit_sucessfully = false
 var lift_failed = false
@@ -16,7 +17,7 @@ var score_red_area = 20
 var score_yellow_area = 10
 var minus_score = 10
 
-var goal_score = 50
+var goal_score = 10
 
 var scored = ""
 
@@ -28,6 +29,9 @@ var score = 0
 
 func _ready():
 	Autoloads.Position = "gym_Minigame"
+	_set_wl_screen_path()
+	
+func _set_wl_screen_path():
 	w_screen.world_path = "res://Scenes/Stad/Gym.tscn"
 	w_screen.game_path = "res://Scenes/Minigames/Benchpress.tscn"
 	
@@ -57,8 +61,8 @@ func game_won():
 	emit_signal("game_over")
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
-	if Autoloads.games_played.has("Benchpress") == false:
-		Autoloads.games_played.append("Benchpress")
+	if Autoloads.data["games_played"].has(game) == false:
+		Autoloads.add_game_played(game)
 	
 func game_over():
 	emit_signal("game_over")

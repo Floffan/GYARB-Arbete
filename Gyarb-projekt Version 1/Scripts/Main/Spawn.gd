@@ -12,7 +12,6 @@ var dia_character = "Uggla"
 var dia_location = "Tutorial"
 var dia_num : int
 
-
 var dialog_path = "res://Dialog/Tutorial/Uggla_dia.json"
 
 signal looking_around
@@ -50,7 +49,7 @@ func _get_position() -> void:
 		$YSort/Skelett.position = $Positioner/spawn_Awoken.position
 
 func _on_Skelett_Interaction_detected():
-	if Autoloads.have_briefcase == false:
+	if Autoloads.data["have_briefcase"] == false:
 		var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
 		
 		if Input.is_action_just_pressed("ui_accept"):
@@ -65,12 +64,12 @@ func _on_Skelett_Interaction_detected():
 
 func _on_Object_interation_menu_pick_up():
 	$YSort/Coffin_open/Briefcase.visible = false
-	Autoloads.have_briefcase = true
+	Autoloads.update_briefcase(true)
 	
 func _process(delta):
 	if heard_briefcase_info:
 		emit_signal("can_move")
-	if Autoloads.have_briefcase == true and not ui_dialog.dialog_running and not heard_briefcase_info:
+	if Autoloads.data["have_briefcase"] == true and not ui_dialog.dialog_running and not heard_briefcase_info:
 		dia_num = 2
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 		heard_briefcase_info = true

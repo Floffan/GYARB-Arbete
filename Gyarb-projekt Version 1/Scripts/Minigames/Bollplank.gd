@@ -1,5 +1,7 @@
 extends Node2D
 
+var game = "Bollplank"
+
 onready var path_follow_horizontal = $IndicatorPath_horizontal/PathFollow2D
 
 onready var raycast_horizontal_1 = $IndicatorPath_horizontal/PathFollow2D/Indikator1/RayCast2D1
@@ -135,8 +137,8 @@ func _physics_process(delta):
 			_move_along_path(delta, path_follow_vertical)
 		
 func win_screen():
-	if Autoloads.games_played.has("Bollplank") == false:
-		Autoloads.games_played.append("Bollplank")
+	if Autoloads.data["games_played"].has(game) == false:
+		Autoloads.add_game_played(game)
 		
 	run_game = false
 	$Winscreen.visible = true

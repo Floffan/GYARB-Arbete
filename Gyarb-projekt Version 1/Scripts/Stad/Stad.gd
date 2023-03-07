@@ -95,7 +95,7 @@ func _on_Interact(int_object, int_question):
 		ui_interact.on_interaction(int_question, int_object)
 
 func _on_Object_interation_menu_pick_up():
-	Autoloads.flowers += 1
+	Autoloads.add_flower()
 	ui_new_item.on_new_item("Flower")
 	get_node("YSort/Hus/Sprite/Blomma_red").queue_free()
 	ui_interact.pressed_yes = false

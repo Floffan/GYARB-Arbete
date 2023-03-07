@@ -16,18 +16,18 @@ func _process(_delta):
 	
 func _display_items():
 	var text = ""
-	$CanvasLayer/Panel/Flower/Antal.bbcode_text = str(Autoloads.flowers)
-	if Autoloads.flowers > 0:
+	$CanvasLayer/Panel/Flower/Antal.bbcode_text = str(Autoloads.data["flowers"])
+	if Autoloads.data["flowers"] > 0:
 		$CanvasLayer/Panel/Flower/Flower.visible = true
 		$CanvasLayer/Panel/Flower/Antal.visible = true
-	for item in Autoloads.Items:
+	for item in Autoloads.data["items"]:
 		$CanvasLayer/Panel.get_node(item).get_node(item).visible = true
 		
 func _display_briefcase():
-	if Autoloads.have_briefcase:
+	if Autoloads.data["have_briefcase"]:
 		$CanvasLayer/Panel/Briefcase_button.visible = true
 		$CanvasLayer/Panel/Briefcase.visible = false
-	if Autoloads.have_briefcase == false:
+	if Autoloads.data["have_briefcase"] == false:
 		$CanvasLayer/Panel/Briefcase_button.visible = false
 		$CanvasLayer/Panel/Briefcase.visible = true
 	
