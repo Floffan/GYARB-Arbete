@@ -1,5 +1,7 @@
 extends Node2D
 
+var game = "Skidshop"
+
 onready var w_screen = $Winscreen
 onready var l_screen = $Loose_screen
 
@@ -106,8 +108,8 @@ func _win_screen():
 	get_node("WorldEnvironment").queue_free()
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
-	if Autoloads.games_played.has("Skidshop") == false:
-		Autoloads.games_played.append("Skidshop")
+	if Autoloads.data["games_played"].has(game) == false:
+		Autoloads.add_game_played(game)
 		
 		
 func _loose_screen():

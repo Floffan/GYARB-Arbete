@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/berg/wall_stuga.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Minigames/skidor_neutrual_2.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=9]
 [ext_resource path="res://UI/Glowt.tres" type="Environment" id=10]
-[ext_resource path="res://Scenes/Minigames/Glow_skidor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/UI/Minigames/Loose_screen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/Minigames/Ready_screen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/UI/Minigames/Winscreen.tscn" type="PackedScene" id=14]
@@ -173,11 +172,6 @@ margin_top = 276.429
 margin_right = 662.0
 margin_bottom = 443.429
 custom_styles/panel = SubResource( 1 )
-
-[node name="Glow_skidor" parent="Skidor" instance=ExtResource( 11 )]
-visible = false
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Skidor"]
 
 [node name="CabinWallsLumbers" type="Sprite" parent="."]
 position = Vector2( -50, 118 )

@@ -15,28 +15,12 @@ var default_data = {
 var data = { }
 
 
-
 var Position = ""
 var Current_loc = "res://Scenes/Main/World.tscn" # fixa så att current scene läggs till i alla scener
 
 var Gate_collider = ""
 
 var NPC_collider = ""
-
-"""
-var areas_visited = []
-var games_played = []
-#var games_played = ["Boatrace", "Bollplank", "Benchpress", "Skidshop"]
-
-var Items = []
-#var Items = ["Medal", "Key", "Plate", "Shirt"]
-
-var flowers = 0
-
-var have_briefcase : bool
-#var have_briefcase = true
-
-"""
 
 func _ready():
 	"""
