@@ -7,6 +7,7 @@ var default_data = {
 	"flowers" : 0,
 	"areas_visited" : [],
 	"games_played" : [],
+	"NPC:s_met": [],
 	"items" : [],
 	"init_pos" : "",
 	"init_loc" : ""
@@ -32,12 +33,12 @@ func _ready():
 	reset_data() # kommentera ut detta om  du vill resetta datan varje gång spelet startas
 
 func _process(_delta):
+	"""
+	Ett snabbt sätt att stänga av spelet
+	"""
 	if Input.is_action_pressed("Escape"):
 		save_pos()
 		get_tree().quit()
-		
-	#print("datan:")
-	#print(data)
 
 func load_game():
 	var file = File.new()
@@ -83,6 +84,10 @@ func add_area_visited(area):
 	
 func add_game_played(game):
 	data["games_played"].append(game)
+	save_game()
+	
+func add_NPC_met(NPC):
+	data["NPC:s_met"].append(NPC)
 	save_game()
 	
 func save_pos():

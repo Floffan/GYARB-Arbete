@@ -39,6 +39,8 @@ signal stand_still
 signal shrug
 	
 func _ready():
+	Autoloads.Position = "Stuga_Minigame"
+	_win_screen()
 	emit_signal("stand_still")
 	_set_wl_screen_path()
 	

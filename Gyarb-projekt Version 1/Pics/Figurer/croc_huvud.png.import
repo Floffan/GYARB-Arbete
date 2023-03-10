@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Helmet.png-bd1dbc8ae03edd84416d60b718f8b1a9.stex"
+path="res://.import/croc_huvud.png-253969fc7eb2db0a1a95db370007eb6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pics/collectibles/Helmet.png"
-dest_files=[ "res://.import/Helmet.png-bd1dbc8ae03edd84416d60b718f8b1a9.stex" ]
+source_file="res://Pics/Figurer/croc_huvud.png"
+dest_files=[ "res://.import/croc_huvud.png-253969fc7eb2db0a1a95db370007eb6f.stex" ]
 
 [params]
 

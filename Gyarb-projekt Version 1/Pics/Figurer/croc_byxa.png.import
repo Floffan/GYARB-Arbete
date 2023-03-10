@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Helmet.png-bd1dbc8ae03edd84416d60b718f8b1a9.stex"
+path="res://.import/croc_byxa.png-eb1758065010d2780d096ff633c5e9c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pics/collectibles/Helmet.png"
-dest_files=[ "res://.import/Helmet.png-bd1dbc8ae03edd84416d60b718f8b1a9.stex" ]
+source_file="res://Pics/Figurer/croc_byxa.png"
+dest_files=[ "res://.import/croc_byxa.png-eb1758065010d2780d096ff633c5e9c3.stex" ]
 
 [params]
 

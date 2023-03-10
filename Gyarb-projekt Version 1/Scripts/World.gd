@@ -104,3 +104,7 @@ func _on_Object_interation_menu_pick_up():
 	ui_new_item.on_new_item("Flower")
 	$YSort/Blomma_red.visible = false
 	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false
+
+
+func _on_Bully_checkpoint_body_entered(body):
+	get_node("Bully").queue_free()

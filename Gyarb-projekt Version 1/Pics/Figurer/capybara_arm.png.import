@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Helmet.png-bd1dbc8ae03edd84416d60b718f8b1a9.stex"
+path="res://.import/capybara_arm.png-d5c6701aadf4fcd38a537d27c07d84cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pics/collectibles/Helmet.png"
-dest_files=[ "res://.import/Helmet.png-bd1dbc8ae03edd84416d60b718f8b1a9.stex" ]
+source_file="res://Pics/Figurer/capybara_arm.png"
+dest_files=[ "res://.import/capybara_arm.png-d5c6701aadf4fcd38a537d27c07d84cb.stex" ]
 
 [params]
 

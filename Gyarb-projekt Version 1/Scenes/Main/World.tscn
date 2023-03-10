@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pics/Mapbuilding/Strand/hav_djupt.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Worldbuilding/Tree.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Pics/Figurer/croc.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Karaktärer/Croc.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Pics/Mapbuilding/berg/sten.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Main/Hedge_overlay.tscn" type="PackedScene" id=12]
@@ -25,14 +25,14 @@ radius = 38.4708
 [sub_resource type="CircleShape2D" id=6]
 radius = 199.023
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 173, 46.5 )
-
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 113, 147 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 122.765, 181.117 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 182.5, 115 )
 
 [node name="World" type="Node2D"]
 position = Vector2( 2, -2 )
@@ -109,28 +109,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sten/NPC_sten"]
 shape = SubResource( 6 )
 
-[node name="Bully" type="StaticBody2D" parent="."]
-position = Vector2( 971, 1333 )
-collision_layer = 2
-
-[node name="Croc" type="Sprite" parent="Bully"]
-position = Vector2( 3, -39 )
-texture = ExtResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully"]
-position = Vector2( -34.0001, 7 )
-rotation = -1.35967
-shape = SubResource( 4 )
-
-[node name="NPC_Bully" type="Area2D" parent="Bully"]
-position = Vector2( 108, 61 )
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/NPC_Bully"]
-position = Vector2( -126, -106 )
-shape = SubResource( 5 )
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Blomma_red" parent="YSort" instance=ExtResource( 11 )]
@@ -146,6 +124,18 @@ scale = Vector2( -0.8, 0.8 )
 [node name="Skelett" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 4454, 1097 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Bully" parent="." instance=ExtResource( 9 )]
+position = Vector2( 973, 1284 )
+
+[node name="NPC_Bully" type="Area2D" parent="Bully"]
+position = Vector2( 139, 108 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/NPC_Bully"]
+position = Vector2( -126, -106 )
+shape = SubResource( 5 )
 
 [node name="Map_overlay" parent="." instance=ExtResource( 12 )]
 
@@ -195,10 +185,19 @@ limit_right = 4910
 limit_bottom = 2600
 editor_draw_limits = true
 
+[node name="Bully_checkpoint" type="Area2D" parent="."]
+position = Vector2( 1858, 637 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully_checkpoint"]
+position = Vector2( -21.5, 25 )
+shape = SubResource( 8 )
+
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
 [connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
+[connection signal="body_entered" from="Bully_checkpoint" to="." method="_on_Bully_checkpoint_body_entered"]
 
 [editable path="gate_Spawn"]
+[editable path="Bully"]
 [editable path="Camera2D"]
