@@ -18,7 +18,7 @@ onready var laps_p = $LAPS/Panel/VBoxContainer/Player/Laps_P # Laps Player
 onready var laps_g = $LAPS/Panel/VBoxContainer/Green/Laps_G # Laps Gröna båten
 onready var laps_b = $LAPS/Panel/VBoxContainer/Blue/Laps_B # Laps Blåa båten
 
-var win_laps = 1
+export var win_laps = 1 # Hur många laps man måste ha för att vinna racet
 
 signal ready_done
 signal game_over
@@ -35,6 +35,10 @@ func _process(delta: float) -> void:
 	$Palmer/AnimationPlayer.play("Default")
 
 func _win_screen(Boat):
+	"""
+	Om den röda båten (spelaren) vinner så visas win screenen, och dess animation spelas
+	Spelet läggs även till i games_played listan
+	"""
 	emit_signal("game_over")
 	w_screen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
@@ -42,6 +46,10 @@ func _win_screen(Boat):
 		Autoloads.add_game_played(game)
 	
 func _loose_screen(Boat):
+	"""
+	Om den röda båten (spelaren) vinner så visas loose-screenen, och dess animation spelas
+	Beroende på vilken båt som van visas olika texter
+	"""
 	emit_signal("game_over")
 	if str(Boat) == "Boat_blue":
 		$Loose_screen/vinnare.bbcode_text = "[b][wave amp=100 freq=2]    Den blåa båten vann![/wave][/b]"
@@ -51,6 +59,10 @@ func _loose_screen(Boat):
 	$Loose_screen/AnimationPlayer.play("LOOSE")
 		
 func _update_scoreboard(Boat):
+	"""
+	Lap-countern nere i hörnet uppdaterar hur många lopp båtarna kört
+	när den uppdateras skakar även texten.
+	"""
 	if Boat == "Player":
 		laps_p.bbcode_text = "[b][shake rate=10 level=20]" + str(Boats[str(Boat)][0]) + "[/shake][/b]"
 		yield(get_tree().create_timer(1.5), "timeout")
@@ -67,10 +79,17 @@ func _update_scoreboard(Boat):
 		laps_b.bbcode_text = "[b]" + str(Boats[str(Boat)][0]) + "[/b]"
 
 func _clear_checkpoints(Boat):
+	"""
+	Båtarnas checkpoints clearas, så att de kan åka förbi samma checkpoints nästa runda
+	"""
 	for i in range(1, 4):
 		Boats[str(Boat)][i] = 0
 			
 func _on_Goal_body_exited(body):
+	"""
+	Triggas när båtarna passerar mållinjen. Funktionen kollar om båten verkligen har åkt igenom alla checkpoints, och ej fuskat
+	Om den har det uppdateras lapcountern och dess checkpoints clearas
+	"""
 	var boat_just_passed = body.name
 	for Boat in Boats.keys():
 		if boat_just_passed == Boat:
@@ -81,23 +100,29 @@ func _on_Goal_body_exited(body):
 			else:
 				_clear_checkpoints(Boat)
 			
-			if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt tre varv än, om den har det initieras vinn-scenen
+			if Boats[str(Boat)][0] == win_laps: # Kollar om båten har åkt rätt antal varv än, om den har det initieras vinn-scenen
 					if str(Boat) == "Player":
 						_win_screen(Boat)
 					else:
 						_loose_screen(Boat)
 
 func _on_Ready_screen_ready_done():
+	"""
+	När ready screenen är klar quee freeas den
+	"""
 	$Ready_screen.rect_position.x += 20
 	emit_signal("ready_done")
 	yield(get_tree().create_timer(2), "timeout")
 	"""
 	TA BORT READY-SCREENEN
 	"""
-	#get_child("Ready_screen").queue_free()
+	#get_node("Ready_screen").queue_free()
 	#remove_child($Ready_screen) # varför tar detta inte bort den från scenträdet:(
 	
 func _checkpoint(body, nr):
+	"""
+	Lägger till checkpointsen som båten passerat i en lista
+	"""
 	var boat_just_passed = body.name
 	
 	for Boat in Boats.keys(): # Loopar igenom namnen på båtarna i dictionaryt
@@ -105,6 +130,10 @@ func _checkpoint(body, nr):
 			Boats[str(Boat)][nr] = str(nr) # Lägger till checkpointens siffra till båten ifråga
 			
 
+
+"""
+Dessa tre funktioner initierar _checkpoint()-funktionen, fast ger den olika båtar och nummer att arbeta med beroendep å vilken checkpoint det är
+"""
 func _on_Checkpoint1_body_exited(body: Node) -> void:
 	_checkpoint(body, 1)
 	var Boat = body.name

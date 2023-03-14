@@ -1675,6 +1675,7 @@ custom_fonts/font = SubResource( 70 )
 text = "100"
 
 [node name="Ready_screen" parent="." instance=ExtResource( 14 )]
+visible = false
 margin_left = 186.0
 margin_top = 55.3333
 margin_right = 186.0
