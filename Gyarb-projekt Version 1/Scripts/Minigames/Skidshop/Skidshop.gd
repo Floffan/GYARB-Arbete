@@ -39,6 +39,7 @@ signal stand_still
 signal shrug
 	
 func _ready():
+	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "Stuga_Minigame"
 	emit_signal("stand_still")
 	_set_wl_screen_path()

@@ -23,6 +23,9 @@ var Gate_collider = ""
 
 var NPC_collider = ""
 
+var game_path = ""
+var game_world_path = ""
+
 func _ready():
 	"""
 	DEBUG-SYFTEN:

@@ -7,3 +7,6 @@ func _on_Spela_igen_button_down():
 
 func _on_tillbaka_button_down():
 	Transition.load_scene(world_path)
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	$AnimationPlayer.play("Screen_up")

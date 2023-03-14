@@ -72,5 +72,3 @@ func _on_Object_interation_menu_put_down():
 	
 	ui_interaction.pressed_yes = false
 	
-func _on_Skelett_NPC_detected() -> void:
-	pass

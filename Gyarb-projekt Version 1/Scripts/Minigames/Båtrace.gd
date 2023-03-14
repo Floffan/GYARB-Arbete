@@ -24,6 +24,7 @@ signal ready_done
 signal game_over
 
 func _ready():
+	Transition.get_node("AnimationPlayer").play("RESET")
 	w_screen.game_path = "res://Scenes/Minigames/Boatrace.tscn"
 	w_screen.world_path = "res://Scenes/Strand/racehouse_inside.tscn"
 	

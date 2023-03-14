@@ -383,7 +383,6 @@ position = Vector2( -3.5, -4.5 )
 shape = SubResource( 10 )
 
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
-[connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
 [connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
 [connection signal="put_down" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_put_down"]

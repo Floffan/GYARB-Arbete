@@ -38,6 +38,7 @@ var time_for_next = false
 var run_game = false
 
 func _ready():
+	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "grotta_Minigame"
 	
 	$Winscreen.game_path = "res://Scenes/Minigames/Bollplank.tscn"

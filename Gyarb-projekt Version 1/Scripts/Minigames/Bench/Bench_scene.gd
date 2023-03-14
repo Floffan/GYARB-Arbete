@@ -28,6 +28,7 @@ var health_indicator = ["Heart1", "Heart2", "Heart3"]
 var score = 0
 
 func _ready():
+	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "gym_Minigame"
 	_set_wl_screen_path()
 	

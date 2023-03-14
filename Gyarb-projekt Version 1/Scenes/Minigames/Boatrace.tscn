@@ -244,26 +244,25 @@ tracks/4/keys = {
 }
 
 [node name="Båtrace" type="Node2D"]
-position = Vector2( 8, 3 )
+position = Vector2( 2.84217e-14, 1.42109e-14 )
 scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 4 )
 
 [node name="Sandbank" type="Sprite" parent="."]
 modulate = Color( 0.184314, 0.521569, 0.768627, 1 )
-position = Vector2( 689.616, 408.996 )
+position = Vector2( 701.044, 414.711 )
 scale = Vector2( 1.31679, 1.58568 )
 texture = ExtResource( 8 )
 
 [node name="Waves" type="AnimatedSprite" parent="."]
 modulate = Color( 0.533333, 0.627451, 0.639216, 1 )
-position = Vector2( 698.616, 431.996 )
+position = Vector2( 710.044, 437.711 )
 frames = SubResource( 8 )
 animation = "Vågor"
-frame = 2
 playing = true
 
 [node name="Island" type="StaticBody2D" parent="."]
-position = Vector2( -126.384, 15.9964 )
+position = Vector2( -114.956, 21.7111 )
 collision_layer = 8
 
 [node name="Island_sprite" type="Sprite" parent="Island"]
@@ -275,7 +274,7 @@ visible = false
 polygon = PoolVector2Array( 595, 244, 635, 245, 669, 251, 729, 258, 771, 257, 789.519, 260.233, 814, 253, 867, 233, 892, 229, 921, 231, 953, 247, 992, 276, 1031, 311, 1087, 352, 1130, 380, 1179, 400, 1192.22, 413.622, 1210, 423, 1231, 445, 1244, 471, 1244, 503, 1234, 517, 1215, 527, 1189, 529, 1141, 511, 1097, 506, 1044, 523, 985, 568, 893, 629, 830, 647, 813, 650, 735, 690, 708, 703, 668, 700, 658, 676, 653, 640, 650, 611, 555, 538, 520, 508, 491, 503, 462, 485, 447, 457, 435, 439, 430, 426, 431, 411, 434, 401, 444, 364, 484, 303, 503, 282, 538, 260 )
 
 [node name="strand" type="StaticBody2D" parent="."]
-position = Vector2( 48, 23 )
+position = Vector2( 59.4284, 28.7147 )
 scale = Vector2( 1.47407, 1.13217 )
 
 [node name="Sprite" type="Sprite" parent="strand"]
@@ -295,7 +294,7 @@ polygon = PoolVector2Array( -113.97, 244.663, -18.3166, 40.6299, 152.639, -75.07
 polygon = PoolVector2Array( 859.525, 673.044, 896.158, 644.78, 945.003, 624.465, 1041.33, 629.764, 1082.72, 638.597, 1149.88, 655.379, 1204.15, 663.328, 1233.32, 686.293, 1138.34, 879.727, 755.052, 889.442, 750.982, 844.396, 763.871, 800.233, 818.143, 720.74 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 684.286, 60 )
+position = Vector2( 695.714, 65.7147 )
 collision_mask = 14
 script = ExtResource( 2 )
 
@@ -323,7 +322,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Green_path" type="Path2D" parent="."]
-position = Vector2( -48.3842, 1.99643 )
+position = Vector2( -36.9558, 7.71109 )
 curve = SubResource( 12 )
 
 [node name="Green_followpath" type="PathFollow2D" parent="Green_path"]
@@ -347,7 +346,7 @@ rotation = 1.5708
 polygon = PoolVector2Array( 0, -39, 14, -20, 14, 40, -14, 40, -14, -20 )
 
 [node name="Blue_path" type="Path2D" parent="."]
-position = Vector2( -48.3842, 1.99643 )
+position = Vector2( -36.9558, 7.71109 )
 curve = SubResource( 13 )
 
 [node name="Blue_followpath" type="PathFollow2D" parent="Blue_path"]
@@ -370,7 +369,7 @@ rotation = 1.5708
 polygon = PoolVector2Array( 0, -39, 14, -20, 14, 40, -14, 40, -14, -20 )
 
 [node name="Bounds" type="StaticBody2D" parent="."]
-position = Vector2( -78, 494 )
+position = Vector2( -66.5717, 499.715 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
@@ -392,7 +391,7 @@ rotation = -1.5708
 shape = SubResource( 14 )
 
 [node name="Goal" type="Area2D" parent="."]
-position = Vector2( -195.714, -25.7143 )
+position = Vector2( -184.286, -19.9996 )
 collision_layer = 8
 collision_mask = 5
 
@@ -405,7 +404,7 @@ position = Vector2( 830, 94 )
 shape = SubResource( 15 )
 
 [node name="Checkpoint1" type="Area2D" parent="."]
-position = Vector2( 544.286, -237.143 )
+position = Vector2( 555.714, -231.428 )
 rotation = 0.140745
 collision_layer = 8
 collision_mask = 5
@@ -416,7 +415,7 @@ rotation = 1.43456
 shape = SubResource( 16 )
 
 [node name="Checkpoint2" type="Area2D" parent="."]
-position = Vector2( 865.714, 752.857 )
+position = Vector2( 877.142, 758.572 )
 collision_layer = 8
 collision_mask = 5
 
@@ -425,7 +424,7 @@ position = Vector2( -178.571, -18.5714 )
 shape = SubResource( 16 )
 
 [node name="Checkpoint3" type="Area2D" parent="."]
-position = Vector2( -522.857, -391.429 )
+position = Vector2( -511.428, -385.714 )
 rotation = 0.0611982
 collision_layer = 8
 collision_mask = 5
@@ -436,15 +435,17 @@ rotation = -1.6242
 shape = SubResource( 16 )
 
 [node name="Ready_screen" parent="." instance=ExtResource( 6 )]
-margin_left = -161.429
-margin_top = -327.143
-margin_right = -161.429
-margin_bottom = -327.143
+margin_left = -150.001
+margin_top = -321.428
+margin_right = -150.001
+margin_bottom = -321.428
 rect_scale = Vector2( 2, 2 )
 
 [node name="LAPS" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 11.4284
+margin_top = 5.71466
+margin_right = 51.4284
+margin_bottom = 45.7147
 theme = ExtResource( 14 )
 
 [node name="Panel" type="Panel" parent="LAPS"]
@@ -557,34 +558,32 @@ bbcode_text = "[b]LAPS:[/b]"
 text = "LAPS:"
 
 [node name="Loose_screen" parent="." instance=ExtResource( 19 )]
-visible = false
-margin_left = -12.8571
-margin_top = -5.71429
-margin_right = 27.1428
-margin_bottom = 34.2857
-rect_scale = Vector2( 1.5, 1.5 )
+margin_right = 976.0
+margin_bottom = 570.0
+rect_scale = Vector2( 1.45, 1.45 )
 
 [node name="Winscreen" parent="." instance=ExtResource( 18 )]
 visible = false
-margin_left = -12.8571
-margin_top = -7.14286
-margin_right = -12.8571
-margin_bottom = -7.14286
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -9.09495e-13
+margin_top = -2.03013e-14
+margin_right = -9.09495e-13
+margin_bottom = -2.03013e-14
+rect_scale = Vector2( 1.45, 1.45 )
 
 [node name="Rutor" type="Sprite" parent="."]
-position = Vector2( 102.857, 652.857 )
+position = Vector2( 114.285, 658.572 )
 rotation = -0.653123
 scale = Vector2( 3, 3 )
 texture = ExtResource( 10 )
 
 [node name="Rutor2" type="Sprite" parent="."]
-position = Vector2( 1602.86, 325.714 )
+position = Vector2( 1614.29, 331.429 )
 rotation = -0.201172
 scale = Vector2( 3, 3 )
 texture = ExtResource( 10 )
 
 [node name="Palmer" type="Node2D" parent="."]
+position = Vector2( 11.4284, 5.71466 )
 
 [node name="Palm" type="Sprite" parent="Palmer"]
 modulate = Color( 1, 0.815686, 0.815686, 1 )
@@ -632,8 +631,8 @@ anims/RESET = SubResource( 25 )
 [connection signal="ready_done" from="." to="Blue_path/Blue_followpath/Boat_blue" method="_on_Btrace_ready_done"]
 [connection signal="body_exited" from="Goal" to="." method="_on_Goal_body_exited"]
 [connection signal="body_exited" from="Checkpoint1" to="." method="_on_Checkpoint1_body_exited"]
-[connection signal="body_exited" from="Checkpoint2" to="." method="_on_Checkpoint2_body_exited"]
 [connection signal="body_exited" from="Checkpoint2" to="." method="_on_Checkpoint_body_exited"]
-[connection signal="body_exited" from="Checkpoint3" to="." method="_on_Checkpoint3_body_exited"]
+[connection signal="body_exited" from="Checkpoint2" to="." method="_on_Checkpoint2_body_exited"]
 [connection signal="body_exited" from="Checkpoint3" to="." method="_on_Checkpoint_body_exited"]
+[connection signal="body_exited" from="Checkpoint3" to="." method="_on_Checkpoint3_body_exited"]
 [connection signal="ready_done" from="Ready_screen" to="." method="_on_Ready_screen_ready_done"]

@@ -488,7 +488,6 @@ texture = ExtResource( 6 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Loose_screen" parent="." instance=ExtResource( 10 )]
-visible = false
 margin_left = -488.0
 margin_top = -298.0
 margin_right = -448.0

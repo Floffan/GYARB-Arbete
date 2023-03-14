@@ -108,3 +108,4 @@ func _on_Object_interation_menu_pick_up():
 
 func _on_Bully_checkpoint_body_entered(body):
 	get_node("Bully").queue_free()
+	get_node("Bully_checkpoint").queue_free()
