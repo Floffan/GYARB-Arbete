@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/berg/wall_stuga.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Minigames/skidor_neutrual_2.png" type="Texture" id=2]
@@ -29,6 +29,36 @@ border_width_bottom = 10
 border_color = Color( 0.372549, 0.12549, 0.0196078, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Request:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "request_finished"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Request:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Skidshop" type="Node2D"]
 script = ExtResource( 4 )
@@ -227,6 +257,9 @@ margin_right = 1003.0
 margin_bottom = 567.0
 custom_styles/panel = SubResource( 2 )
 
+[node name="Timer" type="Timer" parent="Skylt"]
+wait_time = 0.05
+
 [node name="Request" type="RichTextLabel" parent="Skylt"]
 margin_left = 18.0
 margin_top = 18.0
@@ -236,6 +269,10 @@ theme = ExtResource( 9 )
 bbcode_enabled = true
 bbcode_text = "Jag vill ha [color=fuchsia]rosa[/color], [color=aqua]turkosa[/color], [color=lime]gröna[/color],  [color=yellow]gula[/color], [color=blue]blåa[/color] och [color=red]röda[/color] skidor."
 text = "Jag vill ha rosa, turkosa, gröna,  gula, blåa och röda skidor."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Skylt"]
+anims/RESET = SubResource( 3 )
+anims/request_finished = SubResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 10 )

@@ -19,7 +19,7 @@ onready var colours = {
 var request = []
 var request_nodes = []
 
-var rounds_to_win = 2
+export var rounds_to_win = 3
 
 # gör till dic
 var buttons_pressed = []
@@ -92,9 +92,9 @@ func _won_round():
 		_win_screen()
 	else:
 		_reset()
+		#yield(get_tree().create_timer(1), "timeout")
 		_get_request()
-		
-		
+			
 func _reset():
 	for instance in buttons_instances:
 		instance.get_node("AnimationPlayer").play("fade_out")
@@ -105,15 +105,13 @@ func _reset():
 	
 	num = 0
 	
-	
 func _win_screen():
 	get_node("WorldEnvironment").queue_free()
 	$Winscreen.visible = true
 	$Winscreen/AnimationPlayer.play("WIN")
 	if Autoloads.data["games_played"].has(game) == false:
 		Autoloads.add_game_played(game)
-		
-		
+			
 func _loose_screen():
 	$Loose_screen.visible = true
 	$Loose_screen/AnimationPlayer.play("LOOSE")
@@ -127,11 +125,27 @@ func _get_request():
 		var colour_node = colours[colour][randi() % colours[colour].size()]
 		request_nodes.append(colour_node)
 		
-	_draw_request_text(request)
-	_draw_request(request_nodes)
+	_get_request_text(request)
+
+func _display_request(request):
+	var info = $Skylt/Request
+	$Skylt/AnimationPlayer.play("RESET")
+	info.bbcode_text = request
+	while info.visible_characters < len(info.text):
+		#$Skylt/Timer.wait_time = num_difficulty / 20
+		info.visible_characters += 1
 		
-func _draw_request_text(request):
+		$Skylt/Timer.start()
+		yield($Skylt/Timer, "timeout")
+		
+	if info.visible_characters == len(info.text):
+		yield(get_tree().create_timer(0.5), "timeout")
+		$Skylt/AnimationPlayer.play("request_finished")
+		_draw_request(request_nodes)
+		
+func _get_request_text(request):
 	var request_text = []
+	var text = ""
 	for colour in request:
 		var string = ""	
 		if colour == "Pink":
@@ -148,11 +162,15 @@ func _draw_request_text(request):
 			string = "[color=red]röda[/color]"
 			
 		request_text.append(string)
-			
+	
 	if num_difficulty == 2:
-		$Skylt/Request.bbcode_text = "jag vill ha " + str(request_text[0]) + " och " + str(request_text[1]) + " skidor"
+		text = "jag vill ha " + str(request_text[0]) + " och " + str(request_text[1]) + " skidor"
+	if num_difficulty == 3:
+		text = "jag vill ha " + str(request_text[0]) + ", " + str(request_text[1]) + " och " + str(request_text[2]) + " skidor"
 	if num_difficulty == 4:
-		$Skylt/Request.bbcode_text = "jag vill ha " + str(request_text[0]) + ", " + str(request_text[1]) + ", " + str(request_text[2]) + ", " + str(request_text[3]) + " och " + str(request_text[4]) + " skidor"
+		text = "jag vill ha " + str(request_text[0]) + ", " + str(request_text[1]) + ", " + str(request_text[2]) + " och " + str(request_text[3]) + " skidor"
+	
+	_display_request(text)
 
 func _draw_request(request_nodes):
 	for i in range(len(request_nodes)):
