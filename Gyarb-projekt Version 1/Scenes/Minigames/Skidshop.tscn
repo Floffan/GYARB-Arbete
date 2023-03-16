@@ -283,7 +283,6 @@ environment = ExtResource( 10 )
 visible = false
 
 [node name="Ready_screen" parent="." instance=ExtResource( 13 )]
-visible = false
 margin_left = -73.0
 margin_top = -101.0
 margin_right = -73.0
@@ -325,4 +324,5 @@ wait_time = 3.0
 [connection signal="pressed" from="Skidor/Skidor_fram/Red" to="." method="_on_Red_pressed"]
 [connection signal="pressed" from="Skidor/Skidor_fram/Turquise" to="." method="_on_Turquise_pressed"]
 [connection signal="pressed" from="Skidor/Skidor_fram/Orange" to="." method="_on_Orange_pressed"]
+[connection signal="ready_done" from="Ready_screen" to="." method="_on_Ready_screen_ready_done"]
 [connection signal="timeout" from="Shrug_timer" to="." method="_on_Shrug_timer_timeout"]

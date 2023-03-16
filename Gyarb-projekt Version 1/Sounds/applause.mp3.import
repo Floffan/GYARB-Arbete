@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/applause.mp3-c0515c53b8c83d1f43ddcdc92183212a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/applause.mp3"
+dest_files=[ "res://.import/applause.mp3-c0515c53b8c83d1f43ddcdc92183212a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

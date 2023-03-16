@@ -39,12 +39,20 @@ signal stand_still
 signal shrug
 	
 func _ready():
+	"""
+	I början skickas en signal till skelett-scenen som gör att man ej kan röra sig
+	"""
 	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "Stuga_Minigame"
 	emit_signal("stand_still")
 	_set_wl_screen_path()
 	
-	yield(get_tree().create_timer(1), "timeout")
+func _on_Ready_screen_ready_done() -> void:
+	"""
+	När ready?-scenen är klar så tas den bort, och spelet startar när get_request-funktionen kallas
+	"""
+	get_node("Ready_screen").queue_free()
+	yield(get_tree().create_timer(0.5), "timeout")
 	_get_request()
 	
 func _process(delta):
@@ -244,3 +252,4 @@ func _on_Orange_pressed():
 
 func _on_Shrug_timer_timeout():
 	emit_signal("stand_still")
+

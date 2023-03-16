@@ -24,6 +24,8 @@ signal ready_done
 signal game_over
 
 func _ready():
+	Music.playing_minigame = true
+	$Music.play()
 	Transition.get_node("AnimationPlayer").play("RESET")
 	w_screen.game_path = "res://Scenes/Minigames/Boatrace.tscn"
 	w_screen.world_path = "res://Scenes/Strand/racehouse_inside.tscn"
@@ -41,8 +43,7 @@ func _win_screen(Boat):
 	Spelet läggs även till i games_played listan
 	"""
 	emit_signal("game_over")
-	w_screen.visible = true
-	$Winscreen/AnimationPlayer.play("WIN")
+	w_screen.win()
 	if Autoloads.data["games_played"].has("Boatrace") == false:
 		Autoloads.add_game_played(game)
 	
@@ -133,7 +134,7 @@ func _checkpoint(body, nr):
 
 
 """
-Dessa tre funktioner initierar _checkpoint()-funktionen, fast ger den olika båtar och nummer att arbeta med beroendep å vilken checkpoint det är
+Dessa tre funktioner initierar _checkpoint()-funktionen, fast ger den olika båtar och nummer att arbeta med beroende på vilken checkpoint det är
 """
 func _on_Checkpoint1_body_exited(body: Node) -> void:
 	_checkpoint(body, 1)

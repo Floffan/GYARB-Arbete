@@ -1,5 +1,6 @@
 extends Node2D
 var skelett_position = Autoloads.Position
+onready var skelett = get_node("YSort/Skelett")
 
 var going_out = false
 var interacting = false
@@ -16,6 +17,7 @@ var dia_location = "Tutorial"
 var dia_num : int
 
 func _ready():
+	Music.play_music("1")
 	_get_position()
 	$Havet/Lager1.position.x = 3118
 	$Havet/Lager1.position.y = 1980
@@ -48,7 +50,6 @@ func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Berg":
 		Autoloads.Position = "berg_Main"
 		Transition.load_scene("res://Scenes/Berg/Berg.tscn")
-		#_open_gate_menu("berg", "res://Scenes/Berg/Berg.tscn", "here")
 	if Autoloads.Gate_collider == "gate_Spawn":
 		_open_gate_menu("spawn_Main","res://Scenes/Main/Spawn.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Strand":
@@ -56,6 +57,9 @@ func _on_Skelett_gate_detected():
 		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
 	
 func _open_gate_menu(position_in_new_world, path, heading):
+	if skelett.can_move == true:
+		gate_ui.on_walkout(position_in_new_world, path, heading)
+
 	if Input.is_action_just_pressed("ui_accept"):
 		gate_ui.walking_out = null
 		
@@ -64,8 +68,20 @@ func _open_gate_menu(position_in_new_world, path, heading):
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		going_out = true
-		if gate_ui:
+		if gate_ui.on_walkout():
 			gate_ui.on_walkout(position_in_new_world, path, heading)
+
+	"""
+	if Input.is_action_just_pressed("ui_accept"):
+		gate_ui.walking_out = null
+		
+	if going_out == true:	
+		gate_ui.on_walkout(position_in_new_world, path, heading)
+			
+	if Input.is_action_just_pressed("ui_accept"):
+		going_out = true
+		gate_ui.on_walkout(position_in_new_world, path, heading)
+	"""
 
 func _on_Skelett_NPC_detected():
 	var collider = $YSort/Skelett/NPC_detector.get_collider().name

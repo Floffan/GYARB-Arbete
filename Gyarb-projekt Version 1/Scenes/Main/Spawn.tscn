@@ -227,7 +227,7 @@ collision_mask = 4
 position = Vector2( -5, -184 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 11 )
-frame = 4
+frame = 1
 speed_scale = 0.2
 playing = true
 

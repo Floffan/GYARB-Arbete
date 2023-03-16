@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Boatrace_theme.mp3-94b7dc4a40cea163f4452dd899d25aaf.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Boatrace_theme.mp3"
+dest_files=[ "res://.import/Boatrace_theme.mp3-94b7dc4a40cea163f4452dd899d25aaf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

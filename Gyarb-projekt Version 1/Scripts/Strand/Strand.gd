@@ -1,7 +1,5 @@
 extends Node2D
-"""
 
-"""
 var skelett_position = Autoloads.Position
 
 onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
@@ -9,6 +7,7 @@ onready var ui_gate = get_node("Camera2D/CanvasLayer/Gate_menu")
 var going_out = false
 
 func _ready():
+	Music.play_music("2")
 	$VisibilityNotifier2D.connect("screen_entered", self, "show")
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
 	visible = false

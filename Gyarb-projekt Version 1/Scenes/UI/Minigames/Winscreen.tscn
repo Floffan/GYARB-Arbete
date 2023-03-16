@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/dogicapixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Pics/Minigames/SPARKLE.png" type="Texture" id=2]
 [ext_resource path="res://UI/winscreen_theme.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/HUD/Winscreen.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/applause.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 110
@@ -287,6 +288,9 @@ text = " JIPPIE!"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/WIN = SubResource( 5 )
+
+[node name="Hurray" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="button_down" from="knappar/Spela igen" to="." method="_on_Spela_igen_button_down"]
 [connection signal="button_down" from="knappar/tillbaka" to="." method="_on_tillbaka_button_down"]

@@ -217,6 +217,7 @@ func _align_detectors():
 		$Interact_detector.rotation_degrees = 180
 	
 func _physics_process(_delta):
+	print(can_move)
 	_check_case()
 	if can_move:
 		get_input()
@@ -251,3 +252,12 @@ func _on_Spawn_can_move():
 
 func _on_Stuga_can_move():
 	can_move = true
+
+
+func _on_Gate_menu_can_move() -> void:
+	can_move = true
+
+
+func _on_Gate_menu_stand_still() -> void:
+	breakpoint
+	can_move = false
