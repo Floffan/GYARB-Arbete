@@ -16,6 +16,8 @@ var dia_character = ""
 var dia_location = "Tutorial"
 var dia_num : int
 
+var num = 0
+
 func _ready():
 	Music.play_music("1")
 	_get_position()
@@ -55,11 +57,13 @@ func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Strand":
 		Autoloads.Position = "strand_Main"
 		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
+		
 	
 func _open_gate_menu(position_in_new_world, path, heading):
-	if skelett.can_move == true:
-		gate_ui.on_walkout(position_in_new_world, path, heading)
-
+	#if skelett.can_move == true:
+		#gate_ui.on_walkout(position_in_new_world, path, heading)
+		
+	#if gate_ui.on_walkout(position_in_new_world, path, heading):
 	if Input.is_action_just_pressed("ui_accept"):
 		gate_ui.walking_out = null
 		
@@ -68,8 +72,17 @@ func _open_gate_menu(position_in_new_world, path, heading):
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		going_out = true
-		if gate_ui.on_walkout():
-			gate_ui.on_walkout(position_in_new_world, path, heading)
+		gate_ui.on_walkout(position_in_new_world, path, heading)
+	"""
+	if gate_ui.menu_showing == false:
+		gate_ui.menu_showing = true
+		gate_ui.on_walkout(heading)
+		
+	if gate_ui.walking_out:
+		print(position_in_new_world)
+		print(path)
+		gate_ui.walk_out(position_in_new_world, path)
+	"""
 
 	"""
 	if Input.is_action_just_pressed("ui_accept"):

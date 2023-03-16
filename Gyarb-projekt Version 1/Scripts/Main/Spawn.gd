@@ -7,6 +7,7 @@ var skelett_position = Autoloads.Position
 var question = "Plocka up väskan?"
 
 onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
+onready var ui_interaction = get_node("Camera2D/CanvasLayer/Object_interation_menu")
 
 var dia_character = "Uggla"
 var dia_location = "Tutorial"
@@ -16,19 +17,21 @@ var dialog_path = "res://Dialog/Tutorial/Uggla_dia.json"
 
 signal looking_around
 signal can_move
-#signal can_move
 
 var heard_briefcase_info = false
 
 func _ready():
-	emit_signal("looking_around")
-	dia_num = 1
 	_get_position()
-	yield(get_tree().create_timer(5), "timeout")
-	if ui_dialog.dialog_running == false:
-		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
+	if !Autoloads.data["areas_visited"].has("spawn"):
+		emit_signal("looking_around")
+		dia_num = 1
+		yield(get_tree().create_timer(5), "timeout")
+		if ui_dialog.dialog_running == false:
+			ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 	
 func _on_Skelett_gate_detected():
+	if !Autoloads.data["areas_visited"].has("spawn"):
+		Autoloads.add_area_visited("spawn")
 	var menu_player = get_node_or_null("Camera2D/CanvasLayer/Gate_menu")
 	
 	if Input.is_action_just_pressed("ui_accept"):
@@ -50,17 +53,15 @@ func _get_position() -> void:
 
 func _on_Skelett_Interaction_detected():
 	if Autoloads.data["have_briefcase"] == false:
-		var menu_player = get_node("Camera2D/CanvasLayer/Object_interation_menu")
-		
 		if Input.is_action_just_pressed("ui_accept"):
-			menu_player.pressed_yes = null
+			ui_interaction.pressed_yes = null
 			
 		if interacting == true:	
-			menu_player.on_interaction(question, "briefcase")
+			ui_interaction.on_interaction(question, "briefcase")
 				
 		if Input.is_action_just_pressed("ui_accept"):
 			interacting = true
-			menu_player.on_interaction(question, "briefcase")
+			ui_interaction.on_interaction(question, "briefcase")
 
 func _on_Object_interation_menu_pick_up():
 	$YSort/Coffin_open/Briefcase.visible = false
@@ -69,8 +70,11 @@ func _on_Object_interation_menu_pick_up():
 func _process(delta):
 	if heard_briefcase_info:
 		emit_signal("can_move")
-	if Autoloads.data["have_briefcase"] == true and not ui_dialog.dialog_running and not heard_briefcase_info:
+	if Autoloads.data["have_briefcase"] == true and not ui_dialog.dialog_running and not heard_briefcase_info and !Autoloads.data["areas_visited"].has("spawn"):
 		dia_num = 2
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 		heard_briefcase_info = true
+	if Autoloads.data["areas_visited"].has("spawn"):
+		$YSort/Coffin_open/Briefcase.visible = false
+		$NPC_uggla.visible = false
 		

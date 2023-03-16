@@ -74,6 +74,8 @@ func _assign_animation():
 	"""
 	if can_move == false:
 		$AnimationPlayer.play(animation)
+		velocity.y = 0
+		velocity.x = 0
 		return
 	
 	"""
@@ -170,11 +172,9 @@ func _assign_animation():
 func _check_raycasts():
 	if $Gate_detector.is_colliding():
 		Autoloads.Gate_collider = $Gate_detector.get_collider().name
-		#print(Autoloads.Gate_collider)
 		emit_signal("gate_detected")
 	if $NPC_detector.is_colliding():
 		emit_signal("NPC_detected")
-		#print($NPC_detector.get_collider().name)
 	if $Interact_detector.is_colliding():
 		emit_signal("Interaction_detected")
 		
@@ -217,7 +217,6 @@ func _align_detectors():
 		$Interact_detector.rotation_degrees = 180
 	
 func _physics_process(_delta):
-	print(can_move)
 	_check_case()
 	if can_move:
 		get_input()
@@ -257,7 +256,6 @@ func _on_Stuga_can_move():
 func _on_Gate_menu_can_move() -> void:
 	can_move = true
 
-
 func _on_Gate_menu_stand_still() -> void:
-	breakpoint
+	animation = "Stå-animation_bakifrån"
 	can_move = false
