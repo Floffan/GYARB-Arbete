@@ -177,6 +177,9 @@ func _get_request_text(request):
 		text = "jag vill ha " + str(request_text[0]) + ", " + str(request_text[1]) + " och " + str(request_text[2]) + " skidor"
 	if num_difficulty == 4:
 		text = "jag vill ha " + str(request_text[0]) + ", " + str(request_text[1]) + ", " + str(request_text[2]) + " och " + str(request_text[3]) + " skidor"
+	if num_difficulty == 5:
+		text = "jag vill ha " + str(request_text[0]) + ", " + str(request_text[1]) + ", " + str(request_text[2]) + ", " + str(request_text[3]) + " och " + str(request_text[4]) + " skidor"
+	
 	
 	_display_request(text)
 

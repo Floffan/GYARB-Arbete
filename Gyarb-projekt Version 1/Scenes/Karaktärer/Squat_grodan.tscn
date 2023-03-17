@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Pics/Figurer/squatfrog.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Karaktärer/pratbubbla.tscn" type="PackedScene" id=2]
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 270, 256 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 1 )
+region = Rect2( 270, 0, 270, 256 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 540, 0, 270, 256 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 540, 0, 270, 256 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 270, 0, 270, 256 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 270, 256 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=77]
+extents = Vector2( 78.5, 135.5 )
+
+[node name="Squat_grodan" type="StaticBody2D"]
+position = Vector2( 262, -32 )
+collision_layer = 2
+
+[node name="Squattande groda" type="AnimatedSprite" parent="."]
+position = Vector2( 6, 137 )
+frames = SubResource( 22 )
+frame = 5
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -241, -32 )
+scale = Vector2( 1, 1.37171 )
+polygon = PoolVector2Array( 135, 216.155, 159, 227.82, 313, 228, 342, 218.342, 344, 199.388, 278, 194, 202, 193, 135, 197.93 )
+
+[node name="Squat_grodan" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="NPC_shape" type="CollisionShape2D" parent="Squat_grodan"]
+position = Vector2( -0.5, 125.5 )
+shape = SubResource( 77 )
+
+[node name="Pratbubbla" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, 9 )

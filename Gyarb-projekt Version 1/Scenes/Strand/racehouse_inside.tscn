@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/Strand/racehouse_tilemap.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Karaktärer/Skelett.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Pics/Figurer/squid.png" type="Texture" id=3]
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/dwelling_tilemap.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Strand/Bubblor.tscn" type="PackedScene" id=5]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scripts/Strand/racehouse_inside.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Worldbuilding/Lyktan.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Karaktärer/pratbubbla.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 512, 192 )
@@ -239,6 +240,9 @@ position = Vector2( 839, 59 )
 modulate = Color( 0.768627, 0.568627, 0.568627, 1 )
 position = Vector2( 3, 87 )
 scale = Vector2( 2, 2 )
+
+[node name="Pratbubbla" parent="." instance=ExtResource( 13 )]
+position = Vector2( 395, 46 )
 
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

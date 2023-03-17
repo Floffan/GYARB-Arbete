@@ -25,9 +25,8 @@ func _on_Skelett_gate_detected():
 		ui_gate.on_walkout("strand_Shellhouse","res://Scenes/Strand/Strand.tscn", "out")
 		
 func _on_Skelett_NPC_detected():
-	var collider = $YSort/Skelett/NPC_detector.get_collider().name
 	if Autoloads.data["flowers"] == 3:
-		Autoloads.add_flower()
+		#Autoloads.add_flower()
 		if Autoloads.data["items"].has(item):
 			dia_num = 3
 		if Autoloads.data["items"].has(item) == false:

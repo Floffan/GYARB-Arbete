@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/punch.mp3-2fcb794e2eb4558c276ba49950ec034e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/punch.mp3"
+dest_files=[ "res://.import/punch.mp3-2fcb794e2eb4558c276ba49950ec034e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

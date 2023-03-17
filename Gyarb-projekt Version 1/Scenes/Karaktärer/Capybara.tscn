@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Pics/Figurer/capybara_topp.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Figurer/capybara_arm.png" type="Texture" id=2]
 [ext_resource path="res://Pics/Figurer/capybara_head.png" type="Texture" id=3]
 [ext_resource path="res://Pics/Figurer/capybara_nos.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/figurer/Capybara.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Karaktärer/pratbubbla.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -239,3 +240,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Capybara"]
 position = Vector2( 29, 26.5 )
 shape = SubResource( 3 )
+
+[node name="pratbubbla" parent="." instance=ExtResource( 6 )]
+position = Vector2( -46, -58 )
+frame = 3

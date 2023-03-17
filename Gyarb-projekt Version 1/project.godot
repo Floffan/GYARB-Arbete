@@ -16,12 +16,13 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Transition="*res://Scenes/Transition.tscn"
+Transition="*res://Scenes/UI/Transition.tscn"
 Autoloads="*res://Scripts/Autoloads/Autoloads.gd"
 Music="*res://Scenes/UI/Music.tscn"
 
 [display]
 
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

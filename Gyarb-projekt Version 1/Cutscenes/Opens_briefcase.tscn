@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Cutscene_camera.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Pics/Cutscenes/Briefcase/briefcase_bottom.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Cutscenes/Opens_briefcase.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Effects/Light_effect.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Worldbuilding/Leaves_spawn.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.433594, 0.27269, 0.111786, 1 )
@@ -847,11 +848,62 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "Fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "vitt"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Opens_briefcase" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -176, 183 )
 script = ExtResource( 6 )
+
+[node name="Leaves_spawn" parent="." instance=ExtResource( 8 )]
+position = Vector2( 594, -271 )
+scale = Vector2( 1.2, 1.2 )
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = 320.0
@@ -1107,5 +1159,21 @@ anims/RESET = SubResource( 2 )
 
 [node name="Cutscene_camera" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 300 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fade_out = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+anims/vitt = SubResource( 7 )
+
+[node name="Fade" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="fade_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="fade_timer" to="." method="_on_fade_timer_timeout"]
 
 [editable path="Panels_cutscene"]

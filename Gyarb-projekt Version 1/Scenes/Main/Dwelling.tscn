@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/dwelling_tilemap.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Karaktärer/Skelett.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Pics/Mapbuilding/Strand/racehouse_tilemap.png" type="Texture" id=4]
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/hylla.png" type="Texture" id=5]

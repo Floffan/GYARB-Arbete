@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/grave_opening.mp3-c94f17aacd26aa49ba7accb4d77e3bb7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/grave_opening.mp3"
+dest_files=[ "res://.import/grave_opening.mp3-c94f17aacd26aa49ba7accb4d77e3bb7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

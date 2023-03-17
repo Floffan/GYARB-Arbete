@@ -1,15 +1,15 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scripts/Gym/gym.gd" type="Script" id=1]
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/skog.png" type="Texture" id=2]
 [ext_resource path="res://Pics/Mapbuilding/Gym/gym_sheet.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Skelett.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Karaktärer/Skelett.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Pics/Mapbuilding/Generellt/gate_svart.png" type="Texture" id=5]
-[ext_resource path="res://Pics/Figurer/squatfrog.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Karaktärer/Squat_grodan.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pics/Mapbuilding/Gym/sink.png" type="Texture" id=7]
 [ext_resource path="res://Pics/Mapbuilding/Gym/weightrack.png" type="Texture" id=8]
-[ext_resource path="res://Pics/Figurer/forg.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Stad/Coach-padda.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Karaktärer/Curl_grodan.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Karaktärer/Coach-padda.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Pics/Mapbuilding/Gym/bench.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=14]
 
@@ -742,76 +742,6 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 } ]
 35/z_index = 0
 
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 270, 256 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 6 )
-region = Rect2( 270, 0, 270, 256 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 6 )
-region = Rect2( 540, 0, 270, 256 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 6 )
-region = Rect2( 540, 0, 270, 256 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 6 )
-region = Rect2( 270, 0, 270, 256 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 270, 256 )
-
-[sub_resource type="SpriteFrames" id=22]
-animations = [ {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
-"loop": true,
-"name": "default",
-"speed": 4.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=77]
-extents = Vector2( 78.5, 135.5 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 276, 289 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 9 )
-region = Rect2( 276, 0, 276, 289 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 9 )
-region = Rect2( 552, 0, 276, 289 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 9 )
-region = Rect2( 552, 0, 276, 289 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 9 )
-region = Rect2( 276, 0, 276, 289 )
-
-[sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 276, 289 )
-
-[sub_resource type="SpriteFrames" id=45]
-animations = [ {
-"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 47 ), SubResource( 46 ), SubResource( 48 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=78]
-extents = Vector2( 65.5, 129 )
-
 [sub_resource type="TileSet" id=79]
 0/name = "gym_sheet.png 0"
 0/texture = ExtResource( 3 )
@@ -1011,50 +941,9 @@ texture = ExtResource( 7 )
 position = Vector2( 576, -75 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Squat_grodan" type="StaticBody2D" parent="YSort"]
-position = Vector2( 262, -32 )
-collision_layer = 2
+[node name="Squat_grodan" parent="YSort" instance=ExtResource( 6 )]
 
-[node name="Squattande groda" type="AnimatedSprite" parent="YSort/Squat_grodan"]
-position = Vector2( 6, 137 )
-frames = SubResource( 22 )
-frame = 1
-playing = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Squat_grodan"]
-position = Vector2( -241, -32 )
-scale = Vector2( 1, 1.37171 )
-polygon = PoolVector2Array( 135, 216.155, 159, 227.82, 313, 228, 342, 218.342, 344, 199.388, 278, 194, 202, 193, 135, 197.93 )
-
-[node name="Squat_grodan" type="Area2D" parent="YSort/Squat_grodan"]
-collision_layer = 4
-
-[node name="NPC_shape" type="CollisionShape2D" parent="YSort/Squat_grodan/Squat_grodan"]
-position = Vector2( -0.5, 125.5 )
-shape = SubResource( 77 )
-
-[node name="Curl_grodan" type="StaticBody2D" parent="YSort"]
-position = Vector2( 1191, 188 )
-
-[node name="Curlande groda" type="AnimatedSprite" parent="YSort/Curl_grodan"]
-modulate = Color( 1, 0.843137, 0.843137, 1 )
-position = Vector2( 12, 109 )
-frames = SubResource( 45 )
-frame = 1
-playing = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Curl_grodan"]
-position = Vector2( 1, 80 )
-polygon = PoolVector2Array( -72, 165, -71, 146, 64, 145, 69, 161, 69, 171, -2, 173, -69, 172 )
-
-[node name="Curl_grodan" type="Area2D" parent="YSort/Curl_grodan"]
-position = Vector2( 0, 92 )
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Curl_grodan/Curl_grodan"]
-position = Vector2( -0.5, 29 )
-shape = SubResource( 78 )
+[node name="Curl_grodan" parent="YSort" instance=ExtResource( 9 )]
 
 [node name="Polack-paddan" parent="YSort" instance=ExtResource( 10 )]
 
