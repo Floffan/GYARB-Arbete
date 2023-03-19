@@ -16,6 +16,7 @@
 [ext_resource path="res://Pics/Cutscenes/Briefcase/briefcase_bottom.png" type="Texture" id=14]
 [ext_resource path="res://Pics/Cutscenes/Briefcase/briefcase_top.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Effects/Light_effect.tscn" type="PackedScene" id=16]
+[ext_resource path="res://UI/Glowt.tres" type="Environment" id=17]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Open_up"
@@ -252,14 +253,6 @@ tracks/2/keys = {
 size = 18
 font_data = ExtResource( 12 )
 
-[sub_resource type="Environment" id=6]
-background_mode = 4
-glow_enabled = true
-glow_intensity = 4.57
-glow_strength = 1.36
-glow_blend_mode = 0
-glow_bicubic_upscale = true
-
 [node name="Briefcase" type="CanvasLayer"]
 script = ExtResource( 9 )
 
@@ -352,13 +345,21 @@ texture = ExtResource( 6 )
 [node name="fjäril_blå" parent="Leaves" instance=ExtResource( 8 )]
 position = Vector2( 384, 48 )
 scale = Vector2( 4, 4 )
-frame = 0
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Leaves"]
 anims/Default = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
 [node name="Panels_cutscene" parent="." instance=ExtResource( 3 )]
+
+[node name="Panel" parent="Panels_cutscene" index="0"]
+margin_top = 0.0
+margin_bottom = 128.0
+
+[node name="Panel2" parent="Panels_cutscene" index="1"]
+margin_top = 477.0
+margin_bottom = 600.0
 
 [node name="Cutscene_camera" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 300 )
@@ -408,13 +409,15 @@ margin_bottom = 42.0
 
 [node name="Light_effect" parent="." instance=ExtResource( 16 )]
 visible = false
+self_modulate = Color( 2, 2, 2, 1 )
 position = Vector2( 119, 236 )
 scale = Vector2( 0.8, 0.1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 6 )
+environment = ExtResource( 17 )
 
 [connection signal="animation_finished" from="Briefcase/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="button_down" from="ESC" to="." method="_on_ESC_button_down"]
 
+[editable path="Panels_cutscene"]
 [editable path="Light_effect"]

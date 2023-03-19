@@ -17,7 +17,7 @@ var code_list = []
 	
 var correct_code = [0, 7, 1 , 0]
 var putting_code = true
-var num = 0
+var num_pos = 0
 	
 
 func _process(delta):
@@ -40,13 +40,18 @@ func _ready():
 func _get_code():
 	#if Input.is_action_just_pressed("ui_accept"):
 		#$Cutscene_camera/Info.display_info(info1)
+	"""
+	Koden som spelaren provar fås i denna funktion.
+	Här kallas även funktionen som kollar om fnktionen slagits in fel.
+	
+	"""
 	if putting_code:
-		for i in range(10):
-			if Input.is_action_just_pressed("ui_"+str(i)):
-				code_list.append(i)
-				num += 1
-				code_dic[num].text = str(i)		
-	if num == 4:
+		for i in range(10): # Det finns 10 siffror att välja på, 0-9
+			if Input.is_action_just_pressed("ui_" + str(i)): # om inputen motsvarar vad ui-syntaxet för motsvarande siffra är...
+				code_list.append(i) # så läggs den till i den lista som spelarens kod är
+				num_pos += 1
+				code_dic[num_pos].text = str(i) # positionen som eftersöks motsvarar en nod i dictionaryt, och dennes text sätts till numret i fråga
+	if num_pos == 4:
 		putting_code = false
 		if _check_code(code_list):
 			$Cutscene_camera/Info.visible = false
