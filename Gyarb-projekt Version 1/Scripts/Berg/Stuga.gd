@@ -18,7 +18,7 @@ var dia_num : int
 
 signal can_move
 
-var item = "Helmet"
+var item = "Hat"
 
 func _ready():
 	_get_position()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/HUD/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Pics/collectibles/flower_close.png" type="Texture" id=14]
-[ext_resource path="res://Pics/collectibles/Helmet.png" type="Texture" id=15]
+[ext_resource path="res://Pics/collectibles/Hat.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open_IV"
@@ -58,6 +58,13 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0196078, 0.32549, 0.282353, 1 )
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0666667, 0.301961, 0.266667, 1 )
@@ -116,10 +123,24 @@ margin_right = 1024.0
 margin_bottom = 728.0
 theme = ExtResource( 6 )
 
+[node name="Sidopanel_h" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = 913.0
+margin_top = -2.0
+margin_right = 1027.0
+margin_bottom = 125.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Sidopanel_h2" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = -3.0
+margin_top = -2.0
+margin_right = 111.0
+margin_bottom = 125.0
+custom_styles/panel = SubResource( 4 )
+
 [node name="Shirt" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 915.0
+margin_left = 812.0
 margin_top = 17.0
-margin_right = 1004.0
+margin_right = 901.0
 margin_bottom = 103.0
 custom_styles/panel = SubResource( 3 )
 
@@ -130,9 +151,9 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 9 )
 
 [node name="Plate" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 816.0
+margin_left = 714.0
 margin_top = 17.0
-margin_right = 905.0
+margin_right = 803.0
 margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
@@ -144,9 +165,9 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 11 )
 
 [node name="Key" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 717.0
+margin_left = 926.0
 margin_top = 17.0
-margin_right = 806.0
+margin_right = 1015.0
 margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
@@ -157,9 +178,9 @@ position = Vector2( 44, 43 )
 texture = ExtResource( 7 )
 
 [node name="Flower" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 217.0
+margin_left = 10.0
 margin_top = 17.0
-margin_right = 306.0
+margin_right = 99.0
 margin_bottom = 103.0
 custom_styles/panel = SubResource( 3 )
 
@@ -182,9 +203,9 @@ text = "1
 "
 
 [node name="Medal" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 118.0
+margin_left = 221.0
 margin_top = 17.0
-margin_right = 207.0
+margin_right = 310.0
 margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
@@ -195,15 +216,15 @@ position = Vector2( 45, 43 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 10 )
 
-[node name="Helmet" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 19.0
+[node name="Hat" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = 124.0
 margin_top = 17.0
-margin_right = 108.0
+margin_right = 213.0
 margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 58 )
 custom_styles/panel = SubResource( 3 )
 
-[node name="Helmet" type="Sprite" parent="CanvasLayer/Panel/Helmet"]
+[node name="Hat" type="Sprite" parent="CanvasLayer/Panel/Hat"]
 visible = false
 position = Vector2( 44, 43 )
 scale = Vector2( 0.6, 0.6 )

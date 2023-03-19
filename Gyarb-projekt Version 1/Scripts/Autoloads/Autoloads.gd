@@ -8,7 +8,7 @@ var default_data = {
 	"areas_visited" : [],
 	"games_played" : [],
 	"NPC:s_met": [],
-	"items" : [],
+	"items" : [], #["Hat", "Key", "Medal", "Plate", "Shirt", "Flower"]
 	"init_pos" : "",
 	"init_loc" : ""
 }

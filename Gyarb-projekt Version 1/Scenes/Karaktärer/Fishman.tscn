@@ -153,4 +153,3 @@ anims/breathing = SubResource( 3 )
 
 [node name="Pratbubbla" parent="." instance=ExtResource( 2 )]
 position = Vector2( -49.3333, -48 )
-frame = 3
