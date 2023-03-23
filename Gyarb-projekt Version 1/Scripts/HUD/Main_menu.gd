@@ -1,5 +1,10 @@
 extends Control
 
+func _ready() -> void:
+	Transition.get_node("AnimationPlayer").play("RESET")
+	Music.play_music = true
+	
+
 func _on_Nytt_spel_button_down():
 	"""
 	Om användaren trycker på nytt spel-knappen påbörjas en animation som på ett snyggt sätt övergår i spelets öppningscutscen
@@ -21,3 +26,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	När transition-animationen är klar byts scenen till en cutscene
 	"""
 	get_tree().change_scene("res://Cutscenes/Waking_up_cutscene.tscn")
+
+
+func _on_Avsluta_button_down() -> void:
+	get_tree().quit()

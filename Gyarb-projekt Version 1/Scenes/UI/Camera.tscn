@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/HUD/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Pics/collectibles/flower_close.png" type="Texture" id=14]
 [ext_resource path="res://Pics/collectibles/Hat.png" type="Texture" id=15]
+[ext_resource path="res://Pics/Cutscenes/kugghjul.png" type="Texture" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open_IV"
@@ -29,7 +30,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 605 ), Vector2( 0, 477 ) ]
+"values": [ Vector2( 0, 606 ), Vector2( 0, 477 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Inställningar:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -128 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -44,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 605 ) ]
+"values": [ Vector2( 0, 608 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CanvasLayer/dark:visible")
@@ -57,6 +70,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Inställningar:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -128 ) ]
 }
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -117,10 +142,18 @@ margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.0666667, 0.301961, 0.266667, 0.192157 )
 
+[node name="Inställningar" type="TextureButton" parent="CanvasLayer"]
+margin_top = -128.0
+margin_right = 128.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-margin_top = 605.0
+margin_top = 608.0
 margin_right = 1024.0
-margin_bottom = 728.0
+margin_bottom = 731.0
 theme = ExtResource( 6 )
 
 [node name="Sidopanel_h" type="Panel" parent="CanvasLayer/Panel"]
@@ -245,4 +278,5 @@ margin_bottom = 142.0
 rect_scale = Vector2( 1, 0.9 )
 texture_normal = ExtResource( 8 )
 
+[connection signal="button_down" from="CanvasLayer/Inställningar" to="." method="_on_Instllningar_button_down"]
 [connection signal="pressed" from="CanvasLayer/Panel/Briefcase_button" to="." method="_on_TextureButton_pressed"]
