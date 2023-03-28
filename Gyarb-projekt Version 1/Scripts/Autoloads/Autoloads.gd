@@ -8,7 +8,7 @@ var default_data = {
 	"areas_visited" : [],
 	"games_played" : [],
 	"NPC:s_met": [],
-	"items" : ["Hat", "Key", "Medal", "Plate", "Shirt", "Flower"], #["Hat", "Key", "Medal", "Plate", "Shirt", "Flower"]
+	"items" : [], #["Hat", "Key", "Medal", "Plate", "Shirt", "Flower"], #["Hat", "Key", "Medal", "Plate", "Shirt", "Flower"]
 	"init_pos" : "",
 	"init_loc" : ""
 }
@@ -31,9 +31,9 @@ func _ready():
 	DEBUG-SYFTEN:
 		v v v
 	"""
-	#load_game() # kommentera ut denna om du vill ha kvar samma progress i spelet varje gång det startas
+	load_game() # kommentera ut denna om du vill ha kvar samma progress i spelet varje gång det startas
 	
-	reset_data() # kommentera ut detta om  du vill resetta datan varje gång spelet startas
+	#reset_data() # kommentera ut detta om  du vill resetta datan varje gång spelet startas
 
 func _process(_delta):
 	"""

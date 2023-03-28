@@ -242,7 +242,9 @@ position = Vector2( 3, 87 )
 scale = Vector2( 2, 2 )
 
 [node name="Pratbubbla" parent="." instance=ExtResource( 13 )]
+self_modulate = Color( 0.85, 0.85, 0.85, 1 )
 position = Vector2( 395, 46 )
+frame = 2
 
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

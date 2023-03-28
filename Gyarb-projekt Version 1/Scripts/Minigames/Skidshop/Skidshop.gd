@@ -1,5 +1,7 @@
 extends Node2D
 
+#Jag vill ha [color=fuchsia]rosa[/color], [color=aqua]turkosa[/color], [color=lime]gröna[/color],  [color=yellow]gula[/color], [color=blue]blåa[/color] och [color=red]röda[/color] skidor.
+
 var game = "Skidshop"
 
 onready var w_screen = $Winscreen

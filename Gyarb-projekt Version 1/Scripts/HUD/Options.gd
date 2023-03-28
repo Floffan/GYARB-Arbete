@@ -1,11 +1,11 @@
-extends Control
+extends CanvasLayer
 
 
 func _process(delta: float) -> void:
 	if Music.play_music:
-		get_node("Ljud av").text = "Ljud av"
+		get_node("Control/Ljud av").text = "Ljud av"
 	if !Music.play_music:
-		get_node("Ljud av").text = "Ljud på"
+		get_node("Control/Ljud av").text = "Ljud på"
 		
 func _on_Fortstt_button_down() -> void:
 	self.queue_free()

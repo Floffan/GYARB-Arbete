@@ -267,8 +267,6 @@ margin_right = 310.0
 margin_bottom = 462.0
 theme = ExtResource( 9 )
 bbcode_enabled = true
-bbcode_text = "Jag vill ha [color=fuchsia]rosa[/color], [color=aqua]turkosa[/color], [color=lime]gröna[/color],  [color=yellow]gula[/color], [color=blue]blåa[/color] och [color=red]röda[/color] skidor."
-text = "Jag vill ha rosa, turkosa, gröna,  gula, blåa och röda skidor."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Skylt"]
 anims/RESET = SubResource( 3 )
