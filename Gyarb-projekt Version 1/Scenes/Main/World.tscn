@@ -109,7 +109,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 973, 1284 )
 
 [node name="Pratbubbla" parent="Bully" index="5"]
-frame = 0
+frame = 2
 
 [node name="NPC_Bully" type="Area2D" parent="Bully"]
 position = Vector2( 139, 108 )

@@ -19,6 +19,9 @@ var dia_num : int
 var num = 0
 
 func _ready():
+	if Autoloads.data["flowers"].has("flower_main"):
+		if $YSort/Blomma_red:
+			get_node("YSort/Blomma_red").queue_free()
 	Music.play_music("1")
 	_get_position()
 	$Havet/Lager1.position.x = 3118
@@ -58,7 +61,6 @@ func _on_Skelett_gate_detected():
 		Autoloads.Position = "strand_Main"
 		Transition.load_scene("res://Scenes/Strand/Strand.tscn")
 		
-	
 func _open_gate_menu(position_in_new_world, path, heading):
 	#if skelett.can_move == true:
 		#gate_ui.on_walkout(position_in_new_world, path, heading)
@@ -129,7 +131,7 @@ func _on_Interact():
 		interact_ui.on_interaction(question, "flower")
 
 func _on_Object_interation_menu_pick_up():
-	Autoloads.add_flower()
+	Autoloads.add_flower("flower_main")
 	ui_new_item.on_new_item("Flower")
 	$YSort/Blomma_red.visible = false
 	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false

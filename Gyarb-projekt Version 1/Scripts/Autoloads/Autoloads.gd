@@ -4,7 +4,7 @@ var data_path = "user://Data.json"
 
 var default_data = {
 	"have_briefcase" : false,
-	"flowers" : 0,
+	"flowers" : [],
 	"areas_visited" : [],
 	"games_played" : [],
 	"NPC:s_met": [],
@@ -98,8 +98,8 @@ func save_pos():
 	data["init_loc"] = Current_loc
 	save_game()
 	
-func add_flower():
-	data["flowers"] += 1
+func add_flower(flower):
+	data["flowers"].append(flower)
 	save_game()
 	
 func update_briefcase(status):
