@@ -1,0 +1,506 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Pics/collectibles/medalj.png" type="Texture" id=1]
+[ext_resource path="res://Pics/collectibles/key2.png" type="Texture" id=2]
+[ext_resource path="res://Pics/Cutscenes/briefcase_top.png" type="Texture" id=3]
+[ext_resource path="res://Pics/collectibles/flower_close.png" type="Texture" id=4]
+[ext_resource path="res://Pics/collectibles/plate.png" type="Texture" id=5]
+[ext_resource path="res://Pics/collectibles/Hat.png" type="Texture" id=6]
+[ext_resource path="res://UI/Dialog.tres" type="Theme" id=7]
+[ext_resource path="res://Pics/collectibles/shirt.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/IV.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0196078, 0.32549, 0.282353, 1 )
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0666667, 0.301961, 0.266667, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.027451, 0.384314, 0.333333, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sidopanel_h:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Briefcase:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Key:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sidopanel_h2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Flower:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Briefcase_button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shirt:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 812, 17 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Shirt:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plate:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 714, 17 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plate:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Medal:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 221, 17 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Medal:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Hat:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 124, 17 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Hat:rect_rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "showing_items"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sidopanel_h:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Briefcase:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Key:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sidopanel_h2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Flower:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Briefcase_button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shirt:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 812, 17 ), Vector2( 898, 17 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Shirt:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Plate:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 714, 17 ), Vector2( 800, 17 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Plate:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Medal:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 221, 17 ), Vector2( 145, 17 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Medal:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Hat:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 124, 17 ), Vector2( 48, 17 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Hat:rect_rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[node name="IV" type="Panel"]
+margin_top = 606.0
+margin_right = 1024.0
+margin_bottom = 729.0
+theme = ExtResource( 7 )
+script = ExtResource( 9 )
+
+[node name="Sidopanel_h" type="Panel" parent="."]
+margin_left = 913.0
+margin_top = -2.0
+margin_right = 1027.0
+margin_bottom = 125.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Sidopanel_h2" type="Panel" parent="."]
+margin_left = -3.0
+margin_top = -2.0
+margin_right = 111.0
+margin_bottom = 125.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Shirt" type="Panel" parent="."]
+margin_left = 812.0
+margin_top = 17.0
+margin_right = 901.0
+margin_bottom = 103.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Shirt" type="Sprite" parent="Shirt"]
+visible = false
+position = Vector2( 44, 43 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 8 )
+
+[node name="Plate" type="Panel" parent="."]
+margin_left = 714.0
+margin_top = 17.0
+margin_right = 803.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 58 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="Plate" type="Sprite" parent="Plate"]
+visible = false
+position = Vector2( 44, 43 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 5 )
+
+[node name="Key" type="Panel" parent="."]
+margin_left = 926.0
+margin_top = 17.0
+margin_right = 1015.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 58 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="Key" type="Sprite" parent="Key"]
+visible = false
+position = Vector2( 44, 43 )
+texture = ExtResource( 2 )
+
+[node name="Flower" type="Panel" parent="."]
+margin_left = 10.0
+margin_top = 17.0
+margin_right = 99.0
+margin_bottom = 103.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Flower" type="Sprite" parent="Flower"]
+visible = false
+position = Vector2( 45, 44 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+
+[node name="Antal" type="RichTextLabel" parent="Flower"]
+visible = false
+margin_left = 63.0
+margin_top = 50.0
+margin_right = 141.0
+margin_bottom = 125.0
+bbcode_enabled = true
+bbcode_text = "1
+"
+text = "1
+"
+
+[node name="Medal" type="Panel" parent="."]
+margin_left = 221.0
+margin_top = 17.0
+margin_right = 310.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 58 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="Medal" type="Sprite" parent="Medal"]
+visible = false
+position = Vector2( 45, 43 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+
+[node name="Hat" type="Panel" parent="."]
+margin_left = 124.0
+margin_top = 17.0
+margin_right = 213.001
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 58 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="Hat" type="Sprite" parent="Hat"]
+visible = false
+position = Vector2( 44, 43 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 6 )
+
+[node name="Briefcase" type="Sprite" parent="."]
+modulate = Color( 0.768627, 0.854902, 0.843137, 0.545098 )
+position = Vector2( 512, 71 )
+scale = Vector2( 1, 0.9 )
+texture = ExtResource( 3 )
+
+[node name="Briefcase_button" type="TextureButton" parent="."]
+margin_left = 320.0
+margin_top = 14.0
+margin_right = 704.0
+margin_bottom = 142.0
+rect_scale = Vector2( 1, 0.9 )
+texture_normal = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/showing_items = SubResource( 6 )
+
+[connection signal="pressed" from="Briefcase_button" to="." method="_on_Briefcase_button_pressed"]

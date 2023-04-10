@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scenes/Worldbuilding/Green_walls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=2]
@@ -18,8 +18,6 @@
 [ext_resource path="res://Pics/Mapbuilding/berg/snö.png" type="Texture" id=16]
 [ext_resource path="res://Pics/Mapbuilding/Stad/tilemaps/street_tilemap.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Stad/Bussskylt.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Pics/Mapbuilding/Generellt/fågel.png" type="Texture" id=19]
-[ext_resource path="res://Scripts/Fågel.gd" type="Script" id=20]
 [ext_resource path="res://Pics/Mapbuilding/berg/lås.png" type="Texture" id=21]
 [ext_resource path="res://Scenes/Worldbuilding/Blomma_red.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Stad/Bus.tscn" type="PackedScene" id=23]
@@ -545,39 +543,6 @@ extents = Vector2( 39.5, 73.625 )
 [sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 4117, 208.5 )
 
-[sub_resource type="Curve2D" id=85]
-_data = {
-"points": PoolVector2Array( 246.942, -179.594, -246.942, 179.594, 2537, -905, 345.718, -6.73477, -345.718, 6.73477, 1216, -615, 293.997, -40.9813, -293.997, 40.9813, 735, -841, 187.089, -24.9452, -187.089, 24.9452, 332, -582, 188.775, 28.3162, -188.775, -28.3162, -257, -931, 606.013, 271.223, -606.013, -271.223, -1570, -731, 0, 0, 0, 0, -1049, -1285, 0, 0, 0, 0, 1791, -1367, 0, 0, 0, 0, 2324, -1285, 0, 0, 0, 0, 2537, -905 )
-}
-
-[sub_resource type="AtlasTexture" id=86]
-flags = 4
-atlas = ExtResource( 19 )
-region = Rect2( 0, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=87]
-flags = 4
-atlas = ExtResource( 19 )
-region = Rect2( 128, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=88]
-flags = 4
-atlas = ExtResource( 19 )
-region = Rect2( 256, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=89]
-flags = 4
-atlas = ExtResource( 19 )
-region = Rect2( 384, 0, 128, 128 )
-
-[sub_resource type="SpriteFrames" id=90]
-animations = [ {
-"frames": [ SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ) ],
-"loop": true,
-"name": "default",
-"speed": 4.0
-} ]
-
 [node name="Berg" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -878,19 +843,6 @@ position = Vector2( -260, 195 )
 
 [node name="berg_Stuga" type="Position2D" parent="Positioner"]
 position = Vector2( -1179, 263 )
-
-[node name="Fågel_path" type="Path2D" parent="."]
-position = Vector2( 2, -1 )
-curve = SubResource( 85 )
-
-[node name="Fågel" type="PathFollow2D" parent="Fågel_path"]
-position = Vector2( 2537, -905 )
-rotation = 2.51781
-script = ExtResource( 20 )
-
-[node name="Fågel" type="AnimatedSprite" parent="Fågel_path/Fågel"]
-frames = SubResource( 90 )
-playing = true
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1175, -1032 )

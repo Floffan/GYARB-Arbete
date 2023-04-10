@@ -33,6 +33,7 @@ func _ready():
 	
 	ESC-krysset syns inte förrens man har slagit in en kod
 	"""
+	$Panels_cutscene/IV/AnimationPlayer.play("showing_items")
 	$Panels_cutscene/AnimationPlayer.play_backwards("ready")
 	$Cutscene_camera/Info.display_info(info1)
 	$ESC.visible = false

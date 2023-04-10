@@ -12,25 +12,7 @@ onready var animation_player = $CanvasLayer/AnimationPlayer
 func _process(_delta):
 	_get_input()
 	position = player.position
-	_display_briefcase()
-	_display_items()
-	
-func _display_items():
-	var text = ""
-	$CanvasLayer/Panel/Flower/Antal.bbcode_text = str(len(Autoloads.data["flowers"]))
-	if len(Autoloads.data["flowers"]) > 0:
-		$CanvasLayer/Panel/Flower/Flower.visible = true
-		$CanvasLayer/Panel/Flower/Antal.visible = true
-	for item in Autoloads.data["items"]:
-		$CanvasLayer/Panel.get_node(item).get_node(item).visible = true
-		
-func _display_briefcase():
-	if Autoloads.data["have_briefcase"]:
-		$CanvasLayer/Panel/Briefcase_button.visible = true
-		$CanvasLayer/Panel/Briefcase.visible = false
-	if Autoloads.data["have_briefcase"] == false:
-		$CanvasLayer/Panel/Briefcase_button.visible = false
-		$CanvasLayer/Panel/Briefcase.visible = true
+
 	
 func _ready():
 	position = player.position
@@ -47,13 +29,6 @@ func _get_input():
 		animation_player.play_backwards("Open_IV")
 		$CanvasLayer/dark.visible = false
 		IV_open = false
-
-func _on_TextureButton_pressed() -> void:
-	var instance = briefcase_scene.instance()
-	add_child(instance)
-	animation_player.play("RESET")
-	IV_open = false
-	self.current = true
 	
 func _on_Avsluta_button_down() -> void:
 	Transition.load_scene("res://Scenes/UI/Main_menu.tscn")
@@ -62,3 +37,7 @@ func _on_Avsluta_button_down() -> void:
 func _on_Instllningar_button_down() -> void:
 	var instance = options_scene.instance()
 	add_child(instance)
+
+
+func _on_IV_reset() -> void:
+	animation_player.play("RESET")

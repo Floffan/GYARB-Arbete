@@ -4,7 +4,7 @@ var data_path = "user://Data.json"
 
 var default_data = {
 	"have_briefcase" : false,
-	"flowers" : [],
+	"flowers" : [], # "flower_berg", "flower_main", "flower_stad"
 	"areas_visited" : [],
 	"games_played" : [],
 	"NPC:s_met": [],

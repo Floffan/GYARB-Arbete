@@ -1,27 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/HUD/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/Gate_menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UI/minigame_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UI/Object_interation_menu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/Dialog.tres" type="Theme" id=6]
-[ext_resource path="res://Pics/collectibles/key2.png" type="Texture" id=7]
-[ext_resource path="res://Pics/Cutscenes/briefcase_top.png" type="Texture" id=8]
-[ext_resource path="res://Pics/collectibles/shirt.png" type="Texture" id=9]
-[ext_resource path="res://Pics/collectibles/medalj.png" type="Texture" id=10]
-[ext_resource path="res://Pics/collectibles/plate.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/UI/IV.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Pics/collectibles/flower_close.png" type="Texture" id=14]
-[ext_resource path="res://Pics/collectibles/Hat.png" type="Texture" id=15]
 [ext_resource path="res://Pics/Cutscenes/kugghjul.png" type="Texture" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open_IV"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Panel:rect_position")
+tracks/0/path = NodePath("CanvasLayer/IV:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -48,7 +41,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Panel:rect_position")
+tracks/0/path = NodePath("CanvasLayer/IV:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -84,25 +77,6 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -128 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.0196078, 0.32549, 0.282353, 1 )
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.0666667, 0.301961, 0.266667, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0.027451, 0.384314, 0.333333, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
 [node name="Camera2D" type="Camera2D"]
 position = Vector2( 512, 300 )
 script = ExtResource( 1 )
@@ -125,16 +99,12 @@ visible = false
 visible = false
 
 [node name="New_item" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
 rect_scale = Vector2( 2, 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-root_node = NodePath("../..")
-anims/Open_IV = SubResource( 1 )
-anims/RESET = SubResource( 2 )
 
 [node name="dark" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -150,133 +120,14 @@ texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 16 )
 texture_hover = ExtResource( 16 )
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+anims/Open_IV = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="IV" parent="CanvasLayer" instance=ExtResource( 6 )]
 margin_top = 608.0
-margin_right = 1024.0
 margin_bottom = 731.0
-theme = ExtResource( 6 )
-
-[node name="Sidopanel_h" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 913.0
-margin_top = -2.0
-margin_right = 1027.0
-margin_bottom = 125.0
-custom_styles/panel = SubResource( 4 )
-
-[node name="Sidopanel_h2" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = -3.0
-margin_top = -2.0
-margin_right = 111.0
-margin_bottom = 125.0
-custom_styles/panel = SubResource( 4 )
-
-[node name="Shirt" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 812.0
-margin_top = 17.0
-margin_right = 901.0
-margin_bottom = 103.0
-custom_styles/panel = SubResource( 3 )
-
-[node name="Shirt" type="Sprite" parent="CanvasLayer/Panel/Shirt"]
-visible = false
-position = Vector2( 44, 43 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 9 )
-
-[node name="Plate" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 714.0
-margin_top = 17.0
-margin_right = 803.0
-margin_bottom = 103.0
-rect_pivot_offset = Vector2( 0, 58 )
-custom_styles/panel = SubResource( 3 )
-
-[node name="Plate" type="Sprite" parent="CanvasLayer/Panel/Plate"]
-visible = false
-position = Vector2( 44, 43 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 11 )
-
-[node name="Key" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 926.0
-margin_top = 17.0
-margin_right = 1015.0
-margin_bottom = 103.0
-rect_pivot_offset = Vector2( 0, 58 )
-custom_styles/panel = SubResource( 3 )
-
-[node name="Key" type="Sprite" parent="CanvasLayer/Panel/Key"]
-visible = false
-position = Vector2( 44, 43 )
-texture = ExtResource( 7 )
-
-[node name="Flower" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 10.0
-margin_top = 17.0
-margin_right = 99.0
-margin_bottom = 103.0
-custom_styles/panel = SubResource( 3 )
-
-[node name="Flower" type="Sprite" parent="CanvasLayer/Panel/Flower"]
-visible = false
-position = Vector2( 45, 44 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 14 )
-
-[node name="Antal" type="RichTextLabel" parent="CanvasLayer/Panel/Flower"]
-visible = false
-margin_left = 63.0
-margin_top = 50.0
-margin_right = 141.0
-margin_bottom = 125.0
-bbcode_enabled = true
-bbcode_text = "1
-"
-text = "1
-"
-
-[node name="Medal" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 221.0
-margin_top = 17.0
-margin_right = 310.0
-margin_bottom = 103.0
-rect_pivot_offset = Vector2( 0, 58 )
-custom_styles/panel = SubResource( 3 )
-
-[node name="Medal" type="Sprite" parent="CanvasLayer/Panel/Medal"]
-visible = false
-position = Vector2( 45, 43 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
-
-[node name="Hat" type="Panel" parent="CanvasLayer/Panel"]
-margin_left = 124.0
-margin_top = 17.0
-margin_right = 213.0
-margin_bottom = 103.0
-rect_pivot_offset = Vector2( 0, 58 )
-custom_styles/panel = SubResource( 3 )
-
-[node name="Hat" type="Sprite" parent="CanvasLayer/Panel/Hat"]
-visible = false
-position = Vector2( 44, 43 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 15 )
-
-[node name="Briefcase" type="Sprite" parent="CanvasLayer/Panel"]
-visible = false
-modulate = Color( 0.768627, 0.854902, 0.843137, 0.545098 )
-position = Vector2( 512, 71 )
-scale = Vector2( 1, 0.9 )
-texture = ExtResource( 8 )
-
-[node name="Briefcase_button" type="TextureButton" parent="CanvasLayer/Panel"]
-margin_left = 320.0
-margin_top = 14.0
-margin_right = 704.0
-margin_bottom = 142.0
-rect_scale = Vector2( 1, 0.9 )
-texture_normal = ExtResource( 8 )
 
 [connection signal="button_down" from="CanvasLayer/Inställningar" to="." method="_on_Instllningar_button_down"]
-[connection signal="pressed" from="CanvasLayer/Panel/Briefcase_button" to="." method="_on_TextureButton_pressed"]
+[connection signal="reset" from="CanvasLayer/IV" to="." method="_on_IV_reset"]
