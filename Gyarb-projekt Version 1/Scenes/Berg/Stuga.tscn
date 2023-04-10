@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/UI/Camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Pics/Mapbuilding/Strand/tilemap_cottage.png" type="Texture" id=2]
@@ -15,6 +15,17 @@
 [ext_resource path="res://Pics/Figurer/NPCshape_3.png" type="Texture" id=13]
 [ext_resource path="res://Pics/Figurer/NPCshape_1.png" type="Texture" id=14]
 [ext_resource path="res://Pics/Figurer/NPCshape_2.png" type="Texture" id=15]
+[ext_resource path="res://Pics/Mapbuilding/berg/snö.png" type="Texture" id=16]
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 60.36
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 54.59
+scale = 2.0
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 608.333, 191.667 )
@@ -291,6 +302,25 @@ margin_top = -249.0
 margin_right = 1173.0
 margin_bottom = 812.0
 color = Color( 0.156863, 0.145098, 0.129412, 1 )
+
+[node name="Snow" type="ColorRect" parent="."]
+margin_left = 670.0
+margin_top = -75.0
+margin_right = 812.0
+margin_bottom = 270.0
+color = Color( 0.67451, 0.72549, 0.823529, 1 )
+
+[node name="Snö" type="Sprite" parent="Snow"]
+modulate = Color( 0.85098, 0.862745, 0.937255, 1 )
+position = Vector2( 99, 290 )
+rotation = 0.523598
+texture = ExtResource( 16 )
+
+[node name="Snowing" type="Particles2D" parent="Snow"]
+position = Vector2( 69, 101 )
+amount = 90
+lifetime = 2.0
+process_material = SubResource( 12 )
 
 [node name="Vägg" type="StaticBody2D" parent="."]
 modulate = Color( 0.792157, 0.682353, 0.682353, 1 )

@@ -109,7 +109,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 973, 1284 )
 
 [node name="Pratbubbla" parent="Bully" index="5"]
-frame = 0
+frame = 1
 
 [node name="NPC_Bully" type="Area2D" parent="Bully"]
 position = Vector2( 139, 108 )
@@ -169,11 +169,20 @@ limit_bottom = 2600
 editor_draw_limits = true
 
 [node name="Bully_checkpoint" type="Area2D" parent="."]
-position = Vector2( 1858, 637 )
+position = Vector2( 1198, 1914 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bully_checkpoint"]
 position = Vector2( -21.5, 25 )
 shape = SubResource( 8 )
+
+[node name="Tree" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0.788235, 0.701961, 0.701961, 1 )
+position = Vector2( 1112, 430 )
+
+[node name="Tree2" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0.788235, 0.701961, 0.701961, 1 )
+position = Vector2( -764, 752 )
+scale = Vector2( -0.785107, 0.755443 )
 
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]

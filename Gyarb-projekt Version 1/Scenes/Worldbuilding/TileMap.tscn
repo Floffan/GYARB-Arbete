@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/grass.png" type="Texture" id=1]
 [ext_resource path="res://Pics/Mapbuilding/HUB-värld/grass_spritesheet.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Scripts/TileMap_underlay.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Main/Hedge_overlay.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pics/Mapbuilding/Generellt/plant.png" type="Texture" id=8]
-[ext_resource path="res://Pics/Mapbuilding/Generellt/flower_1.png" type="Texture" id=9]
 
 [sub_resource type="TileSet" id=20]
 0/name = "gräs.png 0"
@@ -308,49 +307,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=42]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=43]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 128, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=44]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 256, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=45]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 384, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=46]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=47]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 640, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=48]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 768, 0, 128, 128 )
-
-[sub_resource type="SpriteFrames" id=49]
-animations = [ {
-"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [node name="Tilemap_underlay" type="Node2D"]
 modulate = Color( 0.584314, 0.670588, 0.964706, 1 )
 position = Vector2( -1623, 483 )
@@ -380,6 +336,7 @@ format = 1
 tile_data = PoolIntArray( -393190, 2, 0, -393184, 0, 0, -327654, 3, 0, -327648, 1, 0, -65524, 2, 0, 0, 0, 0, 1, 2, 0, 12, 3, 0, 15, 0, 0, 24, 2, 0, 65536, 1, 0, 65537, 3, 0, 65551, 1, 0, 65560, 3, 0, 196584, 0, 0, 196604, 2, 0, 131075, 4, 0, 131078, 5, 0, 262120, 1, 0, 262140, 3, 0, 262143, 4, 0, 262145, 4, 0, 262168, 2, 0, 393214, 4, 0, 327704, 3, 0, 393218, 2, 0, 393220, 0, 0, 393251, 0, 0, 524287, 5, 0, 458754, 3, 0, 458756, 1, 0, 458787, 1, 0, 524289, 2, 0, 524295, 0, 0, 589825, 3, 0, 589831, 1, 0, 917514, 0, 0, 917517, 2, 0, 983050, 1, 0, 983053, 3, 0 )
 
 [node name="Löv_overlay" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="Växt1" type="Node2D" parent="."]
 
@@ -439,15 +396,4 @@ position = Vector2( 870, 559 )
 rotation = -1.57079
 frames = SubResource( 41 )
 speed_scale = 0.5
-playing = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 686, 490 )
-frames = SubResource( 49 )
-playing = true
-
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( 1472, 120 )
-scale = Vector2( -1, 1 )
-frames = SubResource( 49 )
 playing = true

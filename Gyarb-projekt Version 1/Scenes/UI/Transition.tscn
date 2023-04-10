@@ -75,3 +75,5 @@ color = Color( 0, 0, 0, 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fade = SubResource( 1 )
 anims/RESET = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
