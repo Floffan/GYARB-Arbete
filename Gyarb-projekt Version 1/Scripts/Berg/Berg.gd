@@ -28,6 +28,9 @@ var interacting = false
 
 
 func _ready():
+	if Autoloads.data["flowers"].has("flower_berg"):
+		if $YSort/Blomma_red:
+			get_node("YSort/Blomma_red").queue_free()
 	Music.play_music("1")
 	$VisibilityNotifier2D.connect("screen_entered", self, "show")
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
@@ -94,7 +97,7 @@ func _on_interact(int_question, int_object):
 		ui_interact.on_interaction(int_question, int_object)
 
 func _on_Object_interation_menu_pick_up():
-	Autoloads.add_flower()
+	Autoloads.add_flower("flower_berg")
 	ui_new_item.on_new_item("Flower")
 	get_node("YSort/Blomma_red").queue_free()
 	ui_interact.pressed_yes = false

@@ -21,6 +21,7 @@ signal can_move
 var item = "Hat"
 
 func _ready():
+	$NPCs_anim.play("default")
 	_get_position()
 	emit_signal("can_move")
 	

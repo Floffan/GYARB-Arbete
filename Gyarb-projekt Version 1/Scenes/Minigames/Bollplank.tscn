@@ -501,6 +501,7 @@ margin_right = -488.0
 margin_bottom = -298.0
 
 [node name="Ready_screen" parent="." instance=ExtResource( 11 )]
+visible = false
 margin_left = -829.0
 margin_top = -564.0
 margin_right = -829.0

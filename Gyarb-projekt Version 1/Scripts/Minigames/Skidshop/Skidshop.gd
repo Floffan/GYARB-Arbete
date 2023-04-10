@@ -9,6 +9,12 @@ onready var l_screen = $Loose_screen
 
 onready var glow_scene = load("res://Scenes/Minigames/Glow_skidor.tscn")
 
+onready var NPCs = {
+	"1" : [$NpCshape1],
+	"2" : [$NpCshape2],
+	"3" : [$NpCshape3]
+	}
+
 onready var colours = {
 	"Green" : [$Skidor/Skidor_bak/Green2, $Skidor/Skidor_mitt/Green],
 	"Blue" : [$Skidor/Skidor_bak/Blue2, $Skidor/Skidor_mitt/Blue],
@@ -43,7 +49,10 @@ signal shrug
 func _ready():
 	"""
 	I början skickas en signal till skelett-scenen som gör att man ej kan röra sig
+	Alla NPCer är osynliga
 	"""
+	#for i in range(1,3):
+	#	NPCs[str(i)].visible = false
 	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "Stuga_Minigame"
 	emit_signal("stand_still")

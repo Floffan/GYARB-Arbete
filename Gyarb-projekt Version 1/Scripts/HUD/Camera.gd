@@ -18,7 +18,7 @@ func _process(_delta):
 func _display_items():
 	var text = ""
 	$CanvasLayer/Panel/Flower/Antal.bbcode_text = str(len(Autoloads.data["flowers"]))
-	if Autoloads.data["flowers"] > 0:
+	if len(Autoloads.data["flowers"]) > 0:
 		$CanvasLayer/Panel/Flower/Flower.visible = true
 		$CanvasLayer/Panel/Flower/Antal.visible = true
 	for item in Autoloads.data["items"]:

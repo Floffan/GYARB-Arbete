@@ -1675,7 +1675,6 @@ custom_fonts/font = SubResource( 70 )
 text = "100"
 
 [node name="Ready_screen" parent="." instance=ExtResource( 14 )]
-visible = false
 margin_left = 186.0
 margin_top = 55.3333
 margin_right = 186.0
@@ -1731,8 +1730,8 @@ rect_rotation = -14.9589
 custom_colors/default_color = Color( 0.921569, 0.34902, 0.34902, 1 )
 custom_fonts/bold_font = SubResource( 74 )
 bbcode_enabled = true
-bbcode_text = "[b][shake rate=5 level=10]-[/shake][/b]"
-text = "-"
+bbcode_text = "[b][shake rate=5 level=10]GREAT![/shake][/b]"
+text = "GREAT!"
 
 [node name="plus_score" type="RichTextLabel" parent="Encouragement_screen"]
 margin_left = 546.667
@@ -1743,8 +1742,8 @@ rect_rotation = -14.9589
 custom_colors/default_color = Color( 0.137756, 0.578125, 0.212941, 1 )
 custom_fonts/bold_font = SubResource( 74 )
 bbcode_enabled = true
-bbcode_text = "[b][shake rate=5 level=10]-[/shake][/b]"
-text = "-"
+bbcode_text = "[b][shake rate=5 level=10]+10[/shake][/b]"
+text = "+10"
 
 [node name="Winscreen" parent="." instance=ExtResource( 17 )]
 visible = false

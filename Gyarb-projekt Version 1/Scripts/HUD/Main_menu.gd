@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	Music.play_music("3")
 	Transition.get_node("AnimationPlayer").play("RESET")
 	Music.play_music = true
 	

@@ -21,6 +21,9 @@ var dia_location = "Stad"
 var dia_num : int
 
 func _ready():
+	if Autoloads.data["flowers"].has("flower_stad"):
+		if $YSort/Hus/Sprite/Blomma_red:
+			get_node("YSort/Hus/Sprite/Blomma_red").queue_free()
 	#$Camera2D.current = true
 	$VisibilityNotifier2D.connect("screen_entered", self, "show")
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
@@ -95,7 +98,7 @@ func _on_Interact(int_object, int_question):
 		ui_interact.on_interaction(int_question, int_object)
 
 func _on_Object_interation_menu_pick_up():
-	Autoloads.add_flower()
+	Autoloads.add_flower("flower_stad")
 	ui_new_item.on_new_item("Flower")
 	get_node("YSort/Hus/Sprite/Blomma_red").queue_free()
 	ui_interact.pressed_yes = false

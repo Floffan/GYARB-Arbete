@@ -17,6 +17,12 @@ func play_music(theme):
 		if theme == "1":
 			$Music_main.playing = true
 			$Music_2_theme.playing = false
+			$Nature_sounds.playing = false
 		if theme == "2":
 			$Music_2_theme.playing = true
 			$Music_main.playing = false
+			$Nature_sounds.playing = false
+		if theme == "3":
+			$Music_2_theme.playing = false
+			$Music_main.playing = false
+			$Nature_sounds.playing = true
