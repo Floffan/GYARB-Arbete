@@ -75,6 +75,7 @@ func _on_ESC_button_down():
 	"""
 	Om man kryssar ner cutscenen så stängs scenen ner
 	"""
+	get_parent().briefcase_scene_open = false
 	self.queue_free()
 
 func _on_AnimationPlayer_animation_finished(anim_name):

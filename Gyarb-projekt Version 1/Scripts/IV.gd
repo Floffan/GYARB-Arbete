@@ -1,7 +1,5 @@
 extends Panel
 
-var IV_open = false
-
 onready var briefcase_scene = load("res://Cutscenes/Briefcase_locked.tscn")
 
 onready var camera = get_parent().get_parent()
@@ -30,8 +28,10 @@ func _display_briefcase():
 		$Briefcase.visible = true
 
 func _on_Briefcase_button_pressed() -> void:
-	var instance = briefcase_scene.instance()
-	camera.add_child(instance)
-	emit_signal("reset")
-	IV_open = false
-	camera.current = true
+	if camera.briefcase_scene_open == false:
+		camera.briefcase_scene_open = true
+		var instance = briefcase_scene.instance()
+		camera.add_child(instance)
+		emit_signal("reset")
+		camera.IV_open = false
+		camera.current = true
