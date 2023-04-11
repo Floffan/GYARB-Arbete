@@ -240,6 +240,7 @@ shape = SubResource( 12 )
 position = Vector2( -59, -245 )
 
 [connection signal="can_move" from="." to="YSort/Skelett" method="_on_Spawn_can_move"]
+[connection signal="give_prompt" from="." to="Camera2D" method="_on_Spawn_give_prompt"]
 [connection signal="looking_around" from="." to="YSort/Skelett" method="_on_Spawn_looking_around"]
 [connection signal="Interaction_detected" from="YSort/Skelett" to="." method="_on_Skelett_Interaction_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]

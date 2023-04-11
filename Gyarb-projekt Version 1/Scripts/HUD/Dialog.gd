@@ -38,6 +38,7 @@ func _process(_delta):
 	"""
 	if Input.is_action_just_pressed("ui_accept"):
 		if finished:
+			$AnimationPlayer.play("RESET")
 			_next_phrase()
 		else:
 			$Text.visible_characters = len($Text.text)
@@ -83,6 +84,7 @@ func _next_phrase() -> void:
 		yield($Timer, "timeout")
 	
 	finished = true
+	$AnimationPlayer.play("Done")
 	phrase_num += 1
 	return
 	
@@ -98,3 +100,7 @@ func _reset():
 	
 	dialog_running = false
 	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	$AnimationPlayer.play("jumping")

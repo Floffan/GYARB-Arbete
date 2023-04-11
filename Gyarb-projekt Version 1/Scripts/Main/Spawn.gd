@@ -17,6 +17,7 @@ var dialog_path = "res://Dialog/Tutorial/Uggla_dia.json"
 
 signal looking_around
 signal can_move
+signal give_prompt
 
 var heard_briefcase_info = false
 
@@ -74,6 +75,7 @@ func _process(delta):
 		dia_num = 2
 		ui_dialog.play_dialog(dia_character, dia_location, dia_num)
 		heard_briefcase_info = true
+		emit_signal("give_prompt")
 	if Autoloads.data["areas_visited"].has("spawn"):
 		$YSort/Coffin_open/Briefcase.visible = false
 		$NPC_uggla.visible = false

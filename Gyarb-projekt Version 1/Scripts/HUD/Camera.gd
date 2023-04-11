@@ -9,17 +9,23 @@ onready var animation_player = $CanvasLayer/AnimationPlayer
 
 var briefcase_scene_open = false
 
+var tutorial_over = false
+
 func _process(_delta):
 	_get_input()
 	position = player.position
-
+	if tutorial_over:
+		$CanvasLayer/Panel/AnimationPlayer.play("RESET")
+	
 func _ready():
 	position = player.position
 	$CanvasLayer/dark.visible = false
 	Transition.get_node("AnimationPlayer").play("RESET")
 
 func _get_input():
-	if Input.is_action_just_pressed("Check_briefcase") and IV_open == false:
+	if Input.is_action_just_pressed("Check_briefcase") and !IV_open:
+		if !tutorial_over:
+			_give_prompt("Tryck på väskan")
 		animation_player.play("Open_IV")
 		$CanvasLayer/dark.visible = true
 		IV_open = true
@@ -38,3 +44,10 @@ func _on_Instllningar_button_down() -> void:
 
 func _on_IV_reset() -> void:
 	$CanvasLayer/AnimationPlayer.play("RESET")
+
+func _on_Spawn_give_prompt() -> void:
+	_give_prompt("Tryck [color=teal]E[/color]")
+	
+func _give_prompt(prompt):
+	$CanvasLayer/Panel/Prompt.bbcode_text = str(prompt)
+	$CanvasLayer/Panel/AnimationPlayer.play("Ready")

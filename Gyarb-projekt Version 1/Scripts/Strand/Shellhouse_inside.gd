@@ -13,6 +13,12 @@ var dia_num : int
 
 var item = "Key"
 
+func _ready() -> void:
+	if len(Autoloads.data["flowers"]) == 3:
+		$Sink/Paj.visible = true
+		$Sink/Smoke.position = $Sink/Smoke_paj_pos.position
+
+
 func _on_Skelett_gate_detected():
 	if Input.is_action_just_pressed("ui_accept"):
 		ui_gate.walking_out = null

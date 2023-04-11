@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/HUD/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Dialog.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/UI/minigame_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UI/Object_interation_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI/IV.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Dialog.tres" type="Theme" id=7]
 [ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Pics/Cutscenes/kugghjul.png" type="Texture" id=16]
@@ -77,6 +78,60 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -128 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Prompt:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Ready"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Prompt:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Camera2D" type="Camera2D"]
 position = Vector2( 512, 300 )
 script = ExtResource( 1 )
@@ -128,6 +183,29 @@ anims/RESET = SubResource( 2 )
 [node name="IV" parent="CanvasLayer" instance=ExtResource( 6 )]
 margin_top = 608.0
 margin_bottom = 731.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+margin_left = 392.0
+margin_top = 56.0
+margin_right = 633.0
+margin_bottom = 104.0
+theme = ExtResource( 7 )
+
+[node name="Prompt" type="RichTextLabel" parent="CanvasLayer/Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 64.0
+margin_top = 8.0
+margin_right = 253.0
+margin_bottom = 48.0
+theme = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "Tryck [color=teal]E[/color]"
+text = "Tryck E"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Panel"]
+anims/RESET = SubResource( 3 )
+anims/Ready = SubResource( 4 )
 
 [connection signal="button_down" from="CanvasLayer/Inställningar" to="." method="_on_Instllningar_button_down"]
 [connection signal="reset" from="CanvasLayer/IV" to="." method="_on_IV_reset"]

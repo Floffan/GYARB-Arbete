@@ -1,10 +1,10 @@
 extends CanvasLayer
 
-var button_1_pressed = false
-var button_2_pressed = false
+onready var dialog_scene = load("res://Scenes/UI/Dialog.tscn")
+onready var instance = dialog_scene.instance()
 
 var info1 = "Skriv in den fyrsiffriga koden..."
-var info2 = "Fel kod! Kom tillbaks när du listat ut koden..."
+var info2 = "Fel kod! Försök igen när du har listat ut koden..."
 
 onready var code_dic = {
 	1 : $number_green,
@@ -13,6 +13,8 @@ onready var code_dic = {
 	4 : $number_pink
 	}
 	
+onready var camera = get_parent()
+
 var code_list = []
 	
 var correct_code = [0, 7, 1 , 0]
@@ -33,25 +35,29 @@ func _ready():
 	
 	ESC-krysset syns inte förrens man har slagit in en kod
 	"""
+	if !camera.tutorial_over:
+		add_child(instance)
+		instance.rect_position = $Dialog_pos.position
+		instance.play_dialog("Uggla", "Tutorial", "3")
+	
 	$Panels_cutscene/IV/AnimationPlayer.play("showing_items")
 	$Panels_cutscene/AnimationPlayer.play_backwards("ready")
 	$Cutscene_camera/Info.display_info(info1)
 	$ESC.visible = false
 
 func _get_code():
-	#if Input.is_action_just_pressed("ui_accept"):
-		#$Cutscene_camera/Info.display_info(info1)
 	"""
 	Koden som spelaren provar fås i denna funktion.
-	Här kallas även funktionen som kollar om fnktionen slagits in fel.
+	Här kallas även funktionen som kollar om funktionen slagits in fel.
 	
 	"""
 	if putting_code:
-		for i in range(10): # Det finns 10 siffror att välja på, 0-9
-			if Input.is_action_just_pressed("ui_" + str(i)): # om inputen motsvarar vad ui-syntaxet för motsvarande siffra är...
-				code_list.append(i) # så läggs den till i den lista som spelarens kod är
-				num_pos += 1
-				code_dic[num_pos].text = str(i) # positionen som eftersöks motsvarar en nod i dictionaryt, och dennes text sätts till numret i fråga
+		if num_pos > 4 == false:
+			for i in range(10): # Det finns 10 siffror att välja på, 0-9
+				if Input.is_action_just_pressed("ui_" + str(i)): # om inputen motsvarar vad ui-syntaxet för motsvarande siffra är...
+					code_list.append(i) # så läggs den till i den lista som spelarens kod är
+					num_pos += 1
+					code_dic[num_pos].text = str(i) # positionen som eftersöks motsvarar en nod i dictionaryt, och dennes text sätts till numret i fråga
 	if num_pos == 4:
 		putting_code = false
 		if _check_code(code_list):
@@ -75,7 +81,9 @@ func _on_ESC_button_down():
 	"""
 	Om man kryssar ner cutscenen så stängs scenen ner
 	"""
-	get_parent().briefcase_scene_open = false
+	if !camera.tutorial_over:
+		camera.tutorial_over = true
+	camera.briefcase_scene_open = false
 	self.queue_free()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
