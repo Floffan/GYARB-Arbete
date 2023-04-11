@@ -220,18 +220,18 @@ texture = ExtResource( 1 )
 
 [node name="PalmHel" type="Sprite" parent="."]
 position = Vector2( -131, -343 )
-rotation = -0.813972
+rotation = -0.813973
 texture = ExtResource( 3 )
 
 [node name="PalmHelStor2" type="Sprite" parent="."]
 position = Vector2( 203, -289 )
-rotation = -2.58964
+rotation = -2.58963
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 1 )
 
 [node name="PalmHelStor3" type="Sprite" parent="."]
 position = Vector2( 214, -463 )
-rotation = -3.21089
+rotation = -3.2109
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 
@@ -246,4 +246,4 @@ anims/RESET = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -6, 9 )
-polygon = PoolVector2Array( -43, 129, -37, 144, -1, 162, 34, 161, 58, 136, 59, 124, 13, 111 )
+polygon = PoolVector2Array( -47, 126, -51, 145, -10, 172, 36, 171, 71, 137, 59, 124, 13, 111 )

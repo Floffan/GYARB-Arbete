@@ -5,7 +5,6 @@ func _ready() -> void:
 	Transition.get_node("AnimationPlayer").play("RESET")
 	Music.play_music = true
 	
-
 func _on_Nytt_spel_button_down():
 	"""
 	Om användaren trycker på nytt spel-knappen påbörjas en animation som på ett snyggt sätt övergår i spelets öppningscutscen

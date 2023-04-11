@@ -35,7 +35,7 @@ func _ready():
 	
 	ESC-krysset syns inte förrens man har slagit in en kod
 	"""
-	if !camera.tutorial_over:
+	if !Autoloads.data["tutorial_over"]:
 		add_child(instance)
 		instance.rect_position = $Dialog_pos.position
 		instance.play_dialog("Uggla", "Tutorial", "3")
@@ -81,8 +81,8 @@ func _on_ESC_button_down():
 	"""
 	Om man kryssar ner cutscenen så stängs scenen ner
 	"""
-	if !camera.tutorial_over:
-		camera.tutorial_over = true
+	if !Autoloads.data["tutorial_over"]:
+		Autoloads.data["tutorial_over"] = true
 	camera.briefcase_scene_open = false
 	self.queue_free()
 

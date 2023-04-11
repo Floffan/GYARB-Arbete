@@ -38,6 +38,7 @@ var time_for_next = false
 var run_game = false
 
 func _ready():
+	$Ready_screen.visible = true
 	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "grotta_Minigame"
 	

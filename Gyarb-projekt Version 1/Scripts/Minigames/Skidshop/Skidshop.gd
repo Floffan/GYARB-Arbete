@@ -53,6 +53,7 @@ func _ready():
 	"""
 	#for i in range(1,3):
 	#	NPCs[str(i)].visible = false
+	$Ready_screen.visible = true
 	Transition.get_node("AnimationPlayer").play("RESET")
 	Autoloads.Position = "Stuga_Minigame"
 	emit_signal("stand_still")

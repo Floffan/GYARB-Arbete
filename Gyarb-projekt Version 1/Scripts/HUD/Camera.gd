@@ -9,12 +9,10 @@ onready var animation_player = $CanvasLayer/AnimationPlayer
 
 var briefcase_scene_open = false
 
-var tutorial_over = false
-
 func _process(_delta):
 	_get_input()
 	position = player.position
-	if tutorial_over:
+	if Autoloads.data["tutorial_over"]:
 		$CanvasLayer/Panel/AnimationPlayer.play("RESET")
 	
 func _ready():
@@ -24,7 +22,7 @@ func _ready():
 
 func _get_input():
 	if Input.is_action_just_pressed("Check_briefcase") and !IV_open:
-		if !tutorial_over:
+		if !Autoloads.data["tutorial_over"]:
 			_give_prompt("Tryck på väskan")
 		animation_player.play("Open_IV")
 		$CanvasLayer/dark.visible = true
