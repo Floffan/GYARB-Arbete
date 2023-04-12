@@ -2,7 +2,7 @@ extends Control
 
 var current_info
 
-func _process(delta):
+func _process(_delta):
 	"""
 	Om mellanslags trycks in så visas alla bokstäver, även om de ej hunnit skrivas ut.
 	"""

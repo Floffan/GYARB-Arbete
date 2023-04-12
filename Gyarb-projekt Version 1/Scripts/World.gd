@@ -111,6 +111,6 @@ func _on_Object_interation_menu_pick_up():
 	$Camera2D/CanvasLayer/Object_interation_menu.pressed_yes = false
 
 
-func _on_Bully_checkpoint_body_entered(body):
+func _on_Bully_checkpoint_body_entered(_body):
 	get_node("Bully").queue_free()
 	get_node("Bully_checkpoint").queue_free()

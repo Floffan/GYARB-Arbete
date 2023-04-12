@@ -105,7 +105,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 973, 1284 )
 
 [node name="Pratbubbla" parent="Bully" index="5"]
-frame = 2
+frame = 1
 
 [node name="NPC_Bully" type="Area2D" parent="Bully"]
 position = Vector2( 139, 108 )
@@ -175,8 +175,6 @@ shape = SubResource( 8 )
 [connection signal="NPC_detected" from="YSort/Skelett" to="." method="_on_Skelett_NPC_detected"]
 [connection signal="gate_detected" from="YSort/Skelett" to="." method="_on_Skelett_gate_detected"]
 [connection signal="pick_up" from="Camera2D/CanvasLayer/Object_interation_menu" to="." method="_on_Object_interation_menu_pick_up"]
-[connection signal="can_move" from="Camera2D/CanvasLayer/Gate_menu" to="YSort/Skelett" method="_on_Gate_menu_can_move"]
-[connection signal="stand_still" from="Camera2D/CanvasLayer/Gate_menu" to="YSort/Skelett" method="_on_Gate_menu_stand_still"]
 [connection signal="body_entered" from="Bully_checkpoint" to="." method="_on_Bully_checkpoint_body_entered"]
 
 [editable path="gate_Spawn"]

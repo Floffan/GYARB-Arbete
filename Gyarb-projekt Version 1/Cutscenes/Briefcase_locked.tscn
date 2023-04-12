@@ -346,7 +346,7 @@ texture = ExtResource( 6 )
 [node name="fjäril_blå" parent="Leaves" instance=ExtResource( 8 )]
 position = Vector2( 384, 48 )
 scale = Vector2( 4, 4 )
-frame = 2
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Leaves"]
 anims/Default = SubResource( 1 )
@@ -371,6 +371,9 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "0"
 
+[node name="number_green" type="Position2D" parent="number_green"]
+position = Vector2( 0, -34 )
+
 [node name="number_blue" type="RichTextLabel" parent="."]
 margin_left = 258.0
 margin_top = 292.0
@@ -379,6 +382,9 @@ margin_bottom = 325.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "0"
+
+[node name="number_blue" type="Position2D" parent="number_blue"]
+position = Vector2( 1, -34 )
 
 [node name="number_yellow" type="RichTextLabel" parent="."]
 margin_left = 750.0
@@ -389,6 +395,9 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "0"
 
+[node name="number_yellow" type="Position2D" parent="number_yellow"]
+position = Vector2( 0, -34 )
+
 [node name="number_pink" type="RichTextLabel" parent="."]
 margin_left = 770.0
 margin_top = 292.0
@@ -397,6 +406,9 @@ margin_bottom = 325.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "0"
+
+[node name="number_pink" type="Position2D" parent="number_pink"]
+position = Vector2( 1, -34 )
 
 [node name="ESC" parent="." instance=ExtResource( 13 )]
 margin_left = 982.0
@@ -414,7 +426,7 @@ scale = Vector2( 0.8, 0.1 )
 environment = ExtResource( 17 )
 
 [node name="Dialog_pos" type="Position2D" parent="."]
-position = Vector2( 14, 10 )
+position = Vector2( 17, 10 )
 
 [connection signal="animation_finished" from="Briefcase/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="button_down" from="ESC" to="." method="_on_ESC_button_down"]

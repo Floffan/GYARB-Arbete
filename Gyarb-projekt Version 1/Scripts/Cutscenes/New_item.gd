@@ -16,7 +16,7 @@ func _ready():
 		angle += 360/number_of_lights
 		
 		
-func _process(delta):
+func _process(_delta):
 	$effect.rotation_degrees += 1
 
 func on_new_item(item):
@@ -25,5 +25,5 @@ func on_new_item(item):
 	$AnimationPlayer.play(item)
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	self.visible = false

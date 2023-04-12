@@ -11,7 +11,6 @@ func _process(_delta):
 	_display_items()
 
 func _display_items():
-	var text = ""
 	$Flower/Antal.bbcode_text = str(len(Autoloads.data["flowers"]))
 	if len(Autoloads.data["flowers"]) > 0:
 		$Flower/Flower.visible = true

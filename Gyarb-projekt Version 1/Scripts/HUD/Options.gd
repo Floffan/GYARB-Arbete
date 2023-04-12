@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Music.play_music:
 		get_node("Control/Ljud av").text = "Ljud av"
 	if !Music.play_music:

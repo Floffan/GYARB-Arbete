@@ -13,7 +13,7 @@ func _process(_delta):
 	_get_input()
 	position = player.position
 	if Autoloads.data["tutorial_over"]:
-		$CanvasLayer/Panel/AnimationPlayer.play("RESET")
+		$CanvasLayer/Prompt/Prompt_anim_player.play("RESET")
 	
 func _ready():
 	position = player.position
@@ -44,8 +44,10 @@ func _on_IV_reset() -> void:
 	$CanvasLayer/AnimationPlayer.play("RESET")
 
 func _on_Spawn_give_prompt() -> void:
-	_give_prompt("Tryck [color=teal]E[/color]")
+	_give_prompt("      Tryck [color=teal]E[/color]")
 	
 func _give_prompt(prompt):
-	$CanvasLayer/Panel/Prompt.bbcode_text = str(prompt)
-	$CanvasLayer/Panel/AnimationPlayer.play("Ready")
+	$CanvasLayer/Prompt/Prompt.bbcode_text = str(prompt)
+	$CanvasLayer/Prompt/Prompt_anim_player.play("Ready")
+
+# "Tryck [color=teal]Mellanslag[/color]"

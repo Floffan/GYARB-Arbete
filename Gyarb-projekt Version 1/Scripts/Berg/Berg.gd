@@ -14,8 +14,6 @@ onready var ui_dialog = get_node("Camera2D/CanvasLayer/Dialog")
 
 onready var ui_new_item = get_node("Camera2D/CanvasLayer/New_item")
 
-onready var anim_player_bus_wheels = get_node("Bus/AnimationPlayer_wheel")
-
 # Dialog-variabler (prefix : dia)
 var dia_location = "Berg"
 var dia_character = ""
@@ -119,10 +117,8 @@ func _on_Skelett_NPC_detected():
 
 func _on_Object_interation_menu_get_on_bus():
 	ui_interact.visible = false
-	#ui_cutscene_panels.play_backwards("ready")
 	ui_interact.pressed_yes = false
 	$AnimationPlayer_bus.play("Get_on_bus")
-	#anim_player_bus_wheels.play_backwards("slowing_down")
 
 
 func _on_AnimationPlayer_bus_animation_finished(anim_name):

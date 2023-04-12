@@ -233,7 +233,7 @@ func _on_Spawn_looking_around():
 	$Timer.start()
 	
 func _on_Timer_timeout():
-	animation = "Stå_animation_framifrån"
+	animation = "Stå-animation_framifrån"
 
 
 func _on_Skidshop_shrug():

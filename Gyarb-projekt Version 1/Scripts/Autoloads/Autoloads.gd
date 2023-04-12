@@ -32,14 +32,15 @@ func _ready():
 	DEBUG-SYFTEN:
 		v v v
 	"""
-	load_game() # kommentera ut denna om du vill ha kvar samma progress i spelet varje gång det startas
+	#load_game() # kommentera ut denna om du vill ha kvar samma progress i spelet varje gång det startas
 	
-	#reset_data() # kommentera ut detta om  du vill resetta datan varje gång spelet startas
+	reset_data() # kommentera ut detta om  du vill resetta datan varje gång spelet startas
 
 func _process(_delta):
 	"""
 	Ett snabbt sätt att stänga av spelet
 	"""
+	pass
 	if Input.is_action_pressed("Escape"):
 		save_pos()
 		get_tree().quit()

@@ -1795,6 +1795,18 @@ tracks/38/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/39/type = "value"
+tracks/39/path = NodePath("polygons_fram/underarm_h:z_index")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -3093,6 +3105,18 @@ tracks/107/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/108/type = "value"
+tracks/108/path = NodePath("polygons_fram/underarm_h:z_index")
+tracks/108/interp = 1
+tracks/108/loop_wrap = true
+tracks/108/imported = false
+tracks/108/enabled = true
+tracks/108/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=13]

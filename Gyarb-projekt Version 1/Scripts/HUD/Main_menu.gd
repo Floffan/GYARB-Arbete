@@ -21,7 +21,7 @@ func _on_Fortstt_spel_button_down():
 	Autoloads.Position = Autoloads.data["init_pos"]
 	Transition.load_scene(Autoloads.data["init_loc"])
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	"""
 	När transition-animationen är klar byts scenen till en cutscene
 	"""
