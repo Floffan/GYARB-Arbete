@@ -120,7 +120,7 @@ func _on_Object_interation_menu_walk_in():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if Autoloads.Position == "berg_Buss":
-		Transition.load_scene("res://Cutscenes/Buss_scen.tscn")
+		Transition.load_scene("res://Scenes/Cutscenes/Buss_scen.tscn")
 	else:
 		ui_cutscene_panels.play("ready")
 

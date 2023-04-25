@@ -61,7 +61,7 @@ shape = SubResource( 79 )
 
 [node name="Pratbubbla" parent="." instance=ExtResource( 3 )]
 position = Vector2( -80, -42 )
-frame = 3
+frame = 0
 
 [connection signal="timeout" from="Polackpaddan/Timer" to="Polackpaddan" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Polackpaddan/Timer2" to="Polackpaddan" method="_on_Timer2_timeout"]

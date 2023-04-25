@@ -1,6 +1,6 @@
 extends Panel
 
-onready var briefcase_scene = load("res://Cutscenes/Briefcase_locked.tscn")
+onready var briefcase_scene = load("res://Scenes/Briefcase/Briefcase_locked.tscn")
 
 onready var camera = get_parent().get_parent()
 

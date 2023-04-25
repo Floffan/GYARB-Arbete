@@ -3,7 +3,7 @@ extends CanvasLayer
 onready var dialog_scene = load("res://Scenes/UI/Dialog.tscn")
 onready var dia_instance = dialog_scene.instance()
 
-onready var indicator_scene = load("res://Cutscenes/Indicator_lock.tscn")
+onready var indicator_scene = load("res://Scenes/Briefcase/Indicator_lock.tscn")
 onready var indicator_instance = indicator_scene.instance()
 
 var info1 = "Skriv in den fyrsiffriga koden..."
@@ -102,4 +102,4 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	"""
 	När väskan börjar öppnas klipps det till en annan cutscene
 	"""
-	get_tree().change_scene("res://Cutscenes/Opens_briefcase.tscn")
+	get_tree().change_scene("res://Scenes/Ending/Opens_briefcase.tscn")

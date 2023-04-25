@@ -123,4 +123,4 @@ func _on_Object_interation_menu_get_on_bus():
 
 func _on_AnimationPlayer_bus_animation_finished(anim_name):
 	Autoloads.Position = "stad_Buss"
-	Transition.load_scene("res://Cutscenes/Buss_scen.tscn")
+	Transition.load_scene("res://Scenes/Cutscenes/Buss_scen.tscn")

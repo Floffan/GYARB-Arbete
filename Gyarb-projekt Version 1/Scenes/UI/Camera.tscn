@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/UI/Object_interation_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI/IV.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=7]
-[ext_resource path="res://Cutscenes/Panels_cutscene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/Panels_cutscene.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/New_item.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Pics/Cutscenes/kugghjul.png" type="Texture" id=16]
 

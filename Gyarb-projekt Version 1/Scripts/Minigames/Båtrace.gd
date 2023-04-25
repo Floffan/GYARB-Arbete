@@ -28,10 +28,10 @@ func _ready():
 	Music.play_music("4")
 	Transition.get_node("AnimationPlayer").play("RESET")
 	w_screen.game_path = "res://Scenes/Minigames/Boatrace.tscn"
-	w_screen.world_path = "res://Scenes/Strand/racehouse_inside.tscn"
+	w_screen.world_path = "res://Scenes/Strand/Racehouse_indoors.tscn"
 	
 	l_screen.game_path = "res://Scenes/Minigames/Boatrace.tscn"
-	l_screen.world_path = "res://Scenes/Strand/racehouse_inside.tscn"
+	l_screen.world_path = "res://Scenes/Strand/Racehouse_indoors.tscn"
 
 func _process(delta: float) -> void:
 	$Havet/Lager1.motion_offset.x += -50*delta

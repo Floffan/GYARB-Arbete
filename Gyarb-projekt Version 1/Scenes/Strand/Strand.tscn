@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/Strand/Strand.gd" type="Script" id=7]
 [ext_resource path="res://Pics/Mapbuilding/Strand/hav_djupt.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Strand/Shellhouse.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Strand/Racing_kontor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Strand/Racehouse.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Strand/Palm.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=73]

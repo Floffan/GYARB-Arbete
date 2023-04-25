@@ -26,9 +26,9 @@ func _get_position() -> void:
 
 func _on_Skelett_gate_detected():
 	if Autoloads.Gate_collider == "gate_Shellhouse":
-		_open_gate_menu("strand_Shellhouse","res://Scenes/Strand/Shellhouse_inside.tscn" , "in")
+		_open_gate_menu("strand_Shellhouse","res://Scenes/Strand/Shellhouse_indoors.tscn" , "in")
 	if Autoloads.Gate_collider == "gate_Racehouse":
-		_open_gate_menu("strand_Racehouse", "res://Scenes/Strand/racehouse_inside.tscn", "in")
+		_open_gate_menu("strand_Racehouse", "res://Scenes/Strand/Racehouse_indoors.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Main":
 		Autoloads.Position = "main_Strand"
 		Transition.load_scene("res://Scenes/Main/World.tscn")

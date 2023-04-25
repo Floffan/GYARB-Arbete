@@ -7,7 +7,7 @@ var game = "Skidshop"
 onready var w_screen = $Winscreen
 onready var l_screen = $Loose_screen
 
-onready var glow_scene = load("res://Scenes/Minigames/Glow_skidor.tscn")
+onready var glow_scene = load("res://Scenes/Effects/Glow_skidor.tscn")
 
 onready var NPCs = {
 	"1" : [$NpCshape1],
