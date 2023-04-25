@@ -812,8 +812,8 @@ editor_draw_limits = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
-position = Vector2( 1662, 129 )
-scale = Vector2( 454.4, 167.3 )
+position = Vector2( 1401, 351 )
+scale = Vector2( 479.2, 189.5 )
 
 [node name="häcktoppar" parent="." instance=ExtResource( 17 )]
 modulate = Color( 0.745098, 0.772549, 0.988235, 1 )

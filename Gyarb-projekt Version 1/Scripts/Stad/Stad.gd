@@ -21,23 +21,32 @@ var dia_location = "Stad"
 var dia_num : int
 
 func _ready():
-	if Autoloads.data["flowers"].has("flower_stad"):
+	"""
+		Visibilitynotifierrn connectas här så att sakerna bara renderas om de är på skärmen
+		Spelarens startposition fås med _get_position()
+	"""
+	if Autoloads.data["flowers"].has("flower_stad"): # Om spelaren redan plockat upp stads-blomman, så kan man ej se den
 		if $YSort/Hus/Sprite/Blomma_red:
 			get_node("YSort/Hus/Sprite/Blomma_red").queue_free()
-	#$Camera2D.current = true
 	$VisibilityNotifier2D.connect("screen_entered", self, "show")
 	$VisibilityNotifier2D.connect("screen_exited", self, "hide")
 	visible = false
 	_get_position()
 	
 func _get_position() -> void:
+	"""
+		Skelletets position sätts till rätt position
+		Om positionen är bussen, så spelas bussen-kommer animationen
+	"""
 	if skelett_position == "stad_Gym":
 		$YSort/Skelett.position = $Positioner/stad_Gym.position
 	if skelett_position == "stad_Buss":
 		$AnimationPlayer.play("bus_arriving")
-		#$YSort/Skelett.position = $Positioner/stad_Buss.position
 
 func _on_Skelett_gate_detected():
+	"""
+		
+	"""
 	if Autoloads.Gate_collider == "gate_Gym":
 		_open_gate_menu("gym_Stad", "res://Scenes/Stad/Gym.tscn", "in")
 	if Autoloads.Gate_collider == "gate_Redhouse":

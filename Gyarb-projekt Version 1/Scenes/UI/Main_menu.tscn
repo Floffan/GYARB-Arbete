@@ -263,11 +263,11 @@ anims/RESET = SubResource( 2 )
 anims/on_nyttspel = SubResource( 3 )
 
 [node name="TITEL" type="RichTextLabel" parent="."]
-margin_left = 433.0
-margin_top = 223.0
-margin_right = 661.0
-margin_bottom = 263.0
-text = "SPELETS TITEL"
+margin_left = 437.0
+margin_top = 222.0
+margin_right = 665.0
+margin_bottom = 262.0
+text = "BONE VOYAGE"
 
 [connection signal="button_down" from="Nytt spel" to="." method="_on_Nytt_spel_button_down"]
 [connection signal="button_down" from="Fortsätt spel" to="." method="_on_Fortstt_spel_button_down"]

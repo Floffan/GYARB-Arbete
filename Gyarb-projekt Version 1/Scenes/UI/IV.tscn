@@ -8,7 +8,7 @@
 [ext_resource path="res://Pics/collectibles/Hat.png" type="Texture" id=6]
 [ext_resource path="res://UI/Dialog.tres" type="Theme" id=7]
 [ext_resource path="res://Pics/collectibles/shirt.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/IV.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/HUD/IV.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.0196078, 0.32549, 0.282353, 1 )
