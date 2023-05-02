@@ -9,6 +9,8 @@ var speed = 700
 var velocity = Vector2()
 export var direction = ["direction i x-led", "direction i y-led"]
 
+onready var detectors = [$Gate_detector, $NPC_detector]
+
 var only_moving_y
 
 var moving_x = false
@@ -203,20 +205,21 @@ func _align_detectors():
 	"""
 	Ser till att detector-raycastsen riktas åt det håll som spelaren är vänd mot
 	"""
-	if direction[0] == "left": # if-satsen ser till att spelaren kan upptäcka NPC:s om de står vända mot dem
-		$NPC_detector.rotation_degrees = 90
-		$Interact_detector.rotation_degrees = 90
-	if direction[0] == "right":
-		$NPC_detector.rotation_degrees = -90
-		$Interact_detector.rotation_degrees = -90
-	if direction[1] == "up":
-		$NPC_detector.rotation_degrees = -180
-		$Interact_detector.rotation_degrees = -180
-	if direction[1] == "down":
-		$NPC_detector.rotation_degrees = 180
-		$Interact_detector.rotation_degrees = 180
+	for detector in detectors:
+		if direction[0] == "left": # if-satsen ser till att spelaren kan upptäcka NPC:s om de står vända mot dem
+			detector.rotation_degrees = 90
+		if direction[0] == "right":
+			detector.rotation_degrees = -90
+		if direction[1] == "up":
+			detector.rotation_degrees = -180
+		if direction[1] == "down":
+			detector.rotation_degrees = 180
 	
 func _physics_process(_delta):
+	"""
+	Processfunktionen -> körs hela tiden
+	Här fås riktningen på skeletett, och raycastsen lägger sig rätt.
+	"""
 	_check_case()
 	if can_move:
 		get_input()

@@ -243,4 +243,4 @@ shape = SubResource( 3 )
 
 [node name="pratbubbla" parent="." instance=ExtResource( 6 )]
 position = Vector2( -46, -58 )
-frame = 3
+frame = 1
